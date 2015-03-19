@@ -72,13 +72,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                         ["Tax Percentage":"\(Int(round(taxPct * 100.0)))" + "%"],
                         ["Tip Percentage":String(format: "%2d", Int(round(newTipPct * 100.0))) + "%"],
                         ["Tip Amount":"$" + tipAmt.format("0.2")],
-                        ["Total+Tip":"$" + finalTotal.format("0.2")]
+                        ["Total+Tip":"$" + finalTotal.format("0.2")],
+                        ["subtotal":String(format: "$%0.2f", tipCalc.subtotal)],
+                        ["taxAmt":String(format: "$%0.2f", tipCalc.taxAmt)]
                     ]
                     reply(["tipData":NSKeyedArchiver.archivedDataWithRootObject(tipRows)])
                     return                
                 }
             }
             
+        }
+        if let divideString = userInfo["divide"] as? String {
+            if let splitNum = userInfo["by"] as? Int {
+                let cleanString1 = divideString.stringByReplacingOccurrencesOfString("$", withString: "")
+                let cleanString2 = cleanString1.stringByReplacingOccurrencesOfString(".", withString: "")
+                if let divideNum = cleanString2.toInt() {
+                    let newNumInt = divideNum / splitNum
+                    let newNum = Double(newNumInt) / 100.0
+                    let newString = String(format: "$%.2f", newNum)
+                    reply(["divided":NSKeyedArchiver.archivedDataWithRootObject(newString)])
+                    return
+                }
+            }
         }
         reply([:])
     }

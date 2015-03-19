@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		56113B921ABA1DBF00033BCB /* CalcRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56113B911ABA1DBF00033BCB /* CalcRow.swift */; };
+		56113B941ABA1EFB00033BCB /* CalculationDetailInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56113B931ABA1EFB00033BCB /* CalculationDetailInterfaceController.swift */; };
+		56113B961ABA1F9700033BCB /* TotalOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56113B951ABA1F9700033BCB /* TotalOptionsViewController.swift */; };
 		565449FF1AB8836E009FDFE9 /* TipDetailInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565449FE1AB8836E009FDFE9 /* TipDetailInterfaceController.swift */; };
 		56544A011AB888D9009FDFE9 /* TotalRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56544A001AB888D9009FDFE9 /* TotalRow.swift */; };
 		56715E6D1AB8D05B002DA474 /* TipCalcKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5671C9DB1AB869F400952EEB /* TipCalcKit.framework */; };
@@ -103,6 +106,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		56113B911ABA1DBF00033BCB /* CalcRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalcRow.swift; sourceTree = "<group>"; };
+		56113B931ABA1EFB00033BCB /* CalculationDetailInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculationDetailInterfaceController.swift; sourceTree = "<group>"; };
+		56113B951ABA1F9700033BCB /* TotalOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TotalOptionsViewController.swift; sourceTree = "<group>"; };
 		565449FE1AB8836E009FDFE9 /* TipDetailInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipDetailInterfaceController.swift; sourceTree = "<group>"; };
 		56544A001AB888D9009FDFE9 /* TotalRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TotalRow.swift; sourceTree = "<group>"; };
 		5671C9821AB79E9D00952EEB /* TipTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TipTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -246,14 +252,17 @@
 			children = (
 				5671C9B61AB79F8E00952EEB /* InterfaceController.swift */,
 				565449FE1AB8836E009FDFE9 /* TipDetailInterfaceController.swift */,
+				56113B931ABA1EFB00033BCB /* CalculationDetailInterfaceController.swift */,
+				56113B951ABA1F9700033BCB /* TotalOptionsViewController.swift */,
 				5671C9B81AB79F8E00952EEB /* NotificationController.swift */,
 				5671C9D41AB7A5CF00952EEB /* TipRow.swift */,
 				56544A001AB888D9009FDFE9 /* TotalRow.swift */,
+				56113B911ABA1DBF00033BCB /* CalcRow.swift */,
 				5671C9BA1AB79F8E00952EEB /* Images.xcassets */,
 				5671C9B31AB79F8E00952EEB /* Supporting Files */,
 			);
 			path = "TipTest WatchKit Extension";
-			sourceTree = "<group>";
+			sourceTree = SOURCE_ROOT;
 		};
 		5671C9B31AB79F8E00952EEB /* Supporting Files */ = {
 			isa = PBXGroup;
@@ -467,7 +476,6 @@
 					};
 					5671C9DA1AB869F400952EEB = {
 						CreatedOnToolsVersion = 6.2;
-						DevelopmentTeam = Z6T84878UQ;
 					};
 					5671C9E41AB869F400952EEB = {
 						CreatedOnToolsVersion = 6.2;
@@ -575,8 +583,11 @@
 				5671C9D51AB7A5CF00952EEB /* TipRow.swift in Sources */,
 				5671C9B91AB79F8E00952EEB /* NotificationController.swift in Sources */,
 				56544A011AB888D9009FDFE9 /* TotalRow.swift in Sources */,
+				56113B941ABA1EFB00033BCB /* CalculationDetailInterfaceController.swift in Sources */,
+				56113B961ABA1F9700033BCB /* TotalOptionsViewController.swift in Sources */,
 				565449FF1AB8836E009FDFE9 /* TipDetailInterfaceController.swift in Sources */,
 				5671C9B71AB79F8E00952EEB /* InterfaceController.swift in Sources */,
+				56113B921ABA1DBF00033BCB /* CalcRow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

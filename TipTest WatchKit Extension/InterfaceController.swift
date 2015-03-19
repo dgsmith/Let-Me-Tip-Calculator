@@ -14,8 +14,10 @@ class InterfaceController: WKInterfaceController {
     @IBOutlet weak var tipTable: WKInterfaceTable!
     
     let defaults = NSUserDefaults.standardUserDefaults()
+    let subtotalKey = "subtotal"
     let recieptTotalKey = "recieptTotal"
     let taxPctKey = "taxPct"
+    let taxAmtKey = "taxAmt"
     let tipPctKey = "tipPct"
     let tipAmtKey = "tipAmt"
     let tipAndTotalKey = "tipAndTotal"
@@ -105,15 +107,27 @@ class InterfaceController: WKInterfaceController {
             let tipRow = tipRows[rowIndex]
             return tipRow
         }
+        if segueIdentifier == "CalcDetails" {
+            let tipRow = tipRows[rowIndex]
+            return tipRow
+        }
+        if segueIdentifier == "TotalOptions" {
+            let tipRow = tipRows[rowIndex]
+            return tipRow
+        }
         
         return nil
     }
     
     func reloadTable() {
-        tipTable.setRowTypes(["TipRow", "TipRow", "TipRow", "TotalRow", "TotalRow"])
+        tipTable.setRowTypes(["TipRow", "TipRow", "TipRow", "CalcRow", "TotalRow"])
         
         for i in 0..<tipRows.count {
             if let row = tipTable.rowControllerAtIndex(i) as? TipRow {
+                row.titleLabel.setText(tipRows[i].keys.array[0])
+                row.detailLabel.setText(tipRows[i].values.array[0])
+            }
+            if let row = tipTable.rowControllerAtIndex(i) as? CalcRow {
                 row.titleLabel.setText(tipRows[i].keys.array[0])
                 row.detailLabel.setText(tipRows[i].values.array[0])
             }
@@ -157,12 +171,16 @@ class InterfaceController: WKInterfaceController {
                     self.defaults.removeObjectForKey(self.tipPctKey)
                     self.defaults.removeObjectForKey(self.tipAmtKey)
                     self.defaults.removeObjectForKey(self.tipAndTotalKey)
+                    self.defaults.removeObjectForKey(self.subtotalKey)
+                    self.defaults.removeObjectForKey(self.taxAmtKey)
                     
                     //self.defaults.setObject(tipInfo[0]["Reciept Total"], forKey: self.recieptTotalKey)
                     //self.defaults.setObject(tipInfo[1]["Tax Percentage"], forKey: self.taxPctKey)
                     self.defaults.setObject(tipInfo[2]["Tip Percentage"], forKey: self.tipPctKey)
                     self.defaults.setObject(tipInfo[3]["Tip Amount"], forKey: self.tipAmtKey)
                     self.defaults.setObject(tipInfo[4]["Total+Tip"], forKey: self.tipAndTotalKey)
+                    self.defaults.setObject(tipInfo[5]["subtotal"], forKey: self.subtotalKey)
+                    self.defaults.setObject(tipInfo[6]["taxAmt"], forKey: self.taxAmtKey)
                     
                     self.defaults.synchronize()
                     self.reloadTable()
@@ -174,21 +192,21 @@ class InterfaceController: WKInterfaceController {
     func setMenuItems() {
         switch currentRounding {
         case 0: // no rounding
-            addMenuItemWithItemIcon(.Accept, title: "No Rounding", action: Selector("noRoundingAction"))
-            addMenuItemWithItemIcon(.Decline, title: "Rounded Tip", action: Selector("roundTipAction"))
-            addMenuItemWithItemIcon(.Decline, title: "Rounded Total", action: Selector("roundTotalAction"))
+            addMenuItemWithItemIcon(.Accept, title: "Normal", action: Selector("noRoundingAction"))
+            addMenuItemWithItemIcon(.Decline, title: "Tip Round", action: Selector("roundTipAction"))
+            addMenuItemWithItemIcon(.Decline, title: "Total Round", action: Selector("roundTotalAction"))
         case 1: // rounded tip
-            addMenuItemWithItemIcon(.Decline, title: "No Rounding", action: Selector("noRoundingAction"))
-            addMenuItemWithItemIcon(.Accept, title: "Rounded Tip", action: Selector("roundTipAction"))
-            addMenuItemWithItemIcon(.Decline, title: "Rounded Total", action: Selector("roundTotalAction"))
+            addMenuItemWithItemIcon(.Decline, title: "Normal", action: Selector("noRoundingAction"))
+            addMenuItemWithItemIcon(.Accept, title: "Tip Round", action: Selector("roundTipAction"))
+            addMenuItemWithItemIcon(.Decline, title: "Total Round", action: Selector("roundTotalAction"))
         case 2: // rounded total
-            addMenuItemWithItemIcon(.Decline, title: "No Rounding", action: Selector("noRoundingAction"))
-            addMenuItemWithItemIcon(.Decline, title: "Rounded Tip", action: Selector("roundTipAction"))
-            addMenuItemWithItemIcon(.Accept, title: "Rounded Total", action: Selector("roundTotalAction"))
+            addMenuItemWithItemIcon(.Decline, title: "Normal", action: Selector("noRoundingAction"))
+            addMenuItemWithItemIcon(.Decline, title: "Tip Round", action: Selector("roundTipAction"))
+            addMenuItemWithItemIcon(.Accept, title: "Total Round", action: Selector("roundTotalAction"))
         default:
-            addMenuItemWithItemIcon(.Accept, title: "No Rounding", action: Selector("noRoundingAction"))
-            addMenuItemWithItemIcon(.Decline, title: "Rounded Tip", action: Selector("roundTipAction"))
-            addMenuItemWithItemIcon(.Decline, title: "Rounded Total", action: Selector("roundTotalAction"))
+            addMenuItemWithItemIcon(.Accept, title: "Normal", action: Selector("noRoundingAction"))
+            addMenuItemWithItemIcon(.Decline, title: "Tip Round", action: Selector("roundTipAction"))
+            addMenuItemWithItemIcon(.Decline, title: "Total Round", action: Selector("roundTotalAction"))
             NSLog("error in menu items")
         }
         

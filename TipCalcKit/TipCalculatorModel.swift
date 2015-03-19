@@ -17,6 +17,11 @@ public class TipCalculatorModel {
             return total / (taxPct + 1)
         }
     }
+    public var taxAmt: Double {
+        get {
+            return taxPct * subtotal
+        }
+    }
     
     public init() {
         self.total  = 0

@@ -47,14 +47,14 @@ class TipDetailInterfaceController: WKInterfaceController {
                     case "Tax Percentage":
                         self.editTax = true
                         newStr = valueString.stringByReplacingOccurrencesOfString("%", withString: "")
-                        var currentString = newStr.stringByReplacingOccurrencesOfString(".", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil)
+                        var currentString = newStr.stringByReplacingOccurrencesOfString(".", withString: "")
                         var currentValue = (currentString as NSString).intValue
                         var newValue: Double = Double(currentValue) / 100.0
                         newStr = NSString(format: "%.2f", newValue)
                     case "Tip Percentage":
                         self.editTip = true
                         newStr = valueString.stringByReplacingOccurrencesOfString("%", withString: "")
-                        var currentString = newStr.stringByReplacingOccurrencesOfString(".", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil)
+                        var currentString = newStr.stringByReplacingOccurrencesOfString(".", withString: "")
                         var currentValue = (currentString as NSString).intValue
                         var newValue: Double = Double(currentValue) / 100.0
                         newStr = NSString(format: "%.2f", newValue)

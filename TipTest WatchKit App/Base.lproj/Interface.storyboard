@@ -29,18 +29,38 @@
                                         <outlet property="titleLabel" destination="Ma1-cJ-qhh" id="3tH-aW-5KS"/>
                                     </connections>
                                 </tableRow>
+                                <tableRow identifier="CalcRow" id="rgU-LR-MY1" customClass="CalcRow" customModule="TipTest_WatchKit_Extension">
+                                    <group key="rootItem" width="1" height="0.0" alignment="left" layout="vertical" id="oBn-Zg-De6">
+                                        <items>
+                                            <label alignment="left" text="Tip Amount" id="UAp-JG-78i">
+                                                <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
+                                            </label>
+                                            <label alignment="left" text="$5.52" id="XMh-P6-h40"/>
+                                        </items>
+                                        <connections>
+                                            <segue destination="A5S-xq-FD4" kind="push" identifier="CalcDetail" id="fcr-ZU-o3o"/>
+                                        </connections>
+                                    </group>
+                                    <connections>
+                                        <outlet property="detailLabel" destination="XMh-P6-h40" id="bWk-fL-e2Z"/>
+                                        <outlet property="titleLabel" destination="UAp-JG-78i" id="1pc-8q-Qho"/>
+                                    </connections>
+                                </tableRow>
                                 <tableRow identifier="TotalRow" id="3Fo-lX-4lV" customClass="TotalRow" customModule="TipTest_WatchKit_Extension">
                                     <group key="rootItem" width="1" height="0.0" alignment="left" layout="vertical" id="b9u-0V-NRA">
                                         <items>
-                                            <label alignment="left" text="Reciept Total" id="UAp-JG-78i">
+                                            <label alignment="left" text="Total+Tip" id="Egy-q3-heN">
                                                 <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
                                             </label>
-                                            <label alignment="left" text="$35.26" id="XMh-P6-h40"/>
+                                            <label alignment="left" text="$40.00" id="R6D-Uy-TZG"/>
                                         </items>
+                                        <connections>
+                                            <segue destination="Oc9-yR-qS3" kind="push" identifier="TotalOptions" id="Dz3-tp-vBh"/>
+                                        </connections>
                                     </group>
                                     <connections>
-                                        <outlet property="detailLabel" destination="XMh-P6-h40" id="oWh-FP-oqO"/>
-                                        <outlet property="titleLabel" destination="UAp-JG-78i" id="d7E-Bv-mYu"/>
+                                        <outlet property="detailLabel" destination="R6D-Uy-TZG" id="B4A-eR-oZC"/>
+                                        <outlet property="titleLabel" destination="Egy-q3-heN" id="wsC-VJ-awf"/>
                                     </connections>
                                 </tableRow>
                             </items>
@@ -58,17 +78,17 @@
             <objects>
                 <controller id="kNt-mh-e3L" customClass="TipDetailInterfaceController" customModule="TipTest_WatchKit_Extension">
                     <items>
-                        <label alignment="left" hidden="YES" text="Saved!" id="h60-Mu-Yro">
-                            <fontDescription key="font" style="UICTFontTextStyleCaption2"/>
-                        </label>
-                        <group alignment="right" verticalAlignment="bottom" id="tNY-BX-J0g">
+                        <group width="1" alignment="right" verticalAlignment="bottom" id="tNY-BX-J0g">
                             <items>
-                                <button width="25" height="22" alignment="right" verticalAlignment="bottom" title="ⓧ" id="PNi-6g-MSB">
+                                <label alignment="right" verticalAlignment="center" text="$100.00" textAlignment="right" id="Vhy-lF-oer"/>
+                                <button width="25" height="25" alignment="right" verticalAlignment="center" title="ⓧ" id="PNi-6g-MSB">
                                     <connections>
                                         <action selector="clearButtonHit" destination="kNt-mh-e3L" id="awC-0s-zWr"/>
                                     </connections>
                                 </button>
-                                <label alignment="left" verticalAlignment="bottom" text="$0.00" textAlignment="right" id="Vhy-lF-oer"/>
+                                <label alignment="left" text="Saved!" id="h60-Mu-Yro">
+                                    <fontDescription key="font" style="UICTFontTextStyleCaption2"/>
+                                </label>
                             </items>
                         </group>
                         <separator alignment="center" verticalAlignment="bottom" id="bNb-rc-w7K"/>
@@ -76,17 +96,17 @@
                             <items>
                                 <group alignment="center" verticalAlignment="bottom" id="Ugj-rj-jWF">
                                     <items>
-                                        <button width="44" height="22" alignment="left" verticalAlignment="bottom" title="7" id="PMy-kW-lR0">
+                                        <button width="44" height="26" alignment="left" verticalAlignment="bottom" title="7" id="PMy-kW-lR0">
                                             <connections>
                                                 <action selector="sevenKeyHit" destination="kNt-mh-e3L" id="ZW1-MZ-sSQ"/>
                                             </connections>
                                         </button>
-                                        <button width="44" height="22" alignment="center" verticalAlignment="bottom" title="8" id="WZq-DW-wxc">
+                                        <button width="44" height="26" alignment="center" verticalAlignment="bottom" title="8" id="WZq-DW-wxc">
                                             <connections>
                                                 <action selector="eightKeyHit" destination="kNt-mh-e3L" id="yUT-kM-8Ls"/>
                                             </connections>
                                         </button>
-                                        <button width="44" height="22" alignment="right" verticalAlignment="bottom" title="9" id="a7z-sx-pB4">
+                                        <button width="44" height="26" alignment="right" verticalAlignment="bottom" title="9" id="a7z-sx-pB4">
                                             <connections>
                                                 <action selector="nineKeyHit" destination="kNt-mh-e3L" id="LLM-LC-Cfp"/>
                                             </connections>
@@ -95,17 +115,17 @@
                                 </group>
                                 <group alignment="center" verticalAlignment="bottom" id="RA4-cX-GAG">
                                     <items>
-                                        <button width="44" height="22" alignment="left" verticalAlignment="bottom" title="4" id="3zh-3U-Wuq">
+                                        <button width="44" height="26" alignment="left" verticalAlignment="bottom" title="4" id="3zh-3U-Wuq">
                                             <connections>
                                                 <action selector="fourKeyHit" destination="kNt-mh-e3L" id="l6e-01-Sp4"/>
                                             </connections>
                                         </button>
-                                        <button width="44" height="22" alignment="center" verticalAlignment="bottom" title="5" id="xLU-qO-QHn">
+                                        <button width="44" height="26" alignment="center" verticalAlignment="bottom" title="5" id="xLU-qO-QHn">
                                             <connections>
                                                 <action selector="fiveKeyHit" destination="kNt-mh-e3L" id="AIn-9J-J2y"/>
                                             </connections>
                                         </button>
-                                        <button width="44" height="22" alignment="right" verticalAlignment="bottom" title="6" id="RIG-f4-iCR">
+                                        <button width="44" height="26" alignment="right" verticalAlignment="bottom" title="6" id="RIG-f4-iCR">
                                             <connections>
                                                 <action selector="sixKeyHit" destination="kNt-mh-e3L" id="XaI-Hw-DIg"/>
                                             </connections>
@@ -114,17 +134,17 @@
                                 </group>
                                 <group alignment="center" verticalAlignment="bottom" id="Hbo-nZ-ZCw">
                                     <items>
-                                        <button width="44" height="22" alignment="left" verticalAlignment="bottom" title="1" id="E3L-JY-LAD">
+                                        <button width="44" height="26" alignment="left" verticalAlignment="bottom" title="1" id="E3L-JY-LAD">
                                             <connections>
                                                 <action selector="oneKeyHit" destination="kNt-mh-e3L" id="0Rg-Et-8Ah"/>
                                             </connections>
                                         </button>
-                                        <button width="44" height="22" alignment="center" verticalAlignment="bottom" title="2" id="XTO-k4-15x">
+                                        <button width="44" height="26" alignment="center" verticalAlignment="bottom" title="2" id="XTO-k4-15x">
                                             <connections>
                                                 <action selector="twoKeyHit" destination="kNt-mh-e3L" id="pno-fb-zro"/>
                                             </connections>
                                         </button>
-                                        <button width="44" height="22" alignment="right" verticalAlignment="bottom" title="3" id="9eV-HR-EFM">
+                                        <button width="44" height="26" alignment="right" verticalAlignment="bottom" title="3" id="9eV-HR-EFM">
                                             <connections>
                                                 <action selector="threeKeyHit" destination="kNt-mh-e3L" id="biv-fP-R8P"/>
                                             </connections>
@@ -133,17 +153,17 @@
                                 </group>
                                 <group alignment="center" verticalAlignment="bottom" id="CGN-Hd-AKt">
                                     <items>
-                                        <button width="44" height="22" alignment="left" verticalAlignment="bottom" title="←" id="Eat-Zm-e6K">
+                                        <button width="44" height="26" alignment="left" verticalAlignment="bottom" title="←" id="Eat-Zm-e6K">
                                             <connections>
                                                 <action selector="backKeyHit" destination="kNt-mh-e3L" id="BoQ-8x-w0M"/>
                                             </connections>
                                         </button>
-                                        <button width="44" height="22" alignment="center" verticalAlignment="bottom" title="0" id="1FD-jU-T39">
+                                        <button width="44" height="26" alignment="center" verticalAlignment="bottom" title="0" id="1FD-jU-T39">
                                             <connections>
                                                 <action selector="zeroKeyHit" destination="kNt-mh-e3L" id="rlr-8l-m5C"/>
                                             </connections>
                                         </button>
-                                        <button width="44" height="22" alignment="right" verticalAlignment="bottom" title="✓" id="HWY-us-jJw">
+                                        <button width="44" height="26" alignment="right" verticalAlignment="bottom" title="✓" id="HWY-us-jJw">
                                             <connections>
                                                 <action selector="checkKeyHit" destination="kNt-mh-e3L" id="4SZ-S0-8Qz"/>
                                             </connections>
@@ -159,7 +179,110 @@
                     </connections>
                 </controller>
             </objects>
+            <point key="canvasLocation" x="468" y="97"/>
+        </scene>
+        <!--Detail-->
+        <scene sceneID="nh1-Jb-qo8">
+            <objects>
+                <controller title="Detail" id="A5S-xq-FD4" customClass="CalculationDetailInterfaceController" customModule="TipTest_WatchKit_Extension">
+                    <items>
+                        <group width="1" alignment="left" id="IIV-Yx-3p3">
+                            <items>
+                                <label alignment="left" text="Subtotal:" id="mds-Ep-fRs"/>
+                                <label alignment="right" text="$0.00" id="dm9-3w-EtF"/>
+                            </items>
+                        </group>
+                        <group width="1" alignment="left" id="A0h-er-rNU">
+                            <items>
+                                <label alignment="left" text="Tax:" id="t2n-4P-afh"/>
+                                <label alignment="right" text="$0.00" id="tbg-XE-ypQ"/>
+                            </items>
+                        </group>
+                        <group width="1" alignment="left" id="StX-ve-Wpg">
+                            <items>
+                                <label alignment="left" text="Receipt:" id="5ZI-Tq-66v"/>
+                                <label alignment="right" text="$0.00" id="Pp2-D1-XfC"/>
+                            </items>
+                        </group>
+                        <group width="1" alignment="left" id="VG4-hJ-L4k">
+                            <items>
+                                <label alignment="left" text="Tip:" id="M5V-uo-evI"/>
+                                <label alignment="right" text="$0.00" id="Wfb-kU-NNN"/>
+                            </items>
+                        </group>
+                        <group width="1" alignment="left" id="AXK-FG-6zu">
+                            <items>
+                                <label alignment="left" text="Total:" id="Dnq-Tl-mqW"/>
+                                <label alignment="right" text="$0.00" id="rz4-hM-XWI"/>
+                            </items>
+                        </group>
+                    </items>
+                    <connections>
+                        <outlet property="receiptLabel" destination="Pp2-D1-XfC" id="MtF-So-17l"/>
+                        <outlet property="subtotalLabel" destination="dm9-3w-EtF" id="w8h-D3-le6"/>
+                        <outlet property="taxLabel" destination="tbg-XE-ypQ" id="Zhu-Wt-5qC"/>
+                        <outlet property="tipLabel" destination="Wfb-kU-NNN" id="CCN-it-qFy"/>
+                        <outlet property="totalLabel" destination="rz4-hM-XWI" id="1wJ-ps-U1g"/>
+                    </connections>
+                </controller>
+            </objects>
             <point key="canvasLocation" x="468" y="345"/>
+        </scene>
+        <!--Splitting?-->
+        <scene sceneID="3ji-d9-d59">
+            <objects>
+                <controller title="Splitting?" id="Oc9-yR-qS3" customClass="TotalOptionsViewController" customModule="TipTest_WatchKit_Extension">
+                    <items>
+                        <group width="1" alignment="left" layout="vertical" id="PZt-gN-xXd">
+                            <items>
+                                <group width="1" alignment="left" id="h8Y-HI-LTT">
+                                    <items>
+                                        <label alignment="left" text="Tip:" id="73r-bj-imS"/>
+                                        <label alignment="right" text="$4.00" id="Tpb-0Z-ztu"/>
+                                    </items>
+                                </group>
+                                <group width="1" alignment="left" id="XKn-fB-ZoV">
+                                    <items>
+                                        <label alignment="right" text="$4.00" id="glV-Q8-vUh"/>
+                                        <label alignment="left" text="Split:" id="7f2-K7-HTF"/>
+                                    </items>
+                                </group>
+                            </items>
+                        </group>
+                        <separator alignment="left" id="UTY-dc-YEY"/>
+                        <group width="1" alignment="left" layout="vertical" id="ddA-n0-uEf">
+                            <items>
+                                <group width="1" alignment="left" id="mnv-uG-i1j">
+                                    <items>
+                                        <label alignment="left" text="Total:" id="gfg-Cs-RDN"/>
+                                        <label alignment="right" text="$204.00" id="CBO-gn-His"/>
+                                    </items>
+                                </group>
+                                <group width="1" alignment="left" id="l78-IS-MFq">
+                                    <items>
+                                        <label alignment="left" text="Split" id="vbX-h3-y7v"/>
+                                        <label alignment="right" text="$204.00" id="iFT-e0-tFX"/>
+                                    </items>
+                                </group>
+                            </items>
+                        </group>
+                        <separator alignment="left" id="9Qd-nr-XR8"/>
+                        <slider width="1" alignment="left" value="1" maximum="6" steps="6" id="qfE-5l-coD">
+                            <connections>
+                                <action selector="sliderValueChanged:" destination="Oc9-yR-qS3" id="SDf-Jv-Vcc"/>
+                            </connections>
+                        </slider>
+                    </items>
+                    <connections>
+                        <outlet property="newTipLabel" destination="glV-Q8-vUh" id="UtM-Cb-mXY"/>
+                        <outlet property="newTotalLabel" destination="iFT-e0-tFX" id="oKK-el-BaE"/>
+                        <outlet property="splitSlider" destination="qfE-5l-coD" id="4HP-ym-tTN"/>
+                        <outlet property="tipLabel" destination="Tpb-0Z-ztu" id="moy-ao-0pL"/>
+                        <outlet property="totalLabel" destination="CBO-gn-His" id="azx-0V-Gac"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="344" y="590"/>
         </scene>
         <!--Static Notification Interface Controller-->
         <scene sceneID="AEw-b0-oYE">
@@ -175,14 +298,14 @@
                     </connections>
                 </notificationController>
             </objects>
-            <point key="canvasLocation" x="220" y="643"/>
+            <point key="canvasLocation" x="220" y="819"/>
         </scene>
         <!--Notification Controller-->
         <scene sceneID="ZPc-GJ-vnh">
             <objects>
                 <controller id="4sK-HA-Art" customClass="NotificationController" customModule="TipTest_WatchKit_App" customModuleProvider="target"/>
             </objects>
-            <point key="canvasLocation" x="468" y="643"/>
+            <point key="canvasLocation" x="468" y="819"/>
         </scene>
     </scenes>
     <color key="tintColor" red="0.20392156862745098" green="0.66666666666666663" blue="0.86274509803921573" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
