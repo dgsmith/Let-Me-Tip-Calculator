@@ -16,7 +16,7 @@ class CalculationDetailInterfaceController: WKInterfaceController {
     @IBOutlet weak var tipLabel:WKInterfaceLabel!
     @IBOutlet weak var totalLabel:WKInterfaceLabel!
     
-    let defaults = NSUserDefaults.standardUserDefaults()
+    let defaults = NSUserDefaults(suiteName: "group.TipTestGroup")!
     let subtotalKey = "subtotal"
     let receiptTotalKey = "recieptTotal"
     let taxAmtKey = "taxAmt"

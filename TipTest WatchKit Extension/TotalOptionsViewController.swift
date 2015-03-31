@@ -18,7 +18,7 @@ class TotalOptionsViewController: WKInterfaceController {
     @IBOutlet weak var totalLabel: WKInterfaceLabel!
     @IBOutlet weak var newTotalLabel: WKInterfaceLabel!
     
-    let defaults = NSUserDefaults.standardUserDefaults()
+    let defaults = NSUserDefaults(suiteName: "group.TipTestGroup")!
     let recieptTotalKey = "recieptTotal"
     let taxPctKey = "taxPct"
     let tipPctKey = "tipPct"

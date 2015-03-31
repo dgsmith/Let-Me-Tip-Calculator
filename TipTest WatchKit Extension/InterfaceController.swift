@@ -13,7 +13,7 @@ class InterfaceController: WKInterfaceController {
     
     @IBOutlet weak var tipTable: WKInterfaceTable!
     
-    let defaults = NSUserDefaults.standardUserDefaults()
+    let defaults = NSUserDefaults(suiteName: "group.TipTestGroup")!
     let subtotalKey = "subtotal"
     let recieptTotalKey = "recieptTotal"
     let taxPctKey = "taxPct"

@@ -17,7 +17,7 @@ class TipDetailInterfaceController: WKInterfaceController {
     var row: Dictionary<String,String>!
     var outputString: String!
     
-    let defaults = NSUserDefaults.standardUserDefaults()
+    let defaults = NSUserDefaults(suiteName: "group.TipTestGroup")!
     let recieptTotalKey = "recieptTotal"
     let taxPctKey = "taxPct"
     let tipPctKey = "tipPct"
