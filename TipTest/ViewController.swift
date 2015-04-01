@@ -15,64 +15,31 @@ extension Double {
     }
 }
 
-let kDGSettingsTotalTextKey     = "TotalTextKey"
-let kDGSettingsTaxSliderKey     = "TaxSliderKey"
-let kDGSettingsTaxLabelKey      = "TaxLabelKey"
-let kDGSettingsTipPctStepperKey = "TipPctStepperKey"
-let kDGSettingsTipPctLabelKey   = "TipPctLabelKey"
-let kDGSettingsSelectionKey     = "SelectionKey"
-let kDGSettingsCalcTotalKey     = "CalcTotalKey"
-let kDGSettingsCalcTaxPctKey    = "CalcTaxPctKey"
-
 class ViewController: UIViewController, UITableViewDataSource {
     
-    @IBOutlet weak var totalTextField: UITextField!
-    @IBOutlet weak var taxPctSlider: UISlider!
-    @IBOutlet weak var taxPctLabel: UILabel!
-    @IBOutlet weak var tipPctStepper: UIStepper!
-    @IBOutlet weak var tipPctLabel: UILabel!
+    @IBOutlet weak var receiptTotalTextField: UITextField!
+    @IBOutlet weak var taxPctTextField: UITextField!
+    @IBOutlet weak var tipPctTextField: UITextField!
     @IBOutlet weak var tipTableView: UITableView!
     @IBOutlet weak var roundingSelection: UISegmentedControl!
     
-    enum Rounding : Int {
-        case RoundedTotal = 0, None, RoundedTip
-    }
-    
     let tipCalc = TipCalculatorModel(total: 32.78, taxPct: 0.06)
-    //var possibleTips = Dictionary<Int, (tipAmt:Double, total:Double)>()
     var outputlabels:[(String,String)] = []
-    //var tipPct: Int = 15
     
     let defaults = NSUserDefaults(suiteName: "group.TipTestGroup")!
+    let subtotalKey = "subtotal"
+    let receiptTotalKey = "receiptTotal"
+    let taxPctKey = "taxPct"
+    let taxAmtKey = "taxAmt"
+    let tipPctKey = "tipPct"
+    let tipAmtKey = "tipAmt"
+    let tipAndTotalKey = "tipAndTotal"
+    let currentRoundingKey = "currentRounding"
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        if let str = defaults.stringForKey(kDGSettingsTotalTextKey) as String? {
-            totalTextField.text = str
-        }
-        if let val = defaults.floatForKey(kDGSettingsTaxSliderKey) as Float? {
-            taxPctSlider.value = val
-        }
-        if let str = defaults.stringForKey(kDGSettingsTaxLabelKey) as String? {
-            taxPctLabel.text = str
-        }
-        if let dbl = defaults.doubleForKey(kDGSettingsTipPctStepperKey) as Double? {
-            tipPctStepper.value = dbl
-        }
-        if let str = defaults.stringForKey(kDGSettingsTipPctLabelKey) as String? {
-            tipPctLabel.text = str
-        }
-        if let int = defaults.integerForKey(kDGSettingsSelectionKey) as Int? {
-            roundingSelection.selectedSegmentIndex = int
-        }
-        if let dbl = defaults.doubleForKey(kDGSettingsCalcTotalKey) as Double? {
-            tipCalc.total = dbl
-        }
-        if let dbl = defaults.doubleForKey(kDGSettingsCalcTaxPctKey) as Double? {
-            tipCalc.taxPct = dbl
-        }
         outputlabels.insert(("Subtotal:", " "), atIndex: 0)
         outputlabels.insert(("Tax Amount:", " "), atIndex: 1)
         outputlabels.insert(("Reciept Total:", " "), atIndex: 2)
@@ -88,28 +55,28 @@ class ViewController: UIViewController, UITableViewDataSource {
     }
     
     @IBAction func calculateTapped(sender : AnyObject) {
-        totalTextField.resignFirstResponder()
+        receiptTotalTextField.resignFirstResponder()
         
-        tipCalc.total = Double((totalTextField.text as NSString).doubleValue)
-        defaults.setDouble(tipCalc.total, forKey: kDGSettingsCalcTotalKey)
-        defaults.setInteger(roundingSelection.selectedSegmentIndex, forKey: kDGSettingsSelectionKey)
-        defaults.synchronize()
+        if let int = receiptTotalTextField.text.stringByReplacingOccurrencesOfString(".", withString: "").toInt() as Int? {
+            tipCalc.total = Double(int) / 100.0
+        }
+        defaults.setObject("$" + receiptTotalTextField.text, forKey: receiptTotalKey)
+        defaults.setObject(roundingSelection.selectedSegmentIndex, forKey: currentRoundingKey)
         
-        var tipPct = defaults.doubleForKey(kDGSettingsTipPctStepperKey)
-        
+        var tipPct = Double(tipPctTextField.text.stringByReplacingOccurrencesOfString(".", withString: "").toInt()!) / 100.0
         var tipAmt:Double, finalTotal:Double, newTipPct:Double
         
-        if roundingSelection.selectedSegmentIndex == Rounding.RoundedTip.rawValue {
-            (tipAmt, finalTotal, newTipPct) = tipCalc.calcRoundedTipFrom(TipPct: tipPct / 100.0)
-            tipPct = newTipPct * 100.0
-        } else if roundingSelection.selectedSegmentIndex == Rounding.RoundedTotal.rawValue {
-            (tipAmt, finalTotal, newTipPct) = tipCalc.calcRoundedTotalFrom(TipPct: tipPct / 100.0)
-            tipPct = newTipPct * 100.0
+        if roundingSelection.selectedSegmentIndex == 2 {
+            (tipAmt, finalTotal, newTipPct) = tipCalc.calcRoundedTipFrom(TipPct: tipPct)
+            tipPct = newTipPct
+        } else if roundingSelection.selectedSegmentIndex == 0 {
+            (tipAmt, finalTotal, newTipPct) = tipCalc.calcRoundedTotalFrom(TipPct: tipPct)
+            tipPct = newTipPct
         } else {
-            (tipAmt, finalTotal) = tipCalc.calcTipWith(TipPct: Double(tipPct) / 100.0)
+            (tipAmt, finalTotal) = tipCalc.calcTipWith(TipPct: tipPct)
         }
         
-        let tipPctStr = tipPct.format(".0")
+        let tipPctStr = (tipPct * 100.0).format(".0")
         let taxPctStr = (tipCalc.taxPct * 100.0).format(".0")
         // sub, tax, reciept, tip, total
         outputlabels[0] = ("Subtotal:", String(format: "$%0.2f", tipCalc.subtotal))
@@ -117,42 +84,48 @@ class ViewController: UIViewController, UITableViewDataSource {
         outputlabels[2] = ("Reciept Total:", String(format: "$%0.2f", tipCalc.total))
         outputlabels[3] = ("Tip Amount (\(tipPctStr)%): ", String(format: "$%0.2f", tipAmt))
         outputlabels[4] = ("Final Total:", String(format: "$%0.2f", finalTotal))
-
+        
+        defaults.setObject(outputlabels[0].1, forKey: subtotalKey)
+        defaults.setObject(outputlabels[1].1, forKey: taxAmtKey)
+        defaults.setObject("\(taxPctStr)%", forKey: taxPctKey)
+        defaults.setObject("\(tipPctStr)%", forKey: tipPctKey)
+        defaults.setObject(outputlabels[3].1, forKey: tipAmtKey)
+        defaults.setObject(outputlabels[4].1, forKey: tipAndTotalKey)
+        
+        defaults.synchronize()
+        refreshUI()
         tipTableView.reloadData()
-    }
-    
-    @IBAction func taxPercentageChanged(sender : AnyObject) {
-        tipCalc.taxPct = Double(round(taxPctSlider.value) / 100.0)
-        defaults.setDouble(tipCalc.taxPct, forKey: kDGSettingsCalcTaxPctKey)
-        defaults.synchronize()
-        refreshUI()
-    }
-    
-    @IBAction func stepperValueChanged(sender: AnyObject) {
-        //tipPct = Int(round(tipPctStepper.value))
-        defaults.setDouble(tipPctStepper.value, forKey: kDGSettingsTipPctStepperKey)
-        defaults.synchronize()
-        refreshUI()
     }
     
     @IBAction func viewTapped(sender : AnyObject) {
-        totalTextField.resignFirstResponder()
+        receiptTotalTextField.resignFirstResponder()
+        taxPctTextField.resignFirstResponder()
+        tipPctTextField.resignFirstResponder()
     }
     
     func refreshUI() {
-        totalTextField.text = String(format: "%0.2f", tipCalc.total)
-        taxPctSlider.value = Float(tipCalc.taxPct * 100)
-
-        taxPctLabel.text = "Tax Percentage (\(Int(floor(taxPctSlider.value)))%):"
-        tipPctLabel.text = "Tip Percentage (\(Int(tipPctStepper.value))%):"
-        
-        defaults.setObject(totalTextField.text, forKey: kDGSettingsTotalTextKey)
-        defaults.setFloat(taxPctSlider.value, forKey: kDGSettingsTaxSliderKey)
-        defaults.setObject(taxPctLabel.text, forKey: kDGSettingsTaxLabelKey)
-        defaults.setObject(tipPctLabel.text, forKey: kDGSettingsTipPctLabelKey)
-        defaults.synchronize()
-        
-        tipTableView.reloadData()
+        if let str = defaults.objectForKey(receiptTotalKey) as String? {
+            if let convInt = str.stringByReplacingOccurrencesOfString("$", withString: "").stringByReplacingOccurrencesOfString(".", withString: "").toInt() as Int? {
+                let dbl = Double(convInt) / 100.0
+                receiptTotalTextField.text = String(format: "%0.2f", dbl)
+                tipCalc.total = dbl
+            }
+        }
+        if let str = defaults.objectForKey(taxPctKey) as String? {
+            if let convInt = str.stringByReplacingOccurrencesOfString("%", withString: "").stringByReplacingOccurrencesOfString(".", withString: "").toInt() as Int? {
+                let dbl = Double(convInt) / 100.0
+                taxPctTextField.text = String(format: "%0.2f", dbl)
+                tipCalc.taxPct = dbl
+            }
+        }
+        if let str = defaults.objectForKey(tipPctKey) as String? {
+            if let convInt = str.stringByReplacingOccurrencesOfString("%", withString: "").stringByReplacingOccurrencesOfString(".", withString: "").toInt() as Int? {
+                tipPctTextField.text = String(format: "%0.2f", Double(convInt) / 100.0)
+            }
+        }
+        if let rounding = defaults.objectForKey(currentRoundingKey) as Int? {
+            roundingSelection.selectedSegmentIndex = rounding
+        }
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

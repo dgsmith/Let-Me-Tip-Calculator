@@ -22,7 +22,6 @@
 		5671C9AA1AB79F0500952EEB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5671C9A71AB79F0500952EEB /* ViewController.swift */; };
 		5671C9AC1AB79F0500952EEB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5671C9A91AB79F0500952EEB /* Main.storyboard */; };
 		5671C9B71AB79F8E00952EEB /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5671C9B61AB79F8E00952EEB /* InterfaceController.swift */; };
-		5671C9B91AB79F8E00952EEB /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5671C9B81AB79F8E00952EEB /* NotificationController.swift */; };
 		5671C9BB1AB79F8E00952EEB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5671C9BA1AB79F8E00952EEB /* Images.xcassets */; };
 		5671C9BF1AB79F8E00952EEB /* TipTest WatchKit App.app in Resources */ = {isa = PBXBuildFile; fileRef = 5671C9BE1AB79F8E00952EEB /* TipTest WatchKit App.app */; };
 		5671C9C71AB79F8E00952EEB /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5671C9C51AB79F8E00952EEB /* Interface.storyboard */; };
@@ -148,7 +147,6 @@
 		5671C9B41AB79F8E00952EEB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5671C9B51AB79F8E00952EEB /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
 		5671C9B61AB79F8E00952EEB /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
-		5671C9B81AB79F8E00952EEB /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
 		5671C9BA1AB79F8E00952EEB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		5671C9BE1AB79F8E00952EEB /* TipTest WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TipTest WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5671C9C41AB79F8E00952EEB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -280,7 +278,6 @@
 				565449FE1AB8836E009FDFE9 /* TipDetailInterfaceController.swift */,
 				56113B931ABA1EFB00033BCB /* CalculationDetailInterfaceController.swift */,
 				56113B951ABA1F9700033BCB /* TotalOptionsViewController.swift */,
-				5671C9B81AB79F8E00952EEB /* NotificationController.swift */,
 				5671C9D41AB7A5CF00952EEB /* TipRow.swift */,
 				56544A001AB888D9009FDFE9 /* TotalRow.swift */,
 				56113B911ABA1DBF00033BCB /* CalcRow.swift */,
@@ -621,7 +618,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				5671C9D51AB7A5CF00952EEB /* TipRow.swift in Sources */,
-				5671C9B91AB79F8E00952EEB /* NotificationController.swift in Sources */,
 				56544A011AB888D9009FDFE9 /* TotalRow.swift in Sources */,
 				56113B941ABA1EFB00033BCB /* CalculationDetailInterfaceController.swift in Sources */,
 				56113B961ABA1F9700033BCB /* TotalOptionsViewController.swift in Sources */,

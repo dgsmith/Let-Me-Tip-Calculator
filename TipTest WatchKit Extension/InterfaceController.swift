@@ -9,21 +9,25 @@
 import WatchKit
 import Foundation
 
+enum Rounding : Int {
+    case RoundedTotal = 0, None, RoundedTip
+}
+
 class InterfaceController: WKInterfaceController {
     
     @IBOutlet weak var tipTable: WKInterfaceTable!
     
     let defaults = NSUserDefaults(suiteName: "group.TipTestGroup")!
     let subtotalKey = "subtotal"
-    let recieptTotalKey = "recieptTotal"
+    let receiptTotalKey = "receiptTotal"
     let taxPctKey = "taxPct"
     let taxAmtKey = "taxAmt"
     let tipPctKey = "tipPct"
     let tipAmtKey = "tipAmt"
     let tipAndTotalKey = "tipAndTotal"
-    
-    var currentRounding = 0 // 0 = none, 1 = tip, 2 = total
     let currentRoundingKey = "currentRounding"
+    
+    var currentRounding = 1 // 0 = total, 1 = none, 2 = tip
     
     var tipRows: [Dictionary<String,String>] = [
         ["Reciept Total":"$35.26"],
@@ -41,7 +45,7 @@ class InterfaceController: WKInterfaceController {
             currentRounding = rounding
             setMenuItems()
         } else {
-            currentRounding = 0
+            currentRounding = 1
             setMenuItems()
         }
         // calculate!
@@ -61,20 +65,6 @@ class InterfaceController: WKInterfaceController {
     }
     
     func noRoundingAction() {
-        if currentRounding == 0 {
-            // do nothing...
-        } else {
-            currentRounding = 0
-            defaults.removeObjectForKey(currentRoundingKey)
-            defaults.setObject(currentRounding, forKey: currentRoundingKey)
-            defaults.synchronize()
-            clearAllMenuItems()
-            setMenuItems()
-            reloadData()
-        }
-    }
-    
-    func roundTipAction() {
         if currentRounding == 1 {
             // do nothing...
         } else {
@@ -88,11 +78,25 @@ class InterfaceController: WKInterfaceController {
         }
     }
     
-    func roundTotalAction() {
+    func roundTipAction() {
         if currentRounding == 2 {
             // do nothing...
         } else {
             currentRounding = 2
+            defaults.removeObjectForKey(currentRoundingKey)
+            defaults.setObject(currentRounding, forKey: currentRoundingKey)
+            defaults.synchronize()
+            clearAllMenuItems()
+            setMenuItems()
+            reloadData()
+        }
+    }
+    
+    func roundTotalAction() {
+        if currentRounding == 0 {
+            // do nothing...
+        } else {
+            currentRounding = 0
             defaults.removeObjectForKey(currentRoundingKey)
             defaults.setObject(currentRounding, forKey: currentRoundingKey)
             defaults.synchronize()
@@ -141,8 +145,8 @@ class InterfaceController: WKInterfaceController {
     func reloadData() {
         defaults.synchronize()
         
-        if let recieptString = defaults.objectForKey(recieptTotalKey) as String? {
-            tipRows[0]["Reciept Total"] = recieptString
+        if let receiptString = defaults.objectForKey(receiptTotalKey) as String? {
+            tipRows[0]["Reciept Total"] = receiptString
         }
         if let taxString = defaults.objectForKey(taxPctKey) as String? {
             tipRows[1]["Tax Percentage"] = taxString
@@ -191,15 +195,15 @@ class InterfaceController: WKInterfaceController {
     
     func setMenuItems() {
         switch currentRounding {
-        case 0: // no rounding
+        case 1: // None
             addMenuItemWithItemIcon(.Accept, title: "Normal", action: Selector("noRoundingAction"))
             addMenuItemWithItemIcon(.Decline, title: "Tip Round", action: Selector("roundTipAction"))
             addMenuItemWithItemIcon(.Decline, title: "Total Round", action: Selector("roundTotalAction"))
-        case 1: // rounded tip
+        case 2: // Tip
             addMenuItemWithItemIcon(.Decline, title: "Normal", action: Selector("noRoundingAction"))
             addMenuItemWithItemIcon(.Accept, title: "Tip Round", action: Selector("roundTipAction"))
             addMenuItemWithItemIcon(.Decline, title: "Total Round", action: Selector("roundTotalAction"))
-        case 2: // rounded total
+        case 0: // Total
             addMenuItemWithItemIcon(.Decline, title: "Normal", action: Selector("noRoundingAction"))
             addMenuItemWithItemIcon(.Decline, title: "Tip Round", action: Selector("roundTipAction"))
             addMenuItemWithItemIcon(.Accept, title: "Total Round", action: Selector("roundTotalAction"))

@@ -53,12 +53,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     let tipCalc = TipCalculatorModel(total: total, taxPct: taxPct)
                     var tipAmt:Double, finalTotal:Double, newTipPct:Double
                     switch roundingInfo {
-                    case 0: // no rounding
+                    case 1: // no rounding
                         (tipAmt, finalTotal) = tipCalc.calcTipWith(TipPct: tipPct)
                         newTipPct = tipPct
-                    case 1: // rounded tip
+                    case 2: // rounded tip
                         (tipAmt, finalTotal, newTipPct) = tipCalc.calcRoundedTipFrom(TipPct: tipPct)
-                    case 2: // rounded total
+                    case 0: // rounded total
                         (tipAmt, finalTotal, newTipPct) = tipCalc.calcRoundedTotalFrom(TipPct: tipPct)
                     default:
                         NSLog("incorrect rounding info!")
