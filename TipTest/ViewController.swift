@@ -16,7 +16,7 @@ extension Double {
     }
 }
 
-class ViewController: UIViewController, UITableViewDataSource, UITextFieldDelegate {
+class ViewController: UIViewController, UITableViewDataSource, UITextFieldDelegate, ADBannerViewDelegate {
     
     @IBOutlet weak var receiptTotalTextField: UITextField!
     @IBOutlet weak var taxPctTextField: UITextField!
@@ -36,6 +36,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITextFieldDelega
     let tipAmtKey = "tipAmt"
     let tipAndTotalKey = "tipAndTotal"
     let currentRoundingKey = "currentRounding"
+    let noAdsKey = "noAds"
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,6 +50,16 @@ class ViewController: UIViewController, UITableViewDataSource, UITextFieldDelega
         outputlabels.insert(("Final Total:", " "), atIndex: 4)
         
         refreshUI()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        if let noAds = defaults.boolForKey(noAdsKey) as Bool? {
+            if noAds {
+                self.canDisplayBannerAds = false
+            } else {
+                self.canDisplayBannerAds = true
+            }
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -154,6 +165,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITextFieldDelega
             roundingSelection.selectedSegmentIndex = rounding
         }
         
+        if let noAds = defaults.boolForKey(noAdsKey) as Bool? {
+            if noAds {
+                self.canDisplayBannerAds = false
+            } else {
+                self.canDisplayBannerAds = true
+            }
+        }
+        
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -167,6 +186,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITextFieldDelega
             cell.numberLabel!.text = amount
         }
         return cell
+    }
+    
+    func bannerView(banner: ADBannerView!, didFailToReceiveAdWithError error: NSError!) {
+        println(error.description)
     }
     
 }

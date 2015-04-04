@@ -35,6 +35,8 @@
 		5671C9F31AB869F500952EEB /* TipCalcKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5671C9DB1AB869F400952EEB /* TipCalcKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5671C9FC1AB86AC300952EEB /* TipCalculatorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5671C9FB1AB86AC300952EEB /* TipCalculatorModel.swift */; };
 		5689BBE01ACCE27E003B4621 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5689BBDF1ACCE27E003B4621 /* iAd.framework */; };
+		5689BBE21ACF66D4003B4621 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5689BBE11ACF66D4003B4621 /* InfoViewController.swift */; };
+		5689BBE41ACF6EA7003B4621 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5689BBE31ACF6EA7003B4621 /* StoreKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -162,6 +164,8 @@
 		5689BBDD1ACCDB20003B4621 /* Let Me Tip.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Let Me Tip.entitlements"; sourceTree = "<group>"; };
 		5689BBDE1ACCDBFE003B4621 /* Let Me Tip WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Let Me Tip WatchKit Extension.entitlements"; sourceTree = "<group>"; };
 		5689BBDF1ACCE27E003B4621 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
+		5689BBE11ACF66D4003B4621 /* InfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
+		5689BBE31ACF6EA7003B4621 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +173,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5689BBE41ACF6EA7003B4621 /* StoreKit.framework in Frameworks */,
 				5689BBE01ACCE27E003B4621 /* iAd.framework in Frameworks */,
 				5671C9F21AB869F500952EEB /* TipCalcKit.framework in Frameworks */,
 			);
@@ -210,6 +215,7 @@
 		5671C9791AB79E9D00952EEB = {
 			isa = PBXGroup;
 			children = (
+				5689BBE31ACF6EA7003B4621 /* StoreKit.framework */,
 				5689BBDF1ACCE27E003B4621 /* iAd.framework */,
 				5689BBDE1ACCDBFE003B4621 /* Let Me Tip WatchKit Extension.entitlements */,
 				5689BBDD1ACCDB20003B4621 /* Let Me Tip.entitlements */,
@@ -241,6 +247,7 @@
 			children = (
 				5671C9871AB79E9D00952EEB /* AppDelegate.swift */,
 				5671C9A71AB79F0500952EEB /* ViewController.swift */,
+				5689BBE11ACF66D4003B4621 /* InfoViewController.swift */,
 				5611C3021AC302ED006C899E /* TipTotalCell.swift */,
 				5671C9A91AB79F0500952EEB /* Main.storyboard */,
 				5671C98E1AB79E9D00952EEB /* Images.xcassets */,
@@ -605,6 +612,7 @@
 			files = (
 				5671C9AA1AB79F0500952EEB /* ViewController.swift in Sources */,
 				5671C9881AB79E9D00952EEB /* AppDelegate.swift in Sources */,
+				5689BBE21ACF66D4003B4621 /* InfoViewController.swift in Sources */,
 				5611C3031AC302ED006C899E /* TipTotalCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
