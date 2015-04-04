@@ -18,7 +18,7 @@ class CalculationDetailInterfaceController: WKInterfaceController {
     
     let defaults = NSUserDefaults(suiteName: "group.Let-Me-Tip")!
     let subtotalKey = "subtotal"
-    let receiptTotalKey = "recieptTotal"
+    let receiptTotalKey = "receiptTotal"
     let taxAmtKey = "taxAmt"
     let tipAmtKey = "tipAmt"
     let tipAndTotalKey = "tipAndTotal"

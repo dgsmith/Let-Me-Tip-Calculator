@@ -59,7 +59,7 @@ class TotalOptionsViewController: WKInterfaceController {
                 WKInterfaceController.openParentApplication(["divide":tipAmt, "by":split], reply: { (replyInfo, error) -> Void in
                     if let divideData = replyInfo["divided"] as NSData? {
                         if let newTipAmt = NSKeyedUnarchiver.unarchiveObjectWithData(divideData) as String? {
-                            NSLog("got \(newTipAmt)")
+                            //NSLog("got \(newTipAmt)")
                             self.newTipLabel.setText(newTipAmt)
                         }
                     } else {
@@ -72,7 +72,7 @@ class TotalOptionsViewController: WKInterfaceController {
                 WKInterfaceController.openParentApplication(["divide":totalAmt, "by":split], reply: { (replyInfo, error) -> Void in
                     if let divideData = replyInfo["divided"] as NSData? {
                         if let newTotal = NSKeyedUnarchiver.unarchiveObjectWithData(divideData) as String? {
-                            NSLog("got \(newTotal)")
+                            //NSLog("got \(newTotal)")
                             self.newTotalLabel.setText(newTotal)
                         }
                     } else {

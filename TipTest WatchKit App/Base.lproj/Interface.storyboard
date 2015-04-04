@@ -8,11 +8,11 @@
         <!--Interface Controller-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="TipTest_WatchKit_App" customModuleProvider="target">
+                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="Let_Me_Tip_WatchKit_Extension">
                     <items>
                         <table alignment="left" id="iAj-Vn-izj">
                             <items>
-                                <tableRow identifier="TipRow" id="4vz-Q7-jug" customClass="TipRow" customModule="TipTest_WatchKit_Extension">
+                                <tableRow identifier="TipRow" id="4vz-Q7-jug" customClass="TipRow" customModule="Let_Me_Tip_WatchKit_Extension">
                                     <group key="rootItem" width="1" height="0.0" alignment="left" layout="vertical" id="hND-DS-B7X">
                                         <items>
                                             <label alignment="left" text="Reciept Total" id="Ma1-cJ-qhh">
@@ -29,7 +29,7 @@
                                         <outlet property="titleLabel" destination="Ma1-cJ-qhh" id="3tH-aW-5KS"/>
                                     </connections>
                                 </tableRow>
-                                <tableRow identifier="CalcRow" id="rgU-LR-MY1" customClass="CalcRow" customModule="TipTest_WatchKit_Extension">
+                                <tableRow identifier="CalcRow" id="rgU-LR-MY1" customClass="CalcRow" customModule="Let_Me_Tip_WatchKit_Extension">
                                     <group key="rootItem" width="1" height="0.0" alignment="left" layout="vertical" id="oBn-Zg-De6">
                                         <items>
                                             <label alignment="left" text="Tip Amount" id="UAp-JG-78i">
@@ -46,7 +46,7 @@
                                         <outlet property="titleLabel" destination="UAp-JG-78i" id="1pc-8q-Qho"/>
                                     </connections>
                                 </tableRow>
-                                <tableRow identifier="TotalRow" id="3Fo-lX-4lV" customClass="TotalRow" customModule="TipTest_WatchKit_Extension">
+                                <tableRow identifier="TotalRow" id="3Fo-lX-4lV" customClass="TotalRow" customModule="Let_Me_Tip_WatchKit_Extension">
                                     <group key="rootItem" width="1" height="0.0" alignment="left" layout="vertical" id="b9u-0V-NRA">
                                         <items>
                                             <label alignment="left" text="Total+Tip" id="Egy-q3-heN">
@@ -76,7 +76,7 @@
         <!--Tip Detail Interface Controller-->
         <scene sceneID="hzX-fR-Nvp">
             <objects>
-                <controller id="kNt-mh-e3L" customClass="TipDetailInterfaceController" customModule="TipTest_WatchKit_Extension">
+                <controller id="kNt-mh-e3L" customClass="TipDetailInterfaceController" customModule="Let_Me_Tip_WatchKit_Extension">
                     <items>
                         <group width="1" alignment="right" verticalAlignment="bottom" id="tNY-BX-J0g">
                             <items>
@@ -184,7 +184,7 @@
         <!--Detail-->
         <scene sceneID="nh1-Jb-qo8">
             <objects>
-                <controller title="Detail" id="A5S-xq-FD4" customClass="CalculationDetailInterfaceController" customModule="TipTest_WatchKit_Extension">
+                <controller title="Detail" id="A5S-xq-FD4" customClass="CalculationDetailInterfaceController" customModule="Let_Me_Tip_WatchKit_Extension">
                     <items>
                         <group width="1" alignment="left" id="IIV-Yx-3p3">
                             <items>
@@ -231,7 +231,7 @@
         <!--Splitting?-->
         <scene sceneID="3ji-d9-d59">
             <objects>
-                <controller title="Splitting?" id="Oc9-yR-qS3" customClass="TotalOptionsViewController" customModule="TipTest_WatchKit_Extension">
+                <controller title="Splitting?" id="Oc9-yR-qS3" customClass="TotalOptionsViewController" customModule="Let_Me_Tip_WatchKit_Extension">
                     <items>
                         <group width="1" alignment="left" layout="vertical" id="PZt-gN-xXd">
                             <items>

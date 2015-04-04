@@ -105,7 +105,7 @@
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="KJi-1Z-Rcz">
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="b4m-d2-ryo">
@@ -225,32 +225,41 @@
                                     <action selector="InfoViewFinished:" destination="NeK-Xb-7TM" eventType="touchUpInside" id="obL-Pa-4JS"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jb7-TP-c5o">
-                                <rect key="frame" x="114" y="345" width="92" height="30"/>
-                                <state key="normal" title="Remove Ads!">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="removeAds:" destination="NeK-Xb-7TM" eventType="touchUpInside" id="xZf-QT-aM2"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lEE-b4-dUM">
                                 <rect key="frame" x="16" y="70" width="288" height="104"/>
                                 <string key="text">Let Me Tip makes it easy to figure out any tip. It even includes options for rounding either the final total and the tip amount, just select your desired option at the main screen!</string>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please consider leaving a review if you enjoy the app. Even if you don't, I appreciate all feedback!" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7xv-Nj-mZF">
                                 <rect key="frame" x="16" y="188" width="288" height="62"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1. You can press on the Tip Amount row to see the calculation breakdown." lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yar-ze-PpF">
+                                <rect key="frame" x="16" y="298" width="288" height="41"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2. If there are multiple people in your party, you can press on the Tip+Total row for splitting options." lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UHu-qz-7gv">
+                                <rect key="frame" x="16" y="347" width="288" height="62"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Apple Watch app tips:" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WxI-Fe-zbB">
+                                <rect key="frame" x="16" y="270" width="288" height="20"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Press the Remove Ads! button below to remove ads forever." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="urK-43-v3s">
-                                <rect key="frame" x="16" y="296" width="288" height="41"/>
+                                <rect key="frame" x="16" y="429" width="288" height="41"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to Let Me Tip!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wbN-4b-Gp8">
@@ -259,24 +268,42 @@
                                 <color key="textColor" red="0.20392156859999999" green="0.66666666669999997" blue="0.86274509799999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jb7-TP-c5o">
+                                <rect key="frame" x="114" y="478" width="92" height="30"/>
+                                <state key="normal" title="Remove Ads!">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="removeAds:" destination="NeK-Xb-7TM" eventType="touchUpInside" id="xZf-QT-aM2"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="7xv-Nj-mZF" firstAttribute="leading" secondItem="3IQ-5w-khy" secondAttribute="leadingMargin" id="0OW-IH-l8G"/>
+                            <constraint firstItem="UHu-qz-7gv" firstAttribute="leading" secondItem="3IQ-5w-khy" secondAttribute="leadingMargin" id="7xY-sr-Ja6"/>
+                            <constraint firstItem="WxI-Fe-zbB" firstAttribute="trailing" secondItem="3IQ-5w-khy" secondAttribute="trailingMargin" id="8fy-gm-wiF"/>
+                            <constraint firstItem="UHu-qz-7gv" firstAttribute="trailing" secondItem="3IQ-5w-khy" secondAttribute="trailingMargin" id="8g3-Q6-IlZ"/>
                             <constraint firstItem="lEE-b4-dUM" firstAttribute="top" secondItem="wbN-4b-Gp8" secondAttribute="bottom" constant="20" id="8jg-Bg-Pxe"/>
+                            <constraint firstItem="UHu-qz-7gv" firstAttribute="top" secondItem="Yar-ze-PpF" secondAttribute="bottom" constant="8" id="BLw-Sc-B5U"/>
                             <constraint firstItem="7xv-Nj-mZF" firstAttribute="top" secondItem="lEE-b4-dUM" secondAttribute="bottom" constant="14" id="BU5-kN-M0Y"/>
-                            <constraint firstItem="urK-43-v3s" firstAttribute="trailing" secondItem="3IQ-5w-khy" secondAttribute="trailingMargin" id="Hbn-nw-hWI"/>
-                            <constraint firstItem="jb7-TP-c5o" firstAttribute="top" secondItem="urK-43-v3s" secondAttribute="bottom" constant="8" id="Lkc-tk-eEG"/>
+                            <constraint firstItem="urK-43-v3s" firstAttribute="trailing" secondItem="3IQ-5w-khy" secondAttribute="trailingMargin" id="M4B-sm-oIc"/>
+                            <constraint firstItem="Yar-ze-PpF" firstAttribute="trailing" secondItem="3IQ-5w-khy" secondAttribute="trailingMargin" id="MgK-d3-Tnz"/>
+                            <constraint firstItem="WxI-Fe-zbB" firstAttribute="top" secondItem="7xv-Nj-mZF" secondAttribute="bottom" constant="20" id="Spe-Vd-Mdr"/>
+                            <constraint firstItem="Yar-ze-PpF" firstAttribute="leading" secondItem="3IQ-5w-khy" secondAttribute="leadingMargin" id="VuR-LN-BHg"/>
+                            <constraint firstItem="urK-43-v3s" firstAttribute="top" secondItem="UHu-qz-7gv" secondAttribute="bottom" constant="20" id="bH5-xO-6KI"/>
+                            <constraint firstItem="jb7-TP-c5o" firstAttribute="top" secondItem="urK-43-v3s" secondAttribute="bottom" constant="8" id="d2f-Xw-V9u"/>
                             <constraint firstItem="lEE-b4-dUM" firstAttribute="leading" secondItem="3IQ-5w-khy" secondAttribute="leadingMargin" id="dAf-gy-6Ki"/>
-                            <constraint firstItem="urK-43-v3s" firstAttribute="leading" secondItem="3IQ-5w-khy" secondAttribute="leadingMargin" id="gEQ-3k-tkb"/>
+                            <constraint firstItem="WxI-Fe-zbB" firstAttribute="leading" secondItem="3IQ-5w-khy" secondAttribute="leadingMargin" id="dee-Bb-Agx"/>
+                            <constraint firstItem="Yar-ze-PpF" firstAttribute="top" secondItem="WxI-Fe-zbB" secondAttribute="bottom" constant="8" id="eYL-wV-cuo"/>
+                            <constraint firstAttribute="centerX" secondItem="jb7-TP-c5o" secondAttribute="centerX" id="gPJ-c0-TUX"/>
                             <constraint firstAttribute="centerX" secondItem="wbN-4b-Gp8" secondAttribute="centerX" id="ijB-U7-1C5"/>
                             <constraint firstAttribute="centerX" secondItem="Aw3-vo-rPN" secondAttribute="centerX" id="izT-LD-n3I"/>
+                            <constraint firstItem="urK-43-v3s" firstAttribute="leading" secondItem="3IQ-5w-khy" secondAttribute="leadingMargin" id="kSn-Gc-YPS"/>
                             <constraint firstItem="7xv-Nj-mZF" firstAttribute="trailing" secondItem="3IQ-5w-khy" secondAttribute="trailingMargin" id="mkk-MA-fWo"/>
                             <constraint firstItem="dQ4-3S-p5d" firstAttribute="top" secondItem="Aw3-vo-rPN" secondAttribute="bottom" constant="20" id="ojM-Dn-L5I"/>
                             <constraint firstItem="lEE-b4-dUM" firstAttribute="trailing" secondItem="3IQ-5w-khy" secondAttribute="trailingMargin" id="tke-s0-N5h"/>
                             <constraint firstItem="wbN-4b-Gp8" firstAttribute="top" secondItem="BjI-nE-FGI" secondAttribute="bottom" constant="10" id="y2A-NA-fvv"/>
-                            <constraint firstAttribute="centerX" secondItem="jb7-TP-c5o" secondAttribute="centerX" id="yTJ-dP-OYY"/>
-                            <constraint firstItem="urK-43-v3s" firstAttribute="top" secondItem="7xv-Nj-mZF" secondAttribute="bottom" constant="46" id="zsG-QW-fjg"/>
                         </constraints>
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
