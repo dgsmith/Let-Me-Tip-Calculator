@@ -17,7 +17,7 @@ class InterfaceController: WKInterfaceController {
     
     @IBOutlet weak var tipTable: WKInterfaceTable!
     
-    let defaults = NSUserDefaults(suiteName: "group.TipTestGroup")!
+    let defaults = NSUserDefaults(suiteName: "group.Let-Me-Tip")!
     let subtotalKey = "subtotal"
     let receiptTotalKey = "receiptTotal"
     let taxPctKey = "taxPct"
@@ -30,7 +30,7 @@ class InterfaceController: WKInterfaceController {
     var currentRounding = 1 // 0 = total, 1 = none, 2 = tip
     
     var tipRows: [Dictionary<String,String>] = [
-        ["Reciept Total":"$35.26"],
+        ["Receipt Total":"$35.26"],
         ["Tax Percentage":"6%"],
         ["Tip Percentage":"15%"],
         ["Tip Amount":""],
@@ -146,7 +146,7 @@ class InterfaceController: WKInterfaceController {
         defaults.synchronize()
         
         if let receiptString = defaults.objectForKey(receiptTotalKey) as String? {
-            tipRows[0]["Reciept Total"] = receiptString
+            tipRows[0]["Receipt Total"] = receiptString
         }
         if let taxString = defaults.objectForKey(taxPctKey) as String? {
             tipRows[1]["Tax Percentage"] = taxString

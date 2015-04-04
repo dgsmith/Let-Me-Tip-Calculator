@@ -46,7 +46,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         if let tipInfo = userInfo["tipInfo"] as? [Dictionary<String,String>] {
             if let roundingInfo = userInfo["roundingInfo"] as? Int {
-                if tipInfo[0].keys.array[0] == "Reciept Total" {
+                if tipInfo[0].keys.array[0] == "Receipt Total" {
                     let total = (tipInfo[0].values.array[0].stringByReplacingOccurrencesOfString("$", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil) as NSString).doubleValue
                     let taxPct = (tipInfo[1].values.array[0].stringByReplacingOccurrencesOfString("%", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil) as NSString).doubleValue / 100.0
                     let tipPct = (tipInfo[2].values.array[0].stringByReplacingOccurrencesOfString("%", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil) as NSString).doubleValue / 100.0
@@ -68,7 +68,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     
                     
                     let tipRows: [Dictionary<String,String>] = [
-                        ["Reciept Total":"$\(total)"],
+                        ["Receipt Total":"$\(total)"],
                         ["Tax Percentage":"\(Int(round(taxPct * 100.0)))" + "%"],
                         ["Tip Percentage":String(format: "%2d", Int(round(newTipPct * 100.0))) + "%"],
                         ["Tip Amount":"$" + tipAmt.format("0.2")],

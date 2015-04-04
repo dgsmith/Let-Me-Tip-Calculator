@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import iAd
 import TipCalcKit
 
 extension Double {
@@ -15,7 +16,7 @@ extension Double {
     }
 }
 
-class ViewController: UIViewController, UITableViewDataSource {
+class ViewController: UIViewController, UITableViewDataSource, UITextFieldDelegate {
     
     @IBOutlet weak var receiptTotalTextField: UITextField!
     @IBOutlet weak var taxPctTextField: UITextField!
@@ -26,7 +27,7 @@ class ViewController: UIViewController, UITableViewDataSource {
     let tipCalc = TipCalculatorModel(total: 32.78, taxPct: 0.06)
     var outputlabels:[(String,String)] = []
     
-    let defaults = NSUserDefaults(suiteName: "group.TipTestGroup")!
+    let defaults = NSUserDefaults(suiteName: "group.Let-Me-Tip")!
     let subtotalKey = "subtotal"
     let receiptTotalKey = "receiptTotal"
     let taxPctKey = "taxPct"
@@ -38,6 +39,7 @@ class ViewController: UIViewController, UITableViewDataSource {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.canDisplayBannerAds = true
         // Do any additional setup after loading the view, typically from a nib.
         
         outputlabels.insert(("Subtotal:", " "), atIndex: 0)
@@ -54,8 +56,27 @@ class ViewController: UIViewController, UITableViewDataSource {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func roundingValueChanged(sender: AnyObject) {
+        calculateTapped("hi")
+    }
+    
+    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+        // update the string in the text input
+        var currentString = NSMutableString(string: textField.text)
+        currentString.replaceCharactersInRange(range, withString: string)
+        // strip out decimal
+        currentString.replaceOccurrencesOfString(".", withString: "", options: NSStringCompareOptions.LiteralSearch, range: NSMakeRange(0, currentString.length))
+        // generate a new string
+        let currentValue = currentString.intValue
+        let newString = String(format: "%.2f", Double(currentValue) / 100.0)
+        textField.text = newString
+        return false
+    }
+
     @IBAction func calculateTapped(sender : AnyObject) {
         receiptTotalTextField.resignFirstResponder()
+        taxPctTextField.resignFirstResponder()
+        tipPctTextField.resignFirstResponder()
         
         if let int = receiptTotalTextField.text.stringByReplacingOccurrencesOfString(".", withString: "").toInt() as Int? {
             tipCalc.total = Double(int) / 100.0
@@ -81,7 +102,7 @@ class ViewController: UIViewController, UITableViewDataSource {
         // sub, tax, reciept, tip, total
         outputlabels[0] = ("Subtotal:", String(format: "$%0.2f", tipCalc.subtotal))
         outputlabels[1] = ("Tax Amount (\(taxPctStr)%):", String(format: "$%0.2f", tipCalc.taxAmt))
-        outputlabels[2] = ("Reciept Total:", String(format: "$%0.2f", tipCalc.total))
+        outputlabels[2] = ("Receipt Total:", String(format: "$%0.2f", tipCalc.total))
         outputlabels[3] = ("Tip Amount (\(tipPctStr)%): ", String(format: "$%0.2f", tipAmt))
         outputlabels[4] = ("Final Total:", String(format: "$%0.2f", finalTotal))
         
@@ -110,6 +131,8 @@ class ViewController: UIViewController, UITableViewDataSource {
                 receiptTotalTextField.text = String(format: "%0.2f", dbl)
                 tipCalc.total = dbl
             }
+        } else {
+            receiptTotalTextField.text = String(format: "%0.2f", tipCalc.total)
         }
         if let str = defaults.objectForKey(taxPctKey) as String? {
             if let convInt = str.stringByReplacingOccurrencesOfString("%", withString: "").stringByReplacingOccurrencesOfString(".", withString: "").toInt() as Int? {
@@ -117,15 +140,20 @@ class ViewController: UIViewController, UITableViewDataSource {
                 taxPctTextField.text = String(format: "%0.2f", dbl)
                 tipCalc.taxPct = dbl
             }
+        } else {
+            taxPctTextField.text = String(format: "%0.2f", tipCalc.taxPct)
         }
         if let str = defaults.objectForKey(tipPctKey) as String? {
             if let convInt = str.stringByReplacingOccurrencesOfString("%", withString: "").stringByReplacingOccurrencesOfString(".", withString: "").toInt() as Int? {
                 tipPctTextField.text = String(format: "%0.2f", Double(convInt) / 100.0)
             }
+        } else {
+            tipPctTextField.text = "0.15"
         }
         if let rounding = defaults.objectForKey(currentRoundingKey) as Int? {
             roundingSelection.selectedSegmentIndex = rounding
         }
+        
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
