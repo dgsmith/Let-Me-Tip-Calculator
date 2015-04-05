@@ -40,7 +40,7 @@ class InterfaceController: WKInterfaceController {
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
         // Configure interface objects here.
-        setTitle("Let Me Tip")
+        //setTitle("Let Me Tip")
         if let rounding = defaults.objectForKey(currentRoundingKey) as Int? {
             currentRounding = rounding
             setMenuItems()
@@ -164,13 +164,13 @@ class InterfaceController: WKInterfaceController {
         WKInterfaceController.openParentApplication(["tipInfo":tipRows, "roundingInfo":currentRounding], reply: { (replyInfo, error) -> Void in
             if let tipData = replyInfo["tipData"] as? NSData {
                 if let tipInfo = NSKeyedUnarchiver.unarchiveObjectWithData(tipData) as? [Dictionary<String,String>] {
-                    //self.tipRows[0]["Reciept Total"]  = tipInfo[0]["Reciept Total"]
+                    //self.tipRows[0]["Receipt Total"]  = tipInfo[0]["Receipt Total"]
                     //self.tipRows[1]["Tax Percentage"] = tipInfo[1]["Tax Percentage"]
                     self.tipRows[2]["Tip Percentage"] = tipInfo[2]["Tip Percentage"]
                     self.tipRows[3]["Tip Amount"]     = tipInfo[3]["Tip Amount"]
                     self.tipRows[4]["Total+Tip"]      = tipInfo[4]["Total+Tip"]
                     
-                    //self.defaults.removeObjectForKey(self.recieptTotalKey)
+                    //self.defaults.removeObjectForKey(self.receiptTotalKey)
                     //self.defaults.removeObjectForKey(self.taxPctKey)
                     self.defaults.removeObjectForKey(self.tipPctKey)
                     self.defaults.removeObjectForKey(self.tipAmtKey)
@@ -178,7 +178,7 @@ class InterfaceController: WKInterfaceController {
                     self.defaults.removeObjectForKey(self.subtotalKey)
                     self.defaults.removeObjectForKey(self.taxAmtKey)
                     
-                    //self.defaults.setObject(tipInfo[0]["Reciept Total"], forKey: self.recieptTotalKey)
+                    //self.defaults.setObject(tipInfo[0]["Receipt Total"], forKey: self.receiptTotalKey)
                     //self.defaults.setObject(tipInfo[1]["Tax Percentage"], forKey: self.taxPctKey)
                     self.defaults.setObject(tipInfo[2]["Tip Percentage"], forKey: self.tipPctKey)
                     self.defaults.setObject(tipInfo[3]["Tip Amount"], forKey: self.tipAmtKey)

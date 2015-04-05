@@ -45,7 +45,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITextFieldDelega
         
         outputlabels.insert(("Subtotal:", " "), atIndex: 0)
         outputlabels.insert(("Tax Amount:", " "), atIndex: 1)
-        outputlabels.insert(("Reciept Total:", " "), atIndex: 2)
+        outputlabels.insert(("Receipt Total:", " "), atIndex: 2)
         outputlabels.insert(("Tip Amount: ", " "), atIndex: 3)
         outputlabels.insert(("Final Total:", " "), atIndex: 4)
         
@@ -57,7 +57,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITextFieldDelega
             if noAds {
                 self.canDisplayBannerAds = false
             } else {
-                self.canDisplayBannerAds = true
+                //self.canDisplayBannerAds = true
             }
         }
     }
@@ -110,7 +110,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITextFieldDelega
         
         let tipPctStr = (tipPct * 100.0).format(".0")
         let taxPctStr = (tipCalc.taxPct * 100.0).format(".0")
-        // sub, tax, reciept, tip, total
+        // sub, tax, receipt, tip, total
         outputlabels[0] = ("Subtotal:", String(format: "$%0.2f", tipCalc.subtotal))
         outputlabels[1] = ("Tax Amount (\(taxPctStr)%):", String(format: "$%0.2f", tipCalc.taxAmt))
         outputlabels[2] = ("Receipt Total:", String(format: "$%0.2f", tipCalc.total))
@@ -169,7 +169,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITextFieldDelega
             if noAds {
                 self.canDisplayBannerAds = false
             } else {
-                self.canDisplayBannerAds = true
+                //self.canDisplayBannerAds = true
             }
         }
         

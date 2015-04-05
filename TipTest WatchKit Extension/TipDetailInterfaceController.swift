@@ -18,7 +18,7 @@ class TipDetailInterfaceController: WKInterfaceController {
     var outputString: String!
     
     let defaults = NSUserDefaults(suiteName: "group.Let-Me-Tip")!
-    let recieptTotalKey = "recieptTotal"
+    let receiptTotalKey = "receiptTotal"
     let taxPctKey = "taxPct"
     let tipPctKey = "tipPct"
     
@@ -41,7 +41,7 @@ class TipDetailInterfaceController: WKInterfaceController {
                 if let valueString = self.row.values.first as String? {
                     var newStr: String
                     switch keyString {
-                    case "Reciept Total":
+                    case "Receipt Total":
                         self.editTotal = true;
                         newStr = valueString.stringByReplacingOccurrencesOfString("$", withString: "")
                     case "Tax Percentage":
@@ -117,9 +117,9 @@ class TipDetailInterfaceController: WKInterfaceController {
         savedLabel.setHidden(false);
         if let str = outputString {
             if editTotal {
-                defaults.removeObjectForKey(recieptTotalKey)
+                defaults.removeObjectForKey(receiptTotalKey)
                 let newStr = "$" + str
-                defaults.setObject(newStr, forKey: recieptTotalKey)
+                defaults.setObject(newStr, forKey: receiptTotalKey)
             } else if editTax {
                 defaults.removeObjectForKey(taxPctKey)
                 let temp = (str as NSString).doubleValue * 100.0

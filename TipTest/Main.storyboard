@@ -213,108 +213,134 @@
                         <viewControllerLayoutGuide type="bottom" id="dQ4-3S-p5d"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="3IQ-5w-khy">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Aw3-vo-rPN">
-                                <rect key="frame" x="142" y="518" width="37" height="30"/>
-                                <state key="normal" title="Done">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="InfoViewFinished:" destination="NeK-Xb-7TM" eventType="touchUpInside" id="obL-Pa-4JS"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lEE-b4-dUM">
-                                <rect key="frame" x="16" y="70" width="288" height="104"/>
-                                <string key="text">Let Me Tip makes it easy to figure out any tip. It even includes options for rounding either the final total and the tip amount, just select your desired option at the main screen!</string>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please consider leaving a review if you enjoy the app. Even if you don't, I appreciate all feedback!" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7xv-Nj-mZF">
-                                <rect key="frame" x="16" y="188" width="288" height="62"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1. You can press on the Tip Amount row to see the calculation breakdown." lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yar-ze-PpF">
-                                <rect key="frame" x="16" y="298" width="288" height="41"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2. If there are multiple people in your party, you can press on the Tip+Total row for splitting options." lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UHu-qz-7gv">
-                                <rect key="frame" x="16" y="347" width="288" height="62"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Apple Watch app tips:" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WxI-Fe-zbB">
-                                <rect key="frame" x="16" y="270" width="288" height="20"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Press the Remove Ads! button below to remove ads forever." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="urK-43-v3s">
-                                <rect key="frame" x="16" y="429" width="288" height="41"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to Let Me Tip!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wbN-4b-Gp8">
-                                <rect key="frame" x="72" y="30" width="177" height="20"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                <color key="textColor" red="0.20392156859999999" green="0.66666666669999997" blue="0.86274509799999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jb7-TP-c5o">
-                                <rect key="frame" x="114" y="478" width="92" height="30"/>
-                                <state key="normal" title="Remove Ads!">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="removeAds:" destination="NeK-Xb-7TM" eventType="touchUpInside" id="xZf-QT-aM2"/>
-                                </connections>
-                            </button>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kLb-H1-2K8">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lgn-Ad-Qv4" userLabel="ContentView">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="481"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Pa-me-jdJ">
+                                                <rect key="frame" x="161" y="344" width="92" height="30"/>
+                                                <state key="normal" title="Remove Ads!">
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="removeAds:" destination="NeK-Xb-7TM" eventType="touchUpInside" id="wEK-Ux-WWD"/>
+                                                </connections>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Mm-7R-MgP">
+                                                <rect key="frame" x="16" y="54" width="382" height="83"/>
+                                                <string key="text">Let Me Tip makes it easy to figure out any tip. It even includes options for rounding either the final total and the tip amount, just select your desired option at the main screen!</string>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please consider leaving a review if you enjoy the app. Even if you don't, I appreciate all feedback!" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" translatesAutoresizingMaskIntoConstraints="NO" id="bHk-73-f0l">
+                                                <rect key="frame" x="16" y="382" width="382" height="41"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Press the Remove Ads! button below to remove ads forever." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tat-SA-5jd">
+                                                <rect key="frame" x="16" y="295" width="382" height="41"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Apple Watch app tips:" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A2S-Db-9oG">
+                                                <rect key="frame" x="16" y="152" width="382" height="20"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1. You can press on the Tip Amount row to see the calculation breakdown." lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bv9-AD-0nf">
+                                                <rect key="frame" x="16" y="180" width="382" height="41"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2. If there are multiple people in your party, you can press on the Tip+Total row for splitting options." lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sql-1Z-eWI">
+                                                <rect key="frame" x="16" y="229" width="382" height="41"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to Let Me Tip!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gfO-dy-eUy">
+                                                <rect key="frame" x="16" y="26" width="382" height="20"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                <color key="textColor" red="0.20392156859999999" green="0.66666666669999997" blue="0.86274509799999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aaN-MR-G71">
+                                                <rect key="frame" x="189" y="431" width="37" height="30"/>
+                                                <state key="normal" title="Done">
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="InfoViewFinished:" destination="NeK-Xb-7TM" eventType="touchUpInside" id="ISi-ib-Yro"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="6Mm-7R-MgP" secondAttribute="trailing" constant="16" id="0PM-r7-ct1"/>
+                                            <constraint firstAttribute="trailing" secondItem="tat-SA-5jd" secondAttribute="trailing" constant="16" id="0zQ-dm-zYj"/>
+                                            <constraint firstAttribute="trailing" secondItem="gfO-dy-eUy" secondAttribute="trailing" constant="16" id="42h-FD-fiW"/>
+                                            <constraint firstItem="bHk-73-f0l" firstAttribute="leading" secondItem="Lgn-Ad-Qv4" secondAttribute="leading" constant="16" id="4Bz-g3-vrI"/>
+                                            <constraint firstItem="6Mm-7R-MgP" firstAttribute="top" secondItem="gfO-dy-eUy" secondAttribute="bottom" constant="8" id="4cd-VN-r0K"/>
+                                            <constraint firstItem="4Pa-me-jdJ" firstAttribute="top" secondItem="tat-SA-5jd" secondAttribute="bottom" constant="8" id="6W4-PU-9F9"/>
+                                            <constraint firstAttribute="bottom" secondItem="aaN-MR-G71" secondAttribute="bottom" constant="20" id="A2f-H3-JHV"/>
+                                            <constraint firstAttribute="trailing" secondItem="Bv9-AD-0nf" secondAttribute="trailing" constant="16" id="E6Q-I3-Ivb"/>
+                                            <constraint firstAttribute="centerX" secondItem="aaN-MR-G71" secondAttribute="centerX" id="Hxs-9F-q97"/>
+                                            <constraint firstItem="Bv9-AD-0nf" firstAttribute="leading" secondItem="Lgn-Ad-Qv4" secondAttribute="leading" constant="16" id="JP9-1e-OWh"/>
+                                            <constraint firstAttribute="centerX" secondItem="4Pa-me-jdJ" secondAttribute="centerX" id="P4I-cn-DU5"/>
+                                            <constraint firstItem="gfO-dy-eUy" firstAttribute="leading" secondItem="Lgn-Ad-Qv4" secondAttribute="leading" constant="16" id="VGx-SS-Yld"/>
+                                            <constraint firstItem="sql-1Z-eWI" firstAttribute="leading" secondItem="Lgn-Ad-Qv4" secondAttribute="leading" constant="16" id="X9R-kN-bGp"/>
+                                            <constraint firstItem="A2S-Db-9oG" firstAttribute="top" secondItem="6Mm-7R-MgP" secondAttribute="bottom" constant="15" id="ccT-bE-u9c"/>
+                                            <constraint firstItem="aaN-MR-G71" firstAttribute="top" secondItem="bHk-73-f0l" secondAttribute="bottom" constant="8" id="ctA-Ml-CkO"/>
+                                            <constraint firstAttribute="trailing" secondItem="A2S-Db-9oG" secondAttribute="trailing" constant="16" id="dqh-gJ-Xgf"/>
+                                            <constraint firstItem="sql-1Z-eWI" firstAttribute="top" secondItem="Bv9-AD-0nf" secondAttribute="bottom" constant="8" id="eic-cS-JtS"/>
+                                            <constraint firstItem="gfO-dy-eUy" firstAttribute="top" secondItem="Lgn-Ad-Qv4" secondAttribute="top" constant="26" id="f7v-3O-Y0M"/>
+                                            <constraint firstAttribute="trailing" secondItem="sql-1Z-eWI" secondAttribute="trailing" constant="16" id="ig8-F0-yIA"/>
+                                            <constraint firstItem="bHk-73-f0l" firstAttribute="top" secondItem="4Pa-me-jdJ" secondAttribute="bottom" constant="8" id="jqY-w3-N4E"/>
+                                            <constraint firstItem="A2S-Db-9oG" firstAttribute="leading" secondItem="Lgn-Ad-Qv4" secondAttribute="leading" constant="16" id="kB2-nB-b8g"/>
+                                            <constraint firstItem="Bv9-AD-0nf" firstAttribute="top" secondItem="A2S-Db-9oG" secondAttribute="bottom" constant="8" id="oex-ik-Tma"/>
+                                            <constraint firstAttribute="trailing" secondItem="bHk-73-f0l" secondAttribute="trailing" constant="16" id="pes-tA-3pl"/>
+                                            <constraint firstItem="6Mm-7R-MgP" firstAttribute="leading" secondItem="Lgn-Ad-Qv4" secondAttribute="leading" constant="16" id="qo4-Ps-O7s"/>
+                                            <constraint firstItem="tat-SA-5jd" firstAttribute="leading" secondItem="Lgn-Ad-Qv4" secondAttribute="leading" constant="16" id="sx8-gc-SAk"/>
+                                            <constraint firstItem="tat-SA-5jd" firstAttribute="top" secondItem="sql-1Z-eWI" secondAttribute="bottom" constant="25" id="ySZ-S2-mU3"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="Lgn-Ad-Qv4" secondAttribute="trailing" id="06O-Ow-AaR"/>
+                                    <constraint firstAttribute="bottom" secondItem="Lgn-Ad-Qv4" secondAttribute="bottom" id="BYa-gp-6Ma"/>
+                                    <constraint firstItem="Lgn-Ad-Qv4" firstAttribute="top" secondItem="kLb-H1-2K8" secondAttribute="top" id="CD4-lV-jUf"/>
+                                    <constraint firstItem="Lgn-Ad-Qv4" firstAttribute="leading" secondItem="kLb-H1-2K8" secondAttribute="leading" id="J8X-To-P4o"/>
+                                </constraints>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="7xv-Nj-mZF" firstAttribute="leading" secondItem="3IQ-5w-khy" secondAttribute="leadingMargin" id="0OW-IH-l8G"/>
-                            <constraint firstItem="UHu-qz-7gv" firstAttribute="leading" secondItem="3IQ-5w-khy" secondAttribute="leadingMargin" id="7xY-sr-Ja6"/>
-                            <constraint firstItem="WxI-Fe-zbB" firstAttribute="trailing" secondItem="3IQ-5w-khy" secondAttribute="trailingMargin" id="8fy-gm-wiF"/>
-                            <constraint firstItem="UHu-qz-7gv" firstAttribute="trailing" secondItem="3IQ-5w-khy" secondAttribute="trailingMargin" id="8g3-Q6-IlZ"/>
-                            <constraint firstItem="lEE-b4-dUM" firstAttribute="top" secondItem="wbN-4b-Gp8" secondAttribute="bottom" constant="20" id="8jg-Bg-Pxe"/>
-                            <constraint firstItem="UHu-qz-7gv" firstAttribute="top" secondItem="Yar-ze-PpF" secondAttribute="bottom" constant="8" id="BLw-Sc-B5U"/>
-                            <constraint firstItem="7xv-Nj-mZF" firstAttribute="top" secondItem="lEE-b4-dUM" secondAttribute="bottom" constant="14" id="BU5-kN-M0Y"/>
-                            <constraint firstItem="urK-43-v3s" firstAttribute="trailing" secondItem="3IQ-5w-khy" secondAttribute="trailingMargin" id="M4B-sm-oIc"/>
-                            <constraint firstItem="Yar-ze-PpF" firstAttribute="trailing" secondItem="3IQ-5w-khy" secondAttribute="trailingMargin" id="MgK-d3-Tnz"/>
-                            <constraint firstItem="WxI-Fe-zbB" firstAttribute="top" secondItem="7xv-Nj-mZF" secondAttribute="bottom" constant="20" id="Spe-Vd-Mdr"/>
-                            <constraint firstItem="Yar-ze-PpF" firstAttribute="leading" secondItem="3IQ-5w-khy" secondAttribute="leadingMargin" id="VuR-LN-BHg"/>
-                            <constraint firstItem="urK-43-v3s" firstAttribute="top" secondItem="UHu-qz-7gv" secondAttribute="bottom" constant="20" id="bH5-xO-6KI"/>
-                            <constraint firstItem="jb7-TP-c5o" firstAttribute="top" secondItem="urK-43-v3s" secondAttribute="bottom" constant="8" id="d2f-Xw-V9u"/>
-                            <constraint firstItem="lEE-b4-dUM" firstAttribute="leading" secondItem="3IQ-5w-khy" secondAttribute="leadingMargin" id="dAf-gy-6Ki"/>
-                            <constraint firstItem="WxI-Fe-zbB" firstAttribute="leading" secondItem="3IQ-5w-khy" secondAttribute="leadingMargin" id="dee-Bb-Agx"/>
-                            <constraint firstItem="Yar-ze-PpF" firstAttribute="top" secondItem="WxI-Fe-zbB" secondAttribute="bottom" constant="8" id="eYL-wV-cuo"/>
-                            <constraint firstAttribute="centerX" secondItem="jb7-TP-c5o" secondAttribute="centerX" id="gPJ-c0-TUX"/>
-                            <constraint firstAttribute="centerX" secondItem="wbN-4b-Gp8" secondAttribute="centerX" id="ijB-U7-1C5"/>
-                            <constraint firstAttribute="centerX" secondItem="Aw3-vo-rPN" secondAttribute="centerX" id="izT-LD-n3I"/>
-                            <constraint firstItem="urK-43-v3s" firstAttribute="leading" secondItem="3IQ-5w-khy" secondAttribute="leadingMargin" id="kSn-Gc-YPS"/>
-                            <constraint firstItem="7xv-Nj-mZF" firstAttribute="trailing" secondItem="3IQ-5w-khy" secondAttribute="trailingMargin" id="mkk-MA-fWo"/>
-                            <constraint firstItem="dQ4-3S-p5d" firstAttribute="top" secondItem="Aw3-vo-rPN" secondAttribute="bottom" constant="20" id="ojM-Dn-L5I"/>
-                            <constraint firstItem="lEE-b4-dUM" firstAttribute="trailing" secondItem="3IQ-5w-khy" secondAttribute="trailingMargin" id="tke-s0-N5h"/>
-                            <constraint firstItem="wbN-4b-Gp8" firstAttribute="top" secondItem="BjI-nE-FGI" secondAttribute="bottom" constant="10" id="y2A-NA-fvv"/>
+                            <constraint firstItem="kLb-H1-2K8" firstAttribute="leading" secondItem="3IQ-5w-khy" secondAttribute="leading" id="9j7-wK-4zn"/>
+                            <constraint firstAttribute="trailing" secondItem="kLb-H1-2K8" secondAttribute="trailing" id="YVI-Nw-pUn"/>
+                            <constraint firstItem="Lgn-Ad-Qv4" firstAttribute="width" secondItem="3IQ-5w-khy" secondAttribute="width" id="Zb6-Mq-9zy"/>
+                            <constraint firstItem="kLb-H1-2K8" firstAttribute="top" secondItem="3IQ-5w-khy" secondAttribute="top" id="y7q-c1-oad"/>
+                            <constraint firstItem="dQ4-3S-p5d" firstAttribute="top" secondItem="kLb-H1-2K8" secondAttribute="bottom" id="yf9-aH-y8M"/>
                         </constraints>
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
-                        <outlet property="removeAdsButton" destination="jb7-TP-c5o" id="JLU-tC-Vs3"/>
+                        <outlet property="removeAdsButton" destination="4Pa-me-jdJ" id="OKc-xh-sBx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gNF-vC-2lB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1428" y="1059"/>
+            <point key="canvasLocation" x="1448" y="1060"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ahe-3c-uI7">

@@ -10,8 +10,6 @@
 		56113B921ABA1DBF00033BCB /* CalcRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56113B911ABA1DBF00033BCB /* CalcRow.swift */; };
 		56113B941ABA1EFB00033BCB /* CalculationDetailInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56113B931ABA1EFB00033BCB /* CalculationDetailInterfaceController.swift */; };
 		56113B961ABA1F9700033BCB /* TotalOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56113B951ABA1F9700033BCB /* TotalOptionsViewController.swift */; };
-		5611A61A1ACB67A900FA8F01 /* TipCalcKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5671C9DB1AB869F400952EEB /* TipCalcKit.framework */; };
-		5611A61B1ACB67A900FA8F01 /* TipCalcKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5671C9DB1AB869F400952EEB /* TipCalcKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5611C3031AC302ED006C899E /* TipTotalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5611C3021AC302ED006C899E /* TipTotalCell.swift */; };
 		565449FF1AB8836E009FDFE9 /* TipDetailInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565449FE1AB8836E009FDFE9 /* TipDetailInterfaceController.swift */; };
 		56544A011AB888D9009FDFE9 /* TotalRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56544A001AB888D9009FDFE9 /* TotalRow.swift */; };
@@ -31,22 +29,14 @@
 		5671C9E01AB869F400952EEB /* TipCalcKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 5671C9DF1AB869F400952EEB /* TipCalcKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5671C9E61AB869F400952EEB /* TipCalcKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5671C9DB1AB869F400952EEB /* TipCalcKit.framework */; };
 		5671C9EF1AB869F500952EEB /* TipCalcKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5671C9EE1AB869F500952EEB /* TipCalcKitTests.swift */; };
-		5671C9F21AB869F500952EEB /* TipCalcKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5671C9DB1AB869F400952EEB /* TipCalcKit.framework */; };
-		5671C9F31AB869F500952EEB /* TipCalcKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5671C9DB1AB869F400952EEB /* TipCalcKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5671C9FC1AB86AC300952EEB /* TipCalculatorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5671C9FB1AB86AC300952EEB /* TipCalculatorModel.swift */; };
 		5689BBE01ACCE27E003B4621 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5689BBDF1ACCE27E003B4621 /* iAd.framework */; };
 		5689BBE21ACF66D4003B4621 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5689BBE11ACF66D4003B4621 /* InfoViewController.swift */; };
 		5689BBE41ACF6EA7003B4621 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5689BBE31ACF6EA7003B4621 /* StoreKit.framework */; };
+		56ECBAD71AD0B01200CEE9DA /* TipCalcKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5671C9DB1AB869F400952EEB /* TipCalcKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		5611A61C1ACB67A900FA8F01 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 5671C97A1AB79E9D00952EEB /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 5671C9DA1AB869F400952EEB;
-			remoteInfo = TipCalcKit;
-		};
 		5671C9981AB79E9D00952EEB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 5671C97A1AB79E9D00952EEB /* Project object */;
@@ -82,27 +72,9 @@
 			remoteGlobalIDString = 5671C9811AB79E9D00952EEB;
 			remoteInfo = TipTest;
 		};
-		5671C9F01AB869F500952EEB /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 5671C97A1AB79E9D00952EEB /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 5671C9DA1AB869F400952EEB;
-			remoteInfo = TipCalcKit;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		5611A61E1ACB67AA00FA8F01 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				5611A61B1ACB67A900FA8F01 /* TipCalcKit.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		5671C9D31AB79F8E00952EEB /* Embed App Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -112,17 +84,6 @@
 				5671C9CC1AB79F8E00952EEB /* Let Me Tip WatchKit Extension.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		5671C9F71AB869F500952EEB /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				5671C9F31AB869F500952EEB /* TipCalcKit.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -173,9 +134,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56ECBAD71AD0B01200CEE9DA /* TipCalcKit.framework in Frameworks */,
 				5689BBE41ACF6EA7003B4621 /* StoreKit.framework in Frameworks */,
 				5689BBE01ACCE27E003B4621 /* iAd.framework in Frameworks */,
-				5671C9F21AB869F500952EEB /* TipCalcKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -190,7 +151,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5611A61A1ACB67A900FA8F01 /* TipCalcKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -382,13 +342,11 @@
 				5671C97F1AB79E9D00952EEB /* Frameworks */,
 				5671C9801AB79E9D00952EEB /* Resources */,
 				5671C9D31AB79F8E00952EEB /* Embed App Extensions */,
-				5671C9F71AB869F500952EEB /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				5671C9CB1AB79F8E00952EEB /* PBXTargetDependency */,
-				5671C9F11AB869F500952EEB /* PBXTargetDependency */,
 			);
 			name = "Let Me Tip";
 			productName = TipTest;
@@ -420,13 +378,11 @@
 				5671C9AD1AB79F8E00952EEB /* Sources */,
 				5671C9AE1AB79F8E00952EEB /* Frameworks */,
 				5671C9AF1AB79F8E00952EEB /* Resources */,
-				5611A61E1ACB67AA00FA8F01 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				5671C9C11AB79F8E00952EEB /* PBXTargetDependency */,
-				5611A61D1ACB67A900FA8F01 /* PBXTargetDependency */,
 			);
 			name = "Let Me Tip WatchKit Extension";
 			productName = "TipTest WatchKit Extension";
@@ -658,11 +614,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		5611A61D1ACB67A900FA8F01 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 5671C9DA1AB869F400952EEB /* TipCalcKit */;
-			targetProxy = 5611A61C1ACB67A900FA8F01 /* PBXContainerItemProxy */;
-		};
 		5671C9991AB79E9D00952EEB /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 5671C9811AB79E9D00952EEB /* Let Me Tip */;
@@ -687,11 +638,6 @@
 			isa = PBXTargetDependency;
 			target = 5671C9811AB79E9D00952EEB /* Let Me Tip */;
 			targetProxy = 5671C9E91AB869F500952EEB /* PBXContainerItemProxy */;
-		};
-		5671C9F11AB869F500952EEB /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 5671C9DA1AB869F400952EEB /* TipCalcKit */;
-			targetProxy = 5671C9F01AB869F500952EEB /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -901,7 +847,6 @@
 				CODE_SIGN_ENTITLEMENTS = "Let Me Tip WatchKit Extension.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -920,7 +865,6 @@
 				CODE_SIGN_ENTITLEMENTS = "Let Me Tip WatchKit Extension.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = "TipTest WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_NAME = "Let Me Tip WatchKit Extension";
@@ -955,7 +899,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = 1;
-				VALID_ARCHS = "arm64 armv7";
+				VALID_ARCHS = "arm64 armv7 armv7s";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -982,7 +926,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 1;
-				VALID_ARCHS = "arm64 armv7";
+				VALID_ARCHS = "arm64 armv7 armv7s";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};

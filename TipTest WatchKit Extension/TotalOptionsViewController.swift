@@ -19,7 +19,7 @@ class TotalOptionsViewController: WKInterfaceController {
     @IBOutlet weak var newTotalLabel: WKInterfaceLabel!
     
     let defaults = NSUserDefaults(suiteName: "group.Let-Me-Tip")!
-    let recieptTotalKey = "recieptTotal"
+    let receiptTotalKey = "receiptTotal"
     let taxPctKey = "taxPct"
     let tipPctKey = "tipPct"
     let tipAmtKey = "tipAmt"

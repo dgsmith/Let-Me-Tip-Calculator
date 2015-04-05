@@ -5,17 +5,17 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="3737"/>
     </dependencies>
     <scenes>
-        <!--Interface Controller-->
+        <!--Let Me Tip-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="Let_Me_Tip_WatchKit_Extension">
+                <controller title="Let Me Tip" id="AgC-eL-Hgc" customClass="InterfaceController" customModule="Let_Me_Tip_WatchKit_Extension">
                     <items>
                         <table alignment="left" id="iAj-Vn-izj">
                             <items>
                                 <tableRow identifier="TipRow" id="4vz-Q7-jug" customClass="TipRow" customModule="Let_Me_Tip_WatchKit_Extension">
                                     <group key="rootItem" width="1" height="0.0" alignment="left" layout="vertical" id="hND-DS-B7X">
                                         <items>
-                                            <label alignment="left" text="Reciept Total" id="Ma1-cJ-qhh">
+                                            <label alignment="left" text="Receipt Total" id="Ma1-cJ-qhh">
                                                 <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
                                             </label>
                                             <label alignment="left" text="$35.26" id="Vx6-Gc-Ofx"/>
