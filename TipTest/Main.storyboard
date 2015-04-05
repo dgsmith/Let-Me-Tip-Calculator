@@ -174,7 +174,7 @@
                             <outletCollection property="gestureRecognizers" destination="Khr-es-JCS" appends="YES" id="uw0-JR-70p"/>
                         </connections>
                     </view>
-                    <navigationItem key="navigationItem" title="Let Me Tip" id="LNc-VR-wOf">
+                    <navigationItem key="navigationItem" title="Let Me Tip: Calculator" id="LNc-VR-wOf">
                         <barButtonItem key="rightBarButtonItem" id="Itu-2Z-Ft3">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="detailDisclosure" lineBreakMode="middleTruncation" id="V8F-u9-NlG">
                                 <rect key="frame" x="233" y="7" width="22" height="22"/>
@@ -268,7 +268,7 @@
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to Let Me Tip!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gfO-dy-eUy">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to Let Me Tip: Calculator!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gfO-dy-eUy">
                                                 <rect key="frame" x="16" y="26" width="382" height="20"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                 <color key="textColor" red="0.20392156859999999" green="0.66666666669999997" blue="0.86274509799999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

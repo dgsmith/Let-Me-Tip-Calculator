@@ -40,7 +40,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITextFieldDelega
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.canDisplayBannerAds = false
+        self.canDisplayBannerAds = true
         // Do any additional setup after loading the view, typically from a nib.
         
         outputlabels.insert(("Subtotal:", " "), atIndex: 0)
@@ -57,7 +57,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITextFieldDelega
             if noAds {
                 self.canDisplayBannerAds = false
             } else {
-                //self.canDisplayBannerAds = true
+                self.canDisplayBannerAds = true
             }
         }
     }
@@ -169,7 +169,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITextFieldDelega
             if noAds {
                 self.canDisplayBannerAds = false
             } else {
-                //self.canDisplayBannerAds = true
+                self.canDisplayBannerAds = true
             }
         }
         
