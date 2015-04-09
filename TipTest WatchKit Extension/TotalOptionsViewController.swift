@@ -30,7 +30,7 @@ class TotalOptionsViewController: WKInterfaceController {
         super.awakeWithContext(context)
         defaults.synchronize()
         
-        if let sliderPos = defaults.objectForKey(splitAmtKey) as Int? {
+        if let sliderPos = defaults.objectForKey(splitAmtKey) as? Int {
             splitSlider.setValue(Float(sliderPos))
         }
         
@@ -49,16 +49,16 @@ class TotalOptionsViewController: WKInterfaceController {
     }
     
     func updateDisplay() {
-        if var split = defaults.objectForKey(splitAmtKey) as Int? {
+        if var split = defaults.objectForKey(splitAmtKey) as? Int {
             if split < 1 {
                 split = 1
             }
-            if let tipAmt = defaults.objectForKey(tipAmtKey) as String? {
+            if let tipAmt = defaults.objectForKey(tipAmtKey) as? String {
                 tipLabel.setText(tipAmt)
                 // calculations
                 WKInterfaceController.openParentApplication(["divide":tipAmt, "by":split], reply: { (replyInfo, error) -> Void in
-                    if let divideData = replyInfo["divided"] as NSData? {
-                        if let newTipAmt = NSKeyedUnarchiver.unarchiveObjectWithData(divideData) as String? {
+                    if let divideData = replyInfo["divided"] as? NSData {
+                        if let newTipAmt = NSKeyedUnarchiver.unarchiveObjectWithData(divideData) as? String {
                             //NSLog("got \(newTipAmt)")
                             self.newTipLabel.setText(newTipAmt)
                         }
@@ -67,11 +67,11 @@ class TotalOptionsViewController: WKInterfaceController {
                     }
                 })
             }
-            if let totalAmt = defaults.objectForKey(tipAndTotalKey) as String? {
+            if let totalAmt = defaults.objectForKey(tipAndTotalKey) as? String {
                 totalLabel.setText(totalAmt)
                 WKInterfaceController.openParentApplication(["divide":totalAmt, "by":split], reply: { (replyInfo, error) -> Void in
-                    if let divideData = replyInfo["divided"] as NSData? {
-                        if let newTotal = NSKeyedUnarchiver.unarchiveObjectWithData(divideData) as String? {
+                    if let divideData = replyInfo["divided"] as? NSData {
+                        if let newTotal = NSKeyedUnarchiver.unarchiveObjectWithData(divideData) as? String {
                             //NSLog("got \(newTotal)")
                             self.newTotalLabel.setText(newTotal)
                         }

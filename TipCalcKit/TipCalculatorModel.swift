@@ -55,47 +55,4 @@ public class TipCalculatorModel {
         return (newTipAmt, newTotal, newTipPct)
     }
     
-    public func returnExactPossibleTips() -> [Int: (tipAmt:Double, total:Double)] {
-        
-        let possibleTips = [0.12, 0.15, 0.18]
-        
-        var retval = Dictionary<Int, (tipAmt:Double, total:Double)>()
-        for possibleTip in possibleTips {
-            let intPct = Int(possibleTip * 100)
-            retval[intPct] = calcTipWith(TipPct: possibleTip)
-        }
-        return retval
-    }
-    
-    public func returnRoundedTotalPossibleTips() -> [Int: (tipAmt:Double, total:Double)] {
-        
-        let possibleTips = [0.12, 0.15, 0.18]
-        
-        var retval = Dictionary<Int, (tipAmt:Double, total:Double)>()
-        for possibleTip in possibleTips {
-            let intermediateValue = calcTipWith(TipPct: possibleTip)
-            let newTotal = round(intermediateValue.total)
-            let newTipAmt = newTotal - (subtotal * (1 + taxPct))
-            let newTipPct = newTipAmt / subtotal
-            let intPct = Int(round(newTipPct * 100))
-            retval[intPct] = (newTipAmt, newTotal)
-            
-        }
-        return retval
-    }
-    
-    public func returnRoundedTipPossibleTips() -> [Int: (tipAmt:Double, total:Double)] {
-        let possibleTips = [0.12, 0.15, 0.18]
-        
-        var retval = Dictionary<Int, (tipAmt:Double, total:Double)>()
-        for possibleTip in possibleTips {
-            let intermediateValue = calcTipWith(TipPct: possibleTip)
-            let newTipAmt = round(intermediateValue.tipAmt)
-            let newTotal = newTipAmt + (subtotal * (1 + taxPct))
-            let newTipPct = newTipAmt / subtotal
-            let intTipPct = Int(round(newTipPct * 100))
-            retval[intTipPct] = (newTipAmt, newTotal)
-        }
-        return retval
-    }
 }

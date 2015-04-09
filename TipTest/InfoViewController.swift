@@ -22,12 +22,13 @@ class InfoViewController: UIViewController, SKProductsRequestDelegate, SKPayment
         SKPaymentQueue.defaultQueue().addTransactionObserver(self)
         
         // check if purchased
-        if defaults.boolForKey(noAdsKey) {
-            // hide purchase button
-            removeAdsButton.enabled = false
-        } else if !defaults.boolForKey(noAdsKey) {
-            removeAdsButton.enabled = true
-            println("False")
+        if let noAds = defaults.boolForKey(noAdsKey) as Bool? {
+            if noAds {
+                //hide purchase button
+                removeAdsButton.enabled = false
+            } else {
+                removeAdsButton.enabled = true
+            }
         }
     }
     
@@ -42,9 +43,10 @@ class InfoViewController: UIViewController, SKProductsRequestDelegate, SKPayment
         
         var count = response.products.count
         if count > 0 {
-            var validProduct = response.products[0] as SKProduct
-            if validProduct.productIdentifier == self.productID {
-                self.buyProduct(validProduct)
+            if let validProduct = response.products[0] as? SKProduct {
+                if validProduct.productIdentifier == self.productID {
+                    self.buyProduct(validProduct)
+                }
             }
         } else {
             println("No products found")
@@ -89,7 +91,7 @@ class InfoViewController: UIViewController, SKProductsRequestDelegate, SKPayment
         println("About to fetch products")
         // check if we're allowed to make the purchase
         if SKPaymentQueue.canMakePayments() {
-            var productID = NSSet(object: self.productID!)
+            var productID = Set(arrayLiteral: self.productID!)
             var productsRequest = SKProductsRequest(productIdentifiers: productID)
             productsRequest.delegate = self
             productsRequest.start()

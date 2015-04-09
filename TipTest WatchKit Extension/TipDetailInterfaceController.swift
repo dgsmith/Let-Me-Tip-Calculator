@@ -50,14 +50,14 @@ class TipDetailInterfaceController: WKInterfaceController {
                         var currentString = newStr.stringByReplacingOccurrencesOfString(".", withString: "")
                         var currentValue = (currentString as NSString).intValue
                         var newValue: Double = Double(currentValue) / 100.0
-                        newStr = NSString(format: "%.2f", newValue)
+                        newStr = String(format: "%.2f", newValue)
                     case "Tip Percentage":
                         self.editTip = true
                         newStr = valueString.stringByReplacingOccurrencesOfString("%", withString: "")
                         var currentString = newStr.stringByReplacingOccurrencesOfString(".", withString: "")
                         var currentValue = (currentString as NSString).intValue
                         var newValue: Double = Double(currentValue) / 100.0
-                        newStr = NSString(format: "%.2f", newValue)
+                        newStr = String(format: "%.2f", newValue)
                     default:
                         newStr = "0.00"
                         NSLog("There's an error here")
@@ -152,7 +152,7 @@ class TipDetailInterfaceController: WKInterfaceController {
         var currentString = outputString.stringByReplacingOccurrencesOfString(".", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil)
         var currentValue = (currentString as NSString).intValue
         var newValue = (currentValue * 10) + digit
-        var newString = NSString(format: "%.2f", Double(newValue)/100.0)
+        var newString = String(format: "%.2f", Double(newValue)/100.0)
         
         updateLabel(newString)
     }
@@ -161,7 +161,7 @@ class TipDetailInterfaceController: WKInterfaceController {
         var currentString = outputString.stringByReplacingOccurrencesOfString(".", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil)
         var currentValue = (currentString as NSString).intValue
         var newValue = (currentValue / 10)
-        var newString = NSString(format: "%.2f", Double(newValue)/100.0)
+        var newString = String(format: "%.2f", Double(newValue)/100.0)
         
         updateLabel(newString)
         

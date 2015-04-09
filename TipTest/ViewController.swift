@@ -12,7 +12,7 @@ import TipCalcKit
 
 extension Double {
     func format(f: String) -> String {
-        return NSString(format: "%\(f)f", self)
+        return String(format: "%\(f)f", self)
     }
 }
 
@@ -41,6 +41,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITextFieldDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         self.canDisplayBannerAds = true
+        //defaults.setBool(true, forKey: noAdsKey)
         // Do any additional setup after loading the view, typically from a nib.
         
         outputlabels.insert(("Subtotal:", " "), atIndex: 0)
@@ -136,7 +137,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITextFieldDelega
     }
     
     func refreshUI() {
-        if let str = defaults.objectForKey(receiptTotalKey) as String? {
+        if let str = defaults.objectForKey(receiptTotalKey) as? String {
             if let convInt = str.stringByReplacingOccurrencesOfString("$", withString: "").stringByReplacingOccurrencesOfString(".", withString: "").toInt() as Int? {
                 let dbl = Double(convInt) / 100.0
                 receiptTotalTextField.text = String(format: "%0.2f", dbl)
@@ -145,7 +146,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITextFieldDelega
         } else {
             receiptTotalTextField.text = String(format: "%0.2f", tipCalc.total)
         }
-        if let str = defaults.objectForKey(taxPctKey) as String? {
+        if let str = defaults.objectForKey(taxPctKey) as? String {
             if let convInt = str.stringByReplacingOccurrencesOfString("%", withString: "").stringByReplacingOccurrencesOfString(".", withString: "").toInt() as Int? {
                 let dbl = Double(convInt) / 100.0
                 taxPctTextField.text = String(format: "%0.2f", dbl)
@@ -154,14 +155,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITextFieldDelega
         } else {
             taxPctTextField.text = String(format: "%0.2f", tipCalc.taxPct)
         }
-        if let str = defaults.objectForKey(tipPctKey) as String? {
+        if let str = defaults.objectForKey(tipPctKey) as? String {
             if let convInt = str.stringByReplacingOccurrencesOfString("%", withString: "").stringByReplacingOccurrencesOfString(".", withString: "").toInt() as Int? {
                 tipPctTextField.text = String(format: "%0.2f", Double(convInt) / 100.0)
             }
         } else {
             tipPctTextField.text = "0.15"
         }
-        if let rounding = defaults.objectForKey(currentRoundingKey) as Int? {
+        if let rounding = defaults.objectForKey(currentRoundingKey) as? Int {
             roundingSelection.selectedSegmentIndex = rounding
         }
         
@@ -180,12 +181,19 @@ class ViewController: UIViewController, UITableViewDataSource, UITextFieldDelega
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tipTableView.dequeueReusableCellWithIdentifier("Total Detail Cell") as TipTotalCell
-        if let (title, amount) = outputlabels[indexPath.row] as (String, String)? {
-            cell.titleLabel!.text = title
-            cell.numberLabel!.text = amount
+        if let cell = tipTableView.dequeueReusableCellWithIdentifier("Total Detail Cell") as? TipTotalCell {
+            if let (title, amount) = outputlabels[indexPath.row] as (String, String)? {
+                cell.titleLabel.text = title
+                cell.numberLabel.text = amount
+                return cell
+            } else {
+                cell.titleLabel.text = " "
+                cell.numberLabel.text = " "
+                return cell
+            }
+        } else {
+            return UITableViewCell()
         }
-        return cell
     }
     
     func bannerView(banner: ADBannerView!, didFailToReceiveAdWithError error: NSError!) {

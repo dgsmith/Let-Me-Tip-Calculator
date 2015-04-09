@@ -41,7 +41,7 @@ class InterfaceController: WKInterfaceController {
         super.awakeWithContext(context)
         // Configure interface objects here.
         //setTitle("Let Me Tip")
-        if let rounding = defaults.objectForKey(currentRoundingKey) as Int? {
+        if let rounding = defaults.objectForKey(currentRoundingKey) as? Int {
             currentRounding = rounding
             setMenuItems()
         } else {
@@ -145,19 +145,19 @@ class InterfaceController: WKInterfaceController {
     func reloadData() {
         defaults.synchronize()
         
-        if let receiptString = defaults.objectForKey(receiptTotalKey) as String? {
+        if let receiptString = defaults.objectForKey(receiptTotalKey) as? String {
             tipRows[0]["Receipt Total"] = receiptString
         }
-        if let taxString = defaults.objectForKey(taxPctKey) as String? {
+        if let taxString = defaults.objectForKey(taxPctKey) as? String {
             tipRows[1]["Tax Percentage"] = taxString
         }
-        if let tipString = defaults.objectForKey(tipPctKey) as String? {
+        if let tipString = defaults.objectForKey(tipPctKey) as? String {
             tipRows[2]["Tip Percentage"] = tipString
         }
-        if let tipAmtString = defaults.objectForKey(tipAmtKey) as String? {
+        if let tipAmtString = defaults.objectForKey(tipAmtKey) as? String {
             tipRows[3]["Tip Amount"] = tipAmtString
         }
-        if let tipAndTotalString = defaults.objectForKey(tipAndTotalKey) as String? {
+        if let tipAndTotalString = defaults.objectForKey(tipAndTotalKey) as? String {
             tipRows[4]["Total+Tip"] = tipAndTotalString
         }
 

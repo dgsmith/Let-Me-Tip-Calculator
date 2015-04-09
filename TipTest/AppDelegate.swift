@@ -42,10 +42,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
-    func application(application: UIApplication!, handleWatchKitExtensionRequest userInfo: [NSObject : AnyObject]!, reply: (([NSObject : AnyObject]!) -> Void)!) {
+    func application(application: UIApplication, handleWatchKitExtensionRequest userInfo: [NSObject : AnyObject]?, reply: (([NSObject : AnyObject]!) -> Void)!) {
         
-        if let tipInfo = userInfo["tipInfo"] as? [Dictionary<String,String>] {
-            if let roundingInfo = userInfo["roundingInfo"] as? Int {
+        if let tipInfo = userInfo?["tipInfo"] as? [Dictionary<String,String>] {
+            if let roundingInfo = userInfo?["roundingInfo"] as? Int {
                 if tipInfo[0].keys.array[0] == "Receipt Total" {
                     let total = (tipInfo[0].values.array[0].stringByReplacingOccurrencesOfString("$", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil) as NSString).doubleValue
                     let taxPct = (tipInfo[1].values.array[0].stringByReplacingOccurrencesOfString("%", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil) as NSString).doubleValue / 100.0
@@ -82,8 +82,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
             
         }
-        if let divideString = userInfo["divide"] as? String {
-            if let splitNum = userInfo["by"] as? Int {
+        if let divideString = userInfo?["divide"] as? String {
+            if let splitNum = userInfo?["by"] as? Int {
                 let cleanString1 = divideString.stringByReplacingOccurrencesOfString("$", withString: "")
                 let cleanString2 = cleanString1.stringByReplacingOccurrencesOfString(".", withString: "")
                 if let divideNum = cleanString2.toInt() {

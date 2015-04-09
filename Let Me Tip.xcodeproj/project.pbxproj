@@ -11,6 +11,7 @@
 		56113B941ABA1EFB00033BCB /* CalculationDetailInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56113B931ABA1EFB00033BCB /* CalculationDetailInterfaceController.swift */; };
 		56113B961ABA1F9700033BCB /* TotalOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56113B951ABA1F9700033BCB /* TotalOptionsViewController.swift */; };
 		5611C3031AC302ED006C899E /* TipTotalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5611C3021AC302ED006C899E /* TipTotalCell.swift */; };
+		561ACD601AD4B3190090849A /* TipCalcKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5671C9DB1AB869F400952EEB /* TipCalcKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		565449FF1AB8836E009FDFE9 /* TipDetailInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565449FE1AB8836E009FDFE9 /* TipDetailInterfaceController.swift */; };
 		56544A011AB888D9009FDFE9 /* TotalRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56544A001AB888D9009FDFE9 /* TotalRow.swift */; };
 		5671C9881AB79E9D00952EEB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5671C9871AB79E9D00952EEB /* AppDelegate.swift */; };
@@ -37,6 +38,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		561ACD611AD4B3190090849A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5671C97A1AB79E9D00952EEB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5671C9DA1AB869F400952EEB;
+			remoteInfo = TipCalcKit;
+		};
 		5671C9981AB79E9D00952EEB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 5671C97A1AB79E9D00952EEB /* Project object */;
@@ -75,6 +83,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		561ACD631AD4B3190090849A /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				561ACD601AD4B3190090849A /* TipCalcKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5671C9D31AB79F8E00952EEB /* Embed App Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -342,11 +361,13 @@
 				5671C97F1AB79E9D00952EEB /* Frameworks */,
 				5671C9801AB79E9D00952EEB /* Resources */,
 				5671C9D31AB79F8E00952EEB /* Embed App Extensions */,
+				561ACD631AD4B3190090849A /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				5671C9CB1AB79F8E00952EEB /* PBXTargetDependency */,
+				561ACD621AD4B3190090849A /* PBXTargetDependency */,
 			);
 			name = "Let Me Tip";
 			productName = TipTest;
@@ -447,7 +468,7 @@
 		5671C97A1AB79E9D00952EEB /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0620;
+				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = "Grayson Smith";
 				TargetAttributes = {
 					5671C9811AB79E9D00952EEB = {
@@ -614,6 +635,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		561ACD621AD4B3190090849A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5671C9DA1AB869F400952EEB /* TipCalcKit */;
+			targetProxy = 561ACD611AD4B3190090849A /* PBXContainerItemProxy */;
+		};
 		5671C9991AB79E9D00952EEB /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 5671C9811AB79E9D00952EEB /* Let Me Tip */;
@@ -877,7 +903,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
-				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -886,7 +911,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -909,7 +934,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
-				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -918,7 +942,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = NO;
 				INFOPLIST_FILE = TipCalcKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";

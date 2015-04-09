@@ -27,19 +27,19 @@ class CalculationDetailInterfaceController: WKInterfaceController {
         super.awakeWithContext(context)
         defaults.synchronize()
         
-        if let subtotal = defaults.objectForKey(subtotalKey) as String? {
+        if let subtotal = defaults.objectForKey(subtotalKey) as? String {
             subtotalLabel.setText(subtotal)
         }
-        if let tax = defaults.objectForKey(taxAmtKey) as String? {
+        if let tax = defaults.objectForKey(taxAmtKey) as? String {
             taxLabel.setText(tax)
         }
-        if let receipt = defaults.objectForKey(receiptTotalKey) as String? {
+        if let receipt = defaults.objectForKey(receiptTotalKey) as? String {
             receiptLabel.setText(receipt)
         }
-        if let tip = defaults.objectForKey(tipAmtKey) as String? {
+        if let tip = defaults.objectForKey(tipAmtKey) as? String {
             tipLabel.setText(tip)
         }
-        if let total = defaults.objectForKey(tipAndTotalKey) as String? {
+        if let total = defaults.objectForKey(tipAndTotalKey) as? String {
             totalLabel.setText(total)
         }
     }
