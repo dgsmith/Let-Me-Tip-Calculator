@@ -14,7 +14,9 @@ class InfoViewController: UIViewController, SKProductsRequestDelegate, SKPayment
     let defaults = NSUserDefaults(suiteName: "group.Let-Me-Tip")!
     let noAdsKey = "noAds"
     var productID: NSString?
+    
     @IBOutlet weak var removeAdsButton: UIButton!
+    @IBOutlet weak var restorePurchasesButton: UIButton!
     
     override func viewDidLoad() {
         productID = "com.grayson.Let_Me_Tip.remove_ads"
@@ -26,8 +28,10 @@ class InfoViewController: UIViewController, SKProductsRequestDelegate, SKPayment
             if noAds {
                 //hide purchase button
                 removeAdsButton.enabled = false
+                restorePurchasesButton.enabled = false
             } else {
                 removeAdsButton.enabled = true
+                restorePurchasesButton.enabled = true
             }
         }
     }
@@ -64,18 +68,16 @@ class InfoViewController: UIViewController, SKProductsRequestDelegate, SKPayment
         for transaction in transactions {
             if let trans = transaction as? SKPaymentTransaction {
                 switch trans.transactionState {
-                case .Purchased:
+                case .Purchased, .Restored:
                     println("Product purchased")
                     SKPaymentQueue.defaultQueue().finishTransaction(trans)
                     defaults.setBool(true, forKey: noAdsKey)
                     defaults.synchronize()
                     removeAdsButton.enabled = false
+                    restorePurchasesButton.enabled = false
                 case .Failed:
                     println("Purchase failed")
                     SKPaymentQueue.defaultQueue().finishTransaction(trans)
-                case .Restored:
-                    println("Already purchased")
-                    SKPaymentQueue.defaultQueue().restoreCompletedTransactions()
                 default:
                     break
                 }
@@ -85,6 +87,15 @@ class InfoViewController: UIViewController, SKProductsRequestDelegate, SKPayment
     
     @IBAction func InfoViewFinished(sender: AnyObject) {
         dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    @IBAction func restorePurchases(sender: AnyObject) {
+        println("About to restore products")
+        if SKPaymentQueue.canMakePayments() {
+            SKPaymentQueue.defaultQueue().restoreCompletedTransactions()
+        } else {
+            println("Can't make purchases")
+        }
     }
     
     @IBAction func removeAds(sender: AnyObject) {
