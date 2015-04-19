@@ -13,7 +13,7 @@ import TipCalcKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    var task: UIBackgroundTaskIdentifier!
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
@@ -44,62 +44,70 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, handleWatchKitExtensionRequest userInfo: [NSObject : AnyObject]?, reply: (([NSObject : AnyObject]!) -> Void)!) {
         
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
-            if let tipInfo = userInfo?["tipInfo"] as? [Dictionary<String,String>] {
-                if let roundingInfo = userInfo?["roundingInfo"] as? Int {
-                    if tipInfo[0].keys.array[0] == "Receipt Total" {
-                        let total = (tipInfo[0].values.array[0].stringByReplacingOccurrencesOfString("$", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil) as NSString).doubleValue
-                        let taxPct = (tipInfo[1].values.array[0].stringByReplacingOccurrencesOfString("%", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil) as NSString).doubleValue / 100.0
-                        let tipPct = (tipInfo[2].values.array[0].stringByReplacingOccurrencesOfString("%", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil) as NSString).doubleValue / 100.0
-                        let tipCalc = TipCalculatorModel(total: total, taxPct: taxPct)
-                        var tipAmt:Double, finalTotal:Double, newTipPct:Double
-                        switch roundingInfo {
-                        case 1: // no rounding
-                            (tipAmt, finalTotal) = tipCalc.calcTipWith(TipPct: tipPct)
-                            newTipPct = tipPct
-                        case 2: // rounded tip
-                            (tipAmt, finalTotal, newTipPct) = tipCalc.calcRoundedTipFrom(TipPct: tipPct)
-                        case 0: // rounded total
-                            (tipAmt, finalTotal, newTipPct) = tipCalc.calcRoundedTotalFrom(TipPct: tipPct)
-                        default:
-                            NSLog("incorrect rounding info!")
-                            (tipAmt, finalTotal) = tipCalc.calcTipWith(TipPct: tipPct)
-                            newTipPct = tipPct
-                        }
-                        
-                        
-                        let tipRows: [Dictionary<String,String>] = [
-                            ["Receipt Total":"$\(total)"],
-                            ["Tax Percentage":"\(Int(round(taxPct * 100.0)))" + "%"],
-                            ["Tip Percentage":String(format: "%2d", Int(round(newTipPct * 100.0))) + "%"],
-                            ["Tip Amount":"$" + tipAmt.format("0.2")],
-                            ["Total+Tip":"$" + finalTotal.format("0.2")],
-                            ["subtotal":String(format: "$%0.2f", tipCalc.subtotal)],
-                            ["taxAmt":String(format: "$%0.2f", tipCalc.taxAmt)]
-                        ]
-                        reply(["tipData":NSKeyedArchiver.archivedDataWithRootObject(tipRows)])
-                        return
+        self.task = UIApplication.sharedApplication().beginBackgroundTaskWithName("Calc Tip", expirationHandler: {
+                self.endBackgroundTask()
+        })
+        
+        if let tipInfo = userInfo?["tipInfo"] as? [Dictionary<String,String>] {
+            if let roundingInfo = userInfo?["roundingInfo"] as? Int {
+                if tipInfo[0].keys.array[0] == "Receipt Total" {
+                    let total = (tipInfo[0].values.array[0].stringByReplacingOccurrencesOfString("$", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil) as NSString).doubleValue
+                    let taxPct = (tipInfo[1].values.array[0].stringByReplacingOccurrencesOfString("%", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil) as NSString).doubleValue / 100.0
+                    let tipPct = (tipInfo[2].values.array[0].stringByReplacingOccurrencesOfString("%", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil) as NSString).doubleValue / 100.0
+                    let tipCalc = TipCalculatorModel(total: total, taxPct: taxPct)
+                    var tipAmt:Double, finalTotal:Double, newTipPct:Double
+                    switch roundingInfo {
+                    case 1: // no rounding
+                        (tipAmt, finalTotal) = tipCalc.calcTipWith(TipPct: tipPct)
+                        newTipPct = tipPct
+                    case 2: // rounded tip
+                        (tipAmt, finalTotal, newTipPct) = tipCalc.calcRoundedTipFrom(TipPct: tipPct)
+                    case 0: // rounded total
+                        (tipAmt, finalTotal, newTipPct) = tipCalc.calcRoundedTotalFrom(TipPct: tipPct)
+                    default:
+                        NSLog("incorrect rounding info!")
+                        (tipAmt, finalTotal) = tipCalc.calcTipWith(TipPct: tipPct)
+                        newTipPct = tipPct
                     }
-                }
-                
-            }
-            if let divideString = userInfo?["divide"] as? String {
-                if let splitNum = userInfo?["by"] as? Int {
-                    let cleanString1 = divideString.stringByReplacingOccurrencesOfString("$", withString: "")
-                    let cleanString2 = cleanString1.stringByReplacingOccurrencesOfString(".", withString: "")
-                    if let divideNum = cleanString2.toInt() {
-                        let newNumInt = divideNum / splitNum
-                        let newNum = Double(newNumInt) / 100.0
-                        let newString = String(format: "$%.2f", newNum)
-                        reply(["divided":NSKeyedArchiver.archivedDataWithRootObject(newString)])
-                        return
-                    }
+                    
+                    
+                    let tipRows: [Dictionary<String,String>] = [
+                        ["Receipt Total":"$\(total)"],
+                        ["Tax Percentage":"\(Int(round(taxPct * 100.0)))" + "%"],
+                        ["Tip Percentage":String(format: "%2d", Int(round(newTipPct * 100.0))) + "%"],
+                        ["Tip Amount":"$" + tipAmt.format("0.2")],
+                        ["Total+Tip":"$" + finalTotal.format("0.2")],
+                        ["subtotal":String(format: "$%0.2f", tipCalc.subtotal)],
+                        ["taxAmt":String(format: "$%0.2f", tipCalc.taxAmt)]
+                    ]
+                    reply(["tipData":NSKeyedArchiver.archivedDataWithRootObject(tipRows)])
+                    return
                 }
             }
-            reply([:])
             
         }
+        if let divideString = userInfo?["divide"] as? String {
+            if let splitNum = userInfo?["by"] as? Int {
+                let cleanString1 = divideString.stringByReplacingOccurrencesOfString("$", withString: "")
+                let cleanString2 = cleanString1.stringByReplacingOccurrencesOfString(".", withString: "")
+                if let divideNum = cleanString2.toInt() {
+                    let newNumInt = divideNum / splitNum
+                    let newNum = Double(newNumInt) / 100.0
+                    let newString = String(format: "$%.2f", newNum)
+                    reply(["divided":NSKeyedArchiver.archivedDataWithRootObject(newString)])
+                    return
+                }
+            }
+        }
+        reply([:])
         
+        //self.endBackgroundTask()
+    }
+    
+    func endBackgroundTask() {
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(2 * Double(NSEC_PER_SEC))), dispatch_get_main_queue()) {
+            UIApplication.sharedApplication().endBackgroundTask(self.task)
+        }
     }
     
 }
