@@ -191,6 +191,7 @@ class InterfaceController: WKInterfaceController {
                 }
             }
         })
+        self.reloadTable()
     }
     
     func setMenuItems() {

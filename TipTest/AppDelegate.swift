@@ -17,6 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
         return true
     }
 
@@ -48,40 +49,53 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 self.endBackgroundTask()
         })
         
+        var taxFormatter = NSNumberFormatter()
+        var tipFormatter = NSNumberFormatter()
+        taxFormatter.numberStyle = .PercentStyle
+        taxFormatter.maximumFractionDigits = 3
+        tipFormatter.numberStyle = .PercentStyle
+        tipFormatter.maximumFractionDigits = 2
+        
         if let tipInfo = userInfo?["tipInfo"] as? [Dictionary<String,String>] {
             if let roundingInfo = userInfo?["roundingInfo"] as? Int {
                 if tipInfo[0].keys.array[0] == "Receipt Total" {
                     let total = (tipInfo[0].values.array[0].stringByReplacingOccurrencesOfString("$", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil) as NSString).doubleValue
-                    let taxPct = (tipInfo[1].values.array[0].stringByReplacingOccurrencesOfString("%", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil) as NSString).doubleValue / 100.0
-                    let tipPct = (tipInfo[2].values.array[0].stringByReplacingOccurrencesOfString("%", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil) as NSString).doubleValue / 100.0
-                    let tipCalc = TipCalculatorModel(total: total, taxPct: taxPct)
-                    var tipAmt:Double, finalTotal:Double, newTipPct:Double
-                    switch roundingInfo {
-                    case 1: // no rounding
-                        (tipAmt, finalTotal) = tipCalc.calcTipWith(TipPct: tipPct)
-                        newTipPct = tipPct
-                    case 2: // rounded tip
-                        (tipAmt, finalTotal, newTipPct) = tipCalc.calcRoundedTipFrom(TipPct: tipPct)
-                    case 0: // rounded total
-                        (tipAmt, finalTotal, newTipPct) = tipCalc.calcRoundedTotalFrom(TipPct: tipPct)
-                    default:
-                        NSLog("incorrect rounding info!")
-                        (tipAmt, finalTotal) = tipCalc.calcTipWith(TipPct: tipPct)
-                        newTipPct = tipPct
+                    if let taxPct = taxFormatter.numberFromString(tipInfo[1].values.array[0]) as? Double {
+                        //(tipInfo[1].values.array[0].stringByReplacingOccurrencesOfString("%", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil) as NSString).doubleValue
+                        if let tipPct = tipFormatter.numberFromString(tipInfo[2].values.array[0]) as? Double {
+                            //(tipInfo[2].values.array[0].stringByReplacingOccurrencesOfString("%", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil) as NSString).doubleValue
+                            
+                            let tipCalc = TipCalculatorModel(total: total, taxPct: taxPct)
+                            var tipAmt:Double, finalTotal:Double, newTipPct:Double
+                            switch roundingInfo {
+                            case 1: // no rounding
+                                (tipAmt, finalTotal) = tipCalc.calcTipWith(TipPct: tipPct)
+                                newTipPct = tipPct
+                            case 2: // rounded tip
+                                (tipAmt, finalTotal, newTipPct) = tipCalc.calcRoundedTipFrom(TipPct: tipPct)
+                            case 0: // rounded total
+                                (tipAmt, finalTotal, newTipPct) = tipCalc.calcRoundedTotalFrom(TipPct: tipPct)
+                            default:
+                                NSLog("incorrect rounding info!")
+                                (tipAmt, finalTotal) = tipCalc.calcTipWith(TipPct: tipPct)
+                                newTipPct = tipPct
+                            }
+                            
+                            
+                            let tipRows: [Dictionary<String,String>] = [
+                                ["Receipt Total":"$\(total)"],
+                                ["Tax Percentage":taxFormatter.stringFromNumber(taxPct)!],
+                                ["Tip Percentage":tipFormatter.stringFromNumber(newTipPct)!],
+                                ["Tip Amount":"$" + tipAmt.format("0.2")],
+                                ["Total+Tip":"$" + finalTotal.format("0.2")],
+                                ["subtotal":String(format: "$%0.2f", tipCalc.subtotal)],
+                                ["taxAmt":String(format: "$%0.2f", tipCalc.taxAmt)]
+                            ]
+                            reply(["tipData":NSKeyedArchiver.archivedDataWithRootObject(tipRows)])
+                            return
+                            
+                        }
                     }
-                    
-                    
-                    let tipRows: [Dictionary<String,String>] = [
-                        ["Receipt Total":"$\(total)"],
-                        ["Tax Percentage":"\(Int(round(taxPct * 100.0)))" + "%"],
-                        ["Tip Percentage":String(format: "%2d", Int(round(newTipPct * 100.0))) + "%"],
-                        ["Tip Amount":"$" + tipAmt.format("0.2")],
-                        ["Total+Tip":"$" + finalTotal.format("0.2")],
-                        ["subtotal":String(format: "$%0.2f", tipCalc.subtotal)],
-                        ["taxAmt":String(format: "$%0.2f", tipCalc.taxAmt)]
-                    ]
-                    reply(["tipData":NSKeyedArchiver.archivedDataWithRootObject(tipRows)])
-                    return
                 }
             }
             

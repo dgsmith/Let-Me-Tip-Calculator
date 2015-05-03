@@ -26,12 +26,20 @@ class TipDetailInterfaceController: WKInterfaceController {
     var editTax = false
     var editTip = false
     
+    var taxFormatter = NSNumberFormatter()
+    var tipFormatter = NSNumberFormatter()
+    
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
         savedLabel.setHidden(true)
         editTotal = false
         editTax = false
         editTip = false
+        
+        taxFormatter.numberStyle = .PercentStyle
+        taxFormatter.maximumFractionDigits = 3
+        tipFormatter.numberStyle = .PercentStyle
+        tipFormatter.maximumFractionDigits = 2
         
         if let row = context as? Dictionary<String,String> {
             self.row = row
@@ -44,25 +52,27 @@ class TipDetailInterfaceController: WKInterfaceController {
                     case "Receipt Total":
                         self.editTotal = true;
                         newStr = valueString.stringByReplacingOccurrencesOfString("$", withString: "")
+                        updateLabel(newStr)
                     case "Tax Percentage":
                         self.editTax = true
-                        newStr = valueString.stringByReplacingOccurrencesOfString("%", withString: "")
-                        var currentString = newStr.stringByReplacingOccurrencesOfString(".", withString: "")
-                        var currentValue = (currentString as NSString).intValue
-                        var newValue: Double = Double(currentValue) / 100.0
-                        newStr = String(format: "%.2f", newValue)
+                        if let dbl = taxFormatter.numberFromString(valueString) as? Double {
+                            //newStr = valueString.stringByReplacingOccurrencesOfString("%", withString: "")
+                            newStr = String(format: "%0.3f", dbl * 100)
+                            updateLabel(newStr)
+                        }
                     case "Tip Percentage":
                         self.editTip = true
-                        newStr = valueString.stringByReplacingOccurrencesOfString("%", withString: "")
-                        var currentString = newStr.stringByReplacingOccurrencesOfString(".", withString: "")
-                        var currentValue = (currentString as NSString).intValue
-                        var newValue: Double = Double(currentValue) / 100.0
-                        newStr = String(format: "%.2f", newValue)
+                        if let dbl = tipFormatter.numberFromString(valueString) as? Double {
+                            //newStr = valueString.stringByReplacingOccurrencesOfString("%", withString: "")
+                            newStr = String(format: "%0.2f", dbl * 100)
+                            updateLabel(newStr)
+                        }
                     default:
                         newStr = "0.00"
+                        updateLabel(newStr)
                         NSLog("There's an error here")
                     }
-                    updateLabel(newStr)
+                    //updateLabel(newStr)
                 }
             }
             
@@ -122,13 +132,15 @@ class TipDetailInterfaceController: WKInterfaceController {
                 defaults.setObject(newStr, forKey: receiptTotalKey)
             } else if editTax {
                 defaults.removeObjectForKey(taxPctKey)
-                let temp = (str as NSString).doubleValue * 100.0
-                let newStr = String(format: "%d%%", Int(temp))
+                let temp = (str as NSString).doubleValue
+                //let newStr = String(format: "%0.3f%%", temp)
+                let newStr = taxFormatter.stringFromNumber(temp / 100)
                 defaults.setObject(newStr, forKey: taxPctKey)
             } else if editTip {
                 defaults.removeObjectForKey(tipPctKey)
-                let temp = (str as NSString).doubleValue * 100.0
-                let newStr = String(format: "%d%%", Int(temp))
+                let temp = (str as NSString).doubleValue
+                //let newStr = String(format: "%0.2f%%", temp)
+                let newStr = tipFormatter.stringFromNumber(temp / 100)
                 defaults.setObject(newStr, forKey: tipPctKey)
             } else {
                 NSLog("Error in edit mode")
@@ -138,7 +150,12 @@ class TipDetailInterfaceController: WKInterfaceController {
     }
     
     @IBAction func clearButtonHit() {
-        updateLabel("0.00")
+        if self.editTotal || self.editTip {
+            updateLabel("0.00")
+        } else if self.editTax {
+            updateLabel("0.000")
+        }
+        
     }
     
     func updateLabel(string: String) {
@@ -152,19 +169,26 @@ class TipDetailInterfaceController: WKInterfaceController {
         var currentString = outputString.stringByReplacingOccurrencesOfString(".", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil)
         var currentValue = (currentString as NSString).intValue
         var newValue = (currentValue * 10) + digit
-        var newString = String(format: "%.2f", Double(newValue)/100.0)
-        
-        updateLabel(newString)
+        if self.editTotal || self.editTip {
+            var newString = String(format: "%.2f", Double(newValue)/100.0)
+            updateLabel(newString)
+        } else if self.editTax {
+            var newString = String(format: "%.3f", Double(newValue)/1000.0)
+            updateLabel(newString)
+        }
     }
     
     func removeFromString() {
         var currentString = outputString.stringByReplacingOccurrencesOfString(".", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil)
         var currentValue = (currentString as NSString).intValue
         var newValue = (currentValue / 10)
-        var newString = String(format: "%.2f", Double(newValue)/100.0)
-        
-        updateLabel(newString)
-        
+        if self.editTotal || self.editTip {
+            var newString = String(format: "%.2f", Double(newValue)/100.0)
+            updateLabel(newString)
+        } else if self.editTax {
+            var newString = String(format: "%.3f", Double(newValue)/1000.0)
+            updateLabel(newString)
+        }
     }
     
 }
