@@ -43,6 +43,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITextFieldDelega
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let appDelegate:AppDelegate = UIApplication.sharedApplication().delegate! as! AppDelegate
+        appDelegate.myViewController = self
+        
         self.canDisplayBannerAds = true
         //defaults.setBool(true, forKey: noAdsKey)
         
@@ -70,7 +74,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITextFieldDelega
                 self.canDisplayBannerAds = true
             }
         }
-        
+        refreshUI()
     }
     
     override func didReceiveMemoryWarning() {
