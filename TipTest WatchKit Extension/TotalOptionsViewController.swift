@@ -18,7 +18,7 @@ class TotalOptionsViewController: WKInterfaceController {
     @IBOutlet weak var totalLabel: WKInterfaceLabel!
     @IBOutlet weak var newTotalLabel: WKInterfaceLabel!
     
-    let defaults = NSUserDefaults(suiteName: "group.Let-Me-Tip")!
+    let defaults = NSUserDefaults()
     let receiptTotalKey = "receiptTotal"
     let taxPctKey = "taxPct"
     let tipPctKey = "tipPct"
@@ -26,8 +26,12 @@ class TotalOptionsViewController: WKInterfaceController {
     let tipAndTotalKey = "tipAndTotal"
     let splitAmtKey = "splitAmt"
     
+    let numberFormatter = NSNumberFormatter()
+    
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
+        numberFormatter.numberStyle = .CurrencyStyle
+        numberFormatter.maximumFractionDigits = 2
         defaults.synchronize()
         
         if let sliderPos = defaults.objectForKey(splitAmtKey) as? Int {
@@ -45,6 +49,7 @@ class TotalOptionsViewController: WKInterfaceController {
         }
         defaults.removeObjectForKey(splitAmtKey)
         defaults.setObject(Int(value), forKey: splitAmtKey)
+        defaults.synchronize()
         updateDisplay()
     }
     
@@ -53,35 +58,22 @@ class TotalOptionsViewController: WKInterfaceController {
             if split < 1 {
                 split = 1
             }
-            if let tipAmt = defaults.objectForKey(tipAmtKey) as? String {
-                tipLabel.setText(tipAmt)
+            if let tipAmtString = defaults.objectForKey(tipAmtKey) as? String {
+                tipLabel.setText(tipAmtString)
                 // calculations
-                WKInterfaceController.openParentApplication(["divide":tipAmt, "by":split], reply: { (replyInfo, error) -> Void in
-                    if let divideData = replyInfo["divided"] as? NSData {
-                        if let newTipAmt = NSKeyedUnarchiver.unarchiveObjectWithData(divideData) as? String {
-                            //NSLog("got \(newTipAmt)")
-                            self.newTipLabel.setText(newTipAmt)
-                        }
-                    } else {
-                        NSLog("didn't get data")
-                    }
-                })
+                if let tipAmt = numberFormatter.numberFromString(tipAmtString) as? Double {
+                    newTipLabel.setText(numberFormatter.stringFromNumber(tipAmt / Double(split))!)
+                }
             }
-            if let totalAmt = defaults.objectForKey(tipAndTotalKey) as? String {
-                totalLabel.setText(totalAmt)
-                WKInterfaceController.openParentApplication(["divide":totalAmt, "by":split], reply: { (replyInfo, error) -> Void in
-                    if let divideData = replyInfo["divided"] as? NSData {
-                        if let newTotal = NSKeyedUnarchiver.unarchiveObjectWithData(divideData) as? String {
-                            //NSLog("got \(newTotal)")
-                            self.newTotalLabel.setText(newTotal)
-                        }
-                    } else {
-                        NSLog("didn't get data")
-                    }
-                })
+            if let totalAmtString = defaults.objectForKey(tipAndTotalKey) as? String {
+                totalLabel.setText(totalAmtString)
+                if let totalAmt = numberFormatter.numberFromString(totalAmtString) as? Double {
+                    newTotalLabel.setText(numberFormatter.stringFromNumber(totalAmt / Double(split))!)
+                }
             }            
         } else { // first time in here!
             defaults.setObject(1, forKey: splitAmtKey)
+            defaults.synchronize()
             updateDisplay()
         }
     }

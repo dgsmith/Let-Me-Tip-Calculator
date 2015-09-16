@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AgC-eL-Hgc">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="8152.3" systemVersion="14E46" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AgC-eL-Hgc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="3737"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8124.4"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="8077.2"/>
     </dependencies>
     <scenes>
         <!--Let Me Tip-->
@@ -21,7 +21,7 @@
                                             <label alignment="left" text="$35.26" id="Vx6-Gc-Ofx"/>
                                         </items>
                                         <connections>
-                                            <segue destination="kNt-mh-e3L" kind="push" identifier="TipDetails" id="Kia-dD-kcf"/>
+                                            <segue destination="rUM-de-pFf" kind="push" identifier="TipDetail" id="H71-JM-59F"/>
                                         </connections>
                                     </group>
                                     <connections>
@@ -74,112 +74,37 @@
             <point key="canvasLocation" x="220" y="345"/>
         </scene>
         <!--Tip Detail Interface Controller-->
-        <scene sceneID="hzX-fR-Nvp">
+        <scene sceneID="V6z-2z-UtE">
             <objects>
-                <controller id="kNt-mh-e3L" customClass="TipDetailInterfaceController" customModule="Let_Me_Tip_WatchKit_Extension">
+                <controller hidesWhenLoading="NO" id="rUM-de-pFf" customClass="TipDetailInterfaceController" customModule="Let_Me_Tip_WatchKit_Extension">
                     <items>
-                        <group width="1" alignment="right" id="tNY-BX-J0g">
+                        <group width="1" alignment="left" id="YLA-89-TYp">
                             <items>
-                                <label alignment="right" verticalAlignment="center" text="$100.00" textAlignment="right" id="Vhy-lF-oer"/>
-                                <button width="25" height="25" alignment="right" verticalAlignment="center" title="ⓧ" id="PNi-6g-MSB">
+                                <label alignment="left" verticalAlignment="center" text="$" id="W0y-Sx-JYy"/>
+                                <picker width="0.40000000000000002" height="100" alignment="left" focusStyle="stack" indicatorMode="shownWhileFocused" id="cxd-On-vzh">
                                     <connections>
-                                        <action selector="clearButtonHit" destination="kNt-mh-e3L" id="awC-0s-zWr"/>
+                                        <action selector="leftSidePickerItemChanged:" destination="rUM-de-pFf" id="peo-nN-e4p"/>
                                     </connections>
-                                </button>
-                                <label alignment="left" text="Saved!" id="h60-Mu-Yro">
-                                    <fontDescription key="font" style="UICTFontTextStyleCaption2"/>
-                                </label>
-                            </items>
-                        </group>
-                        <separator alignment="center" id="bNb-rc-w7K"/>
-                        <group width="1" height="0.80000000000000004" heightAdjustment="2" alignment="center" verticalAlignment="bottom" layout="vertical" id="9oc-bX-aJK">
-                            <items>
-                                <group width="1" height="0.25" alignment="center" id="Ugj-rj-jWF">
-                                    <items>
-                                        <button width="0.33000000000000002" height="1" alignment="left" verticalAlignment="bottom" title="7" id="PMy-kW-lR0">
-                                            <connections>
-                                                <action selector="sevenKeyHit" destination="kNt-mh-e3L" id="ZW1-MZ-sSQ"/>
-                                            </connections>
-                                        </button>
-                                        <button width="0.33000000000000002" height="1" alignment="center" verticalAlignment="bottom" title="8" id="WZq-DW-wxc">
-                                            <connections>
-                                                <action selector="eightKeyHit" destination="kNt-mh-e3L" id="yUT-kM-8Ls"/>
-                                            </connections>
-                                        </button>
-                                        <button width="0.33000000000000002" height="1" alignment="right" verticalAlignment="bottom" title="9" id="a7z-sx-pB4">
-                                            <connections>
-                                                <action selector="nineKeyHit" destination="kNt-mh-e3L" id="LLM-LC-Cfp"/>
-                                            </connections>
-                                        </button>
-                                    </items>
-                                </group>
-                                <group width="1" height="0.25" alignment="center" id="RA4-cX-GAG">
-                                    <items>
-                                        <button width="0.33000000000000002" height="1" alignment="left" verticalAlignment="bottom" title="4" id="3zh-3U-Wuq">
-                                            <connections>
-                                                <action selector="fourKeyHit" destination="kNt-mh-e3L" id="l6e-01-Sp4"/>
-                                            </connections>
-                                        </button>
-                                        <button width="0.33000000000000002" height="1" alignment="center" verticalAlignment="bottom" title="5" id="xLU-qO-QHn">
-                                            <connections>
-                                                <action selector="fiveKeyHit" destination="kNt-mh-e3L" id="AIn-9J-J2y"/>
-                                            </connections>
-                                        </button>
-                                        <button width="0.33000000000000002" height="1" alignment="right" verticalAlignment="bottom" title="6" id="RIG-f4-iCR">
-                                            <connections>
-                                                <action selector="sixKeyHit" destination="kNt-mh-e3L" id="XaI-Hw-DIg"/>
-                                            </connections>
-                                        </button>
-                                    </items>
-                                </group>
-                                <group width="1" height="0.25" alignment="center" id="Hbo-nZ-ZCw">
-                                    <items>
-                                        <button width="0.33000000000000002" height="1" alignment="left" verticalAlignment="bottom" title="1" id="E3L-JY-LAD">
-                                            <connections>
-                                                <action selector="oneKeyHit" destination="kNt-mh-e3L" id="0Rg-Et-8Ah"/>
-                                            </connections>
-                                        </button>
-                                        <button width="0.33000000000000002" height="1" alignment="center" verticalAlignment="bottom" title="2" id="XTO-k4-15x">
-                                            <connections>
-                                                <action selector="twoKeyHit" destination="kNt-mh-e3L" id="pno-fb-zro"/>
-                                            </connections>
-                                        </button>
-                                        <button width="0.33000000000000002" height="1" alignment="right" verticalAlignment="bottom" title="3" id="9eV-HR-EFM">
-                                            <connections>
-                                                <action selector="threeKeyHit" destination="kNt-mh-e3L" id="biv-fP-R8P"/>
-                                            </connections>
-                                        </button>
-                                    </items>
-                                </group>
-                                <group width="1" height="0.25" alignment="center" id="CGN-Hd-AKt">
-                                    <items>
-                                        <button width="0.33000000000000002" height="1" alignment="left" verticalAlignment="bottom" title="←" id="Eat-Zm-e6K">
-                                            <connections>
-                                                <action selector="backKeyHit" destination="kNt-mh-e3L" id="BoQ-8x-w0M"/>
-                                            </connections>
-                                        </button>
-                                        <button width="0.33000000000000002" height="1" alignment="center" verticalAlignment="bottom" title="0" id="1FD-jU-T39">
-                                            <connections>
-                                                <action selector="zeroKeyHit" destination="kNt-mh-e3L" id="rlr-8l-m5C"/>
-                                            </connections>
-                                        </button>
-                                        <button width="0.33000000000000002" height="1" alignment="right" verticalAlignment="bottom" title="✓" id="HWY-us-jJw">
-                                            <connections>
-                                                <action selector="checkKeyHit" destination="kNt-mh-e3L" id="4SZ-S0-8Qz"/>
-                                            </connections>
-                                        </button>
-                                    </items>
-                                </group>
+                                </picker>
+                                <label alignment="left" verticalAlignment="center" text="." id="WTd-JM-MSD"/>
+                                <picker width="0.40000000000000002" height="100" alignment="left" focusStyle="stack" indicatorMode="shownWhileFocused" id="3Oq-pi-x5t">
+                                    <connections>
+                                        <action selector="rightSidePickerItemChanged:" destination="rUM-de-pFf" id="ny5-h7-Bz4"/>
+                                    </connections>
+                                </picker>
+                                <label alignment="left" verticalAlignment="center" text="%" id="Urv-sf-1Oo"/>
                             </items>
                         </group>
                     </items>
                     <connections>
-                        <outlet property="outputLabel" destination="Vhy-lF-oer" id="rl5-KW-Zze"/>
-                        <outlet property="savedLabel" destination="h60-Mu-Yro" id="H16-NA-4k8"/>
+                        <outlet property="dollarSignLabel" destination="W0y-Sx-JYy" id="Sj3-tJ-wll"/>
+                        <outlet property="leftSidePicker" destination="cxd-On-vzh" id="EJt-vH-UJu"/>
+                        <outlet property="percentSignLabel" destination="Urv-sf-1Oo" id="S2J-oJ-IZ9"/>
+                        <outlet property="rightSidePicker" destination="3Oq-pi-x5t" id="iWH-Y0-qTw"/>
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="468" y="91"/>
+            <point key="canvasLocation" x="468" y="70.5"/>
         </scene>
         <!--Detail-->
         <scene sceneID="nh1-Jb-qo8">
@@ -282,7 +207,7 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="344" y="590"/>
+            <point key="canvasLocation" x="468" y="681.5"/>
         </scene>
     </scenes>
     <color key="tintColor" red="0.20392156862745098" green="0.66666666666666663" blue="0.86274509803921573" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

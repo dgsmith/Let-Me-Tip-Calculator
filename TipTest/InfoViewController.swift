@@ -13,7 +13,7 @@ class InfoViewController: UIViewController, SKProductsRequestDelegate, SKPayment
     
     let defaults = NSUserDefaults(suiteName: "group.Let-Me-Tip")!
     let noAdsKey = "noAds"
-    var productID: NSString?
+    var productID: String?
     
     @IBOutlet weak var removeAdsButton: UIButton!
     @IBOutlet weak var restorePurchasesButton: UIButton!
@@ -37,50 +37,47 @@ class InfoViewController: UIViewController, SKProductsRequestDelegate, SKPayment
     }
     
     func buyProduct(product: SKProduct) {
-        var payment = SKPayment(product: product)
+        let payment = SKPayment(product: product)
         SKPaymentQueue.defaultQueue().addTransactionObserver(self)
         SKPaymentQueue.defaultQueue().addPayment(payment)
     }
     
-    func productsRequest(request: SKProductsRequest!, didReceiveResponse response: SKProductsResponse!) {
-        println("Fetching products")
+    func productsRequest(request: SKProductsRequest, didReceiveResponse response: SKProductsResponse) {
+        print("Fetching products")
         
-        var count = response.products.count
+        let count = response.products.count
         if count > 0 {
-            if let validProduct = response.products[0] as? SKProduct {
-                if validProduct.productIdentifier == self.productID {
-                    self.buyProduct(validProduct)
-                }
+            let validProduct = response.products[0]
+            if validProduct == self.productID {
+                self.buyProduct(validProduct)
             }
         } else {
-            println("No products found")
+            print("No products found")
         }
     }
     
-    func request(request: SKRequest!, didFailWithError error: NSError!) {
+    func request(request: SKRequest, didFailWithError error: NSError) {
         NSLog(error.description)
-        println("Error fetching product information")
+        print("Error fetching product information")
     }
     
-    func paymentQueue(queue: SKPaymentQueue!, updatedTransactions transactions: [AnyObject]!) {
-        println("Received payment transaction response from Apple")
+    func paymentQueue(queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
+        print("Received payment transaction response from Apple")
         
         for transaction in transactions {
-            if let trans = transaction as? SKPaymentTransaction {
-                switch trans.transactionState {
-                case .Purchased, .Restored:
-                    println("Product purchased")
-                    SKPaymentQueue.defaultQueue().finishTransaction(trans)
-                    defaults.setBool(true, forKey: noAdsKey)
-                    defaults.synchronize()
-                    removeAdsButton.enabled = false
-                    restorePurchasesButton.enabled = false
-                case .Failed:
-                    println("Purchase failed")
-                    SKPaymentQueue.defaultQueue().finishTransaction(trans)
-                default:
-                    break
-                }
+            switch transaction.transactionState {
+            case .Purchased, .Restored:
+                print("Product purchased")
+                SKPaymentQueue.defaultQueue().finishTransaction(transaction)
+                defaults.setBool(true, forKey: noAdsKey)
+                defaults.synchronize()
+                removeAdsButton.enabled = false
+                restorePurchasesButton.enabled = false
+            case .Failed:
+                print("Purchase failed")
+                SKPaymentQueue.defaultQueue().finishTransaction(transaction)
+            default:
+                break
             }
         }
     }
@@ -90,24 +87,24 @@ class InfoViewController: UIViewController, SKProductsRequestDelegate, SKPayment
     }
     
     @IBAction func restorePurchases(sender: AnyObject) {
-        println("About to restore products")
+        print("About to restore products")
         if SKPaymentQueue.canMakePayments() {
             SKPaymentQueue.defaultQueue().restoreCompletedTransactions()
         } else {
-            println("Can't make purchases")
+            print("Can't make purchases")
         }
     }
     
     @IBAction func removeAds(sender: AnyObject) {
-        println("About to fetch products")
+        print("About to fetch products")
         // check if we're allowed to make the purchase
         if SKPaymentQueue.canMakePayments() {
-            var productID = Set(arrayLiteral: self.productID!)
-            var productsRequest = SKProductsRequest(productIdentifiers: productID)
+            let productID: Set<String> = Set(arrayLiteral: self.productID!)
+            let productsRequest = SKProductsRequest(productIdentifiers: productID)
             productsRequest.delegate = self
             productsRequest.start()
         } else {
-            println("Can't make purchases")
+            print("Can't make purchases")
         }
     }
 }

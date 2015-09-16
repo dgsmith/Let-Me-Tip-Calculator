@@ -7,17 +7,24 @@
 //
 
 import WatchKit
-import TipCalcKit
 
 class TipDetailInterfaceController: WKInterfaceController {
     
-    @IBOutlet weak var outputLabel: WKInterfaceLabel!
-    @IBOutlet weak var savedLabel: WKInterfaceLabel!
+    @IBOutlet var dollarSignLabel: WKInterfaceLabel!
+    @IBOutlet var leftSidePicker: WKInterfacePicker!
+    @IBOutlet var rightSidePicker: WKInterfacePicker!
+    @IBOutlet var percentSignLabel: WKInterfaceLabel!
+    
+    var leftSidePickerItems  = [WKPickerItem]()
+    var rightSidePickerItems = [WKPickerItem]()
+    
+    var leftIndex: Int = 0
+    var rightIndex: Int = 0
     
     var row: Dictionary<String,String>!
     var outputString: String!
     
-    let defaults = NSUserDefaults(suiteName: "group.Let-Me-Tip")!
+    let defaults = NSUserDefaults()
     let receiptTotalKey = "receiptTotal"
     let taxPctKey = "taxPct"
     let tipPctKey = "tipPct"
@@ -31,7 +38,6 @@ class TipDetailInterfaceController: WKInterfaceController {
     
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
-        savedLabel.setHidden(true)
         editTotal = false
         editTax = false
         editTip = false
@@ -47,148 +53,118 @@ class TipDetailInterfaceController: WKInterfaceController {
                 setTitle(keyString)
                 
                 if let valueString = self.row.values.first as String? {
-                    var newStr: String
                     switch keyString {
                     case "Receipt Total":
-                        self.editTotal = true;
-                        newStr = valueString.stringByReplacingOccurrencesOfString("$", withString: "")
-                        updateLabel(newStr)
+                        self.editTotal = true
+                        percentSignLabel.setHidden(true)
+                        dollarSignLabel.setHidden(false)
+                        let leftSidePickerItems: [WKPickerItem] = (0...999).map { i in
+                            let pickerItem = WKPickerItem()
+                            pickerItem.title = String(format: "%03i", i)
+                            pickerItem.caption = String(format: "%03i", i)
+                            return pickerItem
+                        }
+                        leftSidePicker.setItems(leftSidePickerItems)
+                        let rightSidePickerItems: [WKPickerItem] = (0...99).map { i in
+                            let pickerItem = WKPickerItem()
+                            pickerItem.title = String(format: "%02i", i)
+                            pickerItem.caption = String(format: "%02i", i)
+                            return pickerItem
+                        }
+                        rightSidePicker.setItems(rightSidePickerItems)
+                        let tempString = valueString.stringByReplacingOccurrencesOfString("$", withString: "")
+                        let tempStringArr = tempString.componentsSeparatedByString(".")
+                        leftIndex = Int(tempStringArr[0])!
+                        rightIndex = Int(tempStringArr[1])!
+                        leftSidePicker.setSelectedItemIndex(leftIndex)
+                        rightSidePicker.setSelectedItemIndex(rightIndex)
                     case "Tax Percentage":
                         self.editTax = true
-                        if let dbl = taxFormatter.numberFromString(valueString) as? Double {
-                            //newStr = valueString.stringByReplacingOccurrencesOfString("%", withString: "")
-                            newStr = String(format: "%0.3f", dbl * 100)
-                            updateLabel(newStr)
+                        percentSignLabel.setHidden(false)
+                        dollarSignLabel.setHidden(true)
+                        let leftSidePickerItems: [WKPickerItem] = (0...99).map { i in
+                            let pickerItem = WKPickerItem()
+                            pickerItem.title = String(format: "%02i", i)
+                            pickerItem.caption = String(format: "%02i", i)
+                            return pickerItem
+                        }
+                        leftSidePicker.setItems(leftSidePickerItems)
+                        let rightSidePickerItems: [WKPickerItem] = (0...999).map { i in
+                            let pickerItem = WKPickerItem()
+                            pickerItem.title = String(format: "%03i", i)
+                            pickerItem.caption = String(format: "%03i", i)
+                            return pickerItem
+                        }
+                        rightSidePicker.setItems(rightSidePickerItems)
+                        let tempString = valueString.stringByReplacingOccurrencesOfString("%", withString: "")
+                        let tempStringArr = tempString.componentsSeparatedByString(".")
+                        leftIndex = Int(tempStringArr[0])!
+                        leftSidePicker.setSelectedItemIndex(leftIndex)
+                        if tempStringArr.count > 1 {
+                            rightIndex = Int(tempStringArr[1])!
+                            rightSidePicker.setSelectedItemIndex(rightIndex)
+                        } else {
+                            rightIndex = 0
+                            rightSidePicker.setSelectedItemIndex(rightIndex)
                         }
                     case "Tip Percentage":
                         self.editTip = true
-                        if let dbl = tipFormatter.numberFromString(valueString) as? Double {
-                            //newStr = valueString.stringByReplacingOccurrencesOfString("%", withString: "")
-                            newStr = String(format: "%0.2f", dbl * 100)
-                            updateLabel(newStr)
+                        percentSignLabel.setHidden(false)
+                        dollarSignLabel.setHidden(true)
+                        let leftSidePickerItems: [WKPickerItem] = (0...99).map { i in
+                            let pickerItem = WKPickerItem()
+                            pickerItem.title = String(format: "%02i", i)
+                            pickerItem.caption = String(format: "%02i", i)
+                            return pickerItem
+                        }
+                        leftSidePicker.setItems(leftSidePickerItems)
+                        let rightSidePickerItems: [WKPickerItem] = (0...99).map { i in
+                            let pickerItem = WKPickerItem()
+                            pickerItem.title = String(format: "%02i", i)
+                            pickerItem.caption = String(format: "%02i", i)
+                            return pickerItem
+                        }
+                        rightSidePicker.setItems(rightSidePickerItems)
+                        let tempString = valueString.stringByReplacingOccurrencesOfString("%", withString: "")
+                        let tempStringArr = tempString.componentsSeparatedByString(".")
+                        leftIndex = Int(tempStringArr[0])!
+                        leftSidePicker.setSelectedItemIndex(leftIndex)
+                        if tempStringArr.count > 1 {
+                            rightIndex = Int(tempStringArr[1])!
+                            rightSidePicker.setSelectedItemIndex(rightIndex)
+                        } else {
+                            rightIndex = 0
+                            rightSidePicker.setSelectedItemIndex(rightIndex)
                         }
                     default:
-                        newStr = "0.00"
-                        updateLabel(newStr)
                         NSLog("There's an error here")
                     }
-                    //updateLabel(newStr)
                 }
             }
             
         }
     }
     
-    @IBAction func nineKeyHit() {
-        addToString(9);
+    @IBAction func leftSidePickerItemChanged(value: Int) {
+        self.leftIndex = value
     }
     
-    @IBAction func eightKeyHit() {
-        addToString(8)
+    @IBAction func rightSidePickerItemChanged(value: Int) {
+        self.rightIndex = value
     }
     
-    @IBAction func sevenKeyHit() {
-        addToString(7)
-    }
-    
-    @IBAction func sixKeyHit() {
-        addToString(6)
-    }
-    
-    @IBAction func fiveKeyHit() {
-        addToString(5)
-    }
-    
-    @IBAction func fourKeyHit() {
-        addToString(4)
-    }
-    
-    @IBAction func threeKeyHit() {
-        addToString(3)
-    }
-    
-    @IBAction func twoKeyHit() {
-        addToString(2)
-    }
-    
-    @IBAction func oneKeyHit() {
-        addToString(1)
-    }
-    
-    @IBAction func zeroKeyHit() {
-        addToString(0)
-    }
-    
-    @IBAction func backKeyHit() {
-        removeFromString()
-    }
-    
-    @IBAction func checkKeyHit() {
-        savedLabel.setHidden(false);
-        if let str = outputString {
-            if editTotal {
-                defaults.removeObjectForKey(receiptTotalKey)
-                let newStr = "$" + str
-                defaults.setObject(newStr, forKey: receiptTotalKey)
-            } else if editTax {
-                defaults.removeObjectForKey(taxPctKey)
-                let temp = (str as NSString).doubleValue
-                //let newStr = String(format: "%0.3f%%", temp)
-                let newStr = taxFormatter.stringFromNumber(temp / 100)
-                defaults.setObject(newStr, forKey: taxPctKey)
-            } else if editTip {
-                defaults.removeObjectForKey(tipPctKey)
-                let temp = (str as NSString).doubleValue
-                //let newStr = String(format: "%0.2f%%", temp)
-                let newStr = tipFormatter.stringFromNumber(temp / 100)
-                defaults.setObject(newStr, forKey: tipPctKey)
-            } else {
-                NSLog("Error in edit mode")
-            }
-            defaults.synchronize()
+    override func willDisappear() {
+        if editTotal {
+            let value = "$\(leftIndex).\(rightIndex)"
+            defaults.setObject(value, forKey: receiptTotalKey)
+        } else if editTip {
+            let value = "\(leftIndex).\(rightIndex)%"
+            defaults.setObject(value, forKey: tipPctKey)
+        } else if editTax {
+            let value = "\(leftIndex).\(rightIndex)%"
+            defaults.setObject(value, forKey: taxPctKey)
         }
-    }
-    
-    @IBAction func clearButtonHit() {
-        if self.editTotal || self.editTip {
-            updateLabel("0.00")
-        } else if self.editTax {
-            updateLabel("0.000")
-        }
-        
-    }
-    
-    func updateLabel(string: String) {
-        if let str = string as String? {
-            outputString = string
-            outputLabel.setText(str)
-        }
-    }
-    
-    func addToString(digit: Int!) {
-        var currentString = outputString.stringByReplacingOccurrencesOfString(".", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil)
-        var currentValue = (currentString as NSString).intValue
-        var newValue = (currentValue * 10) + digit
-        if self.editTotal || self.editTip {
-            var newString = String(format: "%.2f", Double(newValue)/100.0)
-            updateLabel(newString)
-        } else if self.editTax {
-            var newString = String(format: "%.3f", Double(newValue)/1000.0)
-            updateLabel(newString)
-        }
-    }
-    
-    func removeFromString() {
-        var currentString = outputString.stringByReplacingOccurrencesOfString(".", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil)
-        var currentValue = (currentString as NSString).intValue
-        var newValue = (currentValue / 10)
-        if self.editTotal || self.editTip {
-            var newString = String(format: "%.2f", Double(newValue)/100.0)
-            updateLabel(newString)
-        } else if self.editTax {
-            var newString = String(format: "%.3f", Double(newValue)/1000.0)
-            updateLabel(newString)
-        }
+        defaults.synchronize()
     }
     
 }

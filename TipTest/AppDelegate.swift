@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import TipCalcKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -46,14 +45,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
-    func application(application: UIApplication, handleWatchKitExtensionRequest userInfo: [NSObject : AnyObject]?, reply: (([NSObject : AnyObject]!) -> Void)!) {
+    func application(application: UIApplication, handleWatchKitExtensionRequest userInfo: [NSObject : AnyObject]?, reply: (([NSObject : AnyObject]?) -> Void)) {
         
         self.task = UIApplication.sharedApplication().beginBackgroundTaskWithName("Calc Tip", expirationHandler: {
                 self.endBackgroundTask()
         })
         
-        var taxFormatter = NSNumberFormatter()
-        var tipFormatter = NSNumberFormatter()
+        let taxFormatter = NSNumberFormatter()
+        let tipFormatter = NSNumberFormatter()
         taxFormatter.numberStyle = .PercentStyle
         taxFormatter.maximumFractionDigits = 3
         tipFormatter.numberStyle = .PercentStyle
@@ -61,11 +60,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         if let tipInfo = userInfo?["tipInfo"] as? [Dictionary<String,String>] {
             if let roundingInfo = userInfo?["roundingInfo"] as? Int {
-                if tipInfo[0].keys.array[0] == "Receipt Total" {
-                    let total = (tipInfo[0].values.array[0].stringByReplacingOccurrencesOfString("$", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil) as NSString).doubleValue
-                    if let taxPct = taxFormatter.numberFromString(tipInfo[1].values.array[0]) as? Double {
+                if Array(tipInfo[0].keys)[0] == "Receipt Total" {
+                    let total = (Array(tipInfo[0].values)[0].stringByReplacingOccurrencesOfString("$", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil) as NSString).doubleValue
+                    if let taxPct = taxFormatter.numberFromString(Array(tipInfo[1].values)[0]) as? Double {
                         //(tipInfo[1].values.array[0].stringByReplacingOccurrencesOfString("%", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil) as NSString).doubleValue
-                        if let tipPct = tipFormatter.numberFromString(tipInfo[2].values.array[0]) as? Double {
+                        if let tipPct = tipFormatter.numberFromString(Array(tipInfo[2].values)[0]) as? Double {
                             //(tipInfo[2].values.array[0].stringByReplacingOccurrencesOfString("%", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil) as NSString).doubleValue
                             
                             let tipCalc = TipCalculatorModel(total: total, taxPct: taxPct)
@@ -107,7 +106,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             if let splitNum = userInfo?["by"] as? Int {
                 let cleanString1 = divideString.stringByReplacingOccurrencesOfString("$", withString: "")
                 let cleanString2 = cleanString1.stringByReplacingOccurrencesOfString(".", withString: "")
-                if let divideNum = cleanString2.toInt() {
+                if let divideNum = Int(cleanString2) {
                     let newNumInt = divideNum / splitNum
                     let newNum = Double(newNumInt) / 100.0
                     let newString = String(format: "$%.2f", newNum)

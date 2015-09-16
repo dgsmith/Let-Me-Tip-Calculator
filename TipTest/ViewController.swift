@@ -8,7 +8,6 @@
 
 import UIKit
 import iAd
-import TipCalcKit
 
 extension Double {
     func format(f: String) -> String {
@@ -28,18 +27,20 @@ class ViewController: UIViewController, UITableViewDataSource, UITextFieldDelega
     var outputlabels:[(String,String)] = []
     
     let defaults = NSUserDefaults(suiteName: "group.Let-Me-Tip")!
-    let subtotalKey = "subtotal"
-    let receiptTotalKey = "receiptTotal"
-    let taxPctKey = "taxPct"
-    let taxAmtKey = "taxAmt"
-    let tipPctKey = "tipPct"
-    let tipAmtKey = "tipAmt"
-    let tipAndTotalKey = "tipAndTotal"
-    let currentRoundingKey = "currentRounding"
-    let noAdsKey = "noAds"
     
-    var taxFormatter = NSNumberFormatter()
-    var tipFormatter = NSNumberFormatter()
+    let subtotalKey         = "subtotal"
+    let receiptTotalKey     = "receiptTotal"
+    let taxPctKey           = "taxPct"
+    let taxAmtKey           = "taxAmt"
+    let tipPctKey           = "tipPct"
+    let tipAmtKey           = "tipAmt"
+    let tipAndTotalKey      = "tipAndTotal"
+    let currentRoundingKey  = "currentRounding"
+    let noAdsKey            = "noAds"
+    
+    var totalFormatter  = NSNumberFormatter()
+    var taxFormatter    = NSNumberFormatter()
+    var tipFormatter    = NSNumberFormatter()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,18 +51,18 @@ class ViewController: UIViewController, UITableViewDataSource, UITextFieldDelega
         self.canDisplayBannerAds = true
         //defaults.setBool(true, forKey: noAdsKey)
         
+        totalFormatter.numberStyle = .CurrencyStyle
+        totalFormatter.maximumFractionDigits = 2
         taxFormatter.numberStyle = .PercentStyle
         taxFormatter.maximumFractionDigits = 3
         tipFormatter.numberStyle = .PercentStyle
         tipFormatter.maximumFractionDigits = 2
         
-        // Do any additional setup after loading the view, typically from a nib.
-        
-        outputlabels.insert(("Subtotal:", " "), atIndex: 0)
-        outputlabels.insert(("Tax Amount:", " "), atIndex: 1)
-        outputlabels.insert(("Receipt Total:", " "), atIndex: 2)
-        outputlabels.insert(("Tip Amount: ", " "), atIndex: 3)
-        outputlabels.insert(("Final Total:", " "), atIndex: 4)
+        outputlabels.insert(("Subtotal:",       " "), atIndex: 0)
+        outputlabels.insert(("Tax Amount:",     " "), atIndex: 1)
+        outputlabels.insert(("Receipt Total:",  " "), atIndex: 2)
+        outputlabels.insert(("Tip Amount: ",    " "), atIndex: 3)
+        outputlabels.insert(("Final Total:",    " "), atIndex: 4)
         
         refreshUI()
     }
@@ -88,23 +89,29 @@ class ViewController: UIViewController, UITableViewDataSource, UITextFieldDelega
     
     func textFieldDidBeginEditing(textField: UITextField) {
         if textField.tag == 1 || textField.tag == 2 {
-            textField.text = textField.text.stringByReplacingOccurrencesOfString("%", withString: "")
+            textField.text = textField.text!.stringByReplacingOccurrencesOfString("%", withString: "")
+        } else {
+            textField.text = textField.text!.stringByReplacingOccurrencesOfString("$", withString: "")
         }
     }
     
     func textFieldDidEndEditing(textField: UITextField) {
         if textField.tag == 1 || textField.tag == 2 {
-            textField.text = textField.text + "%"
+            textField.text = textField.text! + "%"
+        } else {
+            textField.text = "$" + textField.text!
         }
     }
     
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
         if textField.tag == 0 {
             // update the string in the text input
-            var currentString = NSMutableString(string: textField.text)
+            let currentString = NSMutableString(string: textField.text!)
             currentString.replaceCharactersInRange(range, withString: string)
+            
             // strip out decimal
             currentString.replaceOccurrencesOfString(".", withString: "", options: NSStringCompareOptions.LiteralSearch, range: NSMakeRange(0, currentString.length))
+            
             // generate a new string
             let currentValue = currentString.intValue
             let newString = String(format: "%.2f", Double(currentValue) / 100.0)
@@ -115,60 +122,59 @@ class ViewController: UIViewController, UITableViewDataSource, UITextFieldDelega
     }
 
     @IBAction func calculateTapped(sender : AnyObject) {
+        // get the number pad out of the way
         receiptTotalTextField.resignFirstResponder()
         taxPctTextField.resignFirstResponder()
         tipPctTextField.resignFirstResponder()
-        
+        /*
         if let int = receiptTotalTextField.text.stringByReplacingOccurrencesOfString(".", withString: "").toInt() as Int? {
             tipCalc.total = Double(int) / 100.0
         }
         defaults.setObject("$" + receiptTotalTextField.text, forKey: receiptTotalKey)
-        
         defaults.setObject(roundingSelection.selectedSegmentIndex, forKey: currentRoundingKey)
-        
-        if let tipPct = tipFormatter.numberFromString(tipPctTextField.text) as? Double {
-            //Double(tipPctTextField.text.stringByReplacingOccurrencesOfString(".", withString: "").toInt()!) / 100.0
-            
-            if let taxPct = taxFormatter.numberFromString(taxPctTextField.text) as? Double {
-                tipCalc.taxPct = taxPct
-                let taxPctStr = taxPctTextField.text
-                
-                //Double(taxPctTextField.text.stringByReplacingOccurrencesOfString(".", withString: "").toInt()!) / 100.0
-                
-                
-                var tipAmt:Double, finalTotal:Double, newTipPct:Double
-                if roundingSelection.selectedSegmentIndex == 2 {
-                    (tipAmt, finalTotal, newTipPct) = tipCalc.calcRoundedTipFrom(TipPct: tipPct)
-                    //tipPct = newTipPct
-                } else if roundingSelection.selectedSegmentIndex == 0 {
-                    (tipAmt, finalTotal, newTipPct) = tipCalc.calcRoundedTotalFrom(TipPct: tipPct)
-                    //tipPct = newTipPct
-                } else {
-                    (tipAmt, finalTotal) = tipCalc.calcTipWith(TipPct: tipPct)
-                    newTipPct = tipPct
+        */
+        if let tipTotal = totalFormatter.numberFromString(receiptTotalTextField.text!) as? Double {  // total good?
+            if let tipPct = tipFormatter.numberFromString(tipPctTextField.text!) as? Double {        // tip good?
+                if let taxPct = taxFormatter.numberFromString(taxPctTextField.text!) as? Double {    // tax good?
+                    tipCalc.total = tipTotal
+                    tipCalc.taxPct = taxPct
+                    let taxPctStr = taxPctTextField.text!
+                    
+                    var tipAmt:Double, finalTotal:Double, newTipPct:Double
+                    if roundingSelection.selectedSegmentIndex == 2 {
+                        (tipAmt, finalTotal, newTipPct) = tipCalc.calcRoundedTipFrom(TipPct: tipPct)
+                        //tipPct = newTipPct
+                    } else if roundingSelection.selectedSegmentIndex == 0 {
+                        (tipAmt, finalTotal, newTipPct) = tipCalc.calcRoundedTotalFrom(TipPct: tipPct)
+                        //tipPct = newTipPct
+                    } else {
+                        (tipAmt, finalTotal) = tipCalc.calcTipWith(TipPct: tipPct)
+                        newTipPct = tipPct
+                    }
+                    
+                    let tipPctStr = tipFormatter.stringFromNumber(newTipPct)!
+                    
+                    // sub, tax, receipt, tip, total
+                    outputlabels[0] = ("Subtotal:", String(format: "$%0.2f", tipCalc.subtotal))
+                    outputlabels[1] = ("Tax Amount (\(taxPctStr)):", String(format: "$%0.2f", tipCalc.taxAmt))
+                    outputlabels[2] = ("Receipt Total:", String(format: "$%0.2f", tipCalc.total))
+                    outputlabels[3] = ("Tip Amount (\(tipPctStr)): ", String(format: "$%0.2f", tipAmt))
+                    outputlabels[4] = ("Final Total:", String(format: "$%0.2f", finalTotal))
+                    
+                    defaults.setObject(receiptTotalTextField.text, forKey: receiptTotalKey)
+                    defaults.setObject(roundingSelection.selectedSegmentIndex, forKey: currentRoundingKey)
+                    defaults.setObject(outputlabels[0].1, forKey: subtotalKey)
+                    defaults.setObject(outputlabels[1].1, forKey: taxAmtKey)
+                    defaults.setObject("\(taxPctStr)", forKey: taxPctKey)
+                    defaults.setObject("\(tipPctStr)", forKey: tipPctKey)
+                    defaults.setObject(outputlabels[3].1, forKey: tipAmtKey)
+                    defaults.setObject(outputlabels[4].1, forKey: tipAndTotalKey)
+                    
+                    defaults.synchronize()
+                    refreshUI()
+                    tipTableView.reloadData()
+                    
                 }
-                
-                let tipPctStr = tipFormatter.stringFromNumber(newTipPct)!
-                //(tipPct * 100.0).format(".0")
-                
-                // sub, tax, receipt, tip, total
-                outputlabels[0] = ("Subtotal:", String(format: "$%0.2f", tipCalc.subtotal))
-                outputlabels[1] = ("Tax Amount (\(taxPctStr)):", String(format: "$%0.2f", tipCalc.taxAmt))
-                outputlabels[2] = ("Receipt Total:", String(format: "$%0.2f", tipCalc.total))
-                outputlabels[3] = ("Tip Amount (\(tipPctStr)): ", String(format: "$%0.2f", tipAmt))
-                outputlabels[4] = ("Final Total:", String(format: "$%0.2f", finalTotal))
-                
-                defaults.setObject(outputlabels[0].1, forKey: subtotalKey)
-                defaults.setObject(outputlabels[1].1, forKey: taxAmtKey)
-                defaults.setObject("\(taxPctStr)", forKey: taxPctKey)
-                defaults.setObject("\(tipPctStr)", forKey: tipPctKey)
-                defaults.setObject(outputlabels[3].1, forKey: tipAmtKey)
-                defaults.setObject(outputlabels[4].1, forKey: tipAndTotalKey)
-                
-                defaults.synchronize()
-                refreshUI()
-                tipTableView.reloadData()
-                
             }
         }
         
@@ -182,13 +188,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITextFieldDelega
     
     func refreshUI() {
         if let str = defaults.objectForKey(receiptTotalKey) as? String {
-            if let convInt = str.stringByReplacingOccurrencesOfString("$", withString: "").stringByReplacingOccurrencesOfString(".", withString: "").toInt() as Int? {
-                let dbl = Double(convInt) / 100.0
-                receiptTotalTextField.text = String(format: "%0.2f", dbl)
+            receiptTotalTextField.text = str
+            if let dbl = totalFormatter.numberFromString(str) as? Double {
                 tipCalc.total = dbl
             }
         } else {
-            receiptTotalTextField.text = String(format: "%0.2f", tipCalc.total)
+            receiptTotalTextField.text = totalFormatter.stringFromNumber(tipCalc.total)!
         }
         
         if let str = defaults.objectForKey(taxPctKey) as? String {
@@ -197,13 +202,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITextFieldDelega
                 tipCalc.taxPct = dbl
             }
         } else {
-            taxPctTextField.text = String(format: "%0.2f", tipCalc.taxPct)
+            taxPctTextField.text = tipFormatter.stringFromNumber(tipCalc.taxPct)!
         }
         
         if let str = defaults.objectForKey(tipPctKey) as? String {
             tipPctTextField.text = str
         } else {
-            tipPctTextField.text = "0.15"
+            tipPctTextField.text = "15%"
         }
         
         if let rounding = defaults.objectForKey(currentRoundingKey) as? Int {
@@ -241,7 +246,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITextFieldDelega
     }
     
     func bannerView(banner: ADBannerView!, didFailToReceiveAdWithError error: NSError!) {
-        println(error.description)
+        print(error.description)
     }
     
 }

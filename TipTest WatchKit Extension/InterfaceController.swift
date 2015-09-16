@@ -17,7 +17,7 @@ class InterfaceController: WKInterfaceController {
     
     @IBOutlet weak var tipTable: WKInterfaceTable!
     
-    let defaults = NSUserDefaults(suiteName: "group.Let-Me-Tip")!
+    let defaults = NSUserDefaults()
     let subtotalKey = "subtotal"
     let receiptTotalKey = "receiptTotal"
     let taxPctKey = "taxPct"
@@ -28,6 +28,12 @@ class InterfaceController: WKInterfaceController {
     let currentRoundingKey = "currentRounding"
     
     var currentRounding = 1 // 0 = total, 1 = none, 2 = tip
+    
+    let tipCalc = TipCalculatorModel(total: 35.26, taxPct: 0.06)
+    
+    let totalFormatter = NSNumberFormatter()
+    let taxFormatter   = NSNumberFormatter()
+    let tipFormatter   = NSNumberFormatter()
     
     var tipRows: [Dictionary<String,String>] = [
         ["Receipt Total":"$35.26"],
@@ -40,7 +46,6 @@ class InterfaceController: WKInterfaceController {
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
         // Configure interface objects here.
-        //setTitle("Let Me Tip")
         if let rounding = defaults.objectForKey(currentRoundingKey) as? Int {
             currentRounding = rounding
             setMenuItems()
@@ -48,13 +53,26 @@ class InterfaceController: WKInterfaceController {
             currentRounding = 1
             setMenuItems()
         }
+        
+        totalFormatter.numberStyle = .CurrencyStyle
+        totalFormatter.maximumFractionDigits = 2
+        taxFormatter.numberStyle = .PercentStyle
+        taxFormatter.maximumFractionDigits = 3
+        tipFormatter.numberStyle = .PercentStyle
+        tipFormatter.maximumFractionDigits = 2
+        
+//        to fix things...
+//        defaults.setObject("$35.26", forKey: receiptTotalKey)
+//        defaults.setObject("0.08%", forKey: taxPctKey)
+//        defaults.setObject("0.15%", forKey: tipPctKey)
+        
         // calculate!
         reloadData()
     }
-
-    override func willActivate() {
+    
+    override func didAppear() {
         // This method is called when watch view controller is about to be visible to user
-        super.willActivate()
+        super.didAppear()
         reloadData()
     }
 
@@ -107,11 +125,11 @@ class InterfaceController: WKInterfaceController {
     }
     
     override func contextForSegueWithIdentifier(segueIdentifier: String, inTable table: WKInterfaceTable, rowIndex: Int) -> AnyObject? {
-        if segueIdentifier == "TipDetails" {
+        if segueIdentifier == "TipDetail" {
             let tipRow = tipRows[rowIndex]
             return tipRow
         }
-        if segueIdentifier == "CalcDetails" {
+        if segueIdentifier == "CalcDetail" {
             let tipRow = tipRows[rowIndex]
             return tipRow
         }
@@ -128,69 +146,69 @@ class InterfaceController: WKInterfaceController {
         
         for i in 0..<tipRows.count {
             if let row = tipTable.rowControllerAtIndex(i) as? TipRow {
-                row.titleLabel.setText(tipRows[i].keys.array[0])
-                row.detailLabel.setText(tipRows[i].values.array[0])
+                row.titleLabel.setText(Array(tipRows[i].keys)[0])
+                row.detailLabel.setText(Array(tipRows[i].values)[0])
+//                print(Array(tipRows[i].keys)[0])
+//                print(Array(tipRows[i].values)[0])
             }
             if let row = tipTable.rowControllerAtIndex(i) as? CalcRow {
-                row.titleLabel.setText(tipRows[i].keys.array[0])
-                row.detailLabel.setText(tipRows[i].values.array[0])
+                row.titleLabel.setText(Array(tipRows[i].keys)[0])
+                row.detailLabel.setText(Array(tipRows[i].values)[0])
+//                print(Array(tipRows[i].keys)[0])
+//                print(Array(tipRows[i].values)[0])
             }
             if let row = tipTable.rowControllerAtIndex(i) as? TotalRow {
-                row.titleLabel.setText(tipRows[i].keys.array[0])
-                row.detailLabel.setText(tipRows[i].values.array[0])
+                row.titleLabel.setText(Array(tipRows[i].keys)[0])
+                row.detailLabel.setText(Array(tipRows[i].values)[0])
+//                print(Array(tipRows[i].keys)[0])
+//                print(Array(tipRows[i].values)[0])
             }
         }
     }
     
     func reloadData() {
         defaults.synchronize()
-        
-        if let receiptString = defaults.objectForKey(receiptTotalKey) as? String {
-            tipRows[0]["Receipt Total"] = receiptString
-        }
-        if let taxString = defaults.objectForKey(taxPctKey) as? String {
-            tipRows[1]["Tax Percentage"] = taxString
-        }
-        if let tipString = defaults.objectForKey(tipPctKey) as? String {
-            tipRows[2]["Tip Percentage"] = tipString
-        }
-        if let tipAmtString = defaults.objectForKey(tipAmtKey) as? String {
-            tipRows[3]["Tip Amount"] = tipAmtString
-        }
-        if let tipAndTotalString = defaults.objectForKey(tipAndTotalKey) as? String {
-            tipRows[4]["Total+Tip"] = tipAndTotalString
-        }
-
-        WKInterfaceController.openParentApplication(["tipInfo":tipRows, "roundingInfo":currentRounding], reply: { (replyInfo, error) -> Void in
-            if let tipData = replyInfo["tipData"] as? NSData {
-                if let tipInfo = NSKeyedUnarchiver.unarchiveObjectWithData(tipData) as? [Dictionary<String,String>] {
-                    //self.tipRows[0]["Receipt Total"]  = tipInfo[0]["Receipt Total"]
-                    //self.tipRows[1]["Tax Percentage"] = tipInfo[1]["Tax Percentage"]
-                    self.tipRows[2]["Tip Percentage"] = tipInfo[2]["Tip Percentage"]
-                    self.tipRows[3]["Tip Amount"]     = tipInfo[3]["Tip Amount"]
-                    self.tipRows[4]["Total+Tip"]      = tipInfo[4]["Total+Tip"]
-                    
-                    //self.defaults.removeObjectForKey(self.receiptTotalKey)
-                    //self.defaults.removeObjectForKey(self.taxPctKey)
-                    self.defaults.removeObjectForKey(self.tipPctKey)
-                    self.defaults.removeObjectForKey(self.tipAmtKey)
-                    self.defaults.removeObjectForKey(self.tipAndTotalKey)
-                    self.defaults.removeObjectForKey(self.subtotalKey)
-                    self.defaults.removeObjectForKey(self.taxAmtKey)
-                    
-                    //self.defaults.setObject(tipInfo[0]["Receipt Total"], forKey: self.receiptTotalKey)
-                    //self.defaults.setObject(tipInfo[1]["Tax Percentage"], forKey: self.taxPctKey)
-                    self.defaults.setObject(tipInfo[2]["Tip Percentage"], forKey: self.tipPctKey)
-                    self.defaults.setObject(tipInfo[3]["Tip Amount"], forKey: self.tipAmtKey)
-                    self.defaults.setObject(tipInfo[4]["Total+Tip"], forKey: self.tipAndTotalKey)
-                    self.defaults.setObject(tipInfo[5]["subtotal"], forKey: self.subtotalKey)
-                    self.defaults.setObject(tipInfo[6]["taxAmt"], forKey: self.taxAmtKey)
-                    
-                    self.defaults.synchronize()
-                    self.reloadTable()
-                }
+        if let receiptTotalString = defaults.objectForKey(receiptTotalKey) as? String, taxPctString = defaults.objectForKey(taxPctKey) as? String {
+            if let receiptTotal = totalFormatter.numberFromString(receiptTotalString) as? Double, taxPct = taxFormatter.numberFromString(taxPctString) as? Double {
+                tipCalc.receiptTotal = receiptTotal
+                tipCalc.taxPct = taxPct
             }
-        })
+        } else {
+            tipCalc.receiptTotal = 35.26
+            tipCalc.taxPct = 0.06
+        }
+        
+        if let tipString = defaults.objectForKey(tipPctKey) as? String, tipPct = tipFormatter.numberFromString(tipString) as? Double {
+            tipCalc.tipPct = tipPct
+        } else {
+            tipCalc.tipPct = 0.15
+        }
+        
+        switch currentRounding {
+        case 1: // no rounding
+            tipCalc.calcTipWith(TipPct: tipCalc.tipPct)
+        case 2: // rounded tip
+            tipCalc.calcRoundedTipFrom(TipPct: tipCalc.tipPct)
+        case 0: // rounded total
+            tipCalc.calcRoundedTotalFrom(TipPct: tipCalc.tipPct)
+        default:
+            print("incorrect rounding info!", terminator: "\n")
+            tipCalc.calcTipWith(TipPct: tipCalc.tipPct)
+        }
+        
+        tipRows[0]["Receipt Total"]     = totalFormatter.stringFromNumber(tipCalc.receiptTotal)!
+        tipRows[1]["Tax Percentage"]    = taxFormatter.stringFromNumber(tipCalc.taxPct)!
+        tipRows[2]["Tip Percentage"]    = tipFormatter.stringFromNumber(tipCalc.tipPct)!
+        tipRows[3]["Tip Amount"]        = totalFormatter.stringFromNumber(tipCalc.tipAmt)!
+        tipRows[4]["Total+Tip"]         = totalFormatter.stringFromNumber(tipCalc.total)!
+    
+        defaults.setObject(tipRows[2]["Tip Percentage"], forKey: tipPctKey)
+        defaults.setObject(tipRows[3]["Tip Amount"], forKey: tipAmtKey)
+        defaults.setObject(tipRows[4]["Total+Tip"], forKey: tipAndTotalKey)
+        defaults.setObject(totalFormatter.stringFromNumber(tipCalc.subtotal)!, forKey: subtotalKey)
+        defaults.setObject(String(format: "$%0.2f", tipCalc.taxAmt), forKey: taxAmtKey)
+
+        defaults.synchronize()
         self.reloadTable()
     }
     
