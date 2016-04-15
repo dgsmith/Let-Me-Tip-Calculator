@@ -141,11 +141,8 @@
 		5671C9791AB79E9D00952EEB = {
 			isa = PBXGroup;
 			children = (
-				56BD226C1B53533500051358 /* Let Me Tip WatchKit App.entitlements */,
-				5689BBE31ACF6EA7003B4621 /* StoreKit.framework */,
-				5689BBDF1ACCE27E003B4621 /* iAd.framework */,
-				5689BBDE1ACCDBFE003B4621 /* Let Me Tip WatchKit Extension.entitlements */,
-				5689BBDD1ACCDB20003B4621 /* Let Me Tip.entitlements */,
+				56FB61C41CC1A3F300D5BC57 /* Entitlements */,
+				56FB61C31CC1A3E600D5BC57 /* Frameworks */,
 				5671C9841AB79E9D00952EEB /* TipTest */,
 				5671C9B21AB79F8E00952EEB /* TipTest WatchKit Extension */,
 				5671C9C21AB79F8E00952EEB /* TipTest WatchKit App */,
@@ -229,6 +226,25 @@
 				5671C9C41AB79F8E00952EEB /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		56FB61C31CC1A3E600D5BC57 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5689BBE31ACF6EA7003B4621 /* StoreKit.framework */,
+				5689BBDF1ACCE27E003B4621 /* iAd.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		56FB61C41CC1A3F300D5BC57 /* Entitlements */ = {
+			isa = PBXGroup;
+			children = (
+				56BD226C1B53533500051358 /* Let Me Tip WatchKit App.entitlements */,
+				5689BBDE1ACCDBFE003B4621 /* Let Me Tip WatchKit Extension.entitlements */,
+				5689BBDD1ACCDB20003B4621 /* Let Me Tip.entitlements */,
+			);
+			name = Entitlements;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
