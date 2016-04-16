@@ -215,21 +215,21 @@ class InterfaceController: WKInterfaceController {
     func setMenuItems() {
         switch currentRounding {
         case 1: // None
-            addMenuItemWithItemIcon(.Accept, title: "Normal", action: Selector("noRoundingAction"))
-            addMenuItemWithItemIcon(.Decline, title: "Tip Round", action: Selector("roundTipAction"))
-            addMenuItemWithItemIcon(.Decline, title: "Total Round", action: Selector("roundTotalAction"))
+            addMenuItemWithItemIcon(.Accept, title: "Normal", action: #selector(InterfaceController.noRoundingAction))
+            addMenuItemWithItemIcon(.Decline, title: "Tip Round", action: #selector(InterfaceController.roundTipAction))
+            addMenuItemWithItemIcon(.Decline, title: "Total Round", action: #selector(InterfaceController.roundTotalAction))
         case 2: // Tip
-            addMenuItemWithItemIcon(.Decline, title: "Normal", action: Selector("noRoundingAction"))
-            addMenuItemWithItemIcon(.Accept, title: "Tip Round", action: Selector("roundTipAction"))
-            addMenuItemWithItemIcon(.Decline, title: "Total Round", action: Selector("roundTotalAction"))
+            addMenuItemWithItemIcon(.Decline, title: "Normal", action: #selector(InterfaceController.noRoundingAction))
+            addMenuItemWithItemIcon(.Accept, title: "Tip Round", action: #selector(InterfaceController.roundTipAction))
+            addMenuItemWithItemIcon(.Decline, title: "Total Round", action: #selector(InterfaceController.roundTotalAction))
         case 0: // Total
-            addMenuItemWithItemIcon(.Decline, title: "Normal", action: Selector("noRoundingAction"))
-            addMenuItemWithItemIcon(.Decline, title: "Tip Round", action: Selector("roundTipAction"))
-            addMenuItemWithItemIcon(.Accept, title: "Total Round", action: Selector("roundTotalAction"))
+            addMenuItemWithItemIcon(.Decline, title: "Normal", action: #selector(InterfaceController.noRoundingAction))
+            addMenuItemWithItemIcon(.Decline, title: "Tip Round", action: #selector(InterfaceController.roundTipAction))
+            addMenuItemWithItemIcon(.Accept, title: "Total Round", action: #selector(InterfaceController.roundTotalAction))
         default:
-            addMenuItemWithItemIcon(.Accept, title: "Normal", action: Selector("noRoundingAction"))
-            addMenuItemWithItemIcon(.Decline, title: "Tip Round", action: Selector("roundTipAction"))
-            addMenuItemWithItemIcon(.Decline, title: "Total Round", action: Selector("roundTotalAction"))
+            addMenuItemWithItemIcon(.Accept, title: "Normal", action: #selector(InterfaceController.noRoundingAction))
+            addMenuItemWithItemIcon(.Decline, title: "Tip Round", action: #selector(InterfaceController.roundTipAction))
+            addMenuItemWithItemIcon(.Decline, title: "Total Round", action: #selector(InterfaceController.roundTotalAction))
             NSLog("error in menu items")
         }
         

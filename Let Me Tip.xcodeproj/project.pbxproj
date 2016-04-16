@@ -11,6 +11,7 @@
 		56113B941ABA1EFB00033BCB /* CalculationDetailInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56113B931ABA1EFB00033BCB /* CalculationDetailInterfaceController.swift */; };
 		56113B961ABA1F9700033BCB /* TotalOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56113B951ABA1F9700033BCB /* TotalOptionsViewController.swift */; };
 		5611C3031AC302ED006C899E /* TipTotalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5611C3021AC302ED006C899E /* TipTotalCell.swift */; };
+		5617726F1CC28EEC00AC27F2 /* TipData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5617726E1CC28EEC00AC27F2 /* TipData.swift */; };
 		565449FF1AB8836E009FDFE9 /* TipDetailInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565449FE1AB8836E009FDFE9 /* TipDetailInterfaceController.swift */; };
 		56544A011AB888D9009FDFE9 /* TotalRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56544A001AB888D9009FDFE9 /* TotalRow.swift */; };
 		5671C9881AB79E9D00952EEB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5671C9871AB79E9D00952EEB /* AppDelegate.swift */; };
@@ -23,9 +24,7 @@
 		5671C9C71AB79F8E00952EEB /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5671C9C51AB79F8E00952EEB /* Interface.storyboard */; };
 		5671C9C91AB79F8E00952EEB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5671C9C81AB79F8E00952EEB /* Images.xcassets */; };
 		5671C9D51AB7A5CF00952EEB /* TipRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5671C9D41AB7A5CF00952EEB /* TipRow.swift */; };
-		5689BBE01ACCE27E003B4621 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5689BBDF1ACCE27E003B4621 /* iAd.framework */; };
 		5689BBE21ACF66D4003B4621 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5689BBE11ACF66D4003B4621 /* InfoViewController.swift */; };
-		5689BBE41ACF6EA7003B4621 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5689BBE31ACF6EA7003B4621 /* StoreKit.framework */; };
 		56BD22621B522A1F00051358 /* Let Me Tip WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 5671C9B11AB79F8E00952EEB /* Let Me Tip WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		56BD22651B522A1F00051358 /* Let Me Tip WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 5671C9BE1AB79F8E00952EEB /* Let Me Tip WatchKit App.app */; };
 		56BD22691B522A5000051358 /* TipCalculatorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BD22681B522A5000051358 /* TipCalculatorModel.swift */; };
@@ -89,6 +88,7 @@
 		56113B931ABA1EFB00033BCB /* CalculationDetailInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculationDetailInterfaceController.swift; sourceTree = "<group>"; };
 		56113B951ABA1F9700033BCB /* TotalOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TotalOptionsViewController.swift; sourceTree = "<group>"; };
 		5611C3021AC302ED006C899E /* TipTotalCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipTotalCell.swift; sourceTree = "<group>"; };
+		5617726E1CC28EEC00AC27F2 /* TipData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipData.swift; sourceTree = "<group>"; };
 		565449FE1AB8836E009FDFE9 /* TipDetailInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipDetailInterfaceController.swift; sourceTree = "<group>"; };
 		56544A001AB888D9009FDFE9 /* TotalRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TotalRow.swift; sourceTree = "<group>"; };
 		5671C9821AB79E9D00952EEB /* Let Me Tip.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Let Me Tip.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -110,9 +110,7 @@
 		5671C9D41AB7A5CF00952EEB /* TipRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipRow.swift; sourceTree = "<group>"; };
 		5689BBDD1ACCDB20003B4621 /* Let Me Tip.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Let Me Tip.entitlements"; sourceTree = "<group>"; };
 		5689BBDE1ACCDBFE003B4621 /* Let Me Tip WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Let Me Tip WatchKit Extension.entitlements"; sourceTree = "<group>"; };
-		5689BBDF1ACCE27E003B4621 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		5689BBE11ACF66D4003B4621 /* InfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
-		5689BBE31ACF6EA7003B4621 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		56BD22681B522A5000051358 /* TipCalculatorModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipCalculatorModel.swift; sourceTree = "<group>"; };
 		56BD226A1B522AC400051358 /* TipCalculatorModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipCalculatorModel.swift; sourceTree = "<group>"; };
 		56BD226C1B53533500051358 /* Let Me Tip WatchKit App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Let Me Tip WatchKit App.entitlements"; sourceTree = "<group>"; };
@@ -123,8 +121,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5689BBE41ACF6EA7003B4621 /* StoreKit.framework in Frameworks */,
-				5689BBE01ACCE27E003B4621 /* iAd.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -142,7 +138,6 @@
 			isa = PBXGroup;
 			children = (
 				56FB61C41CC1A3F300D5BC57 /* Entitlements */,
-				56FB61C31CC1A3E600D5BC57 /* Frameworks */,
 				5671C9841AB79E9D00952EEB /* TipTest */,
 				5671C9B21AB79F8E00952EEB /* TipTest WatchKit Extension */,
 				5671C9C21AB79F8E00952EEB /* TipTest WatchKit App */,
@@ -164,6 +159,7 @@
 			isa = PBXGroup;
 			children = (
 				56BD22681B522A5000051358 /* TipCalculatorModel.swift */,
+				5617726E1CC28EEC00AC27F2 /* TipData.swift */,
 				5671C9871AB79E9D00952EEB /* AppDelegate.swift */,
 				5671C9A71AB79F0500952EEB /* ViewController.swift */,
 				5689BBE11ACF66D4003B4621 /* InfoViewController.swift */,
@@ -226,15 +222,6 @@
 				5671C9C41AB79F8E00952EEB /* Info.plist */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		56FB61C31CC1A3E600D5BC57 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				5689BBE31ACF6EA7003B4621 /* StoreKit.framework */,
-				5689BBDF1ACCE27E003B4621 /* iAd.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		56FB61C41CC1A3F300D5BC57 /* Entitlements */ = {
@@ -325,6 +312,9 @@
 							com.apple.GameCenter = {
 								enabled = 0;
 							};
+							com.apple.InAppPurchase = {
+								enabled = 0;
+							};
 						};
 					};
 					5671C9B01AB79F8E00952EEB = {
@@ -410,6 +400,7 @@
 				5689BBE21ACF66D4003B4621 /* InfoViewController.swift in Sources */,
 				56BD22691B522A5000051358 /* TipCalculatorModel.swift in Sources */,
 				5611C3031AC302ED006C899E /* TipTotalCell.swift in Sources */,
+				5617726F1CC28EEC00AC27F2 /* TipData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -550,7 +541,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = TipTest/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.grayson.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "Let Me Tip";
@@ -566,7 +557,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				INFOPLIST_FILE = TipTest/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.grayson.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "Let Me Tip";

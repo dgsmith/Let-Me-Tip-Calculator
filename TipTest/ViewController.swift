@@ -15,7 +15,7 @@ extension Double {
     }
 }
 
-class ViewController: UIViewController, UITableViewDataSource, UITextFieldDelegate, ADBannerViewDelegate {
+class ViewController: UIViewController, UITableViewDataSource, UITextFieldDelegate {
     
     @IBOutlet weak var receiptTotalTextField: UITextField!
     @IBOutlet weak var taxPctTextField: UITextField!
@@ -24,6 +24,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITextFieldDelega
     @IBOutlet weak var roundingSelection: UISegmentedControl!
     
     let tipCalc = TipCalculatorModel(total: 32.78, taxPct: 0.06)
+    
     var outputlabels:[(String,String)] = []
     
     let defaults = NSUserDefaults(suiteName: "group.Let-Me-Tip")!
@@ -36,27 +37,30 @@ class ViewController: UIViewController, UITableViewDataSource, UITextFieldDelega
     let tipAmtKey           = "tipAmt"
     let tipAndTotalKey      = "tipAndTotal"
     let currentRoundingKey  = "currentRounding"
-    let noAdsKey            = "noAds"
     
-    var totalFormatter  = NSNumberFormatter()
-    var taxFormatter    = NSNumberFormatter()
-    var tipFormatter    = NSNumberFormatter()
+    let totalFormatter: NSNumberFormatter  = {
+        let formatter = NSNumberFormatter()
+        formatter.numberStyle = .CurrencyStyle
+        formatter.maximumFractionDigits = 2
+        return formatter
+    }()
+    
+    let taxFormatter: NSNumberFormatter = {
+        let formatter = NSNumberFormatter()
+        formatter.numberStyle = .PercentStyle
+        formatter.maximumFractionDigits = 3
+        return formatter
+    }()
+    
+    let tipFormatter: NSNumberFormatter = {
+        let formatter = NSNumberFormatter()
+        formatter.numberStyle = .PercentStyle
+        formatter.maximumFractionDigits = 2
+        return formatter
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let appDelegate:AppDelegate = UIApplication.sharedApplication().delegate! as! AppDelegate
-        appDelegate.myViewController = self
-        
-        self.canDisplayBannerAds = true
-        //defaults.setBool(true, forKey: noAdsKey)
-        
-        totalFormatter.numberStyle = .CurrencyStyle
-        totalFormatter.maximumFractionDigits = 2
-        taxFormatter.numberStyle = .PercentStyle
-        taxFormatter.maximumFractionDigits = 3
-        tipFormatter.numberStyle = .PercentStyle
-        tipFormatter.maximumFractionDigits = 2
         
         outputlabels.insert(("Subtotal:",       " "), atIndex: 0)
         outputlabels.insert(("Tax Amount:",     " "), atIndex: 1)
@@ -68,25 +72,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITextFieldDelega
     }
     
     override func viewWillAppear(animated: Bool) {
-        if let noAds = defaults.boolForKey(noAdsKey) as Bool? {
-            if noAds {
-                self.canDisplayBannerAds = false
-            } else {
-                self.canDisplayBannerAds = true
-            }
-        }
         refreshUI()
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    @IBAction func roundingValueChanged(sender: AnyObject) {
-        calculateTapped("hi")
-    }
-    
+    //MARK: - UITexField delegate methods
     func textFieldDidBeginEditing(textField: UITextField) {
         if textField.tag == 1 || textField.tag == 2 {
             textField.text = textField.text!.stringByReplacingOccurrencesOfString("%", withString: "")
@@ -121,6 +110,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITextFieldDelega
         return true
     }
 
+    // MARK: - Actions
     @IBAction func calculateTapped(sender : AnyObject) {
         // get the number pad out of the way
         receiptTotalTextField.resignFirstResponder()
@@ -142,13 +132,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITextFieldDelega
                     
                     var tipAmt:Double, finalTotal:Double, newTipPct:Double
                     if roundingSelection.selectedSegmentIndex == 2 {
-                        (tipAmt, finalTotal, newTipPct) = tipCalc.calcRoundedTipFrom(TipPct: tipPct)
+                        (tipAmt, finalTotal, newTipPct) = tipCalc.calculateRoundedTipAmountFromTipPercentage(tipPct)
                         //tipPct = newTipPct
                     } else if roundingSelection.selectedSegmentIndex == 0 {
-                        (tipAmt, finalTotal, newTipPct) = tipCalc.calcRoundedTotalFrom(TipPct: tipPct)
+                        (tipAmt, finalTotal, newTipPct) = tipCalc.calculateRoundedTotalFromTipPercentage(tipPct)
                         //tipPct = newTipPct
                     } else {
-                        (tipAmt, finalTotal) = tipCalc.calcTipWith(TipPct: tipPct)
+                        (tipAmt, finalTotal) = tipCalc.calculateExactTipWithTipPercentage(tipPct)
                         newTipPct = tipPct
                     }
                     
@@ -186,6 +176,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITextFieldDelega
         tipPctTextField.resignFirstResponder()
     }
     
+    @IBAction func roundingValueChanged(sender: AnyObject) {
+        calculateTapped("hi")
+    }
+    
     func refreshUI() {
         if let str = defaults.objectForKey(receiptTotalKey) as? String {
             receiptTotalTextField.text = str
@@ -215,16 +209,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITextFieldDelega
             roundingSelection.selectedSegmentIndex = rounding
         }
         
-        if let noAds = defaults.boolForKey(noAdsKey) as Bool? {
-            if noAds {
-                self.canDisplayBannerAds = false
-            } else {
-                self.canDisplayBannerAds = true
-            }
-        }
-        
     }
     
+    // MARK: - UITableViewDataSourceDelegate methods
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return outputlabels.count
     }
@@ -243,10 +230,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITextFieldDelega
         } else {
             return UITableViewCell()
         }
-    }
-    
-    func bannerView(banner: ADBannerView!, didFailToReceiveAdWithError error: NSError!) {
-        print(error.description)
     }
     
 }
