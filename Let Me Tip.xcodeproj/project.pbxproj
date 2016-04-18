@@ -10,8 +10,11 @@
 		56113B921ABA1DBF00033BCB /* CalcRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56113B911ABA1DBF00033BCB /* CalcRow.swift */; };
 		56113B941ABA1EFB00033BCB /* CalculationDetailInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56113B931ABA1EFB00033BCB /* CalculationDetailInterfaceController.swift */; };
 		56113B961ABA1F9700033BCB /* TotalOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56113B951ABA1F9700033BCB /* TotalOptionsViewController.swift */; };
-		5611C3031AC302ED006C899E /* TipTotalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5611C3021AC302ED006C899E /* TipTotalCell.swift */; };
 		5617726F1CC28EEC00AC27F2 /* TipData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5617726E1CC28EEC00AC27F2 /* TipData.swift */; };
+		561772711CC2DC8700AC27F2 /* TipDataTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561772701CC2DC8700AC27F2 /* TipDataTypes.swift */; };
+		561772731CC3FAAE00AC27F2 /* TipCalculatorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BD22681B522A5000051358 /* TipCalculatorModel.swift */; };
+		561772741CC3FAC200AC27F2 /* TipDataTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561772701CC2DC8700AC27F2 /* TipDataTypes.swift */; };
+		561772751CC3FAC500AC27F2 /* TipData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5617726E1CC28EEC00AC27F2 /* TipData.swift */; };
 		565449FF1AB8836E009FDFE9 /* TipDetailInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565449FE1AB8836E009FDFE9 /* TipDetailInterfaceController.swift */; };
 		56544A011AB888D9009FDFE9 /* TotalRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56544A001AB888D9009FDFE9 /* TotalRow.swift */; };
 		5671C9881AB79E9D00952EEB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5671C9871AB79E9D00952EEB /* AppDelegate.swift */; };
@@ -28,7 +31,6 @@
 		56BD22621B522A1F00051358 /* Let Me Tip WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 5671C9B11AB79F8E00952EEB /* Let Me Tip WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		56BD22651B522A1F00051358 /* Let Me Tip WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 5671C9BE1AB79F8E00952EEB /* Let Me Tip WatchKit App.app */; };
 		56BD22691B522A5000051358 /* TipCalculatorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BD22681B522A5000051358 /* TipCalculatorModel.swift */; };
-		56BD226B1B522AC400051358 /* TipCalculatorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BD226A1B522AC400051358 /* TipCalculatorModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,8 +89,8 @@
 		56113B911ABA1DBF00033BCB /* CalcRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalcRow.swift; sourceTree = "<group>"; };
 		56113B931ABA1EFB00033BCB /* CalculationDetailInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculationDetailInterfaceController.swift; sourceTree = "<group>"; };
 		56113B951ABA1F9700033BCB /* TotalOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TotalOptionsViewController.swift; sourceTree = "<group>"; };
-		5611C3021AC302ED006C899E /* TipTotalCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipTotalCell.swift; sourceTree = "<group>"; };
 		5617726E1CC28EEC00AC27F2 /* TipData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipData.swift; sourceTree = "<group>"; };
+		561772701CC2DC8700AC27F2 /* TipDataTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipDataTypes.swift; sourceTree = "<group>"; };
 		565449FE1AB8836E009FDFE9 /* TipDetailInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipDetailInterfaceController.swift; sourceTree = "<group>"; };
 		56544A001AB888D9009FDFE9 /* TotalRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TotalRow.swift; sourceTree = "<group>"; };
 		5671C9821AB79E9D00952EEB /* Let Me Tip.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Let Me Tip.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -112,7 +114,6 @@
 		5689BBDE1ACCDBFE003B4621 /* Let Me Tip WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Let Me Tip WatchKit Extension.entitlements"; sourceTree = "<group>"; };
 		5689BBE11ACF66D4003B4621 /* InfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		56BD22681B522A5000051358 /* TipCalculatorModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipCalculatorModel.swift; sourceTree = "<group>"; };
-		56BD226A1B522AC400051358 /* TipCalculatorModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipCalculatorModel.swift; sourceTree = "<group>"; };
 		56BD226C1B53533500051358 /* Let Me Tip WatchKit App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Let Me Tip WatchKit App.entitlements"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -159,11 +160,11 @@
 			isa = PBXGroup;
 			children = (
 				56BD22681B522A5000051358 /* TipCalculatorModel.swift */,
+				561772701CC2DC8700AC27F2 /* TipDataTypes.swift */,
 				5617726E1CC28EEC00AC27F2 /* TipData.swift */,
 				5671C9871AB79E9D00952EEB /* AppDelegate.swift */,
 				5671C9A71AB79F0500952EEB /* ViewController.swift */,
 				5689BBE11ACF66D4003B4621 /* InfoViewController.swift */,
-				5611C3021AC302ED006C899E /* TipTotalCell.swift */,
 				5671C9A91AB79F0500952EEB /* Main.storyboard */,
 				5671C98E1AB79E9D00952EEB /* Images.xcassets */,
 				5671C9901AB79E9D00952EEB /* LaunchScreen.xib */,
@@ -183,7 +184,6 @@
 		5671C9B21AB79F8E00952EEB /* TipTest WatchKit Extension */ = {
 			isa = PBXGroup;
 			children = (
-				56BD226A1B522AC400051358 /* TipCalculatorModel.swift */,
 				5671C9B61AB79F8E00952EEB /* InterfaceController.swift */,
 				565449FE1AB8836E009FDFE9 /* TipDetailInterfaceController.swift */,
 				56113B931ABA1EFB00033BCB /* CalculationDetailInterfaceController.swift */,
@@ -395,11 +395,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				561772711CC2DC8700AC27F2 /* TipDataTypes.swift in Sources */,
 				5671C9AA1AB79F0500952EEB /* ViewController.swift in Sources */,
 				5671C9881AB79E9D00952EEB /* AppDelegate.swift in Sources */,
 				5689BBE21ACF66D4003B4621 /* InfoViewController.swift in Sources */,
 				56BD22691B522A5000051358 /* TipCalculatorModel.swift in Sources */,
-				5611C3031AC302ED006C899E /* TipTotalCell.swift in Sources */,
 				5617726F1CC28EEC00AC27F2 /* TipData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -410,8 +410,10 @@
 			files = (
 				5671C9D51AB7A5CF00952EEB /* TipRow.swift in Sources */,
 				56544A011AB888D9009FDFE9 /* TotalRow.swift in Sources */,
+				561772741CC3FAC200AC27F2 /* TipDataTypes.swift in Sources */,
 				56113B941ABA1EFB00033BCB /* CalculationDetailInterfaceController.swift in Sources */,
-				56BD226B1B522AC400051358 /* TipCalculatorModel.swift in Sources */,
+				561772731CC3FAAE00AC27F2 /* TipCalculatorModel.swift in Sources */,
+				561772751CC3FAC500AC27F2 /* TipData.swift in Sources */,
 				56113B961ABA1F9700033BCB /* TotalOptionsViewController.swift in Sources */,
 				565449FF1AB8836E009FDFE9 /* TipDetailInterfaceController.swift in Sources */,
 				5671C9B71AB79F8E00952EEB /* InterfaceController.swift in Sources */,

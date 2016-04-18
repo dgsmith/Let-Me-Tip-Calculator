@@ -73,6 +73,80 @@
             </objects>
             <point key="canvasLocation" x="220" y="345"/>
         </scene>
+        <!--Let Me Tip-->
+        <scene sceneID="9NI-JE-1cb">
+            <objects>
+                <controller title="Let Me Tip" id="Qn9-TH-9sI">
+                    <items>
+                        <group width="1" alignment="left" layout="vertical" id="MXz-qd-12W">
+                            <items>
+                                <button alignment="left" id="ZhP-2H-PGs">
+                                    <group key="contentGroup" width="1" alignment="left" layout="vertical" id="iOW-0B-3zV">
+                                        <items>
+                                            <label alignment="left" text="Receipt Total" id="Pd4-Rl-YuK">
+                                                <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
+                                            </label>
+                                            <label alignment="left" text="$XX.XX" id="ftF-Rq-ULx"/>
+                                        </items>
+                                        <color key="backgroundColor" red="0.1019607843" green="0.1019607843" blue="0.1019607843" alpha="1" colorSpace="calibratedRGB"/>
+                                        <edgeInsets key="margins" left="8" right="0.0" top="0.0" bottom="0.0"/>
+                                    </group>
+                                </button>
+                                <button alignment="left" id="CtZ-cI-oRN">
+                                    <group key="contentGroup" width="1" alignment="left" layout="vertical" id="XYp-Ty-ffQ">
+                                        <items>
+                                            <label alignment="left" text="Tax Percentage" id="slA-aG-edq">
+                                                <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
+                                            </label>
+                                            <label alignment="left" text="X%" id="DC3-H5-VUV"/>
+                                        </items>
+                                        <color key="backgroundColor" red="0.1019607843" green="0.1019607843" blue="0.1019607843" alpha="1" colorSpace="calibratedRGB"/>
+                                        <edgeInsets key="margins" left="8" right="0.0" top="0.0" bottom="0.0"/>
+                                    </group>
+                                </button>
+                                <button alignment="left" id="ghZ-Pc-GQY">
+                                    <group key="contentGroup" width="1" alignment="left" layout="vertical" id="Z00-Lh-RYT">
+                                        <items>
+                                            <label alignment="left" text="Tip Percentage" id="XwP-qf-vxl">
+                                                <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
+                                            </label>
+                                            <label alignment="left" text="XX%" id="hbm-To-SvE"/>
+                                        </items>
+                                        <color key="backgroundColor" red="0.1019607843" green="0.1019607843" blue="0.1019607843" alpha="1" colorSpace="calibratedRGB"/>
+                                        <edgeInsets key="margins" left="8" right="0.0" top="0.0" bottom="0.0"/>
+                                    </group>
+                                </button>
+                                <button alignment="left" id="XeG-jt-wZc">
+                                    <group key="contentGroup" width="1" alignment="left" layout="vertical" id="sgf-ZP-Ib1">
+                                        <items>
+                                            <label alignment="left" text="Tip Amount" id="XxL-DU-d9p">
+                                                <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
+                                            </label>
+                                            <label alignment="left" text="$XX.XX" id="95z-hJ-SOd"/>
+                                        </items>
+                                        <color key="backgroundColor" red="0.1019607843" green="0.1019607843" blue="0.1019607843" alpha="1" colorSpace="calibratedRGB"/>
+                                        <edgeInsets key="margins" left="8" right="0.0" top="0.0" bottom="0.0"/>
+                                    </group>
+                                </button>
+                                <button alignment="left" id="zGz-Y5-QwP">
+                                    <group key="contentGroup" width="1" alignment="left" layout="vertical" id="Lqw-ZG-Oda">
+                                        <items>
+                                            <label alignment="left" text="Final Total" id="0Mc-qk-ffX">
+                                                <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
+                                            </label>
+                                            <label alignment="left" text="$XX.XX" id="WQq-NZ-E8F"/>
+                                        </items>
+                                        <color key="backgroundColor" red="0.10196078431372549" green="0.10196078431372549" blue="0.10196078431372549" alpha="1" colorSpace="calibratedRGB"/>
+                                        <edgeInsets key="margins" left="8" right="0.0" top="0.0" bottom="0.0"/>
+                                    </group>
+                                </button>
+                            </items>
+                        </group>
+                    </items>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="71" y="785"/>
+        </scene>
         <!--Tip Detail Interface Controller-->
         <scene sceneID="V6z-2z-UtE">
             <objects>
@@ -104,7 +178,7 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="521" y="36"/>
+            <point key="canvasLocation" x="521" y="31"/>
         </scene>
         <!--Detail-->
         <scene sceneID="nh1-Jb-qo8">
@@ -208,6 +282,37 @@
                 </controller>
             </objects>
             <point key="canvasLocation" x="521" y="745"/>
+        </scene>
+        <!--Interface Controller-->
+        <scene sceneID="OMg-W1-IY0">
+            <objects>
+                <controller hidesWhenLoading="NO" id="RKe-rQ-BTk">
+                    <items>
+                        <group width="1" alignment="left" id="I3l-eR-sxD">
+                            <items>
+                                <label width="0.070000000000000007" alignment="left" verticalAlignment="center" text="$" id="VAB-9Z-Aye"/>
+                                <picker width="0.45000000000000001" height="100" alignment="left" focusStyle="stack" indicatorMode="shownWhileFocused" id="HMr-lc-btp">
+                                    <connections>
+                                        <action selector="leftSidePickerItemChanged:" destination="RKe-rQ-BTk" id="7h4-kC-EvT"/>
+                                    </connections>
+                                </picker>
+                                <label width="0.029999999999999999" alignment="left" verticalAlignment="center" text="." id="hDd-d9-dTW"/>
+                                <picker width="0.45000000000000001" height="100" alignment="left" focusStyle="stack" indicatorMode="shownWhileFocused" id="d91-vx-Utc">
+                                    <connections>
+                                        <action selector="rightSidePickerItemChanged:" destination="RKe-rQ-BTk" id="0vo-lE-AWy"/>
+                                    </connections>
+                                </picker>
+                            </items>
+                        </group>
+                    </items>
+                    <connections>
+                        <outlet property="dollarSignLabel" destination="VAB-9Z-Aye" id="X7j-HG-7Hu"/>
+                        <outlet property="leftSidePicker" destination="HMr-lc-btp" id="nye-ZS-jKw"/>
+                        <outlet property="rightSidePicker" destination="d91-vx-Utc" id="k2D-py-tBR"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="316" y="745"/>
         </scene>
     </scenes>
     <color key="tintColor" red="0.20392156862745098" green="0.66666666666666663" blue="0.86274509803921573" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

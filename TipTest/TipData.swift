@@ -8,70 +8,7 @@
 
 import UIKit
 
-struct DollarAmount {
-    var value: Double {
-        didSet {
-            text = numberFormatter.stringFromNumber(value)
-        }
-    }
-    private let numberFormatter: NSNumberFormatter = {
-        let formatter = NSNumberFormatter()
-        formatter.numberStyle = .CurrencyStyle
-        formatter.maximumFractionDigits = 2
-        return formatter
-    }()
-    private(set) var text: String?
-    
-    init(value: Double) {
-        self.value = value
-    }
-}
-
-struct TaxPercentage {
-    var value: Double {
-        didSet {
-            text = taxFormatter.stringFromNumber(value)
-        }
-    }
-    private let taxFormatter: NSNumberFormatter = {
-        let formatter = NSNumberFormatter()
-        formatter.numberStyle = .PercentStyle
-        formatter.maximumFractionDigits = 3
-        return formatter
-    }()
-    private(set) var text: String?
-    
-    init(value: Double) {
-        self.value = value
-    }
-}
-
-struct TipPercentage {
-    var value: Double {
-        didSet {
-            text = tipFormatter.stringFromNumber(value)
-        }
-    }
-    private let tipFormatter: NSNumberFormatter = {
-        let formatter = NSNumberFormatter()
-        formatter.numberStyle = .PercentStyle
-        formatter.maximumFractionDigits = 2
-        return formatter
-    }()
-    private(set) var text: String?
-    
-    init(value: Double) {
-        self.value = value
-    }
-}
-
-enum CalculationMethod {
-    case NoRounding
-    case RoundedTotal
-    case RoundedTip
-}
-
-class TipData: NSObject {
+class TipData {
     
     ///Calculated
     var subtotal: DollarAmount {
@@ -80,7 +17,11 @@ class TipData: NSObject {
         }
     }
     
-    var taxPercentage: TaxPercentage
+    var taxPercentage: TaxPercentage {
+        didSet {
+            tipCalc.taxPct = taxPercentage.value
+        }
+    }
     
     /// Calculated
     var taxAmount: DollarAmount {
@@ -90,36 +31,112 @@ class TipData: NSObject {
     }
     
     /// Total on the receipt after taxes, but before tip
-    var receiptTotal: DollarAmount
+    var receiptTotal: DollarAmount {
+        didSet {
+            tipCalc.total = receiptTotal.value
+        }
+    }
     
     var tipPercentage: TipPercentage
     
     /// Calculated
     var tipAmount: DollarAmount {
         get {
-            return DollarAmount(value: tipPercentage.value * receiptTotal.value)
+            return DollarAmount(value: tipPercentage.value * subtotal.value)
         }
     }
     
     /// Total after tip
-    var finalTotal: DollarAmount
+    var finalTotal = DollarAmount(value: 0.0)
     
     var calculationMethod: CalculationMethod = .NoRounding
     
-    let tipCalc: TipCalculatorModel
+    private let tipCalc = TipCalculatorModel()
     
-    let defaults = NSUserDefaults(suiteName: "group.Let-Me-Tip")!
-    let receiptTotalKey         = "receiptTotal"
-    let taxPercentageKey        = "taxPercentage"
-    let tipPercentageKey        = "tipPercentage"
-    let finalTotalKey           = "finalTotal"
-    let calculationMethodKey    = "calculationMethod"
+    private let defaults = NSUserDefaults(suiteName: "group.Let-Me-Tip")!
+    private let receiptTotalKey         = "receiptTotal"
+    private let taxPercentageKey        = "taxPercentage"
+    private let tipPercentageKey        = "tipPercentage"
+    private let calculationMethodKey    = "calculationMethod"
     
-    init(receiptTotal: Double, taxPercentage: Double) {
-        if let inReceiptTotal = defaults.objectForKey(receiptTotalKey) as? DollarAmount,
-            let inTaxPercentage = defaults.objectForKey(taxPercentageKey) as? TaxPercentage,
-            let inTipPercentage = defaults.objectForKey(tipPercentageKey) as? TipPercentage {
+    init() {
+        if let encodedData = defaults.objectForKey("data") as? NSData,
+            let dictionary = NSKeyedUnarchiver.unarchiveObjectWithData(encodedData) as? Dictionary<String,AnyObject> {
+            if let inReceiptTotal = dictionary[receiptTotalKey] as? DollarAmount,
+                let inTaxPercentage = dictionary[taxPercentageKey] as? TaxPercentage,
+                let inTipPercentage = dictionary[tipPercentageKey] as? TipPercentage,
+                let inCalculationMethodRaw = dictionary[calculationMethodKey] as? String,
+                let inCalculationMethod = CalculationMethod(rawValue: inCalculationMethodRaw)
+            {
+                // We have values stored!
+                taxPercentage = inTaxPercentage
+                receiptTotal = inReceiptTotal
+                tipPercentage = inTipPercentage
+                calculationMethod = inCalculationMethod
+                
+                tipCalc.taxPct = taxPercentage.value
+                tipCalc.total = receiptTotal.value
+                
+                calculate()
+            } else {
+                print("Error parsing dictionary")
+                // No values! default init
+                taxPercentage = TaxPercentage(value: 0.06)
+                receiptTotal = DollarAmount(value: 32.78)
+                tipPercentage = TipPercentage(value: 0.15)
+                calculationMethod = .NoRounding
+                
+                tipCalc.taxPct = taxPercentage.value
+                tipCalc.total = receiptTotal.value
+                
+                calculate()
+            }
+        } else {
+            print("No defaults")
+            // No values! default init
+            taxPercentage = TaxPercentage(value: 0.06)
+            receiptTotal = DollarAmount(value: 32.78)
+            tipPercentage = TipPercentage(value: 0.15)
+            calculationMethod = .NoRounding
             
+            tipCalc.taxPct = taxPercentage.value
+            tipCalc.total = receiptTotal.value
+            
+            calculate()
         }
+        
+    }
+    
+    func updateDataWithReceiptTotal(receiptTotal: DollarAmount, taxPercentage: TaxPercentage, andTipPercentage tipPercentage: TipPercentage) throws {
+        guard receiptTotal.text != nil else { throw TipCalculationError.ReceiptParseError }
+        guard taxPercentage.text != nil else { throw TipCalculationError.TaxParseError }
+        guard tipPercentage.text != nil else { throw TipCalculationError.TipParseError }
+        
+        self.taxPercentage = taxPercentage
+        self.receiptTotal = receiptTotal
+        self.tipPercentage = tipPercentage
+        
+        calculate()
+    }
+    
+    func calculate() {
+        switch calculationMethod {
+        case .NoRounding:
+            (_, finalTotal.value) = tipCalc.calculateExactTipWithTipPercentage(tipPercentage.value)
+        case .RoundedTip:
+            (_, finalTotal.value, tipPercentage.value) = tipCalc.calculateRoundedTipAmountFromTipPercentage(tipPercentage.value)
+        case .RoundedTotal:
+            (_, finalTotal.value, tipPercentage.value) = tipCalc.calculateRoundedTotalFromTipPercentage(tipPercentage.value)
+        }
+    }
+    
+    func saveData() {
+        let dictionary = [receiptTotalKey: receiptTotal,
+                          taxPercentageKey: taxPercentage,
+                          tipPercentageKey: tipPercentage,
+                          calculationMethodKey: calculationMethod.rawValue]
+        let encodedDictionary = NSKeyedArchiver.archivedDataWithRootObject(dictionary)
+        defaults.setObject(encodedDictionary, forKey: "data")
+        defaults.synchronize()
     }
 }
