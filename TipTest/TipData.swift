@@ -33,7 +33,7 @@ class TipData {
     /// Total on the receipt after taxes, but before tip
     var receiptTotal: DollarAmount {
         didSet {
-            tipCalc.total = receiptTotal.value
+            tipCalc.receiptTotal = receiptTotal.value
         }
     }
     
@@ -75,7 +75,7 @@ class TipData {
                 calculationMethod = inCalculationMethod
                 
                 tipCalc.taxPct = taxPercentage.value
-                tipCalc.total = receiptTotal.value
+                tipCalc.receiptTotal = receiptTotal.value
                 
                 calculate()
             } else {
@@ -87,7 +87,7 @@ class TipData {
                 calculationMethod = .NoRounding
                 
                 tipCalc.taxPct = taxPercentage.value
-                tipCalc.total = receiptTotal.value
+                tipCalc.receiptTotal = receiptTotal.value
                 
                 calculate()
             }
@@ -100,7 +100,7 @@ class TipData {
             calculationMethod = .NoRounding
             
             tipCalc.taxPct = taxPercentage.value
-            tipCalc.total = receiptTotal.value
+            tipCalc.receiptTotal = receiptTotal.value
             
             calculate()
         }

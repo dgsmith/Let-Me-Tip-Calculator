@@ -10,22 +10,28 @@ import UIKit
 
 public class TipCalculatorModel {
     
-    var total: Double
-    var taxPct: Double
     var subtotal: Double {
         get {
-            return total / (taxPct + 1)
+            return receiptTotal / (taxPct + 1)
         }
     }
+    var taxPct: Double
     var taxAmt: Double {
         get {
             return taxPct * subtotal
         }
     }
+    var receiptTotal: Double
+    var tipAmt: Double
+    var tipPct: Double
+    var finalTotal: Double
     
     init(total: Double, taxPct: Double) {
-        self.total = total
+        receiptTotal = total
         self.taxPct = taxPct
+        tipAmt = 0.0
+        tipPct = 0.0
+        finalTotal = 0.0
     }
     
     convenience init() {
@@ -33,25 +39,25 @@ public class TipCalculatorModel {
     }
     
     func calculateExactTipWithTipPercentage(tipPct: Double) -> (tipAmount: Double, finalTotal: Double) {
-        let tipAmt = subtotal * tipPct
-        let finalTotal = total + tipAmt
+        tipAmt = subtotal * tipPct
+        finalTotal = receiptTotal + tipAmt
         return (tipAmt, finalTotal)
     }
     
     func calculateRoundedTotalFromTipPercentage(tipPct: Double) -> (tipAmount: Double, finalTotal: Double, newTipPercentage: Double) {
         let intermediateValue = calculateExactTipWithTipPercentage(tipPct)
-        let newTotal = round(intermediateValue.finalTotal)
-        let newTipAmt = newTotal - (subtotal * (1 + taxPct))
-        let newTipPct = newTipAmt / subtotal
-        return (newTipAmt, newTotal, newTipPct)
+        finalTotal = round(intermediateValue.finalTotal)
+        tipAmt = finalTotal - (subtotal * (1 + taxPct))
+        self.tipPct = tipAmt / subtotal
+        return (tipAmt, finalTotal, self.tipPct)
     }
     
     func calculateRoundedTipAmountFromTipPercentage(tipPct: Double) -> (tipAmount: Double, finalTotal: Double, newTipPercentage: Double) {
         let intermediateValue = calculateExactTipWithTipPercentage(tipPct)
-        let newTipAmt = round(intermediateValue.tipAmount)
-        let newTotal = newTipAmt + (subtotal * (1 + taxPct))
-        let newTipPct = newTipAmt / subtotal
-        return (newTipAmt, newTotal, newTipPct)
+        tipAmt = round(intermediateValue.tipAmount)
+        finalTotal = tipAmt + (subtotal * (1 + taxPct))
+        self.tipPct = tipAmt / subtotal
+        return (tipAmt, finalTotal, self.tipPct)
     }
     
 }

@@ -186,21 +186,21 @@ class InterfaceController: WKInterfaceController {
         
         switch currentRounding {
         case 1: // no rounding
-            tipCalc.calcTipWith(TipPct: tipCalc.tipPct)
+            tipCalc.calculateExactTipWithTipPercentage(tipCalc.tipPct)
         case 2: // rounded tip
-            tipCalc.calcRoundedTipFrom(TipPct: tipCalc.tipPct)
+            tipCalc.calculateRoundedTipAmountFromTipPercentage(tipCalc.tipPct)
         case 0: // rounded total
-            tipCalc.calcRoundedTotalFrom(TipPct: tipCalc.tipPct)
+            tipCalc.calculateRoundedTotalFromTipPercentage(tipCalc.tipPct)
         default:
             print("incorrect rounding info!", terminator: "\n")
-            tipCalc.calcTipWith(TipPct: tipCalc.tipPct)
+            tipCalc.calculateExactTipWithTipPercentage(tipCalc.tipPct)
         }
         
         tipRows[0]["Receipt Total"]     = totalFormatter.stringFromNumber(tipCalc.receiptTotal)!
         tipRows[1]["Tax Percentage"]    = taxFormatter.stringFromNumber(tipCalc.taxPct)!
         tipRows[2]["Tip Percentage"]    = tipFormatter.stringFromNumber(tipCalc.tipPct)!
         tipRows[3]["Tip Amount"]        = totalFormatter.stringFromNumber(tipCalc.tipAmt)!
-        tipRows[4]["Total+Tip"]         = totalFormatter.stringFromNumber(tipCalc.total)!
+        tipRows[4]["Total+Tip"]         = totalFormatter.stringFromNumber(tipCalc.finalTotal)!
     
         defaults.setObject(tipRows[2]["Tip Percentage"], forKey: tipPctKey)
         defaults.setObject(tipRows[3]["Tip Amount"], forKey: tipAmtKey)
