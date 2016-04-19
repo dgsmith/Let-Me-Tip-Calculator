@@ -1,82 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AgC-eL-Hgc">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Qn9-TH-9sI">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="10032"/>
     </dependencies>
     <scenes>
         <!--Let Me Tip-->
-        <scene sceneID="aou-V4-d1y">
-            <objects>
-                <controller title="Let Me Tip" id="AgC-eL-Hgc" customClass="InterfaceController" customModule="Let_Me_Tip_WatchKit_Extension">
-                    <items>
-                        <table alignment="left" id="iAj-Vn-izj">
-                            <items>
-                                <tableRow identifier="TipRow" id="4vz-Q7-jug" customClass="TipRow" customModule="Let_Me_Tip_WatchKit_Extension">
-                                    <group key="rootItem" width="1" height="0.0" alignment="left" layout="vertical" id="hND-DS-B7X">
-                                        <items>
-                                            <label alignment="left" text="Receipt Total" id="Ma1-cJ-qhh">
-                                                <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
-                                            </label>
-                                            <label alignment="left" text="$35.26" id="Vx6-Gc-Ofx"/>
-                                        </items>
-                                        <connections>
-                                            <segue destination="rUM-de-pFf" kind="push" identifier="TipDetail" id="H71-JM-59F"/>
-                                        </connections>
-                                    </group>
-                                    <connections>
-                                        <outlet property="detailLabel" destination="Vx6-Gc-Ofx" id="UpQ-bt-g9c"/>
-                                        <outlet property="titleLabel" destination="Ma1-cJ-qhh" id="3tH-aW-5KS"/>
-                                    </connections>
-                                </tableRow>
-                                <tableRow identifier="CalcRow" id="rgU-LR-MY1" customClass="CalcRow" customModule="Let_Me_Tip_WatchKit_Extension">
-                                    <group key="rootItem" width="1" height="0.0" alignment="left" layout="vertical" id="oBn-Zg-De6">
-                                        <items>
-                                            <label alignment="left" text="Tip Amount" id="UAp-JG-78i">
-                                                <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
-                                            </label>
-                                            <label alignment="left" text="$5.52" id="XMh-P6-h40"/>
-                                        </items>
-                                        <connections>
-                                            <segue destination="A5S-xq-FD4" kind="push" identifier="CalcDetail" id="fcr-ZU-o3o"/>
-                                        </connections>
-                                    </group>
-                                    <connections>
-                                        <outlet property="detailLabel" destination="XMh-P6-h40" id="bWk-fL-e2Z"/>
-                                        <outlet property="titleLabel" destination="UAp-JG-78i" id="1pc-8q-Qho"/>
-                                    </connections>
-                                </tableRow>
-                                <tableRow identifier="TotalRow" id="3Fo-lX-4lV" customClass="TotalRow" customModule="Let_Me_Tip_WatchKit_Extension">
-                                    <group key="rootItem" width="1" height="0.0" alignment="left" layout="vertical" id="b9u-0V-NRA">
-                                        <items>
-                                            <label alignment="left" text="Total+Tip" id="Egy-q3-heN">
-                                                <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
-                                            </label>
-                                            <label alignment="left" text="$40.00" id="R6D-Uy-TZG"/>
-                                        </items>
-                                        <connections>
-                                            <segue destination="Oc9-yR-qS3" kind="push" identifier="TotalOptions" id="Dz3-tp-vBh"/>
-                                        </connections>
-                                    </group>
-                                    <connections>
-                                        <outlet property="detailLabel" destination="R6D-Uy-TZG" id="B4A-eR-oZC"/>
-                                        <outlet property="titleLabel" destination="Egy-q3-heN" id="wsC-VJ-awf"/>
-                                    </connections>
-                                </tableRow>
-                            </items>
-                        </table>
-                    </items>
-                    <connections>
-                        <outlet property="tipTable" destination="iAj-Vn-izj" id="dZe-l5-cXw"/>
-                    </connections>
-                </controller>
-            </objects>
-            <point key="canvasLocation" x="220" y="345"/>
-        </scene>
-        <!--Let Me Tip-->
         <scene sceneID="9NI-JE-1cb">
             <objects>
-                <controller title="Let Me Tip" id="Qn9-TH-9sI">
+                <controller title="Let Me Tip" id="Qn9-TH-9sI" customClass="InterfaceController" customModule="Let_Me_Tip_WatchKit_Extension">
                     <items>
                         <group width="1" alignment="left" layout="vertical" id="MXz-qd-12W">
                             <items>
@@ -91,6 +23,9 @@
                                         <color key="backgroundColor" red="0.1019607843" green="0.1019607843" blue="0.1019607843" alpha="1" colorSpace="calibratedRGB"/>
                                         <edgeInsets key="margins" left="8" right="0.0" top="0.0" bottom="0.0"/>
                                     </group>
+                                    <connections>
+                                        <action selector="setReceiptTotal" destination="Qn9-TH-9sI" id="URe-Vy-HtO"/>
+                                    </connections>
                                 </button>
                                 <button alignment="left" id="CtZ-cI-oRN">
                                     <group key="contentGroup" width="1" alignment="left" layout="vertical" id="XYp-Ty-ffQ">
@@ -98,11 +33,14 @@
                                             <label alignment="left" text="Tax Percentage" id="slA-aG-edq">
                                                 <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
                                             </label>
-                                            <label alignment="left" text="X%" id="DC3-H5-VUV"/>
+                                            <label alignment="left" text="X.XXX%" id="DC3-H5-VUV"/>
                                         </items>
                                         <color key="backgroundColor" red="0.1019607843" green="0.1019607843" blue="0.1019607843" alpha="1" colorSpace="calibratedRGB"/>
                                         <edgeInsets key="margins" left="8" right="0.0" top="0.0" bottom="0.0"/>
                                     </group>
+                                    <connections>
+                                        <action selector="setTaxPercentage" destination="Qn9-TH-9sI" id="xRq-7M-jDR"/>
+                                    </connections>
                                 </button>
                                 <button alignment="left" id="ghZ-Pc-GQY">
                                     <group key="contentGroup" width="1" alignment="left" layout="vertical" id="Z00-Lh-RYT">
@@ -110,16 +48,19 @@
                                             <label alignment="left" text="Tip Percentage" id="XwP-qf-vxl">
                                                 <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
                                             </label>
-                                            <label alignment="left" text="XX%" id="hbm-To-SvE"/>
+                                            <label alignment="left" text="XX.XX%" id="hbm-To-SvE"/>
                                         </items>
                                         <color key="backgroundColor" red="0.1019607843" green="0.1019607843" blue="0.1019607843" alpha="1" colorSpace="calibratedRGB"/>
                                         <edgeInsets key="margins" left="8" right="0.0" top="0.0" bottom="0.0"/>
                                     </group>
+                                    <connections>
+                                        <action selector="setTipPercentage" destination="Qn9-TH-9sI" id="q40-iH-NNS"/>
+                                    </connections>
                                 </button>
                                 <button alignment="left" id="XeG-jt-wZc">
                                     <group key="contentGroup" width="1" alignment="left" layout="vertical" id="sgf-ZP-Ib1">
                                         <items>
-                                            <label alignment="left" text="Tip Amount" id="XxL-DU-d9p">
+                                            <label alignment="left" text="Calculated Tip" id="XxL-DU-d9p">
                                                 <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
                                             </label>
                                             <label alignment="left" text="$XX.XX" id="95z-hJ-SOd"/>
@@ -127,6 +68,9 @@
                                         <color key="backgroundColor" red="0.1019607843" green="0.1019607843" blue="0.1019607843" alpha="1" colorSpace="calibratedRGB"/>
                                         <edgeInsets key="margins" left="8" right="0.0" top="0.0" bottom="0.0"/>
                                     </group>
+                                    <connections>
+                                        <action selector="viewCalculationBreakdown" destination="Qn9-TH-9sI" id="igu-6o-RwU"/>
+                                    </connections>
                                 </button>
                                 <button alignment="left" id="zGz-Y5-QwP">
                                     <group key="contentGroup" width="1" alignment="left" layout="vertical" id="Lqw-ZG-Oda">
@@ -139,51 +83,28 @@
                                         <color key="backgroundColor" red="0.10196078431372549" green="0.10196078431372549" blue="0.10196078431372549" alpha="1" colorSpace="calibratedRGB"/>
                                         <edgeInsets key="margins" left="8" right="0.0" top="0.0" bottom="0.0"/>
                                     </group>
+                                    <connections>
+                                        <action selector="setSplittingOptions" destination="Qn9-TH-9sI" id="mDH-fq-2md"/>
+                                    </connections>
                                 </button>
                             </items>
                         </group>
                     </items>
+                    <connections>
+                        <outlet property="calculatedTipLabel" destination="95z-hJ-SOd" id="khA-lu-ur4"/>
+                        <outlet property="finalTotalLabel" destination="WQq-NZ-E8F" id="Wbq-2T-jrq"/>
+                        <outlet property="receiptTotalLabel" destination="ftF-Rq-ULx" id="yha-Qe-iHw"/>
+                        <outlet property="taxPercentabeLabel" destination="DC3-H5-VUV" id="1Mz-Ko-Et7"/>
+                        <outlet property="tipPercentageLabel" destination="hbm-To-SvE" id="Wtc-Fb-xtm"/>
+                    </connections>
                 </controller>
             </objects>
             <point key="canvasLocation" x="71" y="785"/>
         </scene>
-        <!--Tip Detail Interface Controller-->
-        <scene sceneID="V6z-2z-UtE">
-            <objects>
-                <controller hidesWhenLoading="NO" id="rUM-de-pFf" customClass="TipDetailInterfaceController" customModule="Let_Me_Tip_WatchKit_Extension">
-                    <items>
-                        <group width="1" alignment="left" id="YLA-89-TYp">
-                            <items>
-                                <label alignment="left" verticalAlignment="center" text="$" id="W0y-Sx-JYy"/>
-                                <picker width="0.40000000000000002" height="100" alignment="left" focusStyle="stack" indicatorMode="shownWhileFocused" id="cxd-On-vzh">
-                                    <connections>
-                                        <action selector="leftSidePickerItemChanged:" destination="rUM-de-pFf" id="peo-nN-e4p"/>
-                                    </connections>
-                                </picker>
-                                <label alignment="left" verticalAlignment="center" text="." id="WTd-JM-MSD"/>
-                                <picker width="0.40000000000000002" height="100" alignment="left" focusStyle="stack" indicatorMode="shownWhileFocused" id="3Oq-pi-x5t">
-                                    <connections>
-                                        <action selector="rightSidePickerItemChanged:" destination="rUM-de-pFf" id="ny5-h7-Bz4"/>
-                                    </connections>
-                                </picker>
-                                <label alignment="left" verticalAlignment="center" text="%" id="Urv-sf-1Oo"/>
-                            </items>
-                        </group>
-                    </items>
-                    <connections>
-                        <outlet property="dollarSignLabel" destination="W0y-Sx-JYy" id="Sj3-tJ-wll"/>
-                        <outlet property="leftSidePicker" destination="cxd-On-vzh" id="EJt-vH-UJu"/>
-                        <outlet property="percentSignLabel" destination="Urv-sf-1Oo" id="S2J-oJ-IZ9"/>
-                        <outlet property="rightSidePicker" destination="3Oq-pi-x5t" id="iWH-Y0-qTw"/>
-                    </connections>
-                </controller>
-            </objects>
-            <point key="canvasLocation" x="521" y="31"/>
-        </scene>
         <!--Detail-->
         <scene sceneID="nh1-Jb-qo8">
             <objects>
-                <controller title="Detail" id="A5S-xq-FD4" customClass="CalculationDetailInterfaceController" customModule="Let_Me_Tip_WatchKit_Extension">
+                <controller identifier="CalculationDetail" title="Detail" id="A5S-xq-FD4" customClass="CalculationDetailInterfaceController" customModule="Let_Me_Tip_WatchKit_Extension">
                     <items>
                         <group width="1" alignment="left" id="IIV-Yx-3p3">
                             <items>
@@ -225,12 +146,12 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="521" y="345"/>
+            <point key="canvasLocation" x="614" y="536"/>
         </scene>
-        <!--Splitting?-->
+        <!--Let Me Split-->
         <scene sceneID="3ji-d9-d59">
             <objects>
-                <controller title="Splitting?" id="Oc9-yR-qS3" customClass="TotalOptionsViewController" customModule="Let_Me_Tip_WatchKit_Extension">
+                <controller identifier="SplittingOptions" title="Let Me Split" id="Oc9-yR-qS3" customClass="TotalOptionsViewController" customModule="Let_Me_Tip_WatchKit_Extension">
                     <items>
                         <group width="1" alignment="left" layout="vertical" id="PZt-gN-xXd">
                             <items>
@@ -266,7 +187,7 @@
                             </items>
                         </group>
                         <separator alignment="left" id="9Qd-nr-XR8"/>
-                        <slider width="1" alignment="left" value="1" maximum="6" steps="6" id="qfE-5l-coD">
+                        <slider width="1" alignment="left" value="1" maximum="10" steps="10" id="qfE-5l-coD">
                             <connections>
                                 <action selector="sliderValueChanged:" destination="Oc9-yR-qS3" id="SDf-Jv-Vcc"/>
                             </connections>
@@ -281,38 +202,97 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="521" y="745"/>
+            <point key="canvasLocation" x="614" y="886"/>
         </scene>
-        <!--Interface Controller-->
+        <!--Receipt Total-->
         <scene sceneID="OMg-W1-IY0">
             <objects>
-                <controller hidesWhenLoading="NO" id="RKe-rQ-BTk">
+                <controller identifier="DollarAmountPicker" title="Receipt Total" hidesWhenLoading="NO" id="RKe-rQ-BTk" customClass="DollarAmountPickerController" customModule="Let_Me_Tip_WatchKit_Extension">
                     <items>
                         <group width="1" alignment="left" id="I3l-eR-sxD">
                             <items>
                                 <label width="0.070000000000000007" alignment="left" verticalAlignment="center" text="$" id="VAB-9Z-Aye"/>
                                 <picker width="0.45000000000000001" height="100" alignment="left" focusStyle="stack" indicatorMode="shownWhileFocused" id="HMr-lc-btp">
                                     <connections>
-                                        <action selector="leftSidePickerItemChanged:" destination="RKe-rQ-BTk" id="7h4-kC-EvT"/>
+                                        <action selector="wholeDollarAmountValueChanged:" destination="RKe-rQ-BTk" id="0DM-fs-I8U"/>
                                     </connections>
                                 </picker>
                                 <label width="0.029999999999999999" alignment="left" verticalAlignment="center" text="." id="hDd-d9-dTW"/>
                                 <picker width="0.45000000000000001" height="100" alignment="left" focusStyle="stack" indicatorMode="shownWhileFocused" id="d91-vx-Utc">
                                     <connections>
-                                        <action selector="rightSidePickerItemChanged:" destination="RKe-rQ-BTk" id="0vo-lE-AWy"/>
+                                        <action selector="fractionalDollarAmountValueChanged:" destination="RKe-rQ-BTk" id="KPl-IW-tCf"/>
                                     </connections>
                                 </picker>
                             </items>
                         </group>
                     </items>
                     <connections>
-                        <outlet property="dollarSignLabel" destination="VAB-9Z-Aye" id="X7j-HG-7Hu"/>
-                        <outlet property="leftSidePicker" destination="HMr-lc-btp" id="nye-ZS-jKw"/>
-                        <outlet property="rightSidePicker" destination="d91-vx-Utc" id="k2D-py-tBR"/>
+                        <outlet property="fractionalDollarAmountPicker" destination="d91-vx-Utc" id="EKX-vf-c71"/>
+                        <outlet property="wholeDollarAmountPicker" destination="HMr-lc-btp" id="zFo-Eo-Q7Z"/>
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="316" y="745"/>
+            <point key="canvasLocation" x="319" y="411"/>
+        </scene>
+        <!--Tax %-->
+        <scene sceneID="NAh-ve-oQ0">
+            <objects>
+                <controller identifier="TaxPercentagePicker" title="Tax %" hidesWhenLoading="NO" id="ufQ-jK-T8u" customClass="TaxPercentagePickerController" customModule="Let_Me_Tip_WatchKit_Extension">
+                    <items>
+                        <group width="1" alignment="left" id="WPK-vS-eYJ">
+                            <items>
+                                <picker width="0.44" height="100" alignment="left" focusStyle="stack" indicatorMode="shownWhileFocused" id="PVf-7j-uxA">
+                                    <connections>
+                                        <action selector="wholeDollarAmountValueChanged:" destination="ufQ-jK-T8u" id="Wq0-A0-7IG"/>
+                                    </connections>
+                                </picker>
+                                <label width="0.029999999999999999" alignment="left" verticalAlignment="center" text="." id="be6-WA-jLg"/>
+                                <picker width="0.44" height="100" alignment="left" focusStyle="stack" indicatorMode="shownWhileFocused" id="aTw-cx-FIu">
+                                    <connections>
+                                        <action selector="fractionalDollarAmountValueChanged:" destination="ufQ-jK-T8u" id="XWl-fX-q7G"/>
+                                    </connections>
+                                </picker>
+                                <label width="0.089999999999999997" alignment="left" verticalAlignment="center" text="%" id="hkA-oL-Ho9"/>
+                            </items>
+                        </group>
+                    </items>
+                    <connections>
+                        <outlet property="fractionalTaxPercentagePicker" destination="aTw-cx-FIu" id="iaV-OP-3ny"/>
+                        <outlet property="wholeTaxPercentagePicker" destination="PVf-7j-uxA" id="CoT-9q-xAE"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="319" y="706"/>
+        </scene>
+        <!--Tip %-->
+        <scene sceneID="fln-Fr-R8O">
+            <objects>
+                <controller identifier="TipPercentagePicker" title="Tip %" hidesWhenLoading="NO" id="mjq-Fb-rn7" customClass="TipPercentagePickerController" customModule="Let_Me_Tip_WatchKit_Extension">
+                    <items>
+                        <group width="1" alignment="left" id="iu6-ab-rcm">
+                            <items>
+                                <picker width="0.44" height="100" alignment="left" focusStyle="stack" indicatorMode="shownWhileFocused" id="QCA-MD-d7A">
+                                    <connections>
+                                        <action selector="wholeDollarAmountValueChanged:" destination="mjq-Fb-rn7" id="npQ-zY-XDi"/>
+                                    </connections>
+                                </picker>
+                                <label width="0.029999999999999999" alignment="left" verticalAlignment="center" text="." id="Ihz-nd-mpG"/>
+                                <picker width="0.44" height="100" alignment="left" focusStyle="stack" indicatorMode="shownWhileFocused" id="b2u-u1-WqJ">
+                                    <connections>
+                                        <action selector="fractionalDollarAmountValueChanged:" destination="mjq-Fb-rn7" id="Rht-Xg-iYr"/>
+                                    </connections>
+                                </picker>
+                                <label width="0.089999999999999997" alignment="left" verticalAlignment="center" text="%" id="u1O-eF-R6c"/>
+                            </items>
+                        </group>
+                    </items>
+                    <connections>
+                        <outlet property="fractionalTipPercentagePicker" destination="b2u-u1-WqJ" id="lSc-oe-vAF"/>
+                        <outlet property="wholeTipPercentagePicker" destination="QCA-MD-d7A" id="P1s-q3-JtJ"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="319" y="1010"/>
         </scene>
     </scenes>
     <color key="tintColor" red="0.20392156862745098" green="0.66666666666666663" blue="0.86274509803921573" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

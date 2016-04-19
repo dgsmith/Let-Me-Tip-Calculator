@@ -16,32 +16,18 @@ class CalculationDetailInterfaceController: WKInterfaceController {
     @IBOutlet weak var tipLabel:WKInterfaceLabel!
     @IBOutlet weak var totalLabel:WKInterfaceLabel!
     
-    let defaults = NSUserDefaults()
-    let subtotalKey = "subtotal"
-    let receiptTotalKey = "receiptTotal"
-    let taxAmtKey = "taxAmt"
-    let tipAmtKey = "tipAmt"
-    let tipAndTotalKey = "tipAndTotal"
-    
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
-        defaults.synchronize()
+        guard let tipData = context as? TipData else {
+            return
+        }
         
-        if let subtotal = defaults.objectForKey(subtotalKey) as? String {
-            subtotalLabel.setText(subtotal)
-        }
-        if let tax = defaults.objectForKey(taxAmtKey) as? String {
-            taxLabel.setText(tax)
-        }
-        if let receipt = defaults.objectForKey(receiptTotalKey) as? String {
-            receiptLabel.setText(receipt)
-        }
-        if let tip = defaults.objectForKey(tipAmtKey) as? String {
-            tipLabel.setText(tip)
-        }
-        if let total = defaults.objectForKey(tipAndTotalKey) as? String {
-            totalLabel.setText(total)
-        }
+        subtotalLabel.setText(tipData.subtotal.text ?? "")
+        taxLabel.setText(tipData.taxAmount.text ?? "")
+        receiptLabel.setText(tipData.receiptTotal.text ?? "")
+        tipLabel.setText(tipData.tipAmount.text ?? "")
+        totalLabel.setText(tipData.finalTotal.text ?? "")
+
     }
     
 }

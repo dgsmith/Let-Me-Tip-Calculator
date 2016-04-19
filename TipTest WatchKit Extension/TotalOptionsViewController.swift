@@ -18,63 +18,48 @@ class TotalOptionsViewController: WKInterfaceController {
     @IBOutlet weak var totalLabel: WKInterfaceLabel!
     @IBOutlet weak var newTotalLabel: WKInterfaceLabel!
     
-    let defaults = NSUserDefaults()
-    let receiptTotalKey = "receiptTotal"
-    let taxPctKey = "taxPct"
-    let tipPctKey = "tipPct"
-    let tipAmtKey = "tipAmt"
-    let tipAndTotalKey = "tipAndTotal"
-    let splitAmtKey = "splitAmt"
+    var tipData: TipData!
     
-    let numberFormatter = NSNumberFormatter()
+    var splits: Int = 1 {
+        didSet {
+            updateDisplay()
+        }
+    }
+    
+    var splitTotal: DollarAmount!
+    var splitTip: DollarAmount!
     
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
-        numberFormatter.numberStyle = .CurrencyStyle
-        numberFormatter.maximumFractionDigits = 2
-        defaults.synchronize()
         
-        if let sliderPos = defaults.objectForKey(splitAmtKey) as? Int {
-            splitSlider.setValue(Float(sliderPos))
+        if let context = context as? TipData {
+            tipData = context
         }
         
-        updateDisplay()
+        splitTotal = DollarAmount(value: 0.0)
+        splitTip = DollarAmount(value: 0.0)
+        splitSlider.setValue(Float(splits))
         
+        updateDisplay()
     }
     
     @IBAction func sliderValueChanged(value: Float) {
-        if value < 1 {
+        guard value >= 1 else {
             splitSlider.setValue(1)
+            splits = 1
             return
         }
-        defaults.removeObjectForKey(splitAmtKey)
-        defaults.setObject(Int(value), forKey: splitAmtKey)
-        defaults.synchronize()
-        updateDisplay()
+        splits = Int(value)
     }
     
     func updateDisplay() {
-        if var split = defaults.objectForKey(splitAmtKey) as? Int {
-            if split < 1 {
-                split = 1
-            }
-            if let tipAmtString = defaults.objectForKey(tipAmtKey) as? String {
-                tipLabel.setText(tipAmtString)
-                // calculations
-                if let tipAmt = numberFormatter.numberFromString(tipAmtString) as? Double {
-                    newTipLabel.setText(numberFormatter.stringFromNumber(tipAmt / Double(split))!)
-                }
-            }
-            if let totalAmtString = defaults.objectForKey(tipAndTotalKey) as? String {
-                totalLabel.setText(totalAmtString)
-                if let totalAmt = numberFormatter.numberFromString(totalAmtString) as? Double {
-                    newTotalLabel.setText(numberFormatter.stringFromNumber(totalAmt / Double(split))!)
-                }
-            }            
-        } else { // first time in here!
-            defaults.setObject(1, forKey: splitAmtKey)
-            defaults.synchronize()
-            updateDisplay()
-        }
+        splitTotal.value = tipData.finalTotal.value / Double(splits)
+        splitTip.value = tipData.tipAmount.value / Double(splits)
+        
+        tipLabel.setText(tipData.tipAmount.text ?? "")
+        newTipLabel.setText(splitTip.text ?? "")
+        
+        totalLabel.setText(tipData.finalTotal.text ?? "")
+        newTotalLabel.setText(splitTotal.text ?? "")
     }
 }
