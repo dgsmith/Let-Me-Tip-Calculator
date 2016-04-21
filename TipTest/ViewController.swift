@@ -31,6 +31,8 @@ class ViewController: UIViewController {
     
     var tipData: TipData!
     
+    var viewMovedForKeyboard = false
+    
     // MARK: - Initializer
     required init?(coder aDecoder: NSCoder) {
         
@@ -39,25 +41,34 @@ class ViewController: UIViewController {
     
     // MARK: - View lifecycle
     override func viewDidLoad() {
-        let borderColor = UIColor(red: 255.0 / 255.0,
-                                  green: 159.0 / 255.0,
-                                  blue: 51.0 / 255.0,
-                                  alpha: 1.0).CGColor
+//        let borderColor = UIColor(red: 255.0 / 255.0,
+//                                  green: 159.0 / 255.0,
+//                                  blue: 51.0 / 255.0,
+//                                  alpha: 1.0).CGColor
+        
+        let blueColor = UIColor(red: 52.0 / 255.0,
+                                green: 170.0 / 255.0,
+                                blue: 220.0 / 255.0,
+                                alpha: 1.0).CGColor
         
         receiptTotalTextField.layer.borderWidth = 1.0
-        receiptTotalTextField.layer.borderColor = borderColor
+        receiptTotalTextField.layer.borderColor = blueColor
         receiptTotalTextField.layer.cornerRadius = 4.0
         receiptTotalTextField.layer.masksToBounds = true
         
         taxPctTextField.layer.borderWidth = 1.0
-        taxPctTextField.layer.borderColor = borderColor
+        taxPctTextField.layer.borderColor = blueColor
         taxPctTextField.layer.cornerRadius = 4.0
         taxPctTextField.layer.masksToBounds = true
         
         tipPctTextField.layer.borderWidth = 1.0
-        tipPctTextField.layer.borderColor = borderColor
+        tipPctTextField.layer.borderColor = blueColor
         tipPctTextField.layer.cornerRadius = 4.0
         tipPctTextField.layer.masksToBounds = true
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.keyboardWillShow(_:)), name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.keyboardWillHide(_:)), name: UIKeyboardWillHideNotification, object: nil)
+
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -104,6 +115,34 @@ class ViewController: UIViewController {
         tipOutputLabel.text = tipData.tipAmount.text ?? ""
         tipPercentageOutputLabel.text = "Tip (\(tipData.tipPercentage.text ?? "")):"
         finalTotalOutputLabel.text = tipData.finalTotal.text ?? ""
+    }
+    
+    func keyboardWillShow(notification: NSNotification) {
+        guard !viewMovedForKeyboard else { return }
+        viewMovedForKeyboard = true
+        
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
+            if UIDevice.currentDevice().userInterfaceIdiom == .Phone
+                && UIScreen.mainScreen().bounds.size.height >= 736.0 {
+                view.frame.size.height -= keyboardSize.height
+            } else {
+                view.frame.origin.y -= keyboardSize.height
+            }
+        }
+        
+    }
+    
+    func keyboardWillHide(notification: NSNotification) {
+        
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
+            viewMovedForKeyboard = false
+            if UIDevice.currentDevice().userInterfaceIdiom == .Phone
+                && UIScreen.mainScreen().bounds.size.height >= 736.0 {
+                view.frame.size.height += keyboardSize.height
+            } else {
+                view.frame.origin.y += keyboardSize.height
+            }
+        }
     }
 
     // MARK: - Actions
