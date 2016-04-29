@@ -301,7 +301,7 @@
 				TargetAttributes = {
 					5671C9811AB79E9D00952EEB = {
 						CreatedOnToolsVersion = 6.2;
-						DevelopmentTeam = TD6J323B9V;
+						DevelopmentTeam = Z6T84878UQ;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 0;
@@ -316,7 +316,7 @@
 					};
 					5671C9B01AB79F8E00952EEB = {
 						CreatedOnToolsVersion = 6.2;
-						DevelopmentTeam = TD6J323B9V;
+						DevelopmentTeam = Z6T84878UQ;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 0;
@@ -328,7 +328,7 @@
 					};
 					5671C9BD1AB79F8E00952EEB = {
 						CreatedOnToolsVersion = 6.2;
-						DevelopmentTeam = TD6J323B9V;
+						DevelopmentTeam = Z6T84878UQ;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 0;
@@ -469,6 +469,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -513,6 +514,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_NS_ASSERTIONS = NO;
@@ -541,9 +543,9 @@
 				INFOPLIST_FILE = TipTest/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.grayson2.Let-Me-Tip";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.grayson.Let-Me-Tip";
 				PRODUCT_NAME = "Let Me Tip";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "a776f6db-2013-437f-85c3-c356f5704b25";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -552,14 +554,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				INFOPLIST_FILE = TipTest/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.grayson2.Let-Me-Tip";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.grayson.Let-Me-Tip";
 				PRODUCT_NAME = "Let Me Tip";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "a776f6db-2013-437f-85c3-c356f5704b25";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
@@ -578,9 +580,9 @@
 				);
 				IBSC_MODULE = TipTest_WatchKit_Extension;
 				INFOPLIST_FILE = "TipTest WatchKit App/Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.grayson2.Let-Me-Tip.watchkitapp";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.grayson.Let-Me-Tip.watchkitapp";
 				PRODUCT_NAME = "Let Me Tip WatchKit App";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "df4eb21c-8253-4993-8661-5eb74307d85f";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
@@ -598,9 +600,9 @@
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				IBSC_MODULE = TipTest_WatchKit_Extension;
 				INFOPLIST_FILE = "TipTest WatchKit App/Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.grayson2.Let-Me-Tip.watchkitapp";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.grayson.Let-Me-Tip.watchkitapp";
 				PRODUCT_NAME = "Let Me Tip WatchKit App";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "df4eb21c-8253-4993-8661-5eb74307d85f";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
@@ -620,9 +622,9 @@
 				);
 				INFOPLIST_FILE = "TipTest WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.grayson2.Let-Me-Tip.watchkitapp.watchkitextension";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.grayson.Let-Me-Tip.watchkitapp.watchkitextension";
 				PRODUCT_NAME = "Let Me Tip WatchKit Extension";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "01701731-a291-496f-8e0b-7bbe57f4246c";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
@@ -634,13 +636,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Grayson Smith";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "TipTest WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.grayson2.Let-Me-Tip.watchkitapp.watchkitextension";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.grayson.Let-Me-Tip.watchkitapp.watchkitextension";
 				PRODUCT_NAME = "Let Me Tip WatchKit Extension";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "01701731-a291-496f-8e0b-7bbe57f4246c";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;

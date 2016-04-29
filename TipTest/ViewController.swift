@@ -74,7 +74,6 @@ class ViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        
         loadValues()
         recalculate()
         refreshUI()
@@ -149,12 +148,14 @@ class ViewController: UIViewController {
     @IBAction func calculateTapped(sender : AnyObject) {
         view.endEditing(true)
         recalculate()
+        loadValues()
         refreshUI()
     }
     
     @IBAction func viewTapped(sender : AnyObject) {
         view.endEditing(true)
         recalculate()
+        loadValues()
         refreshUI()
     }
     
@@ -172,6 +173,7 @@ class ViewController: UIViewController {
         }
         
         recalculate()
+        loadValues()
         refreshUI()
     }
     
