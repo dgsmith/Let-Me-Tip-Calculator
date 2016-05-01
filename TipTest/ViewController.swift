@@ -31,6 +31,7 @@ class ViewController: UIViewController {
     
     var tipData: TipData!
     
+    var moving = false
     var viewMovedForKeyboard = false
     
     // MARK: - Initializer
@@ -67,6 +68,7 @@ class ViewController: UIViewController {
         tipPctTextField.layer.masksToBounds = true
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.keyboardWillShow(_:)), name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.keyboardWasShown(_:)), name: UIKeyboardDidShowNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.keyboardWillHide(_:)), name: UIKeyboardWillHideNotification, object: nil)
 
     }
@@ -118,45 +120,59 @@ class ViewController: UIViewController {
     
     func keyboardWillShow(notification: NSNotification) {
         guard !viewMovedForKeyboard else { return }
-        viewMovedForKeyboard = true
         
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
+            moving = true
             if UIDevice.currentDevice().userInterfaceIdiom == .Phone
                 && UIScreen.mainScreen().bounds.size.height >= 736.0 {
                 view.frame.size.height -= keyboardSize.height
             } else {
                 view.frame.origin.y -= keyboardSize.height
             }
+            
+            viewMovedForKeyboard = true
         }
-        
+    }
+    
+    func keyboardWasShown(notification: NSNotification) {
+        moving = false
     }
     
     func keyboardWillHide(notification: NSNotification) {
+        guard viewMovedForKeyboard else { return }
         
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
-            viewMovedForKeyboard = false
+            
             if UIDevice.currentDevice().userInterfaceIdiom == .Phone
                 && UIScreen.mainScreen().bounds.size.height >= 736.0 {
                 view.frame.size.height += keyboardSize.height
             } else {
                 view.frame.origin.y += keyboardSize.height
             }
+            
+            viewMovedForKeyboard = false
         }
     }
 
     // MARK: - Actions
     @IBAction func calculateTapped(sender : AnyObject) {
-        view.endEditing(true)
-        recalculate()
-        loadValues()
-        refreshUI()
+        if !moving {
+            view.endEditing(true)
+            
+            recalculate()
+            loadValues()
+            refreshUI()
+        }
     }
     
     @IBAction func viewTapped(sender : AnyObject) {
-        view.endEditing(true)
-        recalculate()
-        loadValues()
-        refreshUI()
+        if !moving {
+            view.endEditing(true)
+            
+            recalculate()
+            loadValues()
+            refreshUI()
+        }
     }
     
     @IBAction func roundingValueChanged(sender: AnyObject) {
