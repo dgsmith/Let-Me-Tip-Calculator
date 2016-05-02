@@ -32,6 +32,7 @@ class ViewController: UIViewController {
     var tipData: TipData!
     
     var moving = false
+    var edingInputs = false
     var viewMovedForKeyboard = false
     
     // MARK: - Initializer
@@ -136,6 +137,7 @@ class ViewController: UIViewController {
     
     func keyboardWasShown(notification: NSNotification) {
         moving = false
+        edingInputs = true
     }
     
     func keyboardWillHide(notification: NSNotification) {
@@ -151,6 +153,7 @@ class ViewController: UIViewController {
             }
             
             viewMovedForKeyboard = false
+            edingInputs = false
         }
     }
 
@@ -188,9 +191,12 @@ class ViewController: UIViewController {
             tipData.calculationMethod = .NoRounding
         }
         
-        recalculate()
-        loadValues()
-        refreshUI()
+        // Only live update if we're not currently entering a value
+        if !edingInputs {
+            recalculate()
+            loadValues()
+            refreshUI()
+        }
     }
     
 }
@@ -222,6 +228,10 @@ extension ViewController: UITextFieldDelegate {
             return false
         }
         return true
+    }
+    
+    func textFieldDidBeginEditing(textField: UITextField) {
+        textField.text = ""
     }
     
 }

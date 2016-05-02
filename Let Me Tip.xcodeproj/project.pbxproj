@@ -30,6 +30,7 @@
 		56FB61C71CC6926E00D5BC57 /* DollarAmountPickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FB61C51CC68EB600D5BC57 /* DollarAmountPickerController.swift */; };
 		56FB61C91CC6967D00D5BC57 /* TaxPercentagePickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FB61C81CC6967D00D5BC57 /* TaxPercentagePickerController.swift */; };
 		56FB61CB1CC6968D00D5BC57 /* TipPercentagePickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FB61CA1CC6968D00D5BC57 /* TipPercentagePickerController.swift */; };
+		785DCBE7C2C32089E1440F7A /* libPods-Let Me Tip.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0480193F4389328F8E8A0696 /* libPods-Let Me Tip.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,10 +86,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0480193F4389328F8E8A0696 /* libPods-Let Me Tip.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Let Me Tip.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0E0309C99E00CF6F73DD8D61 /* Pods-Let Me Tip.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Let Me Tip.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Let Me Tip/Pods-Let Me Tip.debug.xcconfig"; sourceTree = "<group>"; };
+		3295EA1872E81B7C597E22DA /* libPods-Let Me Tip WatchKit App.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Let Me Tip WatchKit App.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		56113B931ABA1EFB00033BCB /* CalculationDetailInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculationDetailInterfaceController.swift; sourceTree = "<group>"; };
 		56113B951ABA1F9700033BCB /* TotalOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TotalOptionsViewController.swift; sourceTree = "<group>"; };
 		5617726E1CC28EEC00AC27F2 /* TipData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipData.swift; sourceTree = "<group>"; };
 		561772701CC2DC8700AC27F2 /* TipDataTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipDataTypes.swift; sourceTree = "<group>"; };
+		5644E6391CD6A16B005AC506 /* bridging-header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "bridging-header.h"; sourceTree = "<group>"; };
 		5671C9821AB79E9D00952EEB /* Let Me Tip.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Let Me Tip.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5671C9861AB79E9D00952EEB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5671C9871AB79E9D00952EEB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -113,6 +118,8 @@
 		56FB61C51CC68EB600D5BC57 /* DollarAmountPickerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DollarAmountPickerController.swift; sourceTree = "<group>"; };
 		56FB61C81CC6967D00D5BC57 /* TaxPercentagePickerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaxPercentagePickerController.swift; sourceTree = "<group>"; };
 		56FB61CA1CC6968D00D5BC57 /* TipPercentagePickerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipPercentagePickerController.swift; sourceTree = "<group>"; };
+		74943084FDBDCA0B730A5644 /* libPods-Let Me Tip WatchKit Extension.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Let Me Tip WatchKit Extension.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		ECA8736F8C06C16D2611A0D9 /* Pods-Let Me Tip.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Let Me Tip.release.xcconfig"; path = "Pods/Target Support Files/Pods-Let Me Tip/Pods-Let Me Tip.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,10 +127,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				785DCBE7C2C32089E1440F7A /* libPods-Let Me Tip.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		5671C9AE1AB79F8E00952EEB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9BDA771052D5E4A8E2A38C97 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -141,6 +156,8 @@
 				5671C9B21AB79F8E00952EEB /* TipTest WatchKit Extension */,
 				5671C9C21AB79F8E00952EEB /* TipTest WatchKit App */,
 				5671C9831AB79E9D00952EEB /* Products */,
+				E18593754C3654E30365514A /* Pods */,
+				63F9793E8EB6827371F6215E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -175,6 +192,7 @@
 			isa = PBXGroup;
 			children = (
 				5671C9861AB79E9D00952EEB /* Info.plist */,
+				5644E6391CD6A16B005AC506 /* bridging-header.h */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -231,6 +249,25 @@
 			name = Entitlements;
 			sourceTree = "<group>";
 		};
+		63F9793E8EB6827371F6215E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0480193F4389328F8E8A0696 /* libPods-Let Me Tip.a */,
+				3295EA1872E81B7C597E22DA /* libPods-Let Me Tip WatchKit App.a */,
+				74943084FDBDCA0B730A5644 /* libPods-Let Me Tip WatchKit Extension.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E18593754C3654E30365514A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0E0309C99E00CF6F73DD8D61 /* Pods-Let Me Tip.debug.xcconfig */,
+				ECA8736F8C06C16D2611A0D9 /* Pods-Let Me Tip.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -238,11 +275,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5671C9A11AB79E9D00952EEB /* Build configuration list for PBXNativeTarget "Let Me Tip" */;
 			buildPhases = (
+				8243C6644280639751BEBD3C /* 📦 Check Pods Manifest.lock */,
 				5671C97E1AB79E9D00952EEB /* Sources */,
 				5671C97F1AB79E9D00952EEB /* Frameworks */,
 				5671C9801AB79E9D00952EEB /* Resources */,
 				561ACD631AD4B3190090849A /* Embed Frameworks */,
 				56BD22671B522A1F00051358 /* Embed Watch Content */,
+				FA735ECBDEB0ADFE468B9957 /* 📦 Embed Pods Frameworks */,
+				06B4AD0E50764C8BB998F075 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -277,6 +317,7 @@
 			buildPhases = (
 				5671C9BC1AB79F8E00952EEB /* Resources */,
 				56BD22661B522A1F00051358 /* Embed App Extensions */,
+				9BDA771052D5E4A8E2A38C97 /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -311,6 +352,9 @@
 							};
 							com.apple.InAppPurchase = {
 								enabled = 0;
+							};
+							com.apple.Push = {
+								enabled = 1;
 							};
 						};
 					};
@@ -386,6 +430,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		06B4AD0E50764C8BB998F075 /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Let Me Tip/Pods-Let Me Tip-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8243C6644280639751BEBD3C /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		FA735ECBDEB0ADFE468B9957 /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Let Me Tip/Pods-Let Me Tip-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		5671C97E1AB79E9D00952EEB /* Sources */ = {
@@ -536,6 +628,7 @@
 		};
 		5671C9A21AB79E9D00952EEB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0E0309C99E00CF6F73DD8D61 /* Pods-Let Me Tip.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -545,13 +638,15 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.grayson.Let-Me-Tip";
 				PRODUCT_NAME = "Let Me Tip";
-				PROVISIONING_PROFILE = "a776f6db-2013-437f-85c3-c356f5704b25";
+				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/TipTest/bridging-header.h";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		5671C9A31AB79E9D00952EEB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ECA8736F8C06C16D2611A0D9 /* Pods-Let Me Tip.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
@@ -561,7 +656,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.grayson.Let-Me-Tip";
 				PRODUCT_NAME = "Let Me Tip";
-				PROVISIONING_PROFILE = "a776f6db-2013-437f-85c3-c356f5704b25";
+				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/TipTest/bridging-header.h";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
@@ -582,7 +678,7 @@
 				INFOPLIST_FILE = "TipTest WatchKit App/Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.grayson.Let-Me-Tip.watchkitapp";
 				PRODUCT_NAME = "Let Me Tip WatchKit App";
-				PROVISIONING_PROFILE = "df4eb21c-8253-4993-8661-5eb74307d85f";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
@@ -594,15 +690,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Distribution";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				IBSC_MODULE = TipTest_WatchKit_Extension;
 				INFOPLIST_FILE = "TipTest WatchKit App/Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.grayson.Let-Me-Tip.watchkitapp";
 				PRODUCT_NAME = "Let Me Tip WatchKit App";
-				PROVISIONING_PROFILE = "df4eb21c-8253-4993-8661-5eb74307d85f";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
@@ -624,7 +720,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.grayson.Let-Me-Tip.watchkitapp.watchkitextension";
 				PRODUCT_NAME = "Let Me Tip WatchKit Extension";
-				PROVISIONING_PROFILE = "01701731-a291-496f-8e0b-7bbe57f4246c";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
@@ -635,14 +731,14 @@
 		5671C9D21AB79F8E00952EEB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Distribution";
 				INFOPLIST_FILE = "TipTest WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.grayson.Let-Me-Tip.watchkitapp.watchkitextension";
 				PRODUCT_NAME = "Let Me Tip WatchKit Extension";
-				PROVISIONING_PROFILE = "01701731-a291-496f-8e0b-7bbe57f4246c";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;

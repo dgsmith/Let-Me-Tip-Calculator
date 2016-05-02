@@ -22,6 +22,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let viewController = navController.topViewController as! ViewController
         viewController.tipData = tipData
         
+        registerForPushNotifications(application)
+        
+        Instabug.startWithToken("52cc5a34042f2351149b9184cd8465ec", invocationEvent: .Shake)
         return true
     }
 
@@ -47,6 +50,38 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    }
+    
+    func registerForPushNotifications(application: UIApplication) {
+        let notificationSettings = UIUserNotificationSettings(forTypes: [.Badge, .Sound, .Alert], categories: nil)
+        application.registerUserNotificationSettings(notificationSettings)
+    }
+    
+    func application(application: UIApplication, didRegisterUserNotificationSettings notificationSettings: UIUserNotificationSettings) {
+        if notificationSettings.types != .None {
+            application.registerForRemoteNotifications()
+        }
+    }
+    
+    func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
+        let tokenChars = UnsafePointer<CChar>(deviceToken.bytes)
+        var tokenString = ""
+        
+        for i in 0..<deviceToken.length {
+            tokenString += String(format: "%02.2hhx", arguments: [tokenChars[i]])
+        }
+        
+        print("Device token: \(tokenString)")
+        Instabug.setPushNotificationsEnabled(true)
+    }
+    
+    func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
+        print("Failed to register: \(error)")
+        Instabug.setPushNotificationsEnabled(false)
+    }
+    
+    func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
+        print(userInfo)
     }
     
 }

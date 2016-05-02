@@ -14,6 +14,8 @@ DerivedData
 *.xcuserstate
 .DS_Store
 
+Pods/
+
 # Files that might appear in the root of a volume
 .DocumentRevisions-V100
 .fseventsd
