@@ -41,6 +41,7 @@ class Let_Me_Tip_UITests: XCTestCase {
         
         // Third snapshot
         snapshot("03RoundedTotal")
+        
     }
     
 }
