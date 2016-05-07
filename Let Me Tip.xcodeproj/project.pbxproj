@@ -24,6 +24,8 @@
 		5671C9C71AB79F8E00952EEB /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5671C9C51AB79F8E00952EEB /* Interface.storyboard */; };
 		5671C9C91AB79F8E00952EEB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5671C9C81AB79F8E00952EEB /* Images.xcassets */; };
 		5689BBE21ACF66D4003B4621 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5689BBE11ACF66D4003B4621 /* InfoViewController.swift */; };
+		569263BD1CDD8761008D6EEA /* Let_Me_Tip_UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569263BC1CDD8761008D6EEA /* Let_Me_Tip_UITests.swift */; };
+		569263C51CDD8B3C008D6EEA /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569263C41CDD8B3C008D6EEA /* SnapshotHelper.swift */; };
 		56BD22621B522A1F00051358 /* Let Me Tip WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 5671C9B11AB79F8E00952EEB /* Let Me Tip WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		56BD22651B522A1F00051358 /* Let Me Tip WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 5671C9BE1AB79F8E00952EEB /* Let Me Tip WatchKit App.app */; };
 		56BD22691B522A5000051358 /* TipCalculatorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BD22681B522A5000051358 /* TipCalculatorModel.swift */; };
@@ -34,6 +36,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		569263BF1CDD8761008D6EEA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5671C97A1AB79E9D00952EEB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5671C9811AB79E9D00952EEB;
+			remoteInfo = "Let Me Tip";
+		};
 		56BD22601B522A1F00051358 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 5671C97A1AB79E9D00952EEB /* Project object */;
@@ -113,6 +122,10 @@
 		5689BBDD1ACCDB20003B4621 /* Let Me Tip.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Let Me Tip.entitlements"; sourceTree = "<group>"; };
 		5689BBDE1ACCDBFE003B4621 /* Let Me Tip WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Let Me Tip WatchKit Extension.entitlements"; sourceTree = "<group>"; };
 		5689BBE11ACF66D4003B4621 /* InfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
+		569263BA1CDD8760008D6EEA /* Let Me Tip UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Let Me Tip UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		569263BC1CDD8761008D6EEA /* Let_Me_Tip_UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Let_Me_Tip_UITests.swift; sourceTree = "<group>"; };
+		569263BE1CDD8761008D6EEA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		569263C41CDD8B3C008D6EEA /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnapshotHelper.swift; path = fastlane/SnapshotHelper.swift; sourceTree = SOURCE_ROOT; };
 		56BD22681B522A5000051358 /* TipCalculatorModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipCalculatorModel.swift; sourceTree = "<group>"; };
 		56BD226C1B53533500051358 /* Let Me Tip WatchKit App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Let Me Tip WatchKit App.entitlements"; sourceTree = "<group>"; };
 		56FB61C51CC68EB600D5BC57 /* DollarAmountPickerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DollarAmountPickerController.swift; sourceTree = "<group>"; };
@@ -138,6 +151,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		569263B71CDD8760008D6EEA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9BDA771052D5E4A8E2A38C97 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -155,6 +175,7 @@
 				5671C9841AB79E9D00952EEB /* TipTest */,
 				5671C9B21AB79F8E00952EEB /* TipTest WatchKit Extension */,
 				5671C9C21AB79F8E00952EEB /* TipTest WatchKit App */,
+				569263BB1CDD8761008D6EEA /* Let Me Tip UITests */,
 				5671C9831AB79E9D00952EEB /* Products */,
 				E18593754C3654E30365514A /* Pods */,
 				63F9793E8EB6827371F6215E /* Frameworks */,
@@ -167,6 +188,7 @@
 				5671C9821AB79E9D00952EEB /* Let Me Tip.app */,
 				5671C9B11AB79F8E00952EEB /* Let Me Tip WatchKit Extension.appex */,
 				5671C9BE1AB79F8E00952EEB /* Let Me Tip WatchKit App.app */,
+				569263BA1CDD8760008D6EEA /* Let Me Tip UITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -237,6 +259,16 @@
 				5671C9C41AB79F8E00952EEB /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		569263BB1CDD8761008D6EEA /* Let Me Tip UITests */ = {
+			isa = PBXGroup;
+			children = (
+				569263C41CDD8B3C008D6EEA /* SnapshotHelper.swift */,
+				569263BC1CDD8761008D6EEA /* Let_Me_Tip_UITests.swift */,
+				569263BE1CDD8761008D6EEA /* Info.plist */,
+			);
+			path = "Let Me Tip UITests";
 			sourceTree = "<group>";
 		};
 		56FB61C41CC1A3F300D5BC57 /* Entitlements */ = {
@@ -329,6 +361,24 @@
 			productReference = 5671C9BE1AB79F8E00952EEB /* Let Me Tip WatchKit App.app */;
 			productType = "com.apple.product-type.application.watchapp2";
 		};
+		569263B91CDD8760008D6EEA /* Let Me Tip UITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 569263C11CDD8761008D6EEA /* Build configuration list for PBXNativeTarget "Let Me Tip UITests" */;
+			buildPhases = (
+				569263B61CDD8760008D6EEA /* Sources */,
+				569263B71CDD8760008D6EEA /* Frameworks */,
+				569263B81CDD8760008D6EEA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				569263C01CDD8761008D6EEA /* PBXTargetDependency */,
+			);
+			name = "Let Me Tip UITests";
+			productName = "Let Me Tip UITests";
+			productReference = 569263BA1CDD8760008D6EEA /* Let Me Tip UITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -336,7 +386,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftMigration = 0700;
-				LastSwiftUpdateCheck = 0700;
+				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Grayson Smith";
 				TargetAttributes = {
@@ -379,6 +429,10 @@
 							};
 						};
 					};
+					569263B91CDD8760008D6EEA = {
+						CreatedOnToolsVersion = 7.3;
+						TestTargetID = 5671C9811AB79E9D00952EEB;
+					};
 				};
 			};
 			buildConfigurationList = 5671C97D1AB79E9D00952EEB /* Build configuration list for PBXProject "Let Me Tip" */;
@@ -397,6 +451,7 @@
 				5671C9811AB79E9D00952EEB /* Let Me Tip */,
 				5671C9B01AB79F8E00952EEB /* Let Me Tip WatchKit Extension */,
 				5671C9BD1AB79F8E00952EEB /* Let Me Tip WatchKit App */,
+				569263B91CDD8760008D6EEA /* Let Me Tip UITests */,
 			);
 		};
 /* End PBXProject section */
@@ -426,6 +481,13 @@
 			files = (
 				5671C9C71AB79F8E00952EEB /* Interface.storyboard in Resources */,
 				5671C9C91AB79F8E00952EEB /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		569263B81CDD8760008D6EEA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -509,9 +571,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		569263B61CDD8760008D6EEA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				569263BD1CDD8761008D6EEA /* Let_Me_Tip_UITests.swift in Sources */,
+				569263C51CDD8B3C008D6EEA /* SnapshotHelper.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		569263C01CDD8761008D6EEA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5671C9811AB79E9D00952EEB /* Let Me Tip */;
+			targetProxy = 569263BF1CDD8761008D6EEA /* PBXContainerItemProxy */;
+		};
 		56BD22611B522A1F00051358 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 5671C9B01AB79F8E00952EEB /* Let Me Tip WatchKit Extension */;
@@ -752,6 +828,37 @@
 			};
 			name = Release;
 		};
+		569263C21CDD8761008D6EEA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Let Me Tip UITests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.grayson.Let-Me-Tip-UITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "Let Me Tip";
+			};
+			name = Debug;
+		};
+		569263C31CDD8761008D6EEA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Let Me Tip UITests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.grayson.Let-Me-Tip-UITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "Let Me Tip";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -790,6 +897,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		569263C11CDD8761008D6EEA /* Build configuration list for PBXNativeTarget "Let Me Tip UITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				569263C21CDD8761008D6EEA /* Debug */,
+				569263C31CDD8761008D6EEA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};

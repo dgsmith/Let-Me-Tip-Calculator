@@ -1,0 +1,9 @@
+This is a very big update...here are a few important changes:
+
+- The logic and data handling for the app has been totally rewritten so bugs are much easier to find and actually harder to create.
+- The interface has also been rearranged a bit -- All user input is near the bottom (where your thumb is), and all outputs are at the top.
+- The style of the interface is now different as well, please let me know what you think.
+- The above benefits are also passed along to the Watch App which is faster and more optimized than ever.
+- Best of all, there are now no more ads -- who likes ads??
+
+As always, please leave a review
