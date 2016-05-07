@@ -30,11 +30,11 @@ class InterfaceController: WKInterfaceController {
         
         setLabels()
         setMenuItems()
-        setLabels()
     }
     
     override func didAppear() {
-        
+        // Doing this so when you come back from setting a value, it gets updated!
+        setLabels()
     }
     
     func setLabels() {
