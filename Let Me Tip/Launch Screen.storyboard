@@ -34,7 +34,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Let Me Tip: Calculator" id="VmA-Wf-C4n">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="HGD-Q8-pfH">
+                        <barButtonItem key="rightBarButtonItem" id="HGD-Q8-pfH">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="detailDisclosure" lineBreakMode="middleTruncation" id="gAW-kN-Eoy">
                                 <rect key="frame" x="558" y="11" width="22" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
