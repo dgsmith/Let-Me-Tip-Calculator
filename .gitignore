@@ -31,10 +31,7 @@ Pods/
 # Deliver temporary preview output
 /fastlane/Preview.html
 # Snapshot generated screenshots
-/fastlane/screenshots/*/*.jpg
-/fastlane/screenshots/*/*.jpg
-/fastlane/screenshots/screenshots.html
-# Frameit generated screenshots
-/fastlane/screenshots/*/*-portrait_framed.png
-/fastlane/screenshots/*/*-landscape_framed.png
+/fastlane/screenshots/
+screenshots/
 
+icon/
