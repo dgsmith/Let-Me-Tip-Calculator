@@ -16,8 +16,8 @@ class CalculationDetailInterfaceController: WKInterfaceController {
     @IBOutlet weak var tipLabel:WKInterfaceLabel!
     @IBOutlet weak var totalLabel:WKInterfaceLabel!
     
-    override func awakeWithContext(context: AnyObject?) {
-        super.awakeWithContext(context)
+    override func awake(withContext context: AnyObject?) {
+        super.awake(withContext: context)
         guard let tipData = context as? TipData else {
             return
         }

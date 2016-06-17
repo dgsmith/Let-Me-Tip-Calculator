@@ -18,7 +18,7 @@ class TaxPercentagePickerController: WKInterfaceController {
     var currentWholeTaxPercentageIndex: Int!
     var currentFractionalTaxPercentageIndex: Int!
     
-    override func awakeWithContext(context: AnyObject?) {
+    override func awake(withContext context: AnyObject?) {
         if let context = context as? TipData {
             tipData = context
         }
@@ -48,7 +48,7 @@ class TaxPercentagePickerController: WKInterfaceController {
         wholeTaxPercentagePicker.setSelectedItemIndex(currentWholeTaxPercentageIndex)
         fractionalTaxPercentagePicker.setSelectedItemIndex(currentFractionalTaxPercentageIndex)
         
-        super.awakeWithContext(context)
+        super.awake(withContext: context)
     }
     
     override func willDisappear() {
@@ -62,11 +62,11 @@ class TaxPercentagePickerController: WKInterfaceController {
     }
     
     // MARK: - IBActions
-    @IBAction func wholeDollarAmountValueChanged(value: Int) {
+    @IBAction func wholeDollarAmountValueChanged(_ value: Int) {
         currentWholeTaxPercentageIndex = value
     }
     
-    @IBAction func fractionalDollarAmountValueChanged(value: Int) {
+    @IBAction func fractionalDollarAmountValueChanged(_ value: Int) {
         currentFractionalTaxPercentageIndex = value
     }
     

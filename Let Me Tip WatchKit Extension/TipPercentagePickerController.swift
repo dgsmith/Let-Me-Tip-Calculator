@@ -18,7 +18,7 @@ class TipPercentagePickerController: WKInterfaceController {
     var currentWholeTipPercentageIndex: Int!
     var currentFractionalTipPercentageIndex: Int!
     
-    override func awakeWithContext(context: AnyObject?) {
+    override func awake(withContext context: AnyObject?) {
         if let context = context as? TipData {
             tipData = context
         }
@@ -48,7 +48,7 @@ class TipPercentagePickerController: WKInterfaceController {
         wholeTipPercentagePicker.setSelectedItemIndex(currentWholeTipPercentageIndex)
         fractionalTipPercentagePicker.setSelectedItemIndex(currentFractionalTipPercentageIndex)
         
-        super.awakeWithContext(context)
+        super.awake(withContext: context)
     }
     
     override func willDisappear() {
@@ -62,11 +62,11 @@ class TipPercentagePickerController: WKInterfaceController {
     }
     
     // MARK: - IBActions
-    @IBAction func wholeDollarAmountValueChanged(value: Int) {
+    @IBAction func wholeDollarAmountValueChanged(_ value: Int) {
         currentWholeTipPercentageIndex = value
     }
     
-    @IBAction func fractionalDollarAmountValueChanged(value: Int) {
+    @IBAction func fractionalDollarAmountValueChanged(_ value: Int) {
         currentFractionalTipPercentageIndex = value
     }
     

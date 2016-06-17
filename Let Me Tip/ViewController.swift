@@ -9,7 +9,7 @@
 import UIKit
 
 extension Double {
-    func format(f: String) -> String {
+    func format(_ f: String) -> String {
         return String(format: "%\(f)f", self)
     }
 }
@@ -51,7 +51,7 @@ class ViewController: UIViewController {
         let blueColor = UIColor(red: 52.0 / 255.0,
                                 green: 170.0 / 255.0,
                                 blue: 220.0 / 255.0,
-                                alpha: 1.0).CGColor
+                                alpha: 1.0).cgColor
         
         receiptTotalTextField.layer.borderWidth = 1.0
         receiptTotalTextField.layer.borderColor = blueColor
@@ -68,13 +68,13 @@ class ViewController: UIViewController {
         tipPctTextField.layer.cornerRadius = 4.0
         tipPctTextField.layer.masksToBounds = true
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.keyboardWillShow(_:)), name: UIKeyboardWillShowNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.keyboardWasShown(_:)), name: UIKeyboardDidShowNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.keyboardWillHide(_:)), name: UIKeyboardWillHideNotification, object: nil)
+        NotificationCenter.default().addObserver(self, selector: #selector(ViewController.keyboardWillShow(_:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default().addObserver(self, selector: #selector(ViewController.keyboardWasShown(_:)), name: NSNotification.Name.UIKeyboardDidShow, object: nil)
+        NotificationCenter.default().addObserver(self, selector: #selector(ViewController.keyboardWillHide(_:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
 
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         loadValues()
@@ -119,13 +119,13 @@ class ViewController: UIViewController {
         finalTotalOutputLabel.text = tipData.finalTotal.text ?? ""
     }
     
-    func keyboardWillShow(notification: NSNotification) {
+    func keyboardWillShow(_ notification: Notification) {
         guard !viewMovedForKeyboard else { return }
         
-        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
+        if let keyboardSize = ((notification as NSNotification).userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue() {
             moving = true
-            if UIDevice.currentDevice().userInterfaceIdiom == .Phone
-                && UIScreen.mainScreen().bounds.size.height >= 736.0 {
+            if UIDevice.current().userInterfaceIdiom == .phone
+                && UIScreen.main().bounds.size.height >= 736.0 {
                 view.frame.size.height -= keyboardSize.height
             } else {
                 view.frame.origin.y -= keyboardSize.height
@@ -135,18 +135,18 @@ class ViewController: UIViewController {
         }
     }
     
-    func keyboardWasShown(notification: NSNotification) {
+    func keyboardWasShown(_ notification: Notification) {
         moving = false
         edingInputs = true
     }
     
-    func keyboardWillHide(notification: NSNotification) {
+    func keyboardWillHide(_ notification: Notification) {
         guard viewMovedForKeyboard else { return }
         
-        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
+        if let keyboardSize = ((notification as NSNotification).userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue() {
             
-            if UIDevice.currentDevice().userInterfaceIdiom == .Phone
-                && UIScreen.mainScreen().bounds.size.height >= 736.0 {
+            if UIDevice.current().userInterfaceIdiom == .phone
+                && UIScreen.main().bounds.size.height >= 736.0 {
                 view.frame.size.height += keyboardSize.height
             } else {
                 view.frame.origin.y += keyboardSize.height
@@ -158,7 +158,7 @@ class ViewController: UIViewController {
     }
 
     // MARK: - Actions
-    @IBAction func calculateTapped(sender : AnyObject) {
+    @IBAction func calculateTapped(_ sender : AnyObject) {
         if !moving {
             view.endEditing(true)
             
@@ -168,7 +168,7 @@ class ViewController: UIViewController {
         }
     }
     
-    @IBAction func viewTapped(sender : AnyObject) {
+    @IBAction func viewTapped(_ sender : AnyObject) {
         if !moving {
             view.endEditing(true)
             
@@ -178,7 +178,7 @@ class ViewController: UIViewController {
         }
     }
     
-    @IBAction func roundingValueChanged(sender: AnyObject) {
+    @IBAction func roundingValueChanged(_ sender: AnyObject) {
         switch roundingSelection.selectedSegmentIndex {
         case 0:
             tipData.calculationMethod = .RoundedTotal
@@ -204,7 +204,7 @@ class ViewController: UIViewController {
 extension ViewController: UITextFieldDelegate {
     
     //MARK: - UITexField delegate methods
-    func textFieldDidEndEditing(textField: UITextField) {
+    func textFieldDidEndEditing(_ textField: UITextField) {
         if textField.tag == 1 || textField.tag == 2 {
             textField.text = textField.text! + "%"
         } else {
@@ -212,14 +212,14 @@ extension ViewController: UITextFieldDelegate {
         }
     }
     
-    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         if textField.tag == 0 {
             // update the string in the text input
             let currentString = NSMutableString(string: textField.text!)
-            currentString.replaceCharactersInRange(range, withString: string)
+            currentString.replaceCharacters(in: range, with: string)
             
             // strip out decimal
-            currentString.replaceOccurrencesOfString(".", withString: "", options: NSStringCompareOptions.LiteralSearch, range: NSMakeRange(0, currentString.length))
+            currentString.replaceOccurrences(of: ".", with: "", options: NSString.CompareOptions.literalSearch, range: NSMakeRange(0, currentString.length))
             
             // generate a new string
             let currentValue = currentString.intValue
@@ -230,7 +230,7 @@ extension ViewController: UITextFieldDelegate {
         return true
     }
     
-    func textFieldDidBeginEditing(textField: UITextField) {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
         textField.text = ""
     }
     

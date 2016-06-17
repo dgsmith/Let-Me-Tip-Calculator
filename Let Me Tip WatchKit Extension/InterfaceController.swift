@@ -9,7 +9,7 @@
 import WatchKit
 
 enum Rounding : Int {
-    case RoundedTotal = 0, None, RoundedTip
+    case roundedTotal = 0, none, roundedTip
 }
 
 class InterfaceController: WKInterfaceController {
@@ -23,8 +23,8 @@ class InterfaceController: WKInterfaceController {
     @IBOutlet weak var finalTotalLabel: WKInterfaceLabel!
     
     // MARK: - View lifecycle
-    override func awakeWithContext(context: AnyObject?) {
-        super.awakeWithContext(context)
+    override func awake(withContext context: AnyObject?) {
+        super.awake(withContext: context)
         
         tipData = TipData()
         
@@ -47,23 +47,23 @@ class InterfaceController: WKInterfaceController {
     
     //MARK: - Actions
     @IBAction func setReceiptTotal() {
-        pushControllerWithName("DollarAmountPicker", context: tipData)
+        pushController(withName: "DollarAmountPicker", context: tipData)
     }
     
     @IBAction func setTaxPercentage() {
-        pushControllerWithName("TaxPercentagePicker", context: tipData)
+        pushController(withName: "TaxPercentagePicker", context: tipData)
     }
     
     @IBAction func setTipPercentage() {
-        pushControllerWithName("TipPercentagePicker", context: tipData)
+        pushController(withName: "TipPercentagePicker", context: tipData)
     }
     
     @IBAction func viewCalculationBreakdown() {
-        pushControllerWithName("CalculationDetail", context: tipData)
+        pushController(withName: "CalculationDetail", context: tipData)
     }
     
     @IBAction func setSplittingOptions() {
-        pushControllerWithName("SplittingOptions", context: tipData)
+        pushController(withName: "SplittingOptions", context: tipData)
     }
     
     // MARK: - Menu setup
@@ -71,17 +71,17 @@ class InterfaceController: WKInterfaceController {
         clearAllMenuItems()
         switch tipData.calculationMethod {
         case .NoRounding:
-            addMenuItemWithItemIcon(.Accept, title: "Round None", action: #selector(InterfaceController.noRoundingAction))
-            addMenuItemWithItemIcon(.Decline, title: "Round Tip", action: #selector(InterfaceController.roundTipAction))
-            addMenuItemWithItemIcon(.Decline, title: "Round Total", action: #selector(InterfaceController.roundTotalAction))
+            addMenuItem(with: .accept, title: "Round None", action: #selector(InterfaceController.noRoundingAction))
+            addMenuItem(with: .decline, title: "Round Tip", action: #selector(InterfaceController.roundTipAction))
+            addMenuItem(with: .decline, title: "Round Total", action: #selector(InterfaceController.roundTotalAction))
         case .RoundedTip:
-            addMenuItemWithItemIcon(.Decline, title: "Round None", action: #selector(InterfaceController.noRoundingAction))
-            addMenuItemWithItemIcon(.Accept, title: "Round Tip", action: #selector(InterfaceController.roundTipAction))
-            addMenuItemWithItemIcon(.Decline, title: "Round Total", action: #selector(InterfaceController.roundTotalAction))
+            addMenuItem(with: .decline, title: "Round None", action: #selector(InterfaceController.noRoundingAction))
+            addMenuItem(with: .accept, title: "Round Tip", action: #selector(InterfaceController.roundTipAction))
+            addMenuItem(with: .decline, title: "Round Total", action: #selector(InterfaceController.roundTotalAction))
         case .RoundedTotal:
-            addMenuItemWithItemIcon(.Decline, title: "Round None", action: #selector(InterfaceController.noRoundingAction))
-            addMenuItemWithItemIcon(.Decline, title: "Round Tip", action: #selector(InterfaceController.roundTipAction))
-            addMenuItemWithItemIcon(.Accept, title: "Round Total", action: #selector(InterfaceController.roundTotalAction))
+            addMenuItem(with: .decline, title: "Round None", action: #selector(InterfaceController.noRoundingAction))
+            addMenuItem(with: .decline, title: "Round Tip", action: #selector(InterfaceController.roundTipAction))
+            addMenuItem(with: .accept, title: "Round Total", action: #selector(InterfaceController.roundTotalAction))
         }
     }
     

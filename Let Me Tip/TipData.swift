@@ -19,7 +19,7 @@ class TipData {
     
     var taxPercentage: TaxPercentage {
         didSet {
-            tipCalc.taxPct = taxPercentage.value
+            tipCalc.taxPercentage = taxPercentage.value
         }
     }
     
@@ -53,15 +53,15 @@ class TipData {
     
     private let tipCalc = TipCalculatorModel()
     
-    private let defaults = NSUserDefaults(suiteName: "group.Let-Me-Tip")!
+    private let defaults = UserDefaults(suiteName: "group.Let-Me-Tip")!
     private let receiptTotalKey         = "receiptTotal"
     private let taxPercentageKey        = "taxPercentage"
     private let tipPercentageKey        = "tipPercentage"
     private let calculationMethodKey    = "calculationMethod"
     
     init() {
-        if let encodedData = defaults.objectForKey("data") as? NSData,
-            let dictionary = NSKeyedUnarchiver.unarchiveObjectWithData(encodedData) as? Dictionary<String,AnyObject> {
+        if let encodedData = defaults.object(forKey: "data") as? Data,
+            let dictionary = NSKeyedUnarchiver.unarchiveObject(with: encodedData) as? Dictionary<String,AnyObject> {
             if let inReceiptTotal = dictionary[receiptTotalKey] as? DollarAmount,
                 let inTaxPercentage = dictionary[taxPercentageKey] as? TaxPercentage,
                 let inTipPercentage = dictionary[tipPercentageKey] as? TipPercentage,
@@ -74,7 +74,7 @@ class TipData {
                 tipPercentage = inTipPercentage
                 calculationMethod = inCalculationMethod
                 
-                tipCalc.taxPct = taxPercentage.value
+                tipCalc.taxPercentage = taxPercentage.value
                 tipCalc.receiptTotal = receiptTotal.value
                 
                 calculate()
@@ -86,7 +86,7 @@ class TipData {
                 tipPercentage = TipPercentage(value: 0.15)
                 calculationMethod = .NoRounding
                 
-                tipCalc.taxPct = taxPercentage.value
+                tipCalc.taxPercentage = taxPercentage.value
                 tipCalc.receiptTotal = receiptTotal.value
                 
                 calculate()
@@ -99,7 +99,7 @@ class TipData {
             tipPercentage = TipPercentage(value: 0.15)
             calculationMethod = .NoRounding
             
-            tipCalc.taxPct = taxPercentage.value
+            tipCalc.taxPercentage = taxPercentage.value
             tipCalc.receiptTotal = receiptTotal.value
             
             calculate()
@@ -107,10 +107,10 @@ class TipData {
         
     }
     
-    func updateDataWithReceiptTotal(receiptTotal: DollarAmount, taxPercentage: TaxPercentage, andTipPercentage tipPercentage: TipPercentage) throws {
-        guard receiptTotal.text != nil else { throw TipCalculationError.ReceiptParseError }
-        guard taxPercentage.text != nil else { throw TipCalculationError.TaxParseError }
-        guard tipPercentage.text != nil else { throw TipCalculationError.TipParseError }
+    func updateDataWithReceiptTotal(_ receiptTotal: DollarAmount, taxPercentage: TaxPercentage, andTipPercentage tipPercentage: TipPercentage) throws {
+        guard receiptTotal.text != nil else { throw TipCalculationError.receiptParseError }
+        guard taxPercentage.text != nil else { throw TipCalculationError.taxParseError }
+        guard tipPercentage.text != nil else { throw TipCalculationError.tipParseError }
         
         self.taxPercentage = taxPercentage
         self.receiptTotal = receiptTotal
@@ -122,11 +122,11 @@ class TipData {
     func calculate() {
         switch calculationMethod {
         case .NoRounding:
-            (_, finalTotal.value) = tipCalc.calculateExactTipWithTipPercentage(tipPercentage.value)
+            (_, finalTotal.value) = tipCalc.calculateExactTipWith(tipPercentage: tipPercentage.value)
         case .RoundedTip:
-            (_, finalTotal.value, tipPercentage.value) = tipCalc.calculateRoundedTipAmountFromTipPercentage(tipPercentage.value)
+            (_, finalTotal.value, tipPercentage.value) = tipCalc.calculateRoundedTipAmountWith(tipPercentage: tipPercentage.value)
         case .RoundedTotal:
-            (_, finalTotal.value, tipPercentage.value) = tipCalc.calculateRoundedTotalFromTipPercentage(tipPercentage.value)
+            (_, finalTotal.value, tipPercentage.value) = tipCalc.calculateRoundedTotalWith(tipPercentage: tipPercentage.value)
         }
     }
     
@@ -135,8 +135,8 @@ class TipData {
                           taxPercentageKey: taxPercentage,
                           tipPercentageKey: tipPercentage,
                           calculationMethodKey: calculationMethod.rawValue]
-        let encodedDictionary = NSKeyedArchiver.archivedDataWithRootObject(dictionary)
-        defaults.setObject(encodedDictionary, forKey: "data")
+        let encodedDictionary = NSKeyedArchiver.archivedData(withRootObject: dictionary)
+        defaults.set(encodedDictionary, forKey: "data")
         defaults.synchronize()
     }
 }

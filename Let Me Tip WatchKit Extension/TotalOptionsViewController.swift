@@ -29,8 +29,8 @@ class TotalOptionsViewController: WKInterfaceController {
     var splitTotal: DollarAmount!
     var splitTip: DollarAmount!
     
-    override func awakeWithContext(context: AnyObject?) {
-        super.awakeWithContext(context)
+    override func awake(withContext context: AnyObject?) {
+        super.awake(withContext: context)
         
         if let context = context as? TipData {
             tipData = context
@@ -43,7 +43,7 @@ class TotalOptionsViewController: WKInterfaceController {
         updateDisplay()
     }
     
-    @IBAction func sliderValueChanged(value: Float) {
+    @IBAction func sliderValueChanged(_ value: Float) {
         guard value >= 1 else {
             splitSlider.setValue(1)
             splits = 1

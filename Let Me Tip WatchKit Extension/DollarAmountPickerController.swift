@@ -18,7 +18,7 @@ class DollarAmountPickerController: WKInterfaceController {
     var currentWholeDollarAmountIndex: Int!
     var currentFractionalDollarAmountIndex: Int!
     
-    override func awakeWithContext(context: AnyObject?) {
+    override func awake(withContext context: AnyObject?) {
         if let context = context as? TipData {
             tipData = context
         }
@@ -46,7 +46,7 @@ class DollarAmountPickerController: WKInterfaceController {
         wholeDollarAmountPicker.setSelectedItemIndex(currentWholeDollarAmountIndex)
         fractionalDollarAmountPicker.setSelectedItemIndex(currentFractionalDollarAmountIndex)
         
-        super.awakeWithContext(context)
+        super.awake(withContext: context)
     }
     
     override func willDisappear() {
@@ -60,11 +60,11 @@ class DollarAmountPickerController: WKInterfaceController {
     }
     
     // MARK: - IBActions
-    @IBAction func wholeDollarAmountValueChanged(value: Int) {
+    @IBAction func wholeDollarAmountValueChanged(_ value: Int) {
         currentWholeDollarAmountIndex = value
     }
     
-    @IBAction func fractionalDollarAmountValueChanged(value: Int) {
+    @IBAction func fractionalDollarAmountValueChanged(_ value: Int) {
         currentFractionalDollarAmountIndex = value
     }
     

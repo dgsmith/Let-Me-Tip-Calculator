@@ -44,4 +44,8 @@ class Let_Me_Tip_UITests: XCTestCase {
         
     }
     
+    func testVerify() {
+        
+    }
+    
 }

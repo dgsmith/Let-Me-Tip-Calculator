@@ -10,15 +10,15 @@ import UIKit
 
 final class DollarAmount: NSObject, NSCoding {
     var value: Double
-    private let numberFormatter: NSNumberFormatter = {
-        let formatter = NSNumberFormatter()
-        formatter.numberStyle = .CurrencyStyle
+    private let numberFormatter: NumberFormatter = {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
         formatter.maximumFractionDigits = 2
         return formatter
     }()
     var text: String? {
         get {
-            return numberFormatter.stringFromNumber(value)
+            return numberFormatter.string(from: value)
         }
     }
     
@@ -29,7 +29,7 @@ final class DollarAmount: NSObject, NSCoding {
     }
     
     init(string: String) {
-        if let value = numberFormatter.numberFromString(string) as? Double {
+        if let value = numberFormatter.number(from: string) as? Double {
             self.value = value
         } else {
             self.value = 0.0
@@ -39,28 +39,28 @@ final class DollarAmount: NSObject, NSCoding {
     }
     
     required init(coder aDecoder: NSCoder) {
-        value = aDecoder.decodeDoubleForKey("value")
+        value = aDecoder.decodeDouble(forKey: "value")
         
         super.init()
     }
     
     // MARK: - NSCoding
-    func encodeWithCoder(aCoder: NSCoder) {
-        aCoder.encodeDouble(value, forKey: "value")
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(value, forKey: "value")
     }
 }
 
 final class TaxPercentage: NSObject, NSCoding {
     var value: Double
-    private let taxFormatter: NSNumberFormatter = {
-        let formatter = NSNumberFormatter()
-        formatter.numberStyle = .PercentStyle
+    private let taxFormatter: NumberFormatter = {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .percent
         formatter.maximumFractionDigits = 3
         return formatter
     }()
     var text: String? {
         get {
-            return taxFormatter.stringFromNumber(value)
+            return taxFormatter.string(from: value)
         }
     }
     
@@ -71,7 +71,7 @@ final class TaxPercentage: NSObject, NSCoding {
     }
     
     init(string: String) {
-        if let value = taxFormatter.numberFromString(string) as? Double {
+        if let value = taxFormatter.number(from: string) as? Double {
             self.value = value
         } else {
             self.value = 0.0
@@ -81,28 +81,28 @@ final class TaxPercentage: NSObject, NSCoding {
     }
     
     required init(coder aDecoder: NSCoder) {
-        value = aDecoder.decodeDoubleForKey("value")
+        value = aDecoder.decodeDouble(forKey: "value")
         
         super.init()
     }
     
     // MARK: - NSCoding
-    func encodeWithCoder(aCoder: NSCoder) {
-        aCoder.encodeDouble(value, forKey: "value")
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(value, forKey: "value")
     }
 }
 
 final class TipPercentage: NSObject, NSCoding {
     var value: Double
-    private let tipFormatter: NSNumberFormatter = {
-        let formatter = NSNumberFormatter()
-        formatter.numberStyle = .PercentStyle
+    private let tipFormatter: NumberFormatter = {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .percent
         formatter.maximumFractionDigits = 2
         return formatter
     }()
     var text: String? {
         get {
-            return tipFormatter.stringFromNumber(value)
+            return tipFormatter.string(from: value)
         }
     }
     
@@ -113,7 +113,7 @@ final class TipPercentage: NSObject, NSCoding {
     }
     
     init(string: String) {
-        if let value = tipFormatter.numberFromString(string) as? Double {
+        if let value = tipFormatter.number(from: string) as? Double {
             self.value = value
         } else {
             self.value = 0.0
@@ -123,14 +123,14 @@ final class TipPercentage: NSObject, NSCoding {
     }
     
     required init(coder aDecoder: NSCoder) {
-        value = aDecoder.decodeDoubleForKey("value")
+        value = aDecoder.decodeDouble(forKey: "value")
         
         super.init()
     }
     
     // MARK: - NSCoding
-    func encodeWithCoder(aCoder: NSCoder) {
-        aCoder.encodeDouble(value, forKey: "value")
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(value, forKey: "value")
     }
 }
 
@@ -140,8 +140,8 @@ enum CalculationMethod: String {
     case RoundedTip = "RoundedTip"
 }
 
-enum TipCalculationError: ErrorType {
-    case ReceiptParseError
-    case TaxParseError
-    case TipParseError
+enum TipCalculationError: ErrorProtocol {
+    case receiptParseError
+    case taxParseError
+    case tipParseError
 }
