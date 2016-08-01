@@ -13,13 +13,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     
-    let tipData = TipData()
-
+    var presenter: TipViewPresenter!
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
         let navController = window!.rootViewController as! UINavigationController
-        let viewController = navController.topViewController as! ViewController
-        viewController.tipData = tipData
+        let view = navController.topViewController as! ViewController
+        
+        if let defaults = UserDefaults(suiteName: "group.Let-Me-Tip"),
+            let tipData = defaults.object(forKey: "tipData") as? [String:AnyObject],
+            let model = TipCalculatorModel(propertyListRepresentation: tipData) {
+            presenter = TipPresenter(tipCalculatorModel: model)
+            view.tipPresenter = presenter
+        } else {
+            let model = TipCalculatorModel(total: 32.78, tipPercentage: 0.18)
+            presenter = TipPresenter(tipCalculatorModel: model)
+            view.tipPresenter = presenter
+        }
         
         registerForPushNotifications(application)
         
@@ -33,8 +43,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {
-        
-        tipData.saveData()
         
     }
 

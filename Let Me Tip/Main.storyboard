@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11129.15" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="jbD-VA-oV7">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11163.2" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="jbD-VA-oV7">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11103.10"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11133"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -321,17 +321,17 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="calculationMethodPicker" destination="gJV-Zj-ar3" id="vcF-qP-fR4"/>
                         <outlet property="finalTotalOutputLabel" destination="AvC-4N-7LV" id="HiA-d2-huJ"/>
                         <outlet property="receiptTotalOutputLabel" destination="r40-nC-Hjj" id="lYs-rn-Rnh"/>
                         <outlet property="receiptTotalTextField" destination="cBi-k4-Alu" id="FaJ-uE-050"/>
-                        <outlet property="roundingSelection" destination="gJV-Zj-ar3" id="TQj-m6-ibr"/>
                         <outlet property="subtotalOutputLabel" destination="CJZ-rz-aI3" id="Spd-3I-74E"/>
-                        <outlet property="taxOutputLabel" destination="gpk-Aa-d1l" id="sAd-Y5-jPK"/>
-                        <outlet property="taxPctTextField" destination="Iy5-sq-BDA" id="njW-DU-hoK"/>
+                        <outlet property="taxAmountOutputLabel" destination="gpk-Aa-d1l" id="39A-pA-oUs"/>
                         <outlet property="taxPercentageOutputLabel" destination="UN3-Nq-vH8" id="9XV-bh-oki"/>
-                        <outlet property="tipOutputLabel" destination="fF8-b2-Bof" id="L1r-Bp-MSy"/>
-                        <outlet property="tipPctTextField" destination="VKa-Vn-hqg" id="Jcv-zG-F5K"/>
+                        <outlet property="taxPercentageTextField" destination="Iy5-sq-BDA" id="cHx-MM-fCU"/>
+                        <outlet property="tipAmountOutputLabel" destination="fF8-b2-Bof" id="Fki-DI-dOB"/>
                         <outlet property="tipPercentageOutputLabel" destination="2Hg-5L-DkE" id="bVx-0u-Q6R"/>
+                        <outlet property="tipPercentageTextField" destination="VKa-Vn-hqg" id="GPO-nI-ary"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
