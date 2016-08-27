@@ -9,19 +9,6 @@
 import WatchKit
 
 class ExtensionDelegate: NSObject, WKExtensionDelegate {
-    
-    var presenter: TipViewPresenter!
-    
-    func setupPresenter() {
-        if let defaults = UserDefaults(suiteName: "group.Let-Me-Tip"),
-            let tipData = defaults.object(forKey: "tipData") as? [String:AnyObject],
-            let model = TipCalculatorModel(propertyListRepresentation: tipData) {
-            self.presenter = TipPresenter(tipCalculatorModel: model)
-        } else {
-            let model = TipCalculatorModel(total: 32.78, tipPercentage: 0.18)
-            self.presenter = TipPresenter(tipCalculatorModel: model)
-        }
-    }
 
     func applicationDidFinishLaunching() {
         // Perform any final initialization of your application.

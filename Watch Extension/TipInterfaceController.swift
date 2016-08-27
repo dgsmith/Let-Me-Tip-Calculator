@@ -31,9 +31,9 @@ final class TipInterfaceController: WatchTipView {
     override func pickerDidSettle(_ picker: WKInterfacePicker) {
         if !updated {
             let tipPercentage = (Double(currentWholeNumberIndex) + (Double(currentFractionalNumberIndex) / 100.0)) / 100.0
-            let data = ["tipPercentage": tipPercentage]
+            let data = ["tipPercentage": NSNumber(value: tipPercentage)]
             
-            tipPresenter?.update(withInputs: data) { (data) in
+            tipPresenter.update(withInputs: data) { (data) in
                 updateDisplay(data: data)
             }
         } else {
@@ -42,18 +42,18 @@ final class TipInterfaceController: WatchTipView {
     }
     
     override func setInitialDisplay(data: [String: AnyObject]) {
-        if let tipPercentage            = data["tipPercentage"] as? Double,
-            let tipAmount               = data["tipAmount"] as? Double,
-            let finalTotal              = data["finalTotal"] as? Double,
-            let calculationMethodRaw    = data["calculationMethod"] as? Int,
-            let calculationMethod       = TipCalculationMethod(rawValue: calculationMethodRaw) {
+        if let tipPercentage            = data["tipPercentage"] as? NSNumber,
+            let tipAmount               = data["tipAmount"] as? NSNumber,
+            let finalTotal              = data["finalTotal"] as? NSNumber,
+            let calculationMethodRaw    = data["calculationMethod"] as? NSNumber,
+            let calculationMethod       = TipCalculationMethod(rawValue: calculationMethodRaw.intValue) {
             
             self.tipAmountTotalLabel.setText(self.decimalFormatter.string(from: tipAmount) ?? "$0.00")
             self.finalTotalLabel.setText(self.decimalFormatter.string(from: finalTotal) ?? "$0.00")
             
             setMenuItems(withCalculationMethod: calculationMethod)
             
-            let adjustedTipPercentage = tipPercentage * 100.0
+            let adjustedTipPercentage = tipPercentage.doubleValue * 100.0
             let wholeIndex = floor(adjustedTipPercentage)
             let fractionalIndex = (adjustedTipPercentage * 100.0) - (wholeIndex * 100.0)
             

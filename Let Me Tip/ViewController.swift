@@ -27,6 +27,7 @@ class ViewController: UIViewController, TipView {
     
     var state: TipViewState
     
+    // MARK: -
     // MARK: Initializer
     required init?(coder aDecoder: NSCoder) {
         state = .idle
@@ -34,6 +35,7 @@ class ViewController: UIViewController, TipView {
         super.init(coder: aDecoder)
     }
     
+    // MARK: -
     // MARK: View lifecycle
     override func viewDidLoad() {
 //        let borderColor = UIColor(red: 255.0 / 255.0,
@@ -66,85 +68,20 @@ class ViewController: UIViewController, TipView {
         NotificationCenter.default.addObserver(self, selector: #selector(ViewController.keyboardWillHide(_:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
 
         tipPresenter.update(withInputs: nil) { data in
-            if let subtotal                 = data["subtotal"] as? Double,
-                let taxPercentage           = data["taxPercentage"] as? Double,
-                let taxAmount               = data["taxAmount"] as? Double,
-                let receiptTotal            = data["receiptTotal"] as? Double,
-                let tipPercentage           = data["tipPercentage"] as? Double,
-                let tipAmount               = data["tipAmount"] as? Double,
-                let finalTotal              = data["finalTotal"] as? Double,
-                let calculationMethodRaw    = data["calculationMethod"] as? Int {
-                
-                receiptTotalTextField.text = decimalFormatter.string(from: receiptTotal) ?? "$0.00"
-                taxPercentageTextField.text = taxFormatter.string(from: taxPercentage) ?? "0.000%"
-                tipPercentageTextField.text = tipFormatter.string(from: tipPercentage) ?? "0.00%"
-                calculationMethodPicker.selectedSegmentIndex = calculationMethodRaw
-                
-                subtotalOutputLabel.text = decimalFormatter.string(from: subtotal) ?? "$0.00"
-                taxAmountOutputLabel.text = decimalFormatter.string(from: taxAmount) ?? "$0.00"
-                taxPercentageOutputLabel.text = "Tax (\(taxFormatter.string(from: taxPercentage) ?? "0.000%")):"
-                receiptTotalOutputLabel.text = decimalFormatter.string(from: receiptTotal) ?? "$0.00"
-                tipAmountOutputLabel.text = decimalFormatter.string(from: tipAmount) ?? "$0.00"
-                tipPercentageOutputLabel.text = "Tip (\(tipFormatter.string(from: tipPercentage) ?? "0.00%")):"
-                finalTotalOutputLabel.text = decimalFormatter.string(from: finalTotal) ?? "$0.00"
-            }
+            setDisplay(data: data)
         }
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-    }
-    
-    func recalculate() {
-        guard let receiptTotalString = receiptTotalTextField.text,
-            let taxPercentageString = taxPercentageTextField.text,
-            let tipPercentageString = tipPercentageTextField.text else { return }
-        
-        if let receiptTotal = decimalFormatter.number(from: receiptTotalString) as? Double,
-            let taxPercentage = taxFormatter.number(from: taxPercentageString) as? Double,
-            let tipPercentage = tipFormatter.number(from: tipPercentageString) as? Double {
-            let data: [String:AnyObject] = [
-                "receiptTotal": receiptTotal,
-                "taxPercentage": taxPercentage,
-                "tipPercentage": tipPercentage,
-                "calculationMethod": calculationMethodPicker.selectedSegmentIndex
-            ]
-            tipPresenter.update(withInputs: data) { data in
-                if let subtotal                 = data["subtotal"] as? Double,
-                    let taxPercentage           = data["taxPercentage"] as? Double,
-                    let taxAmount               = data["taxAmount"] as? Double,
-                    let receiptTotal            = data["receiptTotal"] as? Double,
-                    let tipPercentage           = data["tipPercentage"] as? Double,
-                    let tipAmount               = data["tipAmount"] as? Double,
-                    let finalTotal              = data["finalTotal"] as? Double,
-                    let calculationMethodRaw    = data["calculationMethod"] as? Int {
-                    
-                    receiptTotalTextField.text = decimalFormatter.string(from: receiptTotal) ?? "$0.00"
-                    taxPercentageTextField.text = taxFormatter.string(from: taxPercentage) ?? "0.000%"
-                    tipPercentageTextField.text = tipFormatter.string(from: tipPercentage) ?? "0.00%"
-                    calculationMethodPicker.selectedSegmentIndex = calculationMethodRaw
-                    
-                    subtotalOutputLabel.text = decimalFormatter.string(from: subtotal) ?? "$0.00"
-                    taxAmountOutputLabel.text = decimalFormatter.string(from: taxAmount) ?? "$0.00"
-                    taxPercentageOutputLabel.text = "Tax (\(taxFormatter.string(from: taxPercentage) ?? "0.000%")):"
-                    receiptTotalOutputLabel.text = decimalFormatter.string(from: receiptTotal) ?? "$0.00"
-                    tipAmountOutputLabel.text = decimalFormatter.string(from: tipAmount) ?? "$0.00"
-                    tipPercentageOutputLabel.text = "Tip (\(tipFormatter.string(from: tipPercentage) ?? "0.00%")):"
-                    finalTotalOutputLabel.text = decimalFormatter.string(from: finalTotal) ?? "$0.00"
-                }
-            }
-        }
-    }
-    
+    // MARK: -
     // MARK: Keyboard Management
     func keyboardWillShow(_ notification: Notification) {
         guard state != .editing else { return }
         state = .keyboardMoving
         
-        if let keyboardSize = ((notification as NSNotification).userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue() {
+        if let keyboardSize = ((notification as NSNotification).userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
             state = .keyboardMoving
-            if UIDevice.current().userInterfaceIdiom == .phone
-                && UIScreen.main().bounds.size.height >= 736.0 {
+            if UIDevice.current.userInterfaceIdiom == .phone
+                && UIScreen.main.bounds.size.height >= 736.0 {
                 view.frame.size.height -= keyboardSize.height
             } else {
                 view.frame.origin.y -= keyboardSize.height
@@ -160,10 +97,10 @@ class ViewController: UIViewController, TipView {
         guard state == .editing else { return }
         state = .keyboardMoving
         
-        if let keyboardSize = ((notification as NSNotification).userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue() {
+        if let keyboardSize = ((notification as NSNotification).userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
             
-            if UIDevice.current().userInterfaceIdiom == .phone
-                && UIScreen.main().bounds.size.height >= 736.0 {
+            if UIDevice.current.userInterfaceIdiom == .phone
+                && UIScreen.main.bounds.size.height >= 736.0 {
                 view.frame.size.height += keyboardSize.height
             } else {
                 view.frame.origin.y += keyboardSize.height
@@ -173,6 +110,7 @@ class ViewController: UIViewController, TipView {
         }
     }
 
+    // MARK: -
     // MARK: Actions
     @IBAction func calculateTapped(_ sender : AnyObject) {
         if state != .keyboardMoving {
@@ -194,6 +132,53 @@ class ViewController: UIViewController, TipView {
         // Only live update if we're not currently entering a value
         if state != .editing {
             recalculate()
+        }
+    }
+    
+    // MARK: -
+    // MARK: Calculations
+    func recalculate() {
+        guard let receiptTotalString = receiptTotalTextField.text,
+            let taxPercentageString = taxPercentageTextField.text,
+            let tipPercentageString = tipPercentageTextField.text else { return }
+        
+        if let receiptTotal = decimalFormatter.number(from: receiptTotalString),
+            let taxPercentage = taxFormatter.number(from: taxPercentageString),
+            let tipPercentage = tipFormatter.number(from: tipPercentageString) {
+            let data: [String: AnyObject] = [
+                "receiptTotal": receiptTotal,
+                "taxPercentage": taxPercentage,
+                "tipPercentage": tipPercentage,
+                "calculationMethod": NSNumber(value: calculationMethodPicker.selectedSegmentIndex)
+            ]
+            tipPresenter.update(withInputs: data) { data in
+                setDisplay(data: data)
+            }
+        }
+    }
+    
+    func setDisplay(data: [String: AnyObject]) {
+        if let subtotal                 = data["subtotal"] as? NSNumber,
+            let taxPercentage           = data["taxPercentage"] as? NSNumber,
+            let taxAmount               = data["taxAmount"] as? NSNumber,
+            let receiptTotal            = data["receiptTotal"] as? NSNumber,
+            let tipPercentage           = data["tipPercentage"] as? NSNumber,
+            let tipAmount               = data["tipAmount"] as? NSNumber,
+            let finalTotal              = data["finalTotal"] as? NSNumber,
+            let calculationMethodRaw    = data["calculationMethod"] as? Int {
+            
+            receiptTotalTextField.text = decimalFormatter.string(from: receiptTotal) ?? "$0.00"
+            taxPercentageTextField.text = taxFormatter.string(from: taxPercentage) ?? "0.000%"
+            tipPercentageTextField.text = tipFormatter.string(from: tipPercentage) ?? "0.00%"
+            calculationMethodPicker.selectedSegmentIndex = calculationMethodRaw
+            
+            subtotalOutputLabel.text = decimalFormatter.string(from: subtotal) ?? "$0.00"
+            taxAmountOutputLabel.text = decimalFormatter.string(from: taxAmount) ?? "$0.00"
+            taxPercentageOutputLabel.text = "Tax (\(taxFormatter.string(from: taxPercentage) ?? "0.000%")):"
+            receiptTotalOutputLabel.text = decimalFormatter.string(from: receiptTotal) ?? "$0.00"
+            tipAmountOutputLabel.text = decimalFormatter.string(from: tipAmount) ?? "$0.00"
+            tipPercentageOutputLabel.text = "Tip (\(tipFormatter.string(from: tipPercentage) ?? "0.00%")):"
+            finalTotalOutputLabel.text = decimalFormatter.string(from: finalTotal) ?? "$0.00"
         }
     }
     

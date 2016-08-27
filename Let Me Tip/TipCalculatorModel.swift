@@ -48,19 +48,19 @@ struct TipCalculatorModel: PropertyListReadable {
     
     init?(propertyListRepresentation: [String: AnyObject]?) {
         guard let dictionary = propertyListRepresentation else { return nil }
-        if let receiptTotal = dictionary["receiptTotal"] as? Double,
-            let taxPercentage = dictionary["taxPercentage"] as? Double,
-            let tipPercentage = dictionary["tipPercentage"] as? Double,
-            let tipAmount = dictionary["tipAmount"] as? Double,
-            let finalTotal = dictionary["finalTotal"] as? Double,
-            let calculationMethod = dictionary["calculationMethod"] as? Int {
+        if let receiptTotal = dictionary["receiptTotal"] as? NSNumber,
+            let taxPercentage = dictionary["taxPercentage"] as? NSNumber,
+            let tipPercentage = dictionary["tipPercentage"] as? NSNumber,
+            let tipAmount = dictionary["tipAmount"] as? NSNumber,
+            let finalTotal = dictionary["finalTotal"] as? NSNumber,
+            let calculationMethod = dictionary["calculationMethod"] as? NSNumber {
             
-            self.receiptTotal = receiptTotal
-            self.taxPercentage = taxPercentage
-            self.tipPercentage = tipPercentage
-            self.tipAmount = tipAmount
-            self.finalTotal = finalTotal
-            self.calculationMethod = TipCalculationMethod(rawValue: calculationMethod)!
+            self.receiptTotal = receiptTotal.doubleValue
+            self.taxPercentage = taxPercentage.doubleValue
+            self.tipPercentage = tipPercentage.doubleValue
+            self.tipAmount = tipAmount.doubleValue
+            self.finalTotal = finalTotal.doubleValue
+            self.calculationMethod = TipCalculationMethod(rawValue: calculationMethod.intValue)!
             
         } else {
             return nil
@@ -110,15 +110,15 @@ struct TipCalculatorModel: PropertyListReadable {
     }
     
     func propertyListRepresentation() -> [String: AnyObject] {
-        let representation: [String:AnyObject] = [
-            "subtotal": subtotal,
-            "taxPercentage": taxPercentage,
-            "taxAmount": taxAmount,
-            "receiptTotal": receiptTotal,
-            "tipPercentage": tipPercentage,
-            "tipAmount": tipAmount,
-            "finalTotal": finalTotal,
-            "calculationMethod": calculationMethod.rawValue
+        let representation: [String: AnyObject] = [
+            "subtotal": NSNumber(value: subtotal),
+            "taxPercentage": NSNumber(value: taxPercentage),
+            "taxAmount": NSNumber(value: taxAmount),
+            "receiptTotal": NSNumber(value: receiptTotal),
+            "tipPercentage": NSNumber(value: tipPercentage),
+            "tipAmount": NSNumber(value: tipAmount),
+            "finalTotal": NSNumber(value: finalTotal),
+            "calculationMethod": NSNumber(value: calculationMethod.rawValue)
         ]
         return representation
     }

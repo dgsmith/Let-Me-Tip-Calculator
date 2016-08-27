@@ -1,17 +1,48 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="11173.2" systemVersion="15G31" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="11198.2" systemVersion="15G31" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11143.2"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="11071"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="11077"/>
     </dependencies>
     <scenes>
         <!--receipt-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller identifier="receiptInterfaceController" title="Let Me Tip" id="AgC-eL-Hgc" userLabel="receipt" customClass="ReceiptInterfaceController" customModule="Watch_Extension">
+                <controller identifier="receiptInterfaceController" title="Let Me TIp" id="AgC-eL-Hgc" userLabel="receipt" customClass="ReceiptInterfaceController" customModule="Watch_Extension">
                     <items>
-                        <group width="1" alignment="left" layout="vertical" id="HNj-yF-g6I">
+                        <group width="1" height="1" alignment="left" layout="vertical" id="HNj-yF-g6I">
                             <items>
+                                <group width="1" alignment="left" layout="vertical" id="NpS-XP-Ksc">
+                                    <items>
+                                        <label alignment="left" text="Receipt Total:" id="yHf-Xk-kPI" userLabel="Receipt Total:">
+                                            <color key="textColor" red="0.20392156859999999" green="0.66666666669999997" blue="0.86274509799999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <fontDescription key="font" style="UICTFontTextStyleSubhead"/>
+                                            <variation key="device=watch42mm">
+                                                <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
+                                            </variation>
+                                        </label>
+                                        <group width="1" alignment="left" id="maS-c7-VRm">
+                                            <items>
+                                                <label width="0.10000000000000001" alignment="left" verticalAlignment="center" text="$" id="5Kn-cR-59k"/>
+                                                <picker width="0.42499999999999999" height="44" alignment="left" focusStyle="stack" id="hgN-er-phF">
+                                                    <connections>
+                                                        <action selector="wholeNumberPickerValueUpdated:" destination="AgC-eL-Hgc" id="og5-b1-oFU"/>
+                                                    </connections>
+                                                </picker>
+                                                <label width="0.050000000000000003" alignment="left" verticalAlignment="center" text="." id="fp5-aO-QO9"/>
+                                                <picker width="0.42499999999999999" height="44" alignment="left" focusStyle="stack" id="vt1-84-rQw">
+                                                    <connections>
+                                                        <action selector="fractionalNumberPickerValueUpdated:" destination="AgC-eL-Hgc" id="Rt7-Yk-DS8"/>
+                                                    </connections>
+                                                </picker>
+                                            </items>
+                                            <edgeInsets key="margins" left="4" right="4" top="4" bottom="4"/>
+                                        </group>
+                                    </items>
+                                </group>
+                                <separator alignment="left" id="EWr-bL-qaZ">
+                                    <color key="color" red="0.20392156859999999" green="0.66666666669999997" blue="0.86274509799999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </separator>
                                 <group width="1" alignment="left" layout="vertical" id="IYa-do-q4e">
                                     <items>
                                         <label alignment="left" text="Calculated Totals" id="PrS-aP-QjX">
@@ -30,30 +61,6 @@
                                             </items>
                                         </group>
                                     </items>
-                                </group>
-                                <separator alignment="left" id="EWr-bL-qaZ">
-                                    <color key="color" red="0.20392156859999999" green="0.66666666669999997" blue="0.86274509799999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </separator>
-                                <label alignment="left" text="Receipt Total" id="yHf-Xk-kPI">
-                                    <color key="textColor" red="0.20392156859999999" green="0.66666666669999997" blue="0.86274509799999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <fontDescription key="font" style="UICTFontTextStyleSubhead"/>
-                                </label>
-                                <group width="1" alignment="left" id="maS-c7-VRm">
-                                    <items>
-                                        <label alignment="left" verticalAlignment="center" text="$" id="5Kn-cR-59k"/>
-                                        <picker width="0.42999999999999999" height="44" alignment="left" focusStyle="stack" id="hgN-er-phF">
-                                            <connections>
-                                                <action selector="wholeNumberPickerValueUpdated:" destination="AgC-eL-Hgc" id="og5-b1-oFU"/>
-                                            </connections>
-                                        </picker>
-                                        <label alignment="left" verticalAlignment="center" text="." id="fp5-aO-QO9"/>
-                                        <picker width="0.42999999999999999" height="44" alignment="left" focusStyle="stack" id="vt1-84-rQw">
-                                            <connections>
-                                                <action selector="fractionalNumberPickerValueUpdated:" destination="AgC-eL-Hgc" id="Rt7-Yk-DS8"/>
-                                            </connections>
-                                        </picker>
-                                    </items>
-                                    <edgeInsets key="margins" left="4" right="4" top="4" bottom="4"/>
                                 </group>
                             </items>
                         </group>
@@ -74,48 +81,59 @@
             <objects>
                 <controller identifier="tipInterfaceController" title="Let Me Tip" id="m2E-DV-MmC" userLabel="tip" customClass="TipInterfaceController" customModule="Watch_Extension">
                     <items>
-                        <group width="1" alignment="left" layout="vertical" id="1bi-3W-DOI">
+                        <group width="1" height="1" alignment="left" layout="vertical" id="6N2-do-KBu">
                             <items>
-                                <label alignment="left" text="Calculated Totals" id="bqE-xL-SM8">
-                                    <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
-                                </label>
-                                <group width="1" alignment="left" id="Rb1-zg-wsE">
+                                <group width="1" alignment="left" layout="vertical" id="zpW-FQ-pIp">
                                     <items>
-                                        <label alignment="left" text="Tip:" id="JJb-V8-gty"/>
-                                        <label alignment="right" text="$4.66" id="Zb2-n0-383"/>
+                                        <label alignment="left" text="Tip Percent:" id="Nhj-SB-0yv">
+                                            <color key="textColor" red="0.20392156859999999" green="0.66666666669999997" blue="0.86274509799999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <fontDescription key="font" style="UICTFontTextStyleSubhead"/>
+                                            <variation key="device=watch42mm">
+                                                <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
+                                            </variation>
+                                        </label>
+                                        <group width="1" alignment="left" id="j4O-4x-T5E">
+                                            <items>
+                                                <picker width="0.42499999999999999" height="44" alignment="left" focusStyle="stack" id="9ZA-Yh-B3R">
+                                                    <connections>
+                                                        <action selector="wholeNumberPickerValueUpdated:" destination="m2E-DV-MmC" id="Ozi-0j-UAF"/>
+                                                    </connections>
+                                                </picker>
+                                                <label width="0.050000000000000003" alignment="left" verticalAlignment="center" text="." id="KXk-WG-xEU"/>
+                                                <picker width="0.42499999999999999" height="44" alignment="left" focusStyle="stack" id="Ewl-OX-mf0">
+                                                    <connections>
+                                                        <action selector="fractionalNumberPickerValueUpdated:" destination="m2E-DV-MmC" id="Wap-64-QMr"/>
+                                                    </connections>
+                                                </picker>
+                                                <label width="0.10000000000000001" alignment="left" verticalAlignment="center" text="%" id="TRp-DJ-W86"/>
+                                            </items>
+                                            <edgeInsets key="margins" left="4" right="4" top="4" bottom="4"/>
+                                        </group>
                                     </items>
                                 </group>
-                                <group width="1" alignment="left" id="hdL-DC-fwL">
+                                <separator alignment="left" id="aBw-Ox-cbJ">
+                                    <color key="color" red="0.20392156859999999" green="0.66666666669999997" blue="0.86274509799999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </separator>
+                                <group width="1" alignment="left" layout="vertical" id="1bi-3W-DOI">
                                     <items>
-                                        <label alignment="left" text="Total:" id="zUK-h4-gFx"/>
-                                        <label alignment="right" text="$35.00" id="LML-x0-D51"/>
+                                        <label alignment="left" text="Calculated Totals" id="bqE-xL-SM8">
+                                            <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
+                                        </label>
+                                        <group width="1" alignment="left" id="Rb1-zg-wsE">
+                                            <items>
+                                                <label alignment="left" text="Tip:" id="JJb-V8-gty"/>
+                                                <label alignment="right" text="$4.66" id="Zb2-n0-383"/>
+                                            </items>
+                                        </group>
+                                        <group width="1" alignment="left" id="hdL-DC-fwL">
+                                            <items>
+                                                <label alignment="left" text="Total:" id="zUK-h4-gFx"/>
+                                                <label alignment="right" text="$35.00" id="LML-x0-D51"/>
+                                            </items>
+                                        </group>
                                     </items>
                                 </group>
                             </items>
-                        </group>
-                        <separator alignment="left" id="aBw-Ox-cbJ">
-                            <color key="color" red="0.20392156859999999" green="0.66666666669999997" blue="0.86274509799999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        </separator>
-                        <label alignment="left" text="Tip Percent" id="Nhj-SB-0yv">
-                            <color key="textColor" red="0.20392156859999999" green="0.66666666669999997" blue="0.86274509799999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <fontDescription key="font" style="UICTFontTextStyleSubhead"/>
-                        </label>
-                        <group width="1" alignment="left" id="j4O-4x-T5E">
-                            <items>
-                                <picker width="0.42999999999999999" height="44" alignment="left" focusStyle="stack" id="9ZA-Yh-B3R">
-                                    <connections>
-                                        <action selector="wholeNumberPickerValueUpdated:" destination="m2E-DV-MmC" id="Ozi-0j-UAF"/>
-                                    </connections>
-                                </picker>
-                                <label alignment="left" verticalAlignment="center" text="." id="KXk-WG-xEU"/>
-                                <picker width="0.42999999999999999" height="44" alignment="left" focusStyle="stack" id="Ewl-OX-mf0">
-                                    <connections>
-                                        <action selector="fractionalNumberPickerValueUpdated:" destination="m2E-DV-MmC" id="Wap-64-QMr"/>
-                                    </connections>
-                                </picker>
-                                <label alignment="left" verticalAlignment="center" text="%" id="TRp-DJ-W86"/>
-                            </items>
-                            <edgeInsets key="margins" left="4" right="4" top="4" bottom="4"/>
                         </group>
                     </items>
                     <connections>
@@ -134,48 +152,59 @@
             <objects>
                 <controller identifier="taxInterfaceController" title="Let Me Tip" id="Ki2-Xl-5K9" userLabel="tax" customClass="TaxInterfaceController" customModule="Watch_Extension">
                     <items>
-                        <group width="1" alignment="left" layout="vertical" id="a5H-WQ-0CK">
+                        <group width="1" height="1" alignment="left" layout="vertical" id="Kux-7K-aWc">
                             <items>
-                                <label alignment="left" text="Calculated Totals" id="b1T-zc-d0J">
-                                    <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
-                                </label>
-                                <group width="1" alignment="left" id="2z1-xT-1En">
+                                <group width="1" alignment="left" layout="vertical" id="P2c-ye-tcf">
                                     <items>
-                                        <label alignment="left" text="Tip:" id="iC0-4F-VlC"/>
-                                        <label alignment="right" text="$4.66" id="Pq8-yp-oeW"/>
+                                        <label alignment="left" text="Tax Percent:" id="gOM-4L-7rH">
+                                            <color key="textColor" red="0.20392156859999999" green="0.66666666669999997" blue="0.86274509799999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <fontDescription key="font" style="UICTFontTextStyleSubhead"/>
+                                            <variation key="device=watch42mm">
+                                                <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
+                                            </variation>
+                                        </label>
+                                        <group width="1" alignment="left" id="Z1k-BK-FqA">
+                                            <items>
+                                                <picker width="0.42499999999999999" height="44" alignment="left" focusStyle="stack" id="5s4-n1-I5d">
+                                                    <connections>
+                                                        <action selector="wholeNumberPickerValueUpdated:" destination="Ki2-Xl-5K9" id="hnM-AO-klJ"/>
+                                                    </connections>
+                                                </picker>
+                                                <label width="0.050000000000000003" alignment="left" verticalAlignment="center" text="." id="gqF-7E-KrL"/>
+                                                <picker width="0.42499999999999999" height="44" alignment="left" focusStyle="stack" id="TNp-1w-j78">
+                                                    <connections>
+                                                        <action selector="fractionalNumberPickerValueUpdated:" destination="Ki2-Xl-5K9" id="v8C-6Z-2Rb"/>
+                                                    </connections>
+                                                </picker>
+                                                <label width="0.10000000000000001" alignment="left" verticalAlignment="center" text="%" id="Pr4-My-Rih"/>
+                                            </items>
+                                            <edgeInsets key="margins" left="4" right="4" top="4" bottom="4"/>
+                                        </group>
                                     </items>
                                 </group>
-                                <group width="1" alignment="left" id="rlf-Vo-U1h">
+                                <separator alignment="left" id="KRH-Vg-FMY">
+                                    <color key="color" red="0.20392156859999999" green="0.66666666669999997" blue="0.86274509799999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </separator>
+                                <group width="1" alignment="left" layout="vertical" id="a5H-WQ-0CK">
                                     <items>
-                                        <label alignment="left" text="Total:" id="1Qf-t1-W0A"/>
-                                        <label alignment="right" text="$35.00" id="KcD-Ef-t6Z"/>
+                                        <label alignment="left" text="Calculated Totals" id="b1T-zc-d0J">
+                                            <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
+                                        </label>
+                                        <group width="1" alignment="left" id="2z1-xT-1En">
+                                            <items>
+                                                <label alignment="left" text="Tip:" id="iC0-4F-VlC"/>
+                                                <label alignment="right" text="$4.66" id="Pq8-yp-oeW"/>
+                                            </items>
+                                        </group>
+                                        <group width="1" alignment="left" id="rlf-Vo-U1h">
+                                            <items>
+                                                <label alignment="left" text="Total:" id="1Qf-t1-W0A"/>
+                                                <label alignment="right" text="$35.00" id="KcD-Ef-t6Z"/>
+                                            </items>
+                                        </group>
                                     </items>
                                 </group>
                             </items>
-                        </group>
-                        <separator alignment="left" id="KRH-Vg-FMY">
-                            <color key="color" red="0.20392156859999999" green="0.66666666669999997" blue="0.86274509799999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        </separator>
-                        <label alignment="left" text="Tax Percent" id="gOM-4L-7rH">
-                            <color key="textColor" red="0.20392156859999999" green="0.66666666669999997" blue="0.86274509799999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <fontDescription key="font" style="UICTFontTextStyleSubhead"/>
-                        </label>
-                        <group width="1" alignment="left" id="Z1k-BK-FqA">
-                            <items>
-                                <picker width="0.42999999999999999" height="44" alignment="left" focusStyle="stack" id="5s4-n1-I5d">
-                                    <connections>
-                                        <action selector="wholeNumberPickerValueUpdated:" destination="Ki2-Xl-5K9" id="hnM-AO-klJ"/>
-                                    </connections>
-                                </picker>
-                                <label alignment="left" verticalAlignment="center" text="." id="gqF-7E-KrL"/>
-                                <picker width="0.42999999999999999" height="44" alignment="left" focusStyle="stack" id="TNp-1w-j78">
-                                    <connections>
-                                        <action selector="fractionalNumberPickerValueUpdated:" destination="Ki2-Xl-5K9" id="v8C-6Z-2Rb"/>
-                                    </connections>
-                                </picker>
-                                <label alignment="left" verticalAlignment="center" text="%" id="Pr4-My-Rih"/>
-                            </items>
-                            <edgeInsets key="margins" left="4" right="4" top="4" bottom="4"/>
                         </group>
                     </items>
                     <connections>

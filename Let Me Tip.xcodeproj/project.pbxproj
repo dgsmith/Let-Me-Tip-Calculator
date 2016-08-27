@@ -25,7 +25,6 @@
 		56FDA32C1D2E95FA008B377A /* Watch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 56FDA32B1D2E95FA008B377A /* Watch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		56FDA3311D2E95FA008B377A /* ReceiptInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FDA3301D2E95FA008B377A /* ReceiptInterfaceController.swift */; };
 		56FDA3331D2E95FA008B377A /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FDA3321D2E95FA008B377A /* ExtensionDelegate.swift */; };
-		56FDA3351D2E95FA008B377A /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FDA3341D2E95FA008B377A /* ComplicationController.swift */; };
 		56FDA3371D2E95FA008B377A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56FDA3361D2E95FA008B377A /* Assets.xcassets */; };
 		56FDA33B1D2E95FA008B377A /* Watch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 56FDA31F1D2E95F9008B377A /* Watch.app */; };
 		56FDA3431D352991008B377A /* TipCalculatorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BD22681B522A5000051358 /* TipCalculatorModel.swift */; };
@@ -127,7 +126,6 @@
 		56FDA32B1D2E95FA008B377A /* Watch Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Watch Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		56FDA3301D2E95FA008B377A /* ReceiptInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptInterfaceController.swift; sourceTree = "<group>"; };
 		56FDA3321D2E95FA008B377A /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
-		56FDA3341D2E95FA008B377A /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
 		56FDA3361D2E95FA008B377A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		56FDA3381D2E95FA008B377A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		74943084FDBDCA0B730A5644 /* libPods-Let Me Tip WatchKit Extension.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Let Me Tip WatchKit Extension.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -251,7 +249,6 @@
 				56FDA3301D2E95FA008B377A /* ReceiptInterfaceController.swift */,
 				56B323F61D40488600EFD218 /* TipInterfaceController.swift */,
 				56B323F81D40496200EFD218 /* TaxInterfaceController.swift */,
-				56FDA3341D2E95FA008B377A /* ComplicationController.swift */,
 				56FDA3361D2E95FA008B377A /* Assets.xcassets */,
 				56FDA3381D2E95FA008B377A /* Info.plist */,
 			);
@@ -550,7 +547,6 @@
 				56FDA3331D2E95FA008B377A /* ExtensionDelegate.swift in Sources */,
 				56B323F91D40496200EFD218 /* TaxInterfaceController.swift in Sources */,
 				56FDA3311D2E95FA008B377A /* ReceiptInterfaceController.swift in Sources */,
-				56FDA3351D2E95FA008B377A /* ComplicationController.swift in Sources */,
 				56FDA3431D352991008B377A /* TipCalculatorModel.swift in Sources */,
 				56B323F71D40488600EFD218 /* TipInterfaceController.swift in Sources */,
 				56FDA3451D352998008B377A /* TipPresenter.swift in Sources */,

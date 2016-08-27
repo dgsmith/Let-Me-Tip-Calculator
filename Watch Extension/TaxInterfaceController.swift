@@ -31,9 +31,9 @@ final class TaxInterfaceController: WatchTipView {
     override func pickerDidSettle(_ picker: WKInterfacePicker) {
         if !updated {
             let taxPercentage = (Double(currentWholeNumberIndex) + (Double(currentFractionalNumberIndex) / 1000.0)) / 100.0
-            let data = ["taxPercentage": taxPercentage]
+            let data = ["taxPercentage": NSNumber(value: taxPercentage)]
             
-            tipPresenter?.update(withInputs: data) { (data) in
+            tipPresenter.update(withInputs: data) { (data) in
                 updateDisplay(data: data)
             }
         } else {
@@ -42,18 +42,18 @@ final class TaxInterfaceController: WatchTipView {
     }
     
     override func setInitialDisplay(data: [String: AnyObject]) {
-        if let taxPercentage            = data["taxPercentage"] as? Double,
-            let tipAmount               = data["tipAmount"] as? Double,
-            let finalTotal              = data["finalTotal"] as? Double,
-            let calculationMethodRaw    = data["calculationMethod"] as? Int,
-            let calculationMethod       = TipCalculationMethod(rawValue: calculationMethodRaw) {
+        if let taxPercentage            = data["taxPercentage"] as? NSNumber,
+            let tipAmount               = data["tipAmount"] as? NSNumber,
+            let finalTotal              = data["finalTotal"] as? NSNumber,
+            let calculationMethodRaw    = data["calculationMethod"] as? NSNumber,
+            let calculationMethod       = TipCalculationMethod(rawValue: calculationMethodRaw.intValue) {
             
             self.tipAmountTotalLabel.setText(self.decimalFormatter.string(from: tipAmount) ?? "$0.00")
             self.finalTotalLabel.setText(self.decimalFormatter.string(from: finalTotal) ?? "$0.00")
             
             setMenuItems(withCalculationMethod: calculationMethod)
             
-            let adjustedTaxPercentage = taxPercentage * 100.0
+            let adjustedTaxPercentage = taxPercentage.doubleValue * 100.0
             let wholeIndex = floor(adjustedTaxPercentage)
             let fractionalIndex = (adjustedTaxPercentage * 100.0) - (wholeIndex * 100.0)
             

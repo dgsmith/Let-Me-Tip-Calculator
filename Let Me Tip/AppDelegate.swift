@@ -15,7 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var presenter: TipViewPresenter!
     
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
         
         let navController = window!.rootViewController as! UINavigationController
         let view = navController.topViewController as! ViewController
@@ -36,7 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Instabug.start(withToken: "52cc5a34042f2351149b9184cd8465ec", invocationEvent: .shake)
         return true
     }
-
+    
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
@@ -71,23 +71,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-        let tokenChars = UnsafePointer<CChar>((deviceToken as NSData).bytes)
-        var tokenString = ""
         
-        for i in 0..<deviceToken.count {
-            tokenString += String(format: "%02.2hhx", arguments: [tokenChars[i]])
+        _ = deviceToken.withUnsafeBytes { (pointer: UnsafePointer<CChar>) -> Bool in
+            let tokenChars: UnsafePointer<CChar> = pointer
+            var tokenString = ""
+            
+            for i in 0..<deviceToken.count {
+                tokenString += String(format: "%02.2hhx", arguments: [tokenChars[i]])
+            }
+            
+            print("Device token: \(tokenString)")
+            Instabug.setPushNotificationsEnabled(true)
+            
+            return true
         }
-        
-        print("Device token: \(tokenString)")
-        Instabug.setPushNotificationsEnabled(true)
     }
     
-    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
+    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
         print("Failed to register: \(error)")
         Instabug.setPushNotificationsEnabled(false)
     }
     
-    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any]) {
         print(userInfo)
     }
     

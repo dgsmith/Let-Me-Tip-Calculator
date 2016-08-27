@@ -8,9 +8,13 @@
 
 import Foundation
 
-class TipPresenter: TipViewPresenter {
+final class TipPresenter: TipViewPresenter {
     
-    static let shared = TipPresenter()
+    private static let sharedSingleton = TipPresenter()
+    
+    class func shared() -> TipViewPresenter {
+        return sharedSingleton
+    }
     
     /// Value of TipCalculatorModel
     var tipCalculatorModel: TipCalculatorModel
@@ -31,7 +35,7 @@ class TipPresenter: TipViewPresenter {
     }
     
     func update(withInputs data: [String:AnyObject]?,
-                withCompletion completion: @noescape ([String:AnyObject]) -> Void) {
+                withCompletion completion: ([String:AnyObject]) -> Void) {
         
         var dataRead = false
         if let data = data {
