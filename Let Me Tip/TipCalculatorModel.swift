@@ -8,32 +8,32 @@
 
 import UIKit
 
-struct TipCalculatorModel: PropertyListReadable {
+public struct TipCalculatorModel: PropertyListReadable {
     
     // User entered values
-    var receiptTotal: Double
-    var tipPercentage: Double
-    var taxPercentage: Double
-    var calculationMethod: TipCalculationMethod
+    public var receiptTotal: Double
+    public var tipPercentage: Double
+    public var taxPercentage: Double
+    public var calculationMethod: TipCalculationMethod
     
     // Outputs
-    var subtotal: Double {
+    public var subtotal: Double {
         get {
             return receiptTotal / (taxPercentage + 1)
         }
     }
-    var taxAmount: Double {
+    public var taxAmount: Double {
         get {
             return taxPercentage * subtotal
         }
     }
     
-    var tipAmount: Double
-    var finalTotal: Double
+    public var tipAmount: Double
+    public var finalTotal: Double
     
     private let defaults = UserDefaults(suiteName: "group.Let-Me-Tip")!
     
-    init(total: Double, tipPercentage: Double) {
+    public init(total: Double, tipPercentage: Double) {
         self.receiptTotal       = total
         self.taxPercentage      = 0.0
         self.tipAmount          = 0.0
@@ -42,11 +42,11 @@ struct TipCalculatorModel: PropertyListReadable {
         self.calculationMethod  = .noRounding
     }
     
-    init() {
+    public init() {
         self.init(total: 32.78, tipPercentage: 0.18)
     }
     
-    init?(propertyListRepresentation: [String: AnyObject]?) {
+    public init?(propertyListRepresentation: [String: AnyObject]?) {
         guard let dictionary = propertyListRepresentation else { return nil }
         if let receiptTotal = dictionary["receiptTotal"] as? NSNumber,
             let taxPercentage = dictionary["taxPercentage"] as? NSNumber,
@@ -67,7 +67,7 @@ struct TipCalculatorModel: PropertyListReadable {
         }
     }
     
-    mutating func calculate() -> [String: AnyObject] {
+    @discardableResult public mutating func calculate() -> [String: AnyObject] {
         switch calculationMethod {
         case .noRounding:
             // Directly calculate the tip amount and final total
@@ -103,13 +103,13 @@ struct TipCalculatorModel: PropertyListReadable {
         return save()
     }
     
-    func save() -> [String: AnyObject] {
+    @discardableResult public func save() -> [String: AnyObject] {
         let tipData = propertyListRepresentation()
         defaults.set(tipData, forKey: "tipData")
         return tipData
     }
     
-    func propertyListRepresentation() -> [String: AnyObject] {
+    public func propertyListRepresentation() -> [String: AnyObject] {
         let representation: [String: AnyObject] = [
             "subtotal": NSNumber(value: subtotal),
             "taxPercentage": NSNumber(value: taxPercentage),

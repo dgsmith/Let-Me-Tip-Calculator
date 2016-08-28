@@ -10,19 +10,19 @@ import UIKit
 import WatchKit
 
 // MARK: Enums
-enum TipCalculationMethod: Int {
+public enum TipCalculationMethod: Int {
     case roundedTotal = 0
     case noRounding
     case roundedTip
 }
 
-enum TipCalculationError: Error {
+public enum TipCalculationError: Error {
     case receiptParseError
     case taxParseError
     case tipParseError
 }
 
-enum TipViewState {
+public enum TipViewState {
     case idle
     case editing
     case keyboardMoving

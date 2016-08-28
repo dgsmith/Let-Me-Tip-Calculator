@@ -20,6 +20,8 @@
 		56B323F71D40488600EFD218 /* TipInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B323F61D40488600EFD218 /* TipInterfaceController.swift */; };
 		56B323F91D40496200EFD218 /* TaxInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B323F81D40496200EFD218 /* TaxInterfaceController.swift */; };
 		56BD22691B522A5000051358 /* TipCalculatorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BD22681B522A5000051358 /* TipCalculatorModel.swift */; };
+		56D4D90C1D71F37700C5375B /* TipCalculatorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BD22681B522A5000051358 /* TipCalculatorModel.swift */; };
+		56D4D90D1D71F37700C5375B /* TipDataTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561772701CC2DC8700AC27F2 /* TipDataTypes.swift */; };
 		56FDA3231D2E95F9008B377A /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56FDA3211D2E95F9008B377A /* Interface.storyboard */; };
 		56FDA3251D2E95F9008B377A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56FDA3241D2E95F9008B377A /* Assets.xcassets */; };
 		56FDA32C1D2E95FA008B377A /* Watch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 56FDA32B1D2E95FA008B377A /* Watch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -163,8 +165,9 @@
 			children = (
 				56FB61C41CC1A3F300D5BC57 /* Entitlements */,
 				5671C9841AB79E9D00952EEB /* Let Me Tip */,
-				569263BB1CDD8761008D6EEA /* Let Me Tip UITests */,
+				56FDA3201D2E95F9008B377A /* Watch */,
 				56FDA32F1D2E95FA008B377A /* Watch Extension */,
+				569263BB1CDD8761008D6EEA /* Let Me Tip UITests */,
 				5671C9831AB79E9D00952EEB /* Products */,
 				E18593754C3654E30365514A /* Pods */,
 				63F9793E8EB6827371F6215E /* Frameworks */,
@@ -211,7 +214,6 @@
 		569263BB1CDD8761008D6EEA /* Let Me Tip UITests */ = {
 			isa = PBXGroup;
 			children = (
-				56FDA3201D2E95F9008B377A /* Watch */,
 				569263C41CDD8B3C008D6EEA /* SnapshotHelper.swift */,
 				569263BC1CDD8761008D6EEA /* Let_Me_Tip_UITests.swift */,
 				569263BE1CDD8761008D6EEA /* Info.plist */,
@@ -237,8 +239,7 @@
 				56FDA3241D2E95F9008B377A /* Assets.xcassets */,
 				56FDA3261D2E95F9008B377A /* Info.plist */,
 			);
-			name = Watch;
-			path = ../Watch;
+			path = Watch;
 			sourceTree = "<group>";
 		};
 		56FDA32F1D2E95FA008B377A /* Watch Extension */ = {
@@ -535,6 +536,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56D4D90C1D71F37700C5375B /* TipCalculatorModel.swift in Sources */,
+				56D4D90D1D71F37700C5375B /* TipDataTypes.swift in Sources */,
 				569263BD1CDD8761008D6EEA /* Let_Me_Tip_UITests.swift in Sources */,
 				569263C51CDD8B3C008D6EEA /* SnapshotHelper.swift in Sources */,
 			);
@@ -678,6 +681,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Let Me Tip.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = "Let Me Tip/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -698,6 +702,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Let Me Tip.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = "Let Me Tip/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
