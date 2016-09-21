@@ -35,36 +35,49 @@ final class TipPresenter: TipViewPresenter {
     }
     
     func update(withInputs data: [String:AnyObject]?,
-                withCompletion completion: ([String:AnyObject]) -> Void) {
+                withCompletion completion: (([String:AnyObject]) -> Void)?) {
         
         var dataRead = false
         if let data = data {
             #if DEBUG
                 print(data)
             #endif
-            if let receiptTotal = data["receiptTotal"] as? Double,
-                receiptTotal != tipCalculatorModel.receiptTotal {
+            if let receiptTotal = data["receiptTotal"] as? NSNumber,
+                receiptTotal.doubleValue != tipCalculatorModel.receiptTotal {
                 
-                tipCalculatorModel.receiptTotal = receiptTotal
+                tipCalculatorModel.receiptTotal = receiptTotal.doubleValue
                 dataRead = true
             }
-            if let taxPercentage = data["taxPercentage"] as? Double,
-                taxPercentage != tipCalculatorModel.taxPercentage {
+            if let taxPercentage = data["taxPercentage"] as? NSNumber,
+                taxPercentage.doubleValue != tipCalculatorModel.taxPercentage {
                 
-                tipCalculatorModel.taxPercentage = taxPercentage
+                tipCalculatorModel.taxPercentage = taxPercentage.doubleValue
                 dataRead = true
             }
-            if let tipPercentage = data["tipPercentage"] as? Double,
-                tipPercentage != tipCalculatorModel.tipPercentage {
+            if let taxAmount = data["taxAmount"] as? NSNumber,
+                taxAmount.doubleValue != tipCalculatorModel.taxAmount {
                 
-                tipCalculatorModel.tipPercentage = tipPercentage
+                tipCalculatorModel.taxAmount = taxAmount.doubleValue
                 dataRead = true
             }
-            if let calculationMethodRaw = data["calculationMethod"] as? Int,
-                let calculationMethod = TipCalculationMethod(rawValue: calculationMethodRaw),
+            if let tipPercentage = data["tipPercentage"] as? NSNumber,
+                tipPercentage.doubleValue != tipCalculatorModel.tipPercentage {
+                
+                tipCalculatorModel.tipPercentage = tipPercentage.doubleValue
+                dataRead = true
+            }
+            if let calculationMethodRaw = data["calculationMethod"] as? NSNumber,
+                let calculationMethod = TipCalculationMethod(rawValue: calculationMethodRaw.intValue),
                 calculationMethod != tipCalculatorModel.calculationMethod {
                 
                 tipCalculatorModel.calculationMethod = calculationMethod
+                dataRead = true
+            }
+            if let taxInputMethodRaw = data["taxInputMethod"] as? NSNumber,
+                let taxInputMethod = TaxInputMethod(rawValue: taxInputMethodRaw.intValue),
+                taxInputMethod != tipCalculatorModel.taxInputMethod {
+                
+                tipCalculatorModel.taxInputMethod = taxInputMethod
                 dataRead = true
             }
         }
@@ -73,6 +86,6 @@ final class TipPresenter: TipViewPresenter {
         #if DEBUG
             print(output)
         #endif
-        completion(output)
+        completion?(output)
     }
 }

@@ -34,7 +34,7 @@ final class TipInterfaceController: WatchTipView {
             let data = ["tipPercentage": NSNumber(value: tipPercentage)]
             
             tipPresenter.update(withInputs: data) { (data) in
-                updateDisplay(data: data)
+                self.updateDisplay(data: data)
             }
         } else {
             updated = false
@@ -49,6 +49,8 @@ final class TipInterfaceController: WatchTipView {
             let calculationMethod       = TipCalculationMethod(rawValue: calculationMethodRaw.intValue) {
             
             self.tipAmountTotalLabel.setText(self.decimalFormatter.string(from: tipAmount) ?? "$0.00")
+            let tipPercentageTotalText = self.shortTipFormatter.string(from: tipPercentage) ?? "0.0%"
+            self.tipPercentageTotalLabel.setText("(\(tipPercentageTotalText))")
             self.finalTotalLabel.setText(self.decimalFormatter.string(from: finalTotal) ?? "$0.00")
             
             setMenuItems(withCalculationMethod: calculationMethod)
@@ -72,4 +74,5 @@ final class TipInterfaceController: WatchTipView {
             }
         }
     }
+    
 }

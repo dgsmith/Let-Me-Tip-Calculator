@@ -13,10 +13,14 @@ public struct TipCalculatorModel: PropertyListReadable {
     // User entered values
     public var receiptTotal: Double
     public var tipPercentage: Double
-    public var taxPercentage: Double
+    public var taxPercentage: Double {
+        didSet {
+            taxInputMethod = .taxPercentage
+        }
+    }
     public var calculationMethod: TipCalculationMethod
+    public var taxInputMethod: TaxInputMethod
     
-    // Outputs
     public var subtotal: Double {
         get {
             return receiptTotal / (taxPercentage + 1)
@@ -25,6 +29,11 @@ public struct TipCalculatorModel: PropertyListReadable {
     public var taxAmount: Double {
         get {
             return taxPercentage * subtotal
+        }
+        set {
+            let subtotal = receiptTotal - newValue
+            taxPercentage = newValue / subtotal
+            taxInputMethod = .taxAmount
         }
     }
     
@@ -40,6 +49,7 @@ public struct TipCalculatorModel: PropertyListReadable {
         self.tipPercentage      = tipPercentage
         self.finalTotal         = 0.0
         self.calculationMethod  = .noRounding
+        self.taxInputMethod     = .taxPercentage
     }
     
     public init() {
@@ -53,7 +63,8 @@ public struct TipCalculatorModel: PropertyListReadable {
             let tipPercentage = dictionary["tipPercentage"] as? NSNumber,
             let tipAmount = dictionary["tipAmount"] as? NSNumber,
             let finalTotal = dictionary["finalTotal"] as? NSNumber,
-            let calculationMethod = dictionary["calculationMethod"] as? NSNumber {
+            let calculationMethod = dictionary["calculationMethod"] as? NSNumber,
+            let taxInputMethod = dictionary["taxInputMethod"] as? NSNumber {
             
             self.receiptTotal = receiptTotal.doubleValue
             self.taxPercentage = taxPercentage.doubleValue
@@ -61,6 +72,7 @@ public struct TipCalculatorModel: PropertyListReadable {
             self.tipAmount = tipAmount.doubleValue
             self.finalTotal = finalTotal.doubleValue
             self.calculationMethod = TipCalculationMethod(rawValue: calculationMethod.intValue)!
+            self.taxInputMethod = TaxInputMethod(rawValue: taxInputMethod.intValue)!
             
         } else {
             return nil
@@ -118,7 +130,8 @@ public struct TipCalculatorModel: PropertyListReadable {
             "tipPercentage": NSNumber(value: tipPercentage),
             "tipAmount": NSNumber(value: tipAmount),
             "finalTotal": NSNumber(value: finalTotal),
-            "calculationMethod": NSNumber(value: calculationMethod.rawValue)
+            "calculationMethod": NSNumber(value: calculationMethod.rawValue),
+            "taxInputMethod": NSNumber(value: taxInputMethod.rawValue)
         ]
         return representation
     }

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11163.2" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="jbD-VA-oV7">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="jbD-VA-oV7">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11133"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="tiQ-Wj-hpZ">
+                            <stackView opaque="NO" tag="1" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="tiQ-Wj-hpZ">
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t9g-r2-cF0" userLabel="Outputs">
                                         <subviews>
@@ -34,48 +34,24 @@
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="749" text="Subtotal:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="qNn-7I-TlF">
                                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                                 <nil key="highlightedColor"/>
-                                                                <variation key="heightClass=compact-widthClass=compact" ambiguous="YES">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="277" height="0.0"/>
-                                                                </variation>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$XX.XX" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="CJZ-rz-aI3">
                                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                                 <nil key="highlightedColor"/>
-                                                                <variation key="heightClass=compact-widthClass=compact" ambiguous="YES">
-                                                                    <rect key="frame" x="277" y="0.0" width="67" height="0.0"/>
-                                                                </variation>
                                                             </label>
                                                         </subviews>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="20" id="Sl4-dn-CNg"/>
-                                                        </constraints>
-                                                        <variation key="heightClass=compact-widthClass=compact" ambiguous="YES">
-                                                            <rect key="frame" x="0.0" y="0.0" width="344" height="0.0"/>
-                                                        </variation>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n4N-EI-yIJ">
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="749" text="Tax (XX%):" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="UN3-Nq-vH8">
                                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                                 <nil key="highlightedColor"/>
-                                                                <variation key="heightClass=compact-widthClass=compact" ambiguous="YES">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="277" height="6"/>
-                                                                </variation>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$XX.XX" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="gpk-Aa-d1l">
                                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                                 <nil key="highlightedColor"/>
-                                                                <variation key="heightClass=compact-widthClass=compact" ambiguous="YES">
-                                                                    <rect key="frame" x="277" y="0.0" width="67" height="6"/>
-                                                                </variation>
                                                             </label>
                                                         </subviews>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="20" id="nzA-b2-c8F"/>
-                                                        </constraints>
-                                                        <variation key="heightClass=compact-widthClass=compact" ambiguous="YES">
-                                                            <rect key="frame" x="0.0" y="8" width="344" height="6"/>
-                                                        </variation>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pcc-QO-aos">
                                                         <subviews>
@@ -88,12 +64,6 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                         </subviews>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="20" id="MeL-G1-rQ4"/>
-                                                        </constraints>
-                                                        <variation key="heightClass=compact-widthClass=compact" ambiguous="YES">
-                                                            <rect key="frame" x="0.0" y="22" width="344" height="23"/>
-                                                        </variation>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PwQ-Tl-Vr0">
                                                         <subviews>
@@ -107,12 +77,6 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                         </subviews>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="20" id="Ig9-UY-zFS"/>
-                                                        </constraints>
-                                                        <variation key="heightClass=compact-widthClass=compact" ambiguous="YES">
-                                                            <rect key="frame" x="0.0" y="53" width="344" height="23"/>
-                                                        </variation>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hgl-6y-UYr">
                                                         <subviews>
@@ -126,17 +90,8 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                         </subviews>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="20" id="y0S-zc-VCc"/>
-                                                        </constraints>
-                                                        <variation key="heightClass=compact-widthClass=compact" ambiguous="YES">
-                                                            <rect key="frame" x="0.0" y="84" width="344" height="23"/>
-                                                        </variation>
                                                     </stackView>
                                                 </subviews>
-                                                <variation key="heightClass=compact-widthClass=compact" ambiguous="YES">
-                                                    <rect key="frame" x="8" y="38" width="344" height="107"/>
-                                                </variation>
                                             </stackView>
                                         </subviews>
                                         <color key="backgroundColor" red="0.46436402201652527" green="0.76927870512008667" blue="0.91580796241760254" alpha="0.14999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
@@ -154,116 +109,96 @@
                                                 <integer key="value" value="6"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
-                                        <variation key="heightClass=compact-widthClass=compact" ambiguous="YES">
-                                            <rect key="frame" x="0.0" y="0.0" width="360" height="153"/>
-                                        </variation>
                                     </view>
-                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="gJV-Zj-ar3">
+                                    <segmentedControl opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="gJV-Zj-ar3">
                                         <segments>
                                             <segment title="Rounded Total"/>
                                             <segment title="Normal"/>
                                             <segment title="Rounded Tip"/>
                                         </segments>
-                                        <variation key="heightClass=compact-widthClass=compact" ambiguous="YES">
-                                            <rect key="frame" x="0.0" y="155" width="360" height="29"/>
-                                        </variation>
                                         <connections>
                                             <action selector="roundingValueChanged:" destination="vXZ-lx-hvc" eventType="valueChanged" id="3Lq-Uu-GXO"/>
                                         </connections>
                                     </segmentedControl>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ftt-ic-pr8" userLabel="Inputs">
+                                    <view tag="2" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ftt-ic-pr8" userLabel="Inputs">
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Input Values From Your Receipt" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.25" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EtT-5y-tIx">
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ez9-O5-kBy">
+                                            <stackView opaque="NO" tag="1" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ez9-O5-kBy">
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="0GL-Ru-Hw8">
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Bill Total (post-tax)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="2n2-7G-zcV">
                                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                                 <nil key="highlightedColor"/>
-                                                                <variation key="heightClass=compact-widthClass=compact" ambiguous="YES">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="160" height="23"/>
-                                                                </variation>
                                                             </label>
                                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="fill" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" clearsOnBeginEditing="YES" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="cBi-k4-Alu">
                                                                 <color key="tintColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad"/>
-                                                                <variation key="heightClass=compact-widthClass=compact" ambiguous="YES">
-                                                                    <rect key="frame" x="168" y="0.0" width="176" height="23"/>
-                                                                </variation>
                                                                 <connections>
                                                                     <outlet property="delegate" destination="vXZ-lx-hvc" id="zeh-2v-k46"/>
                                                                 </connections>
                                                             </textField>
                                                         </subviews>
-                                                        <variation key="heightClass=compact-widthClass=compact" ambiguous="YES">
-                                                            <rect key="frame" x="0.0" y="0.0" width="344" height="23"/>
-                                                        </variation>
                                                     </stackView>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="bEK-CA-NDd">
+                                                    <stackView opaque="NO" tag="1" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="bEK-CA-NDd">
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Tax Percentage" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="eSp-Re-zQQ">
                                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                                 <nil key="highlightedColor"/>
-                                                                <variation key="heightClass=compact-widthClass=compact" ambiguous="YES">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="132" height="23"/>
-                                                                </variation>
                                                             </label>
                                                             <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" clearsOnBeginEditing="YES" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="Iy5-sq-BDA">
                                                                 <color key="tintColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="decimalPad"/>
-                                                                <variation key="heightClass=compact-widthClass=compact" ambiguous="YES">
-                                                                    <rect key="frame" x="140" y="0.0" width="204" height="23"/>
-                                                                </variation>
                                                                 <connections>
                                                                     <outlet property="delegate" destination="vXZ-lx-hvc" id="1P0-MG-onv"/>
                                                                 </connections>
                                                             </textField>
                                                         </subviews>
-                                                        <variation key="heightClass=compact-widthClass=compact" ambiguous="YES">
-                                                            <rect key="frame" x="0.0" y="31" width="344" height="23"/>
-                                                        </variation>
                                                     </stackView>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ynb-Dx-crq">
+                                                    <stackView opaque="NO" tag="2" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="GEf-PH-R8b">
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Tax Amount" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="54z-Ep-ILz">
+                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="fill" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" clearsOnBeginEditing="YES" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="bT3-yj-Fx0">
+                                                                <color key="tintColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="decimalPad"/>
+                                                                <connections>
+                                                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="YEg-B0-dph"/>
+                                                                </connections>
+                                                            </textField>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <stackView opaque="NO" tag="2" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ynb-Dx-crq">
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Tip Percentage" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="DaZ-gK-HNN">
                                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                                 <nil key="highlightedColor"/>
-                                                                <variation key="heightClass=compact-widthClass=compact" ambiguous="YES">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="129" height="23"/>
-                                                                </variation>
                                                             </label>
                                                             <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" clearsOnBeginEditing="YES" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="VKa-Vn-hqg">
                                                                 <color key="tintColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad"/>
-                                                                <variation key="heightClass=compact-widthClass=compact" ambiguous="YES">
-                                                                    <rect key="frame" x="137" y="0.0" width="207" height="23"/>
-                                                                </variation>
                                                                 <connections>
                                                                     <outlet property="delegate" destination="vXZ-lx-hvc" id="33w-bO-d4z"/>
                                                                 </connections>
                                                             </textField>
                                                         </subviews>
-                                                        <variation key="heightClass=compact-widthClass=compact" ambiguous="YES">
-                                                            <rect key="frame" x="0.0" y="62" width="344" height="23"/>
-                                                        </variation>
                                                     </stackView>
                                                 </subviews>
                                                 <constraints>
                                                     <constraint firstItem="cBi-k4-Alu" firstAttribute="width" secondItem="Iy5-sq-BDA" secondAttribute="width" id="F4P-tf-ao8"/>
-                                                    <constraint firstAttribute="height" constant="106" id="PBx-QP-WGR"/>
+                                                    <constraint firstItem="cBi-k4-Alu" firstAttribute="width" secondItem="bT3-yj-Fx0" secondAttribute="width" id="FGg-2B-eA0"/>
                                                     <constraint firstItem="cBi-k4-Alu" firstAttribute="width" secondItem="VKa-Vn-hqg" secondAttribute="width" id="dNQ-br-RRL"/>
                                                 </constraints>
-                                                <variation key="heightClass=compact-widthClass=compact" ambiguous="YES">
-                                                    <rect key="frame" x="8" y="38" width="344" height="85"/>
-                                                </variation>
                                             </stackView>
                                         </subviews>
                                         <color key="backgroundColor" red="0.46436402201652527" green="0.76927870512008667" blue="0.91580796241760254" alpha="0.14999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
@@ -281,12 +216,9 @@
                                                 <integer key="value" value="6"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
-                                        <variation key="heightClass=compact-widthClass=compact" ambiguous="YES">
-                                            <rect key="frame" x="0.0" y="185" width="360" height="131"/>
-                                        </variation>
                                     </view>
-                                    <view userInteractionEnabled="NO" contentMode="scaleToFill" verticalHuggingPriority="249" verticalCompressionResistancePriority="748" translatesAutoresizingMaskIntoConstraints="NO" id="59C-cK-27j"/>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZWg-VM-a66">
+                                    <view userInteractionEnabled="NO" tag="2" contentMode="scaleToFill" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="59C-cK-27j"/>
+                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZWg-VM-a66">
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                         <color key="tintColor" red="0.17391428351402283" green="0.5998803973197937" blue="0.82934796810150146" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="Calculate"/>
@@ -306,13 +238,13 @@
                             <constraint firstItem="tiQ-Wj-hpZ" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="8" id="qwq-9f-4mR"/>
                         </constraints>
                         <connections>
-                            <outletCollection property="gestureRecognizers" destination="Khr-es-JCS" appends="YES" id="uw0-JR-70p"/>
+                            <outletCollection property="gestureRecognizers" destination="wmQ-yL-xmk" appends="YES" id="5fz-DB-tGL"/>
                         </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Let Me Tip: Calculator" id="LNc-VR-wOf">
                         <barButtonItem key="rightBarButtonItem" id="Itu-2Z-Ft3">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="detailDisclosure" lineBreakMode="middleTruncation" id="V8F-u9-NlG">
-                                <rect key="frame" x="337" y="11" width="22" height="22"/>
+                                <rect key="frame" x="372" y="11" width="22" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <segue destination="NeK-Xb-7TM" kind="presentation" id="ddb-s2-xNx"/>
@@ -327,7 +259,10 @@
                         <outlet property="receiptTotalTextField" destination="cBi-k4-Alu" id="FaJ-uE-050"/>
                         <outlet property="subtotalOutputLabel" destination="CJZ-rz-aI3" id="Spd-3I-74E"/>
                         <outlet property="taxAmountOutputLabel" destination="gpk-Aa-d1l" id="39A-pA-oUs"/>
+                        <outlet property="taxAmountStackView" destination="GEf-PH-R8b" id="V7z-SB-MmX"/>
+                        <outlet property="taxAmountTextField" destination="bT3-yj-Fx0" id="EkN-qd-fgF"/>
                         <outlet property="taxPercentageOutputLabel" destination="UN3-Nq-vH8" id="9XV-bh-oki"/>
+                        <outlet property="taxPercentageStackView" destination="bEK-CA-NDd" id="6xj-UT-e7u"/>
                         <outlet property="taxPercentageTextField" destination="Iy5-sq-BDA" id="cHx-MM-fCU"/>
                         <outlet property="tipAmountOutputLabel" destination="fF8-b2-Bof" id="Fki-DI-dOB"/>
                         <outlet property="tipPercentageOutputLabel" destination="2Hg-5L-DkE" id="bVx-0u-Q6R"/>
@@ -335,9 +270,9 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="Khr-es-JCS">
+                <tapGestureRecognizer cancelsTouchesInView="NO" id="wmQ-yL-xmk">
                     <connections>
-                        <action selector="viewTapped:" destination="vXZ-lx-hvc" id="gM3-EW-jp5"/>
+                        <action selector="viewTapped:" destination="vXZ-lx-hvc" id="zpt-sZ-VkJ"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
@@ -375,12 +310,12 @@
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1. You can press on the Tip Amount row to see the calculation breakdown." textAlignment="justified" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bv9-AD-0nf">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1. You can press on the Tip Amount row to see the calculation breakdown." textAlignment="justified" lineBreakMode="middleTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.25" translatesAutoresizingMaskIntoConstraints="NO" id="Bv9-AD-0nf">
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2. If there are multiple people in your party, you can press on the Tip+Total row for splitting options." textAlignment="justified" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sql-1Z-eWI">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2. If there are multiple people in your party, you can press on the Tip+Total row for splitting options." textAlignment="justified" lineBreakMode="middleTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.20000000000000001" translatesAutoresizingMaskIntoConstraints="NO" id="sql-1Z-eWI">
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -399,7 +334,7 @@
                                                     <action selector="InfoViewFinished:" destination="NeK-Xb-7TM" eventType="touchUpInside" id="ISi-ib-Yro"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3. Don't forget to force touch to change the rounding options!" textAlignment="justified" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ihx-NC-oP8">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3. Don't forget to force touch to change the rounding options!" textAlignment="justified" lineBreakMode="middleTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ihx-NC-oP8">
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>

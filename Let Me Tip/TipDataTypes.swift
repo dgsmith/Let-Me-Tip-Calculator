@@ -28,6 +28,11 @@ public enum TipViewState {
     case keyboardMoving
 }
 
+public enum TaxInputMethod: Int {
+    case taxPercentage = 0
+    case taxAmount
+}
+
 // MARK: -
 // MARK: TipViews
 protocol TipView: class {
@@ -57,6 +62,13 @@ extension TipView {
         formatter.maximumFractionDigits = 2
         return formatter
     }
+    
+    var shortTipFormatter: NumberFormatter {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .percent
+        formatter.maximumFractionDigits = 1
+        return formatter
+    }
 }
 
 #if os(watchOS)
@@ -64,6 +76,7 @@ class WatchTipView: WKInterfaceController, TipView {
     @IBOutlet var wholeNumberPicker: WKInterfacePicker!
     @IBOutlet var fractionalNumberPicker: WKInterfacePicker!
     @IBOutlet var tipAmountTotalLabel: WKInterfaceLabel!
+    @IBOutlet var tipPercentageTotalLabel: WKInterfaceLabel!
     @IBOutlet var finalTotalLabel: WKInterfaceLabel!
     let tipPresenter = TipPresenter.shared()
     lazy var currentWholeNumberIndex = 0
@@ -72,7 +85,7 @@ class WatchTipView: WKInterfaceController, TipView {
     
     override func willActivate() {
         tipPresenter.update(withInputs: nil) { data in
-            setInitialDisplay(data: data)
+            self.setInitialDisplay(data: data)
         }
     }
     @IBAction func wholeNumberPickerValueUpdated(_ value: Int) {
@@ -86,10 +99,13 @@ class WatchTipView: WKInterfaceController, TipView {
     
     func updateDisplay(data: [String: AnyObject]) {
         if let tipAmount    = data["tipAmount"] as? NSNumber,
+            let tipPercentage   = data["tipPercentage"] as? NSNumber,
             let finalTotal  = data["finalTotal"] as? NSNumber {
             
             DispatchQueue.main.async {
                 self.tipAmountTotalLabel.setText(self.decimalFormatter.string(from: tipAmount) ?? "$0.00")
+                let tipPercentageTotalText = self.shortTipFormatter.string(from: tipPercentage) ?? "0.0%"
+                self.tipPercentageTotalLabel.setText("(\(tipPercentageTotalText))")
                 self.finalTotalLabel.setText(self.decimalFormatter.string(from: finalTotal) ?? "$0.00")
             }
         }
@@ -116,7 +132,7 @@ class WatchTipView: WKInterfaceController, TipView {
         let data = ["calculationMethod": NSNumber(value: calculationMethod.rawValue)]
         setMenuItems(withCalculationMethod: calculationMethod)
         tipPresenter.update(withInputs: data, withCompletion: { (data) in
-            updateDisplay(data: data)
+            self.updateDisplay(data: data)
         })
     }
     @objc func noRoundingSelected() {
@@ -124,7 +140,7 @@ class WatchTipView: WKInterfaceController, TipView {
         let data = ["calculationMethod": NSNumber(value: calculationMethod.rawValue)]
         setMenuItems(withCalculationMethod: calculationMethod)
         tipPresenter.update(withInputs: data, withCompletion: { (data) in
-            updateDisplay(data: data)
+            self.updateDisplay(data: data)
         })
     }
     @objc func roundedTipSelected() {
@@ -132,7 +148,7 @@ class WatchTipView: WKInterfaceController, TipView {
         let data = ["calculationMethod": NSNumber(value: calculationMethod.rawValue)]
         setMenuItems(withCalculationMethod: calculationMethod)
         tipPresenter.update(withInputs: data, withCompletion: { (data) in
-            updateDisplay(data: data)
+            self.updateDisplay(data: data)
         })
     }
 }
@@ -142,7 +158,7 @@ class WatchTipView: WKInterfaceController, TipView {
 // MARK: TipViewPresenters
 protocol TipViewPresenter: class {
     init(tipCalculatorModel: TipCalculatorModel)
-    func update(withInputs: [String:AnyObject]?, withCompletion completion: ([String:AnyObject]) -> Void)
+    func update(withInputs: [String:AnyObject]?, withCompletion completion: (([String:AnyObject]) -> Void)?)
 }
 
 protocol PropertyListReadable {

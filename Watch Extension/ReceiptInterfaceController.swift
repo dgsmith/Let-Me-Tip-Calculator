@@ -34,7 +34,7 @@ final class ReceiptInterfaceController: WatchTipView {
             let data = ["receiptTotal": receiptTotal as AnyObject]
             
             tipPresenter.update(withInputs: data) { (data) in
-                updateDisplay(data: data)
+                self.updateDisplay(data: data)
             }
         } else {
             updated = false
@@ -44,11 +44,14 @@ final class ReceiptInterfaceController: WatchTipView {
     override func setInitialDisplay(data: [String: AnyObject]) {
         if let receiptTotal             = data["receiptTotal"] as? NSNumber,
             let tipAmount               = data["tipAmount"] as? NSNumber,
+            let tipPercentage           = data["tipPercentage"] as? NSNumber,
             let finalTotal              = data["finalTotal"] as? NSNumber,
             let calculationMethodRaw    = data["calculationMethod"] as? NSNumber,
             let calculationMethod       = TipCalculationMethod(rawValue: calculationMethodRaw.intValue) {
             
             self.tipAmountTotalLabel.setText(self.decimalFormatter.string(from: tipAmount) ?? "$0.00")
+            let tipPercentageTotalText = self.shortTipFormatter.string(from: tipPercentage) ?? "0.0%"
+            self.tipPercentageTotalLabel.setText("(\(tipPercentageTotalText))")
             self.finalTotalLabel.setText(self.decimalFormatter.string(from: finalTotal) ?? "$0.00")
             
             setMenuItems(withCalculationMethod: calculationMethod)
