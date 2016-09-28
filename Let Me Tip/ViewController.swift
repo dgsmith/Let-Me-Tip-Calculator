@@ -27,10 +27,14 @@ class ViewController: UIViewController, TipView {
     @IBOutlet weak var taxAmountStackView: UIStackView!
     @IBOutlet weak var taxPercentageStackView: UIStackView!
     
+    @IBOutlet weak var emptySpaceView: UIView!
+    
     var tipPresenter: TipViewPresenter!
     
     var state: TipViewState
     var taxInputMethod: TaxInputMethod
+    
+    var emptySpaceHeight: CGFloat?
     
     // MARK: -
     // MARK: Initializer
@@ -98,15 +102,14 @@ class ViewController: UIViewController, TipView {
         guard state != .editing else { return }
         state = .keyboardMoving
         
-        if let keyboardSize = ((notification as NSNotification).userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-            state = .keyboardMoving
-            if UIDevice.current.userInterfaceIdiom == .phone
-                && UIScreen.main.bounds.size.height >= 736.0 {
-                view.frame.size.height -= keyboardSize.height
-            } else {
-                view.frame.origin.y -= keyboardSize.height
-            }
-        }
+        let info = notification.userInfo!
+        let keyboardSize = (info[UIKeyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
+        
+        emptySpaceHeight = emptySpaceView.bounds.height
+        let amountToMoveView = keyboardSize.height - (emptySpaceHeight ?? 0)
+        
+        view.frame.size.height -= (emptySpaceHeight ?? 0)
+        view.frame.origin.y -= amountToMoveView
     }
     
     func keyboardWasShown(_ notification: Notification) {
@@ -117,15 +120,13 @@ class ViewController: UIViewController, TipView {
         guard state == .editing else { return }
         state = .keyboardMoving
         
-        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-            
-            if UIDevice.current.userInterfaceIdiom == .phone
-                && UIScreen.main.bounds.size.height >= 736.0 {
-                view.frame.size.height += keyboardSize.height
-            } else {
-                view.frame.origin.y += keyboardSize.height
-            }
-        }
+        let info = notification.userInfo!
+        let keyboardSize = (info[UIKeyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
+        
+        let amountToMoveView = keyboardSize.height - (emptySpaceHeight ?? 0)
+        
+        view.frame.size.height += (emptySpaceHeight ?? 0)
+        view.frame.origin.y += amountToMoveView
         
         state = .idle
     }
@@ -170,7 +171,7 @@ class ViewController: UIViewController, TipView {
         setTaxInfo()
         
         let data = ["taxInputMethod": NSNumber(value: taxInputMethod.rawValue)]
-        tipPresenter.update(withInputs: data, withCompletion: nil)
+        tipPresenter.update(withInputs: data, completion: nil)
     }
     
     func setTaxInfo() {

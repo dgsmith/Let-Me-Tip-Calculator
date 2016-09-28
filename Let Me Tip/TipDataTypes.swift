@@ -85,7 +85,7 @@ class WatchTipView: WKInterfaceController, TipView {
     
     override func willActivate() {
         tipPresenter.update(withInputs: nil) { data in
-            self.setInitialDisplay(data: data)
+            self.setInitialDisplay(withData: data)
         }
     }
     @IBAction func wholeNumberPickerValueUpdated(_ value: Int) {
@@ -95,9 +95,9 @@ class WatchTipView: WKInterfaceController, TipView {
         currentFractionalNumberIndex = value
     }
     /// Subclass must override -- implementation does nothing
-    func setInitialDisplay(data: [String: AnyObject]) {}
+    func setInitialDisplay(withData data: [String: AnyObject]) {}
     
-    func updateDisplay(data: [String: AnyObject]) {
+    func updateDisplay(withData data: [String: AnyObject]) {
         if let tipAmount    = data["tipAmount"] as? NSNumber,
             let tipPercentage   = data["tipPercentage"] as? NSNumber,
             let finalTotal  = data["finalTotal"] as? NSNumber {
@@ -131,25 +131,25 @@ class WatchTipView: WKInterfaceController, TipView {
         let calculationMethod = TipCalculationMethod.roundedTotal
         let data = ["calculationMethod": NSNumber(value: calculationMethod.rawValue)]
         setMenuItems(withCalculationMethod: calculationMethod)
-        tipPresenter.update(withInputs: data, withCompletion: { (data) in
-            self.updateDisplay(data: data)
-        })
+        tipPresenter.update(withInputs: data) { (data) in
+            self.updateDisplay(withData: data)
+        }
     }
     @objc func noRoundingSelected() {
         let calculationMethod = TipCalculationMethod.noRounding
         let data = ["calculationMethod": NSNumber(value: calculationMethod.rawValue)]
         setMenuItems(withCalculationMethod: calculationMethod)
-        tipPresenter.update(withInputs: data, withCompletion: { (data) in
-            self.updateDisplay(data: data)
-        })
+        tipPresenter.update(withInputs: data) { (data) in
+            self.updateDisplay(withData: data)
+        }
     }
     @objc func roundedTipSelected() {
         let calculationMethod = TipCalculationMethod.roundedTip
         let data = ["calculationMethod": NSNumber(value: calculationMethod.rawValue)]
         setMenuItems(withCalculationMethod: calculationMethod)
-        tipPresenter.update(withInputs: data, withCompletion: { (data) in
-            self.updateDisplay(data: data)
-        })
+        tipPresenter.update(withInputs: data) { (data) in
+            self.updateDisplay(withData: data)
+        }
     }
 }
 #endif
@@ -158,11 +158,11 @@ class WatchTipView: WKInterfaceController, TipView {
 // MARK: TipViewPresenters
 protocol TipViewPresenter: class {
     init(tipCalculatorModel: TipCalculatorModel)
-    func update(withInputs: [String:AnyObject]?, withCompletion completion: (([String:AnyObject]) -> Void)?)
+    func update(withInputs data: [String:AnyObject]?, completion: (([String:AnyObject]) -> Void)?)
 }
 
 protocol PropertyListReadable {
     func propertyListRepresentation() -> [String: AnyObject]
-    init? (propertyListRepresentation: [String: AnyObject]?)
+    init?(propertyListRepresentation: [String: AnyObject]?)
 }
 

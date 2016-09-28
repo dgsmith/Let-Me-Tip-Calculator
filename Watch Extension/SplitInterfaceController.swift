@@ -29,7 +29,7 @@ class SplitInterfaceController: WatchTipView {
     override func pickerDidSettle(_ picker: WKInterfacePicker) {
         if !updated {
             tipPresenter.update(withInputs: nil) { (data) in
-                self.updateDisplay(data: data)
+                self.updateDisplay(withData: data)
             }
         } else {
             updated = false
@@ -40,7 +40,7 @@ class SplitInterfaceController: WatchTipView {
         currentSplitPickerIndex = value + 1
     }
     
-    override func updateDisplay(data: [String: AnyObject]) {
+    override func updateDisplay(withData data: [String: AnyObject]) {
         if let tipAmount    = data["tipAmount"] as? NSNumber,
             let tipPercentage   = data["tipPercentage"] as? NSNumber,
             let finalTotal  = data["finalTotal"] as? NSNumber {
@@ -58,7 +58,7 @@ class SplitInterfaceController: WatchTipView {
         }
     }
     
-    override func setInitialDisplay(data: [String: AnyObject]) {
+    override func setInitialDisplay(withData data: [String: AnyObject]) {
         if let tipAmount               = data["tipAmount"] as? NSNumber,
             let tipPercentage           = data["tipPercentage"] as? NSNumber,
             let finalTotal              = data["finalTotal"] as? NSNumber,

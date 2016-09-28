@@ -10,7 +10,7 @@ import Foundation
 
 final class TipPresenter: TipViewPresenter {
     
-    private static let sharedSingleton = TipPresenter()
+    fileprivate static let sharedSingleton = TipPresenter()
     
     class func shared() -> TipViewPresenter {
         return sharedSingleton
@@ -34,8 +34,8 @@ final class TipPresenter: TipViewPresenter {
         }
     }
     
-    func update(withInputs data: [String:AnyObject]?,
-                withCompletion completion: (([String:AnyObject]) -> Void)?) {
+    func update(withInputs data: [String:AnyObject]? = nil,
+                completion: (([String:AnyObject]) -> Void)? = nil) {
         
         var dataRead = false
         if let data = data {

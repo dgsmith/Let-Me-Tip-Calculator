@@ -40,7 +40,7 @@ public struct TipCalculatorModel: PropertyListReadable {
     public var tipAmount: Double
     public var finalTotal: Double
     
-    private let defaults = UserDefaults(suiteName: "group.Let-Me-Tip")!
+    fileprivate let defaults = UserDefaults(suiteName: "group.Let-Me-Tip")!
     
     public init(total: Double, tipPercentage: Double) {
         self.receiptTotal       = total

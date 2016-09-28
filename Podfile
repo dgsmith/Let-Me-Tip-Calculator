@@ -4,6 +4,6 @@ platform :ios, '9.0'
 use_frameworks!
 
 target 'Let Me Tip' do
-  pod 'Instabug'
+  pod 'PinpointKit', :git => 'https://github.com/Lickability/PinpointKit.git', :branch => 'develop'
 end
 

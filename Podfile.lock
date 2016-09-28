@@ -1,12 +1,22 @@
 PODS:
-  - Instabug (5.2.2)
+  - PinpointKit (0.9)
 
 DEPENDENCIES:
-  - Instabug
+  - PinpointKit (from `https://github.com/Lickability/PinpointKit.git`, branch `develop`)
+
+EXTERNAL SOURCES:
+  PinpointKit:
+    :branch: develop
+    :git: https://github.com/Lickability/PinpointKit.git
+
+CHECKOUT OPTIONS:
+  PinpointKit:
+    :commit: 201a78b667899086b215e2fbd535faa4164afeed
+    :git: https://github.com/Lickability/PinpointKit.git
 
 SPEC CHECKSUMS:
-  Instabug: 01bf89d7869b79b15795c847bb0f79ac96d7ae67
+  PinpointKit: dfbff1b4a95c5b71142a7c098717c2af082e2569
 
-PODFILE CHECKSUM: e49c425c65a5e5b99bc95a23ac4c7895b6134d9c
+PODFILE CHECKSUM: 66694e2086de0e1f2a69e739146ffa84644a1d6e
 
 COCOAPODS: 1.0.1

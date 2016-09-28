@@ -7,11 +7,13 @@
 //
 
 import UIKit
+import PinpointKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    var window: UIWindow?
+    //var pinpointKit: PinpointKit!
+    var window: UIWindow? //= ShakeDetectingWindow(frame: UIScreen.main.bounds, delegate: self.pinpointKit)
     
     var presenter: TipViewPresenter!
     
@@ -31,9 +33,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             view.tipPresenter = presenter
         }
         
-        registerForPushNotifications(application)
-        
-        Instabug.start(withToken: "52cc5a34042f2351149b9184cd8465ec", invocationEvent: .shake)
         return true
     }
     
@@ -57,43 +56,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-    }
-    
-    func registerForPushNotifications(_ application: UIApplication) {
-        let notificationSettings = UIUserNotificationSettings(types: [.badge, .sound, .alert], categories: nil)
-        application.registerUserNotificationSettings(notificationSettings)
-    }
-    
-    func application(_ application: UIApplication, didRegister notificationSettings: UIUserNotificationSettings) {
-        if notificationSettings.types != UIUserNotificationType() {
-            application.registerForRemoteNotifications()
-        }
-    }
-    
-    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-        
-        _ = deviceToken.withUnsafeBytes { (pointer: UnsafePointer<CChar>) -> Bool in
-            let tokenChars: UnsafePointer<CChar> = pointer
-            var tokenString = ""
-            
-            for i in 0..<deviceToken.count {
-                tokenString += String(format: "%02.2hhx", arguments: [tokenChars[i]])
-            }
-            
-            print("Device token: \(tokenString)")
-            Instabug.setPushNotificationsEnabled(true)
-            
-            return true
-        }
-    }
-    
-    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
-        print("Failed to register: \(error)")
-        Instabug.setPushNotificationsEnabled(false)
-    }
-    
-    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any]) {
-        print(userInfo)
     }
     
 }

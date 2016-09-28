@@ -7,7 +7,7 @@
 //
 
 import XCTest
-import Let_Me_Tip
+//import Let_Me_Tip
 
 class Let_Me_Tip_UITests: XCTestCase {
         
@@ -45,34 +45,34 @@ class Let_Me_Tip_UITests: XCTestCase {
 //        
 //    }
     
-    class TestView: TipView {}
-    
-    func testBasic() {
-        let tipView = TestView()
-        var model = TipCalculatorModel()
-        model.calculationMethod = .noRounding
-        model.receiptTotal = 19.99
-        model.taxPercentage = 0
-        model.tipPercentage = 0.18
-        let data = model.calculate()
-        // 19.99 * 1.18 = 23.59
-        if let finalTotal = data["finalTotal"] as? NSNumber {
-            XCTAssertEqual(tipView.decimalFormatter.string(from: finalTotal) ?? "", "$23.59")
-        }
-    }
-    
-    func testTax() {
-        let tipView = TestView()
-        var model = TipCalculatorModel()
-        model.calculationMethod = .noRounding
-        model.receiptTotal = 19.99
-        model.taxPercentage = 0.1
-        model.tipPercentage = 0.18
-        let data = model.calculate()
-        // 19.99 + ((19.99 / (1 + 0.1)) * 0.18) = 23.26
-        if let finalTotal = data["finalTotal"] as? NSNumber {
-            XCTAssertEqual(tipView.decimalFormatter.string(from: finalTotal) ?? "", "$23.26")
-        }
-    }
+//    class TestView: TipView {}
+//    
+//    func testBasic() {
+//        let tipView = TestView()
+//        var model = TipCalculatorModel()
+//        model.calculationMethod = .noRounding
+//        model.receiptTotal = 19.99
+//        model.taxPercentage = 0
+//        model.tipPercentage = 0.18
+//        let data = model.calculate()
+//        // 19.99 * 1.18 = 23.59
+//        if let finalTotal = data["finalTotal"] as? NSNumber {
+//            XCTAssertEqual(tipView.decimalFormatter.string(from: finalTotal) ?? "", "$23.59")
+//        }
+//    }
+//    
+//    func testTax() {
+//        let tipView = TestView()
+//        var model = TipCalculatorModel()
+//        model.calculationMethod = .noRounding
+//        model.receiptTotal = 19.99
+//        model.taxPercentage = 0.1
+//        model.tipPercentage = 0.18
+//        let data = model.calculate()
+//        // 19.99 + ((19.99 / (1 + 0.1)) * 0.18) = 23.26
+//        if let finalTotal = data["finalTotal"] as? NSNumber {
+//            XCTAssertEqual(tipView.decimalFormatter.string(from: finalTotal) ?? "", "$23.26")
+//        }
+//    }
     
 }

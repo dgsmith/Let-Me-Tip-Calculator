@@ -34,14 +34,14 @@ final class TipInterfaceController: WatchTipView {
             let data = ["tipPercentage": NSNumber(value: tipPercentage)]
             
             tipPresenter.update(withInputs: data) { (data) in
-                self.updateDisplay(data: data)
+                self.updateDisplay(withData: data)
             }
         } else {
             updated = false
         }
     }
     
-    override func setInitialDisplay(data: [String: AnyObject]) {
+    override func setInitialDisplay(withData data: [String: AnyObject]) {
         if let tipPercentage            = data["tipPercentage"] as? NSNumber,
             let tipAmount               = data["tipAmount"] as? NSNumber,
             let finalTotal              = data["finalTotal"] as? NSNumber,

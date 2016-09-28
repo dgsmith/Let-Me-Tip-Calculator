@@ -36,14 +36,14 @@ final class TaxInterfaceController: WatchTipView {
             
             let data = [string: value]
             tipPresenter.update(withInputs: data) { (data) in
-                self.updateDisplay(data: data)
+                self.updateDisplay(withData: data)
             }
         } else {
             updated = false
         }
     }
     
-    override func setInitialDisplay(data: [String: AnyObject]) {
+    override func setInitialDisplay(withData data: [String: AnyObject]) {
         if let taxPercentage            = data["taxPercentage"] as? NSNumber,
             let taxAmount               = data["taxAmount"] as? NSNumber,
             let tipAmount               = data["tipAmount"] as? NSNumber,
@@ -117,7 +117,7 @@ final class TaxInterfaceController: WatchTipView {
         
         let data = ["taxInputMethod": NSNumber(value: taxInputMethod.rawValue)]
         tipPresenter.update(withInputs: data) { (data) in
-            self.setInitialDisplay(data: data)
+            self.setInitialDisplay(withData: data)
         }
     }
     
