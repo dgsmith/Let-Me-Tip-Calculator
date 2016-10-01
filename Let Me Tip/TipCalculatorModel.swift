@@ -44,12 +44,14 @@ public struct TipCalculatorModel: PropertyListReadable {
     
     public init(total: Double, tipPercentage: Double) {
         self.receiptTotal       = total
-        self.taxPercentage      = 0.0
+        self.taxPercentage      = 0.06
         self.tipAmount          = 0.0
         self.tipPercentage      = tipPercentage
         self.finalTotal         = 0.0
         self.calculationMethod  = .noRounding
         self.taxInputMethod     = .taxPercentage
+        
+        self.calculate()
     }
     
     public init() {

@@ -12,8 +12,8 @@ import PinpointKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    //var pinpointKit: PinpointKit!
-    var window: UIWindow? //= ShakeDetectingWindow(frame: UIScreen.main.bounds, delegate: self.pinpointKit)
+    private static let pinpointKit = PinpointKit(feedbackRecipients: ["feedback@graysonsmith.me"])
+    var window: UIWindow? = ShakeDetectingWindow(frame: UIScreen.main.bounds, delegate: AppDelegate.pinpointKit)
     
     var presenter: TipViewPresenter!
     

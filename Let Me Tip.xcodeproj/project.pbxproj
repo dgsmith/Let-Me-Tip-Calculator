@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		561772711CC2DC8700AC27F2 /* TipDataTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561772701CC2DC8700AC27F2 /* TipDataTypes.swift */; };
 		565A88CE1D1DD4F400B11B3F /* TipPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565A88CD1D1DD4F400B11B3F /* TipPresenter.swift */; };
+		56643ED01D9F34A80084C05B /* Watch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 56FDA31F1D2E95F9008B377A /* Watch.app */; };
 		5664E59A1CDEBDBB00082AB7 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5664E5991CDEBDBB00082AB7 /* Launch Screen.storyboard */; };
 		5671C9881AB79E9D00952EEB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5671C9871AB79E9D00952EEB /* AppDelegate.swift */; };
 		5671C98F1AB79E9D00952EEB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5671C98E1AB79E9D00952EEB /* Images.xcassets */; };
@@ -16,20 +17,17 @@
 		5671C9AC1AB79F0500952EEB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5671C9A91AB79F0500952EEB /* Main.storyboard */; };
 		567383951D8DBA25003EBFA0 /* SplitInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567383941D8DBA25003EBFA0 /* SplitInterfaceController.swift */; };
 		5689BBE21ACF66D4003B4621 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5689BBE11ACF66D4003B4621 /* InfoViewController.swift */; };
-		569263BD1CDD8761008D6EEA /* Let_Me_Tip_UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569263BC1CDD8761008D6EEA /* Let_Me_Tip_UITests.swift */; };
-		569263C51CDD8B3C008D6EEA /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569263C41CDD8B3C008D6EEA /* SnapshotHelper.swift */; };
+		56A665E21D9C927300CA5587 /* Let_Me_TipUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A665E11D9C927300CA5587 /* Let_Me_TipUITests.swift */; };
+		56A665EA1D9C92FE00CA5587 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A665E91D9C92FE00CA5587 /* SnapshotHelper.swift */; };
 		56B323F71D40488600EFD218 /* TipInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B323F61D40488600EFD218 /* TipInterfaceController.swift */; };
 		56B323F91D40496200EFD218 /* TaxInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B323F81D40496200EFD218 /* TaxInterfaceController.swift */; };
 		56BD22691B522A5000051358 /* TipCalculatorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BD22681B522A5000051358 /* TipCalculatorModel.swift */; };
-		56D4D90C1D71F37700C5375B /* TipCalculatorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BD22681B522A5000051358 /* TipCalculatorModel.swift */; };
-		56D4D90D1D71F37700C5375B /* TipDataTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561772701CC2DC8700AC27F2 /* TipDataTypes.swift */; };
 		56FDA3231D2E95F9008B377A /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56FDA3211D2E95F9008B377A /* Interface.storyboard */; };
 		56FDA3251D2E95F9008B377A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56FDA3241D2E95F9008B377A /* Assets.xcassets */; };
 		56FDA32C1D2E95FA008B377A /* Watch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 56FDA32B1D2E95FA008B377A /* Watch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		56FDA3311D2E95FA008B377A /* ReceiptInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FDA3301D2E95FA008B377A /* ReceiptInterfaceController.swift */; };
 		56FDA3331D2E95FA008B377A /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FDA3321D2E95FA008B377A /* ExtensionDelegate.swift */; };
 		56FDA3371D2E95FA008B377A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56FDA3361D2E95FA008B377A /* Assets.xcassets */; };
-		56FDA33B1D2E95FA008B377A /* Watch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 56FDA31F1D2E95F9008B377A /* Watch.app */; };
 		56FDA3431D352991008B377A /* TipCalculatorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BD22681B522A5000051358 /* TipCalculatorModel.swift */; };
 		56FDA3441D352994008B377A /* TipDataTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561772701CC2DC8700AC27F2 /* TipDataTypes.swift */; };
 		56FDA3451D352998008B377A /* TipPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565A88CD1D1DD4F400B11B3F /* TipPresenter.swift */; };
@@ -37,7 +35,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		569263BF1CDD8761008D6EEA /* PBXContainerItemProxy */ = {
+		56643ECE1D9EB5600084C05B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5671C97A1AB79E9D00952EEB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 56FDA31E1D2E95F9008B377A;
+			remoteInfo = Watch;
+		};
+		56A665E41D9C927300CA5587 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 5671C97A1AB79E9D00952EEB /* Project object */;
 			proxyType = 1;
@@ -50,13 +55,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = 56FDA32A1D2E95FA008B377A;
 			remoteInfo = "Watch Extension";
-		};
-		56FDA3391D2E95FA008B377A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 5671C97A1AB79E9D00952EEB /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 56FDA31E1D2E95F9008B377A;
-			remoteInfo = Watch;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -77,7 +75,7 @@
 			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
 			dstSubfolderSpec = 16;
 			files = (
-				56FDA33B1D2E95FA008B377A /* Watch.app in Embed Watch Content */,
+				56643ED01D9F34A80084C05B /* Watch.app in Embed Watch Content */,
 			);
 			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -112,10 +110,10 @@
 		5689BBDD1ACCDB20003B4621 /* Let Me Tip.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Let Me Tip.entitlements"; sourceTree = "<group>"; };
 		5689BBDE1ACCDBFE003B4621 /* Let Me Tip WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Let Me Tip WatchKit Extension.entitlements"; sourceTree = "<group>"; };
 		5689BBE11ACF66D4003B4621 /* InfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
-		569263BA1CDD8760008D6EEA /* Let Me Tip UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Let Me Tip UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		569263BC1CDD8761008D6EEA /* Let_Me_Tip_UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Let_Me_Tip_UITests.swift; sourceTree = "<group>"; };
-		569263BE1CDD8761008D6EEA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		569263C41CDD8B3C008D6EEA /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnapshotHelper.swift; path = fastlane/SnapshotHelper.swift; sourceTree = SOURCE_ROOT; };
+		56A665DF1D9C927300CA5587 /* Let_Me_TipUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Let_Me_TipUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		56A665E11D9C927300CA5587 /* Let_Me_TipUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Let_Me_TipUITests.swift; sourceTree = "<group>"; };
+		56A665E31D9C927300CA5587 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		56A665E91D9C92FE00CA5587 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnapshotHelper.swift; path = fastlane/SnapshotHelper.swift; sourceTree = SOURCE_ROOT; };
 		56B323F61D40488600EFD218 /* TipInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipInterfaceController.swift; sourceTree = "<group>"; };
 		56B323F81D40496200EFD218 /* TaxInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaxInterfaceController.swift; sourceTree = "<group>"; };
 		56B323FA1D410C8800EFD218 /* Watch Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Watch Extension.entitlements"; sourceTree = "<group>"; };
@@ -151,7 +149,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		569263B71CDD8760008D6EEA /* Frameworks */ = {
+		56A665DC1D9C927300CA5587 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -175,7 +173,7 @@
 				5671C9841AB79E9D00952EEB /* Let Me Tip */,
 				56FDA3201D2E95F9008B377A /* Watch */,
 				56FDA32F1D2E95FA008B377A /* Watch Extension */,
-				569263BB1CDD8761008D6EEA /* Let Me Tip UITests */,
+				56A665E01D9C927300CA5587 /* Let_Me_TipUITests */,
 				5671C9831AB79E9D00952EEB /* Products */,
 				E18593754C3654E30365514A /* Pods */,
 				63F9793E8EB6827371F6215E /* Frameworks */,
@@ -186,9 +184,9 @@
 			isa = PBXGroup;
 			children = (
 				5671C9821AB79E9D00952EEB /* Let Me Tip.app */,
-				569263BA1CDD8760008D6EEA /* Let Me Tip UITests.xctest */,
 				56FDA31F1D2E95F9008B377A /* Watch.app */,
 				56FDA32B1D2E95FA008B377A /* Watch Extension.appex */,
+				56A665DF1D9C927300CA5587 /* Let_Me_TipUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -218,14 +216,14 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		569263BB1CDD8761008D6EEA /* Let Me Tip UITests */ = {
+		56A665E01D9C927300CA5587 /* Let_Me_TipUITests */ = {
 			isa = PBXGroup;
 			children = (
-				569263C41CDD8B3C008D6EEA /* SnapshotHelper.swift */,
-				569263BC1CDD8761008D6EEA /* Let_Me_Tip_UITests.swift */,
-				569263BE1CDD8761008D6EEA /* Info.plist */,
+				56A665E91D9C92FE00CA5587 /* SnapshotHelper.swift */,
+				56A665E11D9C927300CA5587 /* Let_Me_TipUITests.swift */,
+				56A665E31D9C927300CA5587 /* Info.plist */,
 			);
-			path = "Let Me Tip UITests";
+			path = Let_Me_TipUITests;
 			sourceTree = "<group>";
 		};
 		56FB61C41CC1A3F300D5BC57 /* Entitlements */ = {
@@ -302,29 +300,29 @@
 			buildRules = (
 			);
 			dependencies = (
-				56FDA33A1D2E95FA008B377A /* PBXTargetDependency */,
+				56643ECF1D9EB5600084C05B /* PBXTargetDependency */,
 			);
 			name = "Let Me Tip";
 			productName = TipTest;
 			productReference = 5671C9821AB79E9D00952EEB /* Let Me Tip.app */;
 			productType = "com.apple.product-type.application";
 		};
-		569263B91CDD8760008D6EEA /* Let Me Tip UITests */ = {
+		56A665DE1D9C927300CA5587 /* Let_Me_TipUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 569263C11CDD8761008D6EEA /* Build configuration list for PBXNativeTarget "Let Me Tip UITests" */;
+			buildConfigurationList = 56A665E81D9C927300CA5587 /* Build configuration list for PBXNativeTarget "Let_Me_TipUITests" */;
 			buildPhases = (
-				569263B61CDD8760008D6EEA /* Sources */,
-				569263B71CDD8760008D6EEA /* Frameworks */,
-				569263B81CDD8760008D6EEA /* Resources */,
+				56A665DB1D9C927300CA5587 /* Sources */,
+				56A665DC1D9C927300CA5587 /* Frameworks */,
+				56A665DD1D9C927300CA5587 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				569263C01CDD8761008D6EEA /* PBXTargetDependency */,
+				56A665E51D9C927300CA5587 /* PBXTargetDependency */,
 			);
-			name = "Let Me Tip UITests";
-			productName = "Let Me Tip UITests";
-			productReference = 569263BA1CDD8760008D6EEA /* Let Me Tip UITests.xctest */;
+			name = Let_Me_TipUITests;
+			productName = Let_Me_TipUITests;
+			productReference = 56A665DF1D9C927300CA5587 /* Let_Me_TipUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 		56FDA31E1D2E95F9008B377A /* Watch */ = {
@@ -395,9 +393,11 @@
 							};
 						};
 					};
-					569263B91CDD8760008D6EEA = {
-						CreatedOnToolsVersion = 7.3;
+					56A665DE1D9C927300CA5587 = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = Z6T84878UQ;
 						LastSwiftMigration = 0800;
+						ProvisioningStyle = Automatic;
 						TestTargetID = 5671C9811AB79E9D00952EEB;
 					};
 					56FDA31E1D2E95F9008B377A = {
@@ -440,9 +440,9 @@
 			projectRoot = "";
 			targets = (
 				5671C9811AB79E9D00952EEB /* Let Me Tip */,
-				569263B91CDD8760008D6EEA /* Let Me Tip UITests */,
 				56FDA31E1D2E95F9008B377A /* Watch */,
 				56FDA32A1D2E95FA008B377A /* Watch Extension */,
+				56A665DE1D9C927300CA5587 /* Let_Me_TipUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -458,7 +458,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		569263B81CDD8760008D6EEA /* Resources */ = {
+		56A665DD1D9C927300CA5587 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -546,14 +546,12 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		569263B61CDD8760008D6EEA /* Sources */ = {
+		56A665DB1D9C927300CA5587 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				56D4D90C1D71F37700C5375B /* TipCalculatorModel.swift in Sources */,
-				56D4D90D1D71F37700C5375B /* TipDataTypes.swift in Sources */,
-				569263BD1CDD8761008D6EEA /* Let_Me_Tip_UITests.swift in Sources */,
-				569263C51CDD8B3C008D6EEA /* SnapshotHelper.swift in Sources */,
+				56A665E21D9C927300CA5587 /* Let_Me_TipUITests.swift in Sources */,
+				56A665EA1D9C92FE00CA5587 /* SnapshotHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -575,20 +573,20 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		569263C01CDD8761008D6EEA /* PBXTargetDependency */ = {
+		56643ECF1D9EB5600084C05B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 56FDA31E1D2E95F9008B377A /* Watch */;
+			targetProxy = 56643ECE1D9EB5600084C05B /* PBXContainerItemProxy */;
+		};
+		56A665E51D9C927300CA5587 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 5671C9811AB79E9D00952EEB /* Let Me Tip */;
-			targetProxy = 569263BF1CDD8761008D6EEA /* PBXContainerItemProxy */;
+			targetProxy = 56A665E41D9C927300CA5587 /* PBXContainerItemProxy */;
 		};
 		56FDA32E1D2E95FA008B377A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 56FDA32A1D2E95FA008B377A /* Watch Extension */;
 			targetProxy = 56FDA32D1D2E95FA008B377A /* PBXContainerItemProxy */;
-		};
-		56FDA33A1D2E95FA008B377A /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 56FDA31E1D2E95F9008B377A /* Watch */;
-			targetProxy = 56FDA3391D2E95FA008B377A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -747,33 +745,38 @@
 			};
 			name = Release;
 		};
-		569263C21CDD8761008D6EEA /* Debug */ = {
+		56A665E61D9C927300CA5587 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Let Me Tip UITests/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				DEVELOPMENT_TEAM = Z6T84878UQ;
+				INFOPLIST_FILE = Let_Me_TipUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.grayson.Let-Me-Tip-UITests";
+				PRODUCT_BUNDLE_IDENTIFIER = "me.graysonsmith.Let-Me-TipUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = "Let Me Tip";
 			};
 			name = Debug;
 		};
-		569263C31CDD8761008D6EEA /* Release */ = {
+		56A665E71D9C927300CA5587 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Let Me Tip UITests/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				DEVELOPMENT_TEAM = Z6T84878UQ;
+				INFOPLIST_FILE = Let_Me_TipUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.grayson.Let-Me-Tip-UITests";
+				PRODUCT_BUNDLE_IDENTIFIER = "me.graysonsmith.Let-Me-TipUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 3.0;
@@ -893,11 +896,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		569263C11CDD8761008D6EEA /* Build configuration list for PBXNativeTarget "Let Me Tip UITests" */ = {
+		56A665E81D9C927300CA5587 /* Build configuration list for PBXNativeTarget "Let_Me_TipUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				569263C21CDD8761008D6EEA /* Debug */,
-				569263C31CDD8761008D6EEA /* Release */,
+				56A665E61D9C927300CA5587 /* Debug */,
+				56A665E71D9C927300CA5587 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
