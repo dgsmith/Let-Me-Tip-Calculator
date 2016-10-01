@@ -10,6 +10,8 @@
 		561772711CC2DC8700AC27F2 /* TipDataTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561772701CC2DC8700AC27F2 /* TipDataTypes.swift */; };
 		565A88CE1D1DD4F400B11B3F /* TipPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565A88CD1D1DD4F400B11B3F /* TipPresenter.swift */; };
 		56643ED01D9F34A80084C05B /* Watch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 56FDA31F1D2E95F9008B377A /* Watch.app */; };
+		56643EFB1D9F470B0084C05B /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56643EFA1D9F470B0084C05B /* ComplicationController.swift */; };
+		56643EFD1D9F5A140084C05B /* gallery.ckcomplication in Resources */ = {isa = PBXBuildFile; fileRef = 56643EFC1D9F5A140084C05B /* gallery.ckcomplication */; };
 		5664E59A1CDEBDBB00082AB7 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5664E5991CDEBDBB00082AB7 /* Launch Screen.storyboard */; };
 		5671C9881AB79E9D00952EEB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5671C9871AB79E9D00952EEB /* AppDelegate.swift */; };
 		5671C98F1AB79E9D00952EEB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5671C98E1AB79E9D00952EEB /* Images.xcassets */; };
@@ -99,6 +101,8 @@
 		49947F3529C7F554F4CF9D05 /* Pods_Let_Me_Tip.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Let_Me_Tip.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		561772701CC2DC8700AC27F2 /* TipDataTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipDataTypes.swift; sourceTree = "<group>"; };
 		565A88CD1D1DD4F400B11B3F /* TipPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipPresenter.swift; sourceTree = "<group>"; };
+		56643EFA1D9F470B0084C05B /* ComplicationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ComplicationController.swift; path = "../../budgettest/Watch Extension/ComplicationController.swift"; sourceTree = "<group>"; };
+		56643EFC1D9F5A140084C05B /* gallery.ckcomplication */ = {isa = PBXFileReference; lastKnownFileType = folder; path = gallery.ckcomplication; sourceTree = "<group>"; };
 		5664E5991CDEBDBB00082AB7 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		5671C9821AB79E9D00952EEB /* Let Me Tip.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Let Me Tip.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5671C9861AB79E9D00952EEB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -194,6 +198,7 @@
 		5671C9841AB79E9D00952EEB /* Let Me Tip */ = {
 			isa = PBXGroup;
 			children = (
+				56643EFC1D9F5A140084C05B /* gallery.ckcomplication */,
 				56BD22681B522A5000051358 /* TipCalculatorModel.swift */,
 				565A88CD1D1DD4F400B11B3F /* TipPresenter.swift */,
 				561772701CC2DC8700AC27F2 /* TipDataTypes.swift */,
@@ -252,6 +257,7 @@
 			children = (
 				56B323FA1D410C8800EFD218 /* Watch Extension.entitlements */,
 				56FDA3321D2E95FA008B377A /* ExtensionDelegate.swift */,
+				56643EFA1D9F470B0084C05B /* ComplicationController.swift */,
 				56FDA3301D2E95FA008B377A /* ReceiptInterfaceController.swift */,
 				56B323F61D40488600EFD218 /* TipInterfaceController.swift */,
 				56B323F81D40496200EFD218 /* TaxInterfaceController.swift */,
@@ -452,6 +458,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56643EFD1D9F5A140084C05B /* gallery.ckcomplication in Resources */,
 				5664E59A1CDEBDBB00082AB7 /* Launch Screen.storyboard in Resources */,
 				5671C9AC1AB79F0500952EEB /* Main.storyboard in Resources */,
 				5671C98F1AB79E9D00952EEB /* Images.xcassets in Resources */,
@@ -561,6 +568,7 @@
 			files = (
 				56FDA3331D2E95FA008B377A /* ExtensionDelegate.swift in Sources */,
 				56B323F91D40496200EFD218 /* TaxInterfaceController.swift in Sources */,
+				56643EFB1D9F470B0084C05B /* ComplicationController.swift in Sources */,
 				567383951D8DBA25003EBFA0 /* SplitInterfaceController.swift in Sources */,
 				56FDA3311D2E95FA008B377A /* ReceiptInterfaceController.swift in Sources */,
 				56FDA3431D352991008B377A /* TipCalculatorModel.swift in Sources */,

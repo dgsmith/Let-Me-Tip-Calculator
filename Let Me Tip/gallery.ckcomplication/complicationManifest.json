@@ -1,0 +1,8 @@
+{
+  "supported complication families" : {
+    "0" : "A0287552-D833-457F-9ED4-1A9510912DFC.json",
+    "2" : "020ED354-4967-4DA7-8A09-C328AE462E52.json",
+    "4" : "349964C5-CFB2-4A2A-9E16-9DD05EC554A7.json"
+  },
+  "client ID" : "com.grayson.Let-Me-Tip.watchkitapp.watchkitextension"
+}

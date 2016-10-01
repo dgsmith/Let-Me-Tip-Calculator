@@ -19,9 +19,15 @@
 	<key>CFBundleShortVersionString</key>
 	<string>3</string>
 	<key>CFBundleVersion</key>
-	<string>7</string>
+	<string>9</string>
+	<key>CLKComplicationPrincipalClass</key>
+	<string>$(PRODUCT_MODULE_NAME).ComplicationController</string>
 	<key>CLKComplicationSupportedFamilies</key>
-	<array/>
+	<array>
+		<string>CLKComplicationFamilyModularSmall</string>
+		<string>CLKComplicationFamilyUtilitarianSmall</string>
+		<string>CLKComplicationFamilyCircularSmall</string>
+	</array>
 	<key>NSExtension</key>
 	<dict>
 		<key>NSExtensionAttributes</key>
