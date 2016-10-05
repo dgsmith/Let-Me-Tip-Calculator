@@ -150,13 +150,13 @@ class ViewController: UIViewController, TipView {
     }
     
     func taxAmountTapped(_ sender: UITapGestureRecognizer) {
-        if !taxAmountTextField.isEnabled {
+        if !taxAmountTextField.isEnabled && state == .idle {
             changeTaxInputMethod()
         }
     }
     
     func taxPercentageTapped(_ sender: UITapGestureRecognizer) {
-        if !taxPercentageTextField.isEnabled {
+        if !taxPercentageTextField.isEnabled && state == .idle {
             changeTaxInputMethod()
         }
     }
