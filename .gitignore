@@ -33,5 +33,5 @@ Pods/
 # Snapshot generated screenshots
 /fastlane/screenshots/
 screenshots/
-
+*.cer
 icon/

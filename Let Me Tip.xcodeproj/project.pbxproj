@@ -7,55 +7,56 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		56113B941ABA1EFB00033BCB /* CalculationDetailInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56113B931ABA1EFB00033BCB /* CalculationDetailInterfaceController.swift */; };
-		56113B961ABA1F9700033BCB /* TotalOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56113B951ABA1F9700033BCB /* TotalOptionsViewController.swift */; };
-		5617726F1CC28EEC00AC27F2 /* TipData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5617726E1CC28EEC00AC27F2 /* TipData.swift */; };
 		561772711CC2DC8700AC27F2 /* TipDataTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561772701CC2DC8700AC27F2 /* TipDataTypes.swift */; };
-		561772731CC3FAAE00AC27F2 /* TipCalculatorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BD22681B522A5000051358 /* TipCalculatorModel.swift */; };
-		561772741CC3FAC200AC27F2 /* TipDataTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561772701CC2DC8700AC27F2 /* TipDataTypes.swift */; };
-		561772751CC3FAC500AC27F2 /* TipData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5617726E1CC28EEC00AC27F2 /* TipData.swift */; };
+		565A88CE1D1DD4F400B11B3F /* TipPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565A88CD1D1DD4F400B11B3F /* TipPresenter.swift */; };
+		56643ED01D9F34A80084C05B /* Watch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 56FDA31F1D2E95F9008B377A /* Watch.app */; };
+		56643EFB1D9F470B0084C05B /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56643EFA1D9F470B0084C05B /* ComplicationController.swift */; };
+		56643EFD1D9F5A140084C05B /* gallery.ckcomplication in Resources */ = {isa = PBXBuildFile; fileRef = 56643EFC1D9F5A140084C05B /* gallery.ckcomplication */; };
 		5664E59A1CDEBDBB00082AB7 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5664E5991CDEBDBB00082AB7 /* Launch Screen.storyboard */; };
 		5671C9881AB79E9D00952EEB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5671C9871AB79E9D00952EEB /* AppDelegate.swift */; };
 		5671C98F1AB79E9D00952EEB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5671C98E1AB79E9D00952EEB /* Images.xcassets */; };
 		5671C9AA1AB79F0500952EEB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5671C9A71AB79F0500952EEB /* ViewController.swift */; };
 		5671C9AC1AB79F0500952EEB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5671C9A91AB79F0500952EEB /* Main.storyboard */; };
-		5671C9B71AB79F8E00952EEB /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5671C9B61AB79F8E00952EEB /* InterfaceController.swift */; };
-		5671C9BB1AB79F8E00952EEB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5671C9BA1AB79F8E00952EEB /* Images.xcassets */; };
-		5671C9C71AB79F8E00952EEB /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5671C9C51AB79F8E00952EEB /* Interface.storyboard */; };
-		5671C9C91AB79F8E00952EEB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5671C9C81AB79F8E00952EEB /* Images.xcassets */; };
+		567383951D8DBA25003EBFA0 /* SplitInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567383941D8DBA25003EBFA0 /* SplitInterfaceController.swift */; };
 		5689BBE21ACF66D4003B4621 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5689BBE11ACF66D4003B4621 /* InfoViewController.swift */; };
-		569263BD1CDD8761008D6EEA /* Let_Me_Tip_UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569263BC1CDD8761008D6EEA /* Let_Me_Tip_UITests.swift */; };
-		569263C51CDD8B3C008D6EEA /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569263C41CDD8B3C008D6EEA /* SnapshotHelper.swift */; };
-		56BD22621B522A1F00051358 /* Let Me Tip WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 5671C9B11AB79F8E00952EEB /* Let Me Tip WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		56BD22651B522A1F00051358 /* Let Me Tip WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 5671C9BE1AB79F8E00952EEB /* Let Me Tip WatchKit App.app */; };
+		56A665E21D9C927300CA5587 /* Let_Me_TipUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A665E11D9C927300CA5587 /* Let_Me_TipUITests.swift */; };
+		56A665EA1D9C92FE00CA5587 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A665E91D9C92FE00CA5587 /* SnapshotHelper.swift */; };
+		56B323F71D40488600EFD218 /* TipInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B323F61D40488600EFD218 /* TipInterfaceController.swift */; };
+		56B323F91D40496200EFD218 /* TaxInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B323F81D40496200EFD218 /* TaxInterfaceController.swift */; };
 		56BD22691B522A5000051358 /* TipCalculatorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BD22681B522A5000051358 /* TipCalculatorModel.swift */; };
-		56FB61C71CC6926E00D5BC57 /* DollarAmountPickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FB61C51CC68EB600D5BC57 /* DollarAmountPickerController.swift */; };
-		56FB61C91CC6967D00D5BC57 /* TaxPercentagePickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FB61C81CC6967D00D5BC57 /* TaxPercentagePickerController.swift */; };
-		56FB61CB1CC6968D00D5BC57 /* TipPercentagePickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FB61CA1CC6968D00D5BC57 /* TipPercentagePickerController.swift */; };
-		785DCBE7C2C32089E1440F7A /* libPods-Let Me Tip.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0480193F4389328F8E8A0696 /* libPods-Let Me Tip.a */; };
+		56FDA3231D2E95F9008B377A /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56FDA3211D2E95F9008B377A /* Interface.storyboard */; };
+		56FDA3251D2E95F9008B377A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56FDA3241D2E95F9008B377A /* Assets.xcassets */; };
+		56FDA32C1D2E95FA008B377A /* Watch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 56FDA32B1D2E95FA008B377A /* Watch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		56FDA3311D2E95FA008B377A /* ReceiptInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FDA3301D2E95FA008B377A /* ReceiptInterfaceController.swift */; };
+		56FDA3331D2E95FA008B377A /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FDA3321D2E95FA008B377A /* ExtensionDelegate.swift */; };
+		56FDA3371D2E95FA008B377A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56FDA3361D2E95FA008B377A /* Assets.xcassets */; };
+		56FDA3431D352991008B377A /* TipCalculatorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BD22681B522A5000051358 /* TipCalculatorModel.swift */; };
+		56FDA3441D352994008B377A /* TipDataTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561772701CC2DC8700AC27F2 /* TipDataTypes.swift */; };
+		56FDA3451D352998008B377A /* TipPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565A88CD1D1DD4F400B11B3F /* TipPresenter.swift */; };
+		73BD0F13A9EF2C3C822EE906 /* Pods_Let_Me_Tip.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49947F3529C7F554F4CF9D05 /* Pods_Let_Me_Tip.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		569263BF1CDD8761008D6EEA /* PBXContainerItemProxy */ = {
+		56643ECE1D9EB5600084C05B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5671C97A1AB79E9D00952EEB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 56FDA31E1D2E95F9008B377A;
+			remoteInfo = Watch;
+		};
+		56A665E41D9C927300CA5587 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 5671C97A1AB79E9D00952EEB /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 5671C9811AB79E9D00952EEB;
 			remoteInfo = "Let Me Tip";
 		};
-		56BD22601B522A1F00051358 /* PBXContainerItemProxy */ = {
+		56FDA32D1D2E95FA008B377A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 5671C97A1AB79E9D00952EEB /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 5671C9B01AB79F8E00952EEB;
-			remoteInfo = "Let Me Tip WatchKit Extension";
-		};
-		56BD22631B522A1F00051358 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 5671C97A1AB79E9D00952EEB /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 5671C9BD1AB79F8E00952EEB;
-			remoteInfo = "Let Me Tip WatchKit App";
+			remoteGlobalIDString = 56FDA32A1D2E95FA008B377A;
+			remoteInfo = "Watch Extension";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -70,39 +71,38 @@
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		56BD22661B522A1F00051358 /* Embed App Extensions */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 13;
-			files = (
-				56BD22621B522A1F00051358 /* Let Me Tip WatchKit Extension.appex in Embed App Extensions */,
-			);
-			name = "Embed App Extensions";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		56BD22671B522A1F00051358 /* Embed Watch Content */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
 			dstSubfolderSpec = 16;
 			files = (
-				56BD22651B522A1F00051358 /* Let Me Tip WatchKit App.app in Embed Watch Content */,
+				56643ED01D9F34A80084C05B /* Watch.app in Embed Watch Content */,
 			);
 			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		56FDA3411D2E95FA008B377A /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				56FDA32C1D2E95FA008B377A /* Watch Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		0480193F4389328F8E8A0696 /* libPods-Let Me Tip.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Let Me Tip.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E0309C99E00CF6F73DD8D61 /* Pods-Let Me Tip.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Let Me Tip.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Let Me Tip/Pods-Let Me Tip.debug.xcconfig"; sourceTree = "<group>"; };
 		3295EA1872E81B7C597E22DA /* libPods-Let Me Tip WatchKit App.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Let Me Tip WatchKit App.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		56113B931ABA1EFB00033BCB /* CalculationDetailInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculationDetailInterfaceController.swift; sourceTree = "<group>"; };
-		56113B951ABA1F9700033BCB /* TotalOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TotalOptionsViewController.swift; sourceTree = "<group>"; };
-		5617726E1CC28EEC00AC27F2 /* TipData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipData.swift; sourceTree = "<group>"; };
+		49947F3529C7F554F4CF9D05 /* Pods_Let_Me_Tip.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Let_Me_Tip.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		561772701CC2DC8700AC27F2 /* TipDataTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipDataTypes.swift; sourceTree = "<group>"; };
-		5644E6391CD6A16B005AC506 /* bridging-header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "bridging-header.h"; sourceTree = "<group>"; };
+		565A88CD1D1DD4F400B11B3F /* TipPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipPresenter.swift; sourceTree = "<group>"; };
+		56643EFA1D9F470B0084C05B /* ComplicationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
+		56643EFC1D9F5A140084C05B /* gallery.ckcomplication */ = {isa = PBXFileReference; lastKnownFileType = folder; path = gallery.ckcomplication; sourceTree = "<group>"; };
 		5664E5991CDEBDBB00082AB7 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		5671C9821AB79E9D00952EEB /* Let Me Tip.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Let Me Tip.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5671C9861AB79E9D00952EEB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -110,55 +110,57 @@
 		5671C98E1AB79E9D00952EEB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		5671C9A71AB79F0500952EEB /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		5671C9A91AB79F0500952EEB /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		5671C9B11AB79F8E00952EEB /* Let Me Tip WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Let Me Tip WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
-		5671C9B41AB79F8E00952EEB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5671C9B51AB79F8E00952EEB /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
-		5671C9B61AB79F8E00952EEB /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
-		5671C9BA1AB79F8E00952EEB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		5671C9BE1AB79F8E00952EEB /* Let Me Tip WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Let Me Tip WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		5671C9C41AB79F8E00952EEB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5671C9C61AB79F8E00952EEB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
-		5671C9C81AB79F8E00952EEB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		567383941D8DBA25003EBFA0 /* SplitInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplitInterfaceController.swift; sourceTree = "<group>"; };
 		5689BBDD1ACCDB20003B4621 /* Let Me Tip.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Let Me Tip.entitlements"; sourceTree = "<group>"; };
 		5689BBDE1ACCDBFE003B4621 /* Let Me Tip WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Let Me Tip WatchKit Extension.entitlements"; sourceTree = "<group>"; };
 		5689BBE11ACF66D4003B4621 /* InfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
-		569263BA1CDD8760008D6EEA /* Let Me Tip UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Let Me Tip UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		569263BC1CDD8761008D6EEA /* Let_Me_Tip_UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Let_Me_Tip_UITests.swift; sourceTree = "<group>"; };
-		569263BE1CDD8761008D6EEA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		569263C41CDD8B3C008D6EEA /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnapshotHelper.swift; path = fastlane/SnapshotHelper.swift; sourceTree = SOURCE_ROOT; };
+		56A665DF1D9C927300CA5587 /* Let_Me_TipUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Let_Me_TipUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		56A665E11D9C927300CA5587 /* Let_Me_TipUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Let_Me_TipUITests.swift; sourceTree = "<group>"; };
+		56A665E31D9C927300CA5587 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		56A665E91D9C92FE00CA5587 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnapshotHelper.swift; path = fastlane/SnapshotHelper.swift; sourceTree = SOURCE_ROOT; };
+		56B323F61D40488600EFD218 /* TipInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipInterfaceController.swift; sourceTree = "<group>"; };
+		56B323F81D40496200EFD218 /* TaxInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaxInterfaceController.swift; sourceTree = "<group>"; };
+		56B323FA1D410C8800EFD218 /* Watch Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Watch Extension.entitlements"; sourceTree = "<group>"; };
+		56B323FB1D410C9800EFD218 /* Watch.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Watch.entitlements; sourceTree = "<group>"; };
 		56BD22681B522A5000051358 /* TipCalculatorModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipCalculatorModel.swift; sourceTree = "<group>"; };
 		56BD226C1B53533500051358 /* Let Me Tip WatchKit App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Let Me Tip WatchKit App.entitlements"; sourceTree = "<group>"; };
-		56FB61C51CC68EB600D5BC57 /* DollarAmountPickerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DollarAmountPickerController.swift; sourceTree = "<group>"; };
-		56FB61C81CC6967D00D5BC57 /* TaxPercentagePickerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaxPercentagePickerController.swift; sourceTree = "<group>"; };
-		56FB61CA1CC6968D00D5BC57 /* TipPercentagePickerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipPercentagePickerController.swift; sourceTree = "<group>"; };
+		56FDA31F1D2E95F9008B377A /* Watch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Watch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		56FDA3221D2E95F9008B377A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		56FDA3241D2E95F9008B377A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		56FDA3261D2E95F9008B377A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		56FDA32B1D2E95FA008B377A /* Watch Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Watch Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		56FDA3301D2E95FA008B377A /* ReceiptInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptInterfaceController.swift; sourceTree = "<group>"; };
+		56FDA3321D2E95FA008B377A /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		56FDA3361D2E95FA008B377A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		56FDA3381D2E95FA008B377A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		74943084FDBDCA0B730A5644 /* libPods-Let Me Tip WatchKit Extension.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Let Me Tip WatchKit Extension.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECA8736F8C06C16D2611A0D9 /* Pods-Let Me Tip.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Let Me Tip.release.xcconfig"; path = "Pods/Target Support Files/Pods-Let Me Tip/Pods-Let Me Tip.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		185C7BC332E571A92C04339C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5671C97F1AB79E9D00952EEB /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				785DCBE7C2C32089E1440F7A /* libPods-Let Me Tip.a in Frameworks */,
+				73BD0F13A9EF2C3C822EE906 /* Pods_Let_Me_Tip.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5671C9AE1AB79F8E00952EEB /* Frameworks */ = {
+		56A665DC1D9C927300CA5587 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		569263B71CDD8760008D6EEA /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		9BDA771052D5E4A8E2A38C97 /* Frameworks */ = {
+		56FDA3281D2E95FA008B377A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -173,9 +175,9 @@
 			children = (
 				56FB61C41CC1A3F300D5BC57 /* Entitlements */,
 				5671C9841AB79E9D00952EEB /* Let Me Tip */,
-				5671C9B21AB79F8E00952EEB /* Let Me Tip WatchKit Extension */,
-				5671C9C21AB79F8E00952EEB /* Let Me Tip WatchKit App */,
-				569263BB1CDD8761008D6EEA /* Let Me Tip UITests */,
+				56FDA3201D2E95F9008B377A /* Watch */,
+				56FDA32F1D2E95FA008B377A /* Watch Extension */,
+				56A665E01D9C927300CA5587 /* Let_Me_TipUITests */,
 				5671C9831AB79E9D00952EEB /* Products */,
 				E18593754C3654E30365514A /* Pods */,
 				63F9793E8EB6827371F6215E /* Frameworks */,
@@ -186,9 +188,9 @@
 			isa = PBXGroup;
 			children = (
 				5671C9821AB79E9D00952EEB /* Let Me Tip.app */,
-				5671C9B11AB79F8E00952EEB /* Let Me Tip WatchKit Extension.appex */,
-				5671C9BE1AB79F8E00952EEB /* Let Me Tip WatchKit App.app */,
-				569263BA1CDD8760008D6EEA /* Let Me Tip UITests.xctest */,
+				56FDA31F1D2E95F9008B377A /* Watch.app */,
+				56FDA32B1D2E95FA008B377A /* Watch Extension.appex */,
+				56A665DF1D9C927300CA5587 /* Let_Me_TipUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -196,9 +198,10 @@
 		5671C9841AB79E9D00952EEB /* Let Me Tip */ = {
 			isa = PBXGroup;
 			children = (
+				56643EFC1D9F5A140084C05B /* gallery.ckcomplication */,
 				56BD22681B522A5000051358 /* TipCalculatorModel.swift */,
+				565A88CD1D1DD4F400B11B3F /* TipPresenter.swift */,
 				561772701CC2DC8700AC27F2 /* TipDataTypes.swift */,
-				5617726E1CC28EEC00AC27F2 /* TipData.swift */,
 				5671C9871AB79E9D00952EEB /* AppDelegate.swift */,
 				5671C9A71AB79F0500952EEB /* ViewController.swift */,
 				5689BBE11ACF66D4003B4621 /* InfoViewController.swift */,
@@ -214,61 +217,18 @@
 			isa = PBXGroup;
 			children = (
 				5671C9861AB79E9D00952EEB /* Info.plist */,
-				5644E6391CD6A16B005AC506 /* bridging-header.h */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		5671C9B21AB79F8E00952EEB /* Let Me Tip WatchKit Extension */ = {
+		56A665E01D9C927300CA5587 /* Let_Me_TipUITests */ = {
 			isa = PBXGroup;
 			children = (
-				5671C9B61AB79F8E00952EEB /* InterfaceController.swift */,
-				56FB61C51CC68EB600D5BC57 /* DollarAmountPickerController.swift */,
-				56FB61C81CC6967D00D5BC57 /* TaxPercentagePickerController.swift */,
-				56FB61CA1CC6968D00D5BC57 /* TipPercentagePickerController.swift */,
-				56113B931ABA1EFB00033BCB /* CalculationDetailInterfaceController.swift */,
-				56113B951ABA1F9700033BCB /* TotalOptionsViewController.swift */,
-				5671C9BA1AB79F8E00952EEB /* Images.xcassets */,
-				5671C9B31AB79F8E00952EEB /* Supporting Files */,
+				56A665E91D9C92FE00CA5587 /* SnapshotHelper.swift */,
+				56A665E11D9C927300CA5587 /* Let_Me_TipUITests.swift */,
+				56A665E31D9C927300CA5587 /* Info.plist */,
 			);
-			path = "Let Me Tip WatchKit Extension";
-			sourceTree = SOURCE_ROOT;
-		};
-		5671C9B31AB79F8E00952EEB /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				5671C9B41AB79F8E00952EEB /* Info.plist */,
-				5671C9B51AB79F8E00952EEB /* PushNotificationPayload.apns */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		5671C9C21AB79F8E00952EEB /* Let Me Tip WatchKit App */ = {
-			isa = PBXGroup;
-			children = (
-				5671C9C51AB79F8E00952EEB /* Interface.storyboard */,
-				5671C9C81AB79F8E00952EEB /* Images.xcassets */,
-				5671C9C31AB79F8E00952EEB /* Supporting Files */,
-			);
-			path = "Let Me Tip WatchKit App";
-			sourceTree = "<group>";
-		};
-		5671C9C31AB79F8E00952EEB /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				5671C9C41AB79F8E00952EEB /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		569263BB1CDD8761008D6EEA /* Let Me Tip UITests */ = {
-			isa = PBXGroup;
-			children = (
-				569263C41CDD8B3C008D6EEA /* SnapshotHelper.swift */,
-				569263BC1CDD8761008D6EEA /* Let_Me_Tip_UITests.swift */,
-				569263BE1CDD8761008D6EEA /* Info.plist */,
-			);
-			path = "Let Me Tip UITests";
+			path = Let_Me_TipUITests;
 			sourceTree = "<group>";
 		};
 		56FB61C41CC1A3F300D5BC57 /* Entitlements */ = {
@@ -281,12 +241,39 @@
 			name = Entitlements;
 			sourceTree = "<group>";
 		};
+		56FDA3201D2E95F9008B377A /* Watch */ = {
+			isa = PBXGroup;
+			children = (
+				56B323FB1D410C9800EFD218 /* Watch.entitlements */,
+				56FDA3211D2E95F9008B377A /* Interface.storyboard */,
+				56FDA3241D2E95F9008B377A /* Assets.xcassets */,
+				56FDA3261D2E95F9008B377A /* Info.plist */,
+			);
+			path = Watch;
+			sourceTree = "<group>";
+		};
+		56FDA32F1D2E95FA008B377A /* Watch Extension */ = {
+			isa = PBXGroup;
+			children = (
+				56B323FA1D410C8800EFD218 /* Watch Extension.entitlements */,
+				56FDA3321D2E95FA008B377A /* ExtensionDelegate.swift */,
+				56643EFA1D9F470B0084C05B /* ComplicationController.swift */,
+				56FDA3301D2E95FA008B377A /* ReceiptInterfaceController.swift */,
+				56B323F61D40488600EFD218 /* TipInterfaceController.swift */,
+				56B323F81D40496200EFD218 /* TaxInterfaceController.swift */,
+				567383941D8DBA25003EBFA0 /* SplitInterfaceController.swift */,
+				56FDA3361D2E95FA008B377A /* Assets.xcassets */,
+				56FDA3381D2E95FA008B377A /* Info.plist */,
+			);
+			path = "Watch Extension";
+			sourceTree = "<group>";
+		};
 		63F9793E8EB6827371F6215E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				0480193F4389328F8E8A0696 /* libPods-Let Me Tip.a */,
 				3295EA1872E81B7C597E22DA /* libPods-Let Me Tip WatchKit App.a */,
 				74943084FDBDCA0B730A5644 /* libPods-Let Me Tip WatchKit Extension.a */,
+				49947F3529C7F554F4CF9D05 /* Pods_Let_Me_Tip.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -307,77 +294,77 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5671C9A11AB79E9D00952EEB /* Build configuration list for PBXNativeTarget "Let Me Tip" */;
 			buildPhases = (
-				8243C6644280639751BEBD3C /* 📦 Check Pods Manifest.lock */,
+				8243C6644280639751BEBD3C /* [CP] Check Pods Manifest.lock */,
 				5671C97E1AB79E9D00952EEB /* Sources */,
 				5671C97F1AB79E9D00952EEB /* Frameworks */,
 				5671C9801AB79E9D00952EEB /* Resources */,
 				561ACD631AD4B3190090849A /* Embed Frameworks */,
 				56BD22671B522A1F00051358 /* Embed Watch Content */,
-				FA735ECBDEB0ADFE468B9957 /* 📦 Embed Pods Frameworks */,
-				06B4AD0E50764C8BB998F075 /* 📦 Copy Pods Resources */,
+				FA735ECBDEB0ADFE468B9957 /* [CP] Embed Pods Frameworks */,
+				06B4AD0E50764C8BB998F075 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				56BD22641B522A1F00051358 /* PBXTargetDependency */,
+				56643ECF1D9EB5600084C05B /* PBXTargetDependency */,
 			);
 			name = "Let Me Tip";
 			productName = TipTest;
 			productReference = 5671C9821AB79E9D00952EEB /* Let Me Tip.app */;
 			productType = "com.apple.product-type.application";
 		};
-		5671C9B01AB79F8E00952EEB /* Let Me Tip WatchKit Extension */ = {
+		56A665DE1D9C927300CA5587 /* Let_Me_TipUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5671C9D01AB79F8E00952EEB /* Build configuration list for PBXNativeTarget "Let Me Tip WatchKit Extension" */;
+			buildConfigurationList = 56A665E81D9C927300CA5587 /* Build configuration list for PBXNativeTarget "Let_Me_TipUITests" */;
 			buildPhases = (
-				5671C9AD1AB79F8E00952EEB /* Sources */,
-				5671C9AE1AB79F8E00952EEB /* Frameworks */,
-				5671C9AF1AB79F8E00952EEB /* Resources */,
+				56A665DB1D9C927300CA5587 /* Sources */,
+				56A665DC1D9C927300CA5587 /* Frameworks */,
+				56A665DD1D9C927300CA5587 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				56A665E51D9C927300CA5587 /* PBXTargetDependency */,
 			);
-			name = "Let Me Tip WatchKit Extension";
-			productName = "TipTest WatchKit Extension";
-			productReference = 5671C9B11AB79F8E00952EEB /* Let Me Tip WatchKit Extension.appex */;
-			productType = "com.apple.product-type.watchkit2-extension";
+			name = Let_Me_TipUITests;
+			productName = Let_Me_TipUITests;
+			productReference = 56A665DF1D9C927300CA5587 /* Let_Me_TipUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
 		};
-		5671C9BD1AB79F8E00952EEB /* Let Me Tip WatchKit App */ = {
+		56FDA31E1D2E95F9008B377A /* Watch */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5671C9CD1AB79F8E00952EEB /* Build configuration list for PBXNativeTarget "Let Me Tip WatchKit App" */;
+			buildConfigurationList = 56FDA3421D2E95FA008B377A /* Build configuration list for PBXNativeTarget "Watch" */;
 			buildPhases = (
-				5671C9BC1AB79F8E00952EEB /* Resources */,
-				56BD22661B522A1F00051358 /* Embed App Extensions */,
-				9BDA771052D5E4A8E2A38C97 /* Frameworks */,
+				56FDA31D1D2E95F9008B377A /* Resources */,
+				56FDA3411D2E95FA008B377A /* Embed App Extensions */,
+				185C7BC332E571A92C04339C /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				56BD22611B522A1F00051358 /* PBXTargetDependency */,
+				56FDA32E1D2E95FA008B377A /* PBXTargetDependency */,
 			);
-			name = "Let Me Tip WatchKit App";
-			productName = "TipTest WatchKit App";
-			productReference = 5671C9BE1AB79F8E00952EEB /* Let Me Tip WatchKit App.app */;
+			name = Watch;
+			productName = Watch;
+			productReference = 56FDA31F1D2E95F9008B377A /* Watch.app */;
 			productType = "com.apple.product-type.application.watchapp2";
 		};
-		569263B91CDD8760008D6EEA /* Let Me Tip UITests */ = {
+		56FDA32A1D2E95FA008B377A /* Watch Extension */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 569263C11CDD8761008D6EEA /* Build configuration list for PBXNativeTarget "Let Me Tip UITests" */;
+			buildConfigurationList = 56FDA3401D2E95FA008B377A /* Build configuration list for PBXNativeTarget "Watch Extension" */;
 			buildPhases = (
-				569263B61CDD8760008D6EEA /* Sources */,
-				569263B71CDD8760008D6EEA /* Frameworks */,
-				569263B81CDD8760008D6EEA /* Resources */,
+				56FDA3271D2E95FA008B377A /* Sources */,
+				56FDA3281D2E95FA008B377A /* Frameworks */,
+				56FDA3291D2E95FA008B377A /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				569263C01CDD8761008D6EEA /* PBXTargetDependency */,
 			);
-			name = "Let Me Tip UITests";
-			productName = "Let Me Tip UITests";
-			productReference = 569263BA1CDD8760008D6EEA /* Let Me Tip UITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
+			name = "Watch Extension";
+			productName = "Watch Extension";
+			productReference = 56FDA32B1D2E95FA008B377A /* Watch Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -386,16 +373,20 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftMigration = 0700;
-				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0700;
+				LastSwiftUpdateCheck = 0800;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "Grayson Smith";
 				TargetAttributes = {
 					5671C9811AB79E9D00952EEB = {
 						CreatedOnToolsVersion = 6.2;
 						DevelopmentTeam = Z6T84878UQ;
+						LastSwiftMigration = 0800;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 1;
+							};
+							com.apple.BackgroundModes = {
+								enabled = 0;
 							};
 							com.apple.GameCenter = {
 								enabled = 0;
@@ -404,34 +395,40 @@
 								enabled = 0;
 							};
 							com.apple.Push = {
-								enabled = 1;
-							};
-						};
-					};
-					5671C9B01AB79F8E00952EEB = {
-						CreatedOnToolsVersion = 6.2;
-						DevelopmentTeam = Z6T84878UQ;
-						SystemCapabilities = {
-							com.apple.ApplicationGroups.iOS = {
-								enabled = 1;
-							};
-							com.apple.GameCenter = {
 								enabled = 0;
 							};
 						};
 					};
-					5671C9BD1AB79F8E00952EEB = {
-						CreatedOnToolsVersion = 6.2;
+					56A665DE1D9C927300CA5587 = {
+						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = Z6T84878UQ;
+						LastSwiftMigration = 0800;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 5671C9811AB79E9D00952EEB;
+					};
+					56FDA31E1D2E95F9008B377A = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = Z6T84878UQ;
+						DevelopmentTeamName = "Grayson Smith";
+						LastSwiftMigration = 0800;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 1;
 							};
 						};
 					};
-					569263B91CDD8760008D6EEA = {
-						CreatedOnToolsVersion = 7.3;
-						TestTargetID = 5671C9811AB79E9D00952EEB;
+					56FDA32A1D2E95FA008B377A = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = Z6T84878UQ;
+						DevelopmentTeamName = "Grayson Smith";
+						LastSwiftMigration = 0800;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -449,9 +446,9 @@
 			projectRoot = "";
 			targets = (
 				5671C9811AB79E9D00952EEB /* Let Me Tip */,
-				5671C9B01AB79F8E00952EEB /* Let Me Tip WatchKit Extension */,
-				5671C9BD1AB79F8E00952EEB /* Let Me Tip WatchKit App */,
-				569263B91CDD8760008D6EEA /* Let Me Tip UITests */,
+				56FDA31E1D2E95F9008B377A /* Watch */,
+				56FDA32A1D2E95FA008B377A /* Watch Extension */,
+				56A665DE1D9C927300CA5587 /* Let_Me_TipUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -461,47 +458,48 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56643EFD1D9F5A140084C05B /* gallery.ckcomplication in Resources */,
 				5664E59A1CDEBDBB00082AB7 /* Launch Screen.storyboard in Resources */,
 				5671C9AC1AB79F0500952EEB /* Main.storyboard in Resources */,
 				5671C98F1AB79E9D00952EEB /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5671C9AF1AB79F8E00952EEB /* Resources */ = {
+		56A665DD1D9C927300CA5587 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5671C9BB1AB79F8E00952EEB /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5671C9BC1AB79F8E00952EEB /* Resources */ = {
+		56FDA31D1D2E95F9008B377A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5671C9C71AB79F8E00952EEB /* Interface.storyboard in Resources */,
-				5671C9C91AB79F8E00952EEB /* Images.xcassets in Resources */,
+				56FDA3251D2E95F9008B377A /* Assets.xcassets in Resources */,
+				56FDA3231D2E95F9008B377A /* Interface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		569263B81CDD8760008D6EEA /* Resources */ = {
+		56FDA3291D2E95FA008B377A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56FDA3371D2E95FA008B377A /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		06B4AD0E50764C8BB998F075 /* 📦 Copy Pods Resources */ = {
+		06B4AD0E50764C8BB998F075 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -509,14 +507,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Let Me Tip/Pods-Let Me Tip-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		8243C6644280639751BEBD3C /* 📦 Check Pods Manifest.lock */ = {
+		8243C6644280639751BEBD3C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -524,14 +522,14 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		FA735ECBDEB0ADFE468B9957 /* 📦 Embed Pods Frameworks */ = {
+		FA735ECBDEB0ADFE468B9957 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -550,61 +548,61 @@
 				5671C9AA1AB79F0500952EEB /* ViewController.swift in Sources */,
 				5671C9881AB79E9D00952EEB /* AppDelegate.swift in Sources */,
 				5689BBE21ACF66D4003B4621 /* InfoViewController.swift in Sources */,
+				565A88CE1D1DD4F400B11B3F /* TipPresenter.swift in Sources */,
 				56BD22691B522A5000051358 /* TipCalculatorModel.swift in Sources */,
-				5617726F1CC28EEC00AC27F2 /* TipData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5671C9AD1AB79F8E00952EEB /* Sources */ = {
+		56A665DB1D9C927300CA5587 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				561772741CC3FAC200AC27F2 /* TipDataTypes.swift in Sources */,
-				56113B941ABA1EFB00033BCB /* CalculationDetailInterfaceController.swift in Sources */,
-				56FB61C71CC6926E00D5BC57 /* DollarAmountPickerController.swift in Sources */,
-				561772731CC3FAAE00AC27F2 /* TipCalculatorModel.swift in Sources */,
-				561772751CC3FAC500AC27F2 /* TipData.swift in Sources */,
-				56FB61C91CC6967D00D5BC57 /* TaxPercentagePickerController.swift in Sources */,
-				56113B961ABA1F9700033BCB /* TotalOptionsViewController.swift in Sources */,
-				5671C9B71AB79F8E00952EEB /* InterfaceController.swift in Sources */,
-				56FB61CB1CC6968D00D5BC57 /* TipPercentagePickerController.swift in Sources */,
+				56A665E21D9C927300CA5587 /* Let_Me_TipUITests.swift in Sources */,
+				56A665EA1D9C92FE00CA5587 /* SnapshotHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		569263B61CDD8760008D6EEA /* Sources */ = {
+		56FDA3271D2E95FA008B377A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				569263BD1CDD8761008D6EEA /* Let_Me_Tip_UITests.swift in Sources */,
-				569263C51CDD8B3C008D6EEA /* SnapshotHelper.swift in Sources */,
+				56FDA3331D2E95FA008B377A /* ExtensionDelegate.swift in Sources */,
+				56B323F91D40496200EFD218 /* TaxInterfaceController.swift in Sources */,
+				56643EFB1D9F470B0084C05B /* ComplicationController.swift in Sources */,
+				567383951D8DBA25003EBFA0 /* SplitInterfaceController.swift in Sources */,
+				56FDA3311D2E95FA008B377A /* ReceiptInterfaceController.swift in Sources */,
+				56FDA3431D352991008B377A /* TipCalculatorModel.swift in Sources */,
+				56B323F71D40488600EFD218 /* TipInterfaceController.swift in Sources */,
+				56FDA3451D352998008B377A /* TipPresenter.swift in Sources */,
+				56FDA3441D352994008B377A /* TipDataTypes.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		569263C01CDD8761008D6EEA /* PBXTargetDependency */ = {
+		56643ECF1D9EB5600084C05B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 56FDA31E1D2E95F9008B377A /* Watch */;
+			targetProxy = 56643ECE1D9EB5600084C05B /* PBXContainerItemProxy */;
+		};
+		56A665E51D9C927300CA5587 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 5671C9811AB79E9D00952EEB /* Let Me Tip */;
-			targetProxy = 569263BF1CDD8761008D6EEA /* PBXContainerItemProxy */;
+			targetProxy = 56A665E41D9C927300CA5587 /* PBXContainerItemProxy */;
 		};
-		56BD22611B522A1F00051358 /* PBXTargetDependency */ = {
+		56FDA32E1D2E95FA008B377A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 5671C9B01AB79F8E00952EEB /* Let Me Tip WatchKit Extension */;
-			targetProxy = 56BD22601B522A1F00051358 /* PBXContainerItemProxy */;
-		};
-		56BD22641B522A1F00051358 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 5671C9BD1AB79F8E00952EEB /* Let Me Tip WatchKit App */;
-			targetProxy = 56BD22631B522A1F00051358 /* PBXContainerItemProxy */;
+			target = 56FDA32A1D2E95FA008B377A /* Watch Extension */;
+			targetProxy = 56FDA32D1D2E95FA008B377A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		5671C9C51AB79F8E00952EEB /* Interface.storyboard */ = {
+		56FDA3211D2E95F9008B377A /* Interface.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				5671C9C61AB79F8E00952EEB /* Base */,
+				56FDA3221D2E95F9008B377A /* Base */,
 			);
 			name = Interface.storyboard;
 			sourceTree = "<group>";
@@ -625,17 +623,21 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				DEFINES_MODULE = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -651,8 +653,12 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "Let Me Tip";
 				SDKROOT = iphoneos;
+				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_OBJC_INTERFACE_HEADER_NAME = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -670,16 +676,20 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				COPY_PHASE_STRIP = NO;
+				DEFINES_MODULE = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -688,7 +698,11 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "Let Me Tip";
 				SDKROOT = iphoneos;
+				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_OBJC_INTERFACE_HEADER_NAME = "";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -698,17 +712,20 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0E0309C99E00CF6F73DD8D61 /* Pods-Let Me Tip.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Let Me Tip.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = "Let Me Tip/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.grayson.Let-Me-Tip";
 				PRODUCT_NAME = "Let Me Tip";
 				PROVISIONING_PROFILE = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/Let Me Tip/bridging-header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -717,137 +734,152 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = ECA8736F8C06C16D2611A0D9 /* Pods-Let Me Tip.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Let Me Tip.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = "Let Me Tip/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.grayson.Let-Me-Tip";
 				PRODUCT_NAME = "Let Me Tip";
 				PROVISIONING_PROFILE = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/Let Me Tip/bridging-header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
-		5671C9CE1AB79F8E00952EEB /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "Let Me Tip WatchKit App.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				IBSC_MODULE = TipTest_WatchKit_Extension;
-				INFOPLIST_FILE = "Let Me Tip WatchKit App/Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.grayson.Let-Me-Tip.watchkitapp";
-				PRODUCT_NAME = "Let Me Tip WatchKit App";
-				PROVISIONING_PROFILE = "";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 2.0;
-			};
-			name = Debug;
-		};
-		5671C9CF1AB79F8E00952EEB /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "Let Me Tip WatchKit App.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Distribution";
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
-				IBSC_MODULE = TipTest_WatchKit_Extension;
-				INFOPLIST_FILE = "Let Me Tip WatchKit App/Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.grayson.Let-Me-Tip.watchkitapp";
-				PRODUCT_NAME = "Let Me Tip WatchKit App";
-				PROVISIONING_PROFILE = "";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 2.0;
-			};
-			name = Release;
-		};
-		5671C9D11AB79F8E00952EEB /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = "Let Me Tip WatchKit Extension.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "Let Me Tip WatchKit Extension/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.grayson.Let-Me-Tip.watchkitapp.watchkitextension";
-				PRODUCT_NAME = "Let Me Tip WatchKit Extension";
-				PROVISIONING_PROFILE = "";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 2.0;
-			};
-			name = Debug;
-		};
-		5671C9D21AB79F8E00952EEB /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = "Let Me Tip WatchKit Extension.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Distribution";
-				INFOPLIST_FILE = "Let Me Tip WatchKit Extension/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.grayson.Let-Me-Tip.watchkitapp.watchkitextension";
-				PRODUCT_NAME = "Let Me Tip WatchKit Extension";
-				PROVISIONING_PROFILE = "";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 2.0;
-			};
-			name = Release;
-		};
-		569263C21CDD8761008D6EEA /* Debug */ = {
+		56A665E61D9C927300CA5587 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Let Me Tip UITests/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				DEVELOPMENT_TEAM = Z6T84878UQ;
+				INFOPLIST_FILE = Let_Me_TipUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.grayson.Let-Me-Tip-UITests";
+				PRODUCT_BUNDLE_IDENTIFIER = "me.graysonsmith.Let-Me-TipUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = "Let Me Tip";
 			};
 			name = Debug;
 		};
-		569263C31CDD8761008D6EEA /* Release */ = {
+		56A665E71D9C927300CA5587 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Let Me Tip UITests/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				DEVELOPMENT_TEAM = Z6T84878UQ;
+				INFOPLIST_FILE = Let_Me_TipUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.grayson.Let-Me-Tip-UITests";
+				PRODUCT_BUNDLE_IDENTIFIER = "me.graysonsmith.Let-Me-TipUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = "Let Me Tip";
+			};
+			name = Release;
+		};
+		56FDA33C1D2E95FA008B377A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CODE_SIGN_ENTITLEMENTS = Watch/Watch.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				IBSC_MODULE = Watch_Extension;
+				INFOPLIST_FILE = Watch/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.grayson.Let-Me-Tip.watchkitapp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.0;
+			};
+			name = Debug;
+		};
+		56FDA33D1D2E95FA008B377A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CODE_SIGN_ENTITLEMENTS = Watch/Watch.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				IBSC_MODULE = Watch_Extension;
+				INFOPLIST_FILE = Watch/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.grayson.Let-Me-Tip.watchkitapp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.0;
+			};
+			name = Release;
+		};
+		56FDA33E1D2E95FA008B377A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CODE_SIGN_ENTITLEMENTS = "Watch Extension/Watch Extension.entitlements";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				INFOPLIST_FILE = "Watch Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.grayson.Let-Me-Tip.watchkitapp.watchkitextension";
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.0;
+			};
+			name = Debug;
+		};
+		56FDA33F1D2E95FA008B377A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CODE_SIGN_ENTITLEMENTS = "Watch Extension/Watch Extension.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				INFOPLIST_FILE = "Watch Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.grayson.Let-Me-Tip.watchkitapp.watchkitextension";
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.0;
 			};
 			name = Release;
 		};
@@ -872,29 +904,29 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5671C9CD1AB79F8E00952EEB /* Build configuration list for PBXNativeTarget "Let Me Tip WatchKit App" */ = {
+		56A665E81D9C927300CA5587 /* Build configuration list for PBXNativeTarget "Let_Me_TipUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				5671C9CE1AB79F8E00952EEB /* Debug */,
-				5671C9CF1AB79F8E00952EEB /* Release */,
+				56A665E61D9C927300CA5587 /* Debug */,
+				56A665E71D9C927300CA5587 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5671C9D01AB79F8E00952EEB /* Build configuration list for PBXNativeTarget "Let Me Tip WatchKit Extension" */ = {
+		56FDA3401D2E95FA008B377A /* Build configuration list for PBXNativeTarget "Watch Extension" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				5671C9D11AB79F8E00952EEB /* Debug */,
-				5671C9D21AB79F8E00952EEB /* Release */,
+				56FDA33E1D2E95FA008B377A /* Debug */,
+				56FDA33F1D2E95FA008B377A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		569263C11CDD8761008D6EEA /* Build configuration list for PBXNativeTarget "Let Me Tip UITests" */ = {
+		56FDA3421D2E95FA008B377A /* Build configuration list for PBXNativeTarget "Watch" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				569263C21CDD8761008D6EEA /* Debug */,
-				569263C31CDD8761008D6EEA /* Release */,
+				56FDA33C1D2E95FA008B377A /* Debug */,
+				56FDA33D1D2E95FA008B377A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
